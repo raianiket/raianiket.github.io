@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin, Download } from "lucide-react";
 
 const roles = [
-  "Senior Software Engineer",
-  "Backend Architect",
-  "AI Agent Builder",
-  "Node.js Expert",
+  "Backend Systems Engineer",
+  "AI Agent Developer",
+  "Node.js & TypeScript Expert",
   "PostgreSQL Specialist",
+  "Cloud & AWS Engineer",
 ];
 
 const stats = [
