@@ -28,25 +28,32 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="about" style={{ padding: "6rem 1.5rem" }}>
+      <div style={{ maxWidth: "960px", margin: "0 auto" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          style={{ textAlign: "center", marginBottom: "3rem" }}
         >
-          <p className="text-[#4d8ff7] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+          <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             About Me
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e8f0fe] mb-6">
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "1.25rem" }}>
             Building things that{" "}
-            <span className="accent-text">scale</span>
+            <span style={{
+              background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 50%, #7eb3ff 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
+              scale
+            </span>
           </h2>
-          <p className="text-[#7a9cc5] text-base leading-relaxed max-w-2xl mx-auto text-center">
+          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.75, maxWidth: "580px", margin: "0 auto", textAlign: "center" }}>
             I&apos;m a Senior Software Engineer at{" "}
-            <span className="text-[#e8f0fe] font-medium">SysCloud Technologies</span>,
+            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>SysCloud Technologies</strong>,
             where I&apos;ve spent 5+ years designing and owning large-scale backend
             systems for a B2B SaaS cloud-backup platform. From config-driven framework
             migrations that eliminate code changes entirely to AI-powered natural language
@@ -54,7 +61,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
           {highlights.map((item, i) => (
             <motion.div
               key={item.title}
@@ -62,28 +69,32 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl p-5 group cursor-default"
+              whileHover={{
+                borderColor: "rgba(26,108,245,0.45)",
+                boxShadow: "0 0 28px rgba(26,108,245,0.12)",
+              }}
               style={{
+                borderRadius: "16px", padding: "1.25rem",
                 background: "rgba(13,27,46,0.7)",
                 border: "1px solid rgba(30,58,95,0.8)",
+                cursor: "default",
                 transition: "border-color 0.3s, box-shadow 0.3s",
               }}
-              whileHover={{
-                borderColor: "rgba(26,108,245,0.4)",
-                boxShadow: "0 0 30px rgba(26,108,245,0.1)",
-              }}
             >
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
-                style={{
-                  background: "rgba(26,108,245,0.1)",
-                  border: "1px solid rgba(26,108,245,0.2)",
-                }}
-              >
-                <item.icon size={18} className="text-[#4d8ff7]" />
+              <div style={{
+                width: "36px", height: "36px", borderRadius: "10px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)",
+                marginBottom: "0.85rem",
+              }}>
+                <item.icon size={17} color="#4d8ff7" />
               </div>
-              <h3 className="font-semibold text-[#e8f0fe] text-sm mb-1.5">{item.title}</h3>
-              <p className="text-[#7a9cc5] text-xs leading-relaxed">{item.desc}</p>
+              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
+                {item.title}
+              </h3>
+              <p style={{ color: "#7a9cc5", fontSize: "0.76rem", lineHeight: 1.6 }}>
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>
