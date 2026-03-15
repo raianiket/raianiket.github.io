@@ -221,6 +221,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
+          className="stats-grid"
           style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.75rem", maxWidth: "520px", margin: "0 auto" }}
         >
           {stats.map((s) => (
@@ -242,6 +243,9 @@ export default function Hero() {
         @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
         @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)} }
         @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0} }
+        @media (max-width: 768px) {
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 320px !important; }
+        }
       `}</style>
     </section>
   );
