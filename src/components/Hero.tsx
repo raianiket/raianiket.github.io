@@ -109,10 +109,11 @@ export default function Hero() {
       {/* Grid */}
       <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(#4d8ff7 1px, transparent 1px), linear-gradient(90deg, #4d8ff7 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 
-      {/* Floating tags */}
+      {/* Floating tags — hidden on mobile */}
       {floatingTags.map((tag) => (
         <motion.div
           key={tag.text}
+          className="floating-tag"
           style={{
             position: "absolute", left: tag.x, top: tag.y,
             display: "flex", alignItems: "center", gap: "8px",
@@ -244,6 +245,7 @@ export default function Hero() {
         @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)} }
         @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0} }
         @media (max-width: 768px) {
+          .floating-tag { display: none !important; }
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 320px !important; }
         }
       `}</style>
