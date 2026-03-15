@@ -7,18 +7,19 @@ import { ChevronDown, ChevronUp, MapPin, Calendar } from "lucide-react";
 const experience = [
   {
     company: "SysCloud Technologies Pvt Ltd",
+    total: "Nov 2020 – Present · 5+ yrs",
     roles: [
       {
         title: "Senior Software Engineer",
         location: "Hyderabad, Telangana",
         period: "Jun 2023 – Present",
         bullets: [
-          "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, driven dynamically from a metadata table; also launched the Partner Portal end-to-end to onboard MSPs.",
-          "Delivered the Restore & Export action layer for S3 Data Migration — fetching older metadata on-demand via AWS Athena, reducing Archives query time from 10s+ to under 2s for large datasets.",
+          "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table; also launched the Partner Portal end-to-end to onboard MSPs.",
+          "Delivered the Restore & Export action layer for S3 Data Migration, fetching older metadata on-demand via AWS Athena and populating the DB, reducing Archives query time from 10s+ to under 2s for large datasets.",
           "Integrated Slack eDiscovery Search, enabling customers to search and retrieve Slack files, messages, and chats.",
           "Launched MDLOPS, a TypeScript microservice from scratch, using cm-runner-plus + JSON-driven config to handle 5 add-on modules with parallel execution via PM2; integrated anomaly detection using the Prophet algorithm.",
           "Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) to automate operational monitoring and resolve issues before they impact customers.",
-          "Designed and owned MDL 2.0 — a framework replacing complex mutation logic with JSON-driven config; migrated 12+ cloud integrations so adding a new cloud requires zero code changes, only config.",
+          "Designed and owned MDL 2.0, a framework replacing complex mutation logic with JSON-driven config; migrated 12+ cloud integrations so adding a new cloud requires zero code changes, only config.",
           "Implemented Sky 2.0 (SysCloud AI), an AI-powered NL interface where customers ask questions, the AI builds queries, redirects to the relevant page with filters, and initiates Restore & Export actions.",
           "Overhauled the Batch Job & Materialized View refresh framework with parallel host-level execution, achieving 4x faster job execution.",
           "Modeled parent/child schema and mutation layer for Add-On Actions (eDiscovery, BDI) including Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, and Deletion.",
@@ -35,7 +36,7 @@ const experience = [
           "Developed a Timeseries and Batch Framework with multi-environment version support scheduling MVW refresh jobs on login and on schedule; applied CPU-level optimizations for improved throughput.",
           "Engineered a weekly S3 data integrity pipeline using Node.js, AWS Fargate, Lambda, and Athena to detect missing zip files and count mismatches, automatically triggering re-backup with Grafana monitoring.",
           "Integrated ELK Stack with Grafana for centralized backend error log collection and real-time CM error monitoring.",
-          "Introduced a version-copy mechanism to identify S3 objects with multiple versions, extract older ones, and create new objects — resolving restoration failures caused by outdated DB associations.",
+          "Introduced a version-copy mechanism to identify S3 objects with multiple versions, extract older ones, and create new objects, resolving restoration failures caused by outdated DB associations.",
         ],
       },
       {
@@ -55,19 +56,20 @@ export default function Experience() {
   const [expanded, setExpanded] = useState<string>("Senior Software Engineer");
 
   return (
-    <section id="experience" className="py-28 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" style={{ padding: "6rem 1.5rem" }}>
+      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center"
+          style={{ marginBottom: "3.5rem" }}
         >
-          <p className="text-[#4d8ff7] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+          <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Experience
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e8f0fe]">
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe" }}>
             Where I&apos;ve worked
           </h2>
         </motion.div>
@@ -80,17 +82,21 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-[#1a6cf5]/10 border border-[#1a6cf5]/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-[#4d8ff7] font-bold text-xs">SC</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
+              <div style={{
+                width: "40px", height: "40px", borderRadius: "12px", flexShrink: 0,
+                background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)",
+                display: "flex", alignItems: "center", justifyContent: "center"
+              }}>
+                <span style={{ color: "#4d8ff7", fontWeight: 700, fontSize: "0.7rem" }}>SC</span>
               </div>
               <div>
-                <h3 className="font-bold text-[#e8f0fe] text-lg">{exp.company}</h3>
-                <p className="text-[#7a9cc5] text-xs">Nov 2020 – Present · 5+ yrs</p>
+                <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "1.1rem" }}>{exp.company}</h3>
+                <p style={{ color: "#7a9cc5", fontSize: "0.75rem" }}>{exp.total}</p>
               </div>
             </div>
 
-            <div className="relative pl-6 border-l border-[#1e3a5f]">
+            <div style={{ position: "relative", paddingLeft: "1.5rem", borderLeft: "1px solid #1e3a5f" }}>
               {exp.roles.map((role, ri) => (
                 <motion.div
                   key={role.title}
@@ -98,37 +104,40 @@ export default function Experience() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: ri * 0.1 }}
-                  className="relative mb-6 last:mb-0"
+                  style={{ position: "relative", marginBottom: ri < exp.roles.length - 1 ? "1.25rem" : 0 }}
                 >
-                  {/* Dot */}
-                  <div className="absolute -left-[25px] top-2 w-3 h-3 rounded-full border-2 border-[#1a6cf5] bg-[#050d1a]" />
+                  {/* Timeline dot */}
+                  <div style={{
+                    position: "absolute", left: "-1.95rem", top: "1rem",
+                    width: "12px", height: "12px", borderRadius: "50%",
+                    border: "2px solid #1a6cf5", background: "#050d1a"
+                  }} />
 
                   <div
-                    className="glow-border rounded-2xl bg-[#0d1b2e]/60 backdrop-blur-sm overflow-hidden cursor-pointer"
-                    onClick={() =>
-                      setExpanded(expanded === role.title ? "" : role.title)
-                    }
+                    onClick={() => setExpanded(expanded === role.title ? "" : role.title)}
+                    style={{
+                      borderRadius: "16px", overflow: "hidden", cursor: "pointer",
+                      background: "rgba(13,27,46,0.7)",
+                      border: "1px solid rgba(30,58,95,0.8)",
+                      transition: "border-color 0.3s",
+                    }}
                   >
-                    <div className="p-5 flex items-start justify-between gap-4">
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-[#e8f0fe] text-base mb-1.5">
+                    <div style={{ padding: "1.1rem 1.25rem", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem" }}>
+                      <div>
+                        <h4 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.95rem", marginBottom: "0.4rem" }}>
                           {role.title}
                         </h4>
-                        <div className="flex flex-wrap gap-3 text-xs text-[#7a9cc5]">
-                          <span className="flex items-center gap-1">
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", color: "#7a9cc5", fontSize: "0.72rem" }}>
+                          <span style={{ display: "flex", alignItems: "center", gap: "3px" }}>
                             <MapPin size={11} /> {role.location}
                           </span>
-                          <span className="flex items-center gap-1">
+                          <span style={{ display: "flex", alignItems: "center", gap: "3px" }}>
                             <Calendar size={11} /> {role.period}
                           </span>
                         </div>
                       </div>
-                      <div className="text-[#4a6b8a] flex-shrink-0 mt-1">
-                        {expanded === role.title ? (
-                          <ChevronUp size={16} />
-                        ) : (
-                          <ChevronDown size={16} />
-                        )}
+                      <div style={{ color: "#4a6b8a", flexShrink: 0, marginTop: "2px" }}>
+                        {expanded === role.title ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                       </div>
                     </div>
 
@@ -139,13 +148,13 @@ export default function Experience() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
+                          style={{ overflow: "hidden" }}
                         >
-                          <div className="px-5 pb-5 border-t border-[#1e3a5f]/50 pt-4">
-                            <ul className="space-y-2.5">
+                          <div style={{ padding: "0 1.25rem 1.1rem", borderTop: "1px solid rgba(30,58,95,0.5)", paddingTop: "0.9rem" }}>
+                            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                               {role.bullets.map((b, bi) => (
-                                <li key={bi} className="flex gap-2.5 text-xs text-[#7a9cc5] leading-relaxed">
-                                  <span className="text-[#1a6cf5] mt-1 flex-shrink-0">▸</span>
+                                <li key={bi} style={{ display: "flex", gap: "0.6rem", fontSize: "0.78rem", color: "#7a9cc5", lineHeight: 1.6, marginBottom: bi < role.bullets.length - 1 ? "0.6rem" : 0 }}>
+                                  <span style={{ color: "#1a6cf5", flexShrink: 0, marginTop: "2px" }}>▸</span>
                                   <span>{b}</span>
                                 </li>
                               ))}
