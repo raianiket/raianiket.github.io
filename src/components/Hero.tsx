@@ -115,20 +115,21 @@ export default function Hero() {
           key={tag.text}
           style={{
             position: "absolute", left: tag.x, top: tag.y,
-            display: "flex", alignItems: "center", gap: "6px",
-            padding: "5px 12px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 500,
-            background: "rgba(13,27,46,0.85)", border: "1px solid rgba(26,108,245,0.25)", color: "#4d8ff7",
-            backdropFilter: "blur(8px)",
+            display: "flex", alignItems: "center", gap: "8px",
+            padding: "8px 18px", borderRadius: "999px", fontSize: "0.88rem", fontWeight: 600,
+            background: "rgba(13,27,46,0.92)", border: "1px solid rgba(26,108,245,0.35)", color: "#7eb3ff",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 4px 20px rgba(26,108,245,0.12)",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: [0.4, 0.85, 0.4], y: [0, -10, 0], scale: 1 }}
+          animate={{ opacity: [0.6, 1, 0.6], y: [0, -10, 0], scale: 1 }}
           transition={{
             opacity: { duration: 3.5, repeat: Infinity, delay: tag.delay },
             y: { duration: 4.5, repeat: Infinity, delay: tag.delay, ease: "easeInOut" },
             scale: { duration: 0.5, delay: tag.delay + 0.3 },
           }}
         >
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1a6cf5", flexShrink: 0 }} />
+          <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#1a6cf5", flexShrink: 0, boxShadow: "0 0 6px #1a6cf5" }} />
           {tag.text}
         </motion.div>
       ))}
