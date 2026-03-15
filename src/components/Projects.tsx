@@ -68,7 +68,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))", gap: "1.25rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
           {projects.map((p, i) => (
             <motion.div
               key={p.title}

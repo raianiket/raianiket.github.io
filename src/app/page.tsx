@@ -8,10 +8,12 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
+import Preloader from "@/components/Preloader";
 
 export default function Home() {
   return (
     <main>
+      <Preloader />
       <ScrollProgress />
       <Navbar />
       <Hero />

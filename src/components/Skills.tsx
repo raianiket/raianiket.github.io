@@ -48,6 +48,11 @@ export default function Skills() {
         </motion.div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <style>{`
+            @media (max-width: 600px) {
+              .skill-row { flex-direction: column !important; gap: 0.5rem !important; }
+            }
+          `}</style>
           {skillGroups.map((group, gi) => {
             const color = colors[gi % colors.length];
             return (
@@ -57,6 +62,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: gi * 0.07 }}
+                className="skill-row"
                 style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem" }}
               >
                 <div style={{ minWidth: "160px", flexShrink: 0, paddingTop: "0.2rem" }}>
