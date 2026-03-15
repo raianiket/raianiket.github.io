@@ -28,32 +28,31 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-28 px-6"
       style={{
-        background:
-          "radial-gradient(ellipse at 50% 100%, rgba(26,108,245,0.07) 0%, transparent 60%), #050d1a",
+        padding: "6rem 1.5rem",
+        background: "radial-gradient(ellipse at 50% 100%, rgba(26,108,245,0.07) 0%, transparent 60%), #050d1a",
       }}
     >
-      <div className="max-w-3xl mx-auto text-center">
+      <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#4d8ff7] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+          <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Contact
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e8f0fe] mb-4">
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "1rem" }}>
             Let&apos;s work together
           </h2>
-          <p className="text-[#7a9cc5] text-base mb-12 max-w-xl mx-auto leading-relaxed">
+          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "3rem", maxWidth: "480px", margin: "0 auto 3rem" }}>
             Open to senior backend, full-stack, and backend-heavy roles. Feel free
-            to reach out — I typically respond within 24 hours.
+            to reach out. I typically respond within 24 hours.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-10">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "2.5rem" }}>
           {contacts.map((c, i) => (
             <motion.div
               key={c.label}
@@ -67,27 +66,36 @@ export default function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="glow-border rounded-2xl p-5 bg-[#0d1b2e]/60 backdrop-blur-sm flex flex-col items-center gap-3 group block"
+                  style={{
+                    display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
+                    padding: "1.25rem 1rem", borderRadius: "16px", textDecoration: "none",
+                    background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)",
+                    transition: "border-color 0.3s, box-shadow 0.3s",
+                  }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#1a6cf5]/10 border border-[#1a6cf5]/20 flex items-center justify-center group-hover:bg-[#1a6cf5]/20 transition-colors">
-                    <c.icon size={18} className="text-[#4d8ff7]" />
+                  <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
+                    <c.icon size={17} color="#4d8ff7" />
                   </div>
                   <div>
-                    <p className="text-[#7a9cc5] text-xs mb-1">{c.label}</p>
-                    <p className="text-[#e8f0fe] text-xs font-medium flex items-center justify-center gap-1">
+                    <p style={{ color: "#7a9cc5", fontSize: "0.7rem", marginBottom: "0.2rem" }}>{c.label}</p>
+                    <p style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 500, display: "flex", alignItems: "center", justifyContent: "center", gap: "3px" }}>
                       {c.value}
-                      <ArrowUpRight size={11} className="text-[#4d8ff7] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight size={10} color="#4d8ff7" />
                     </p>
                   </div>
                 </a>
               ) : (
-                <div className="glow-border rounded-2xl p-5 bg-[#0d1b2e]/60 backdrop-blur-sm flex flex-col items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#1a6cf5]/10 border border-[#1a6cf5]/20 flex items-center justify-center">
-                    <c.icon size={18} className="text-[#4d8ff7]" />
+                <div style={{
+                  display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
+                  padding: "1.25rem 1rem", borderRadius: "16px",
+                  background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)",
+                }}>
+                  <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
+                    <c.icon size={17} color="#4d8ff7" />
                   </div>
                   <div>
-                    <p className="text-[#7a9cc5] text-xs mb-1">{c.label}</p>
-                    <p className="text-[#e8f0fe] text-xs font-medium">{c.value}</p>
+                    <p style={{ color: "#7a9cc5", fontSize: "0.7rem", marginBottom: "0.2rem" }}>{c.label}</p>
+                    <p style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 500 }}>{c.value}</p>
                   </div>
                 </div>
               )}
@@ -101,22 +109,28 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#1a6cf5] hover:bg-[#1a6cf5]/80 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-[#1a6cf5]/20 hover:shadow-[#1a6cf5]/40"
+          style={{
+            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+            padding: "0.85rem 2rem", borderRadius: "12px",
+            background: "#1a6cf5", color: "#fff", fontWeight: 600, fontSize: "0.85rem",
+            textDecoration: "none", boxShadow: "0 4px 24px rgba(26,108,245,0.3)",
+            transition: "background 0.2s, box-shadow 0.2s",
+          }}
         >
           <Mail size={16} />
           Send me an email
         </motion.a>
-      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6 }}
-        className="text-center mt-20 text-[#4a6b8a] text-xs"
-      >
-        Built with Next.js & Tailwind · © {new Date().getFullYear()} Aniket Rai
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          style={{ marginTop: "4rem", color: "#4a6b8a", fontSize: "0.75rem" }}
+        >
+          Built with Next.js & Tailwind · © {new Date().getFullYear()} Aniket Rai
+        </motion.div>
+      </div>
     </section>
   );
 }
