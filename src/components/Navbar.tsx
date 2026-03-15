@@ -37,7 +37,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav style={{ maxWidth: "1100px", margin: "0 auto", padding: "1rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <motion.a
           href="#hero"
           onClick={(e) => { e.preventDefault(); handleNav("#hero"); }}
