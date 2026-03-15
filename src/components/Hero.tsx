@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin, Download } from "lucide-react";
 
@@ -13,22 +13,67 @@ const roles = [
 ];
 
 const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "12+", label: "Cloud Integrations" },
-  { value: "4x", label: "Faster Batch Jobs" },
-  { value: "4", label: "AI Agents Built" },
+  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 12, suffix: "+", label: "Cloud Integrations" },
+  { value: 4, suffix: "x", label: "Faster Batch Jobs" },
+  { value: 4, suffix: "", label: "AI Agents Built" },
 ];
 
 const floatingTags = [
-  { text: "TypeScript", x: "8%", y: "22%", delay: 0 },
-  { text: "Node.js", x: "82%", y: "18%", delay: 0.3 },
-  { text: "PostgreSQL", x: "6%", y: "62%", delay: 0.6 },
-  { text: "AWS", x: "85%", y: "58%", delay: 0.2 },
-  { text: "GraphQL", x: "12%", y: "82%", delay: 0.8 },
-  { text: "AI Agents", x: "78%", y: "78%", delay: 0.5 },
-  { text: "Docker", x: "88%", y: "40%", delay: 0.4 },
-  { text: "Microservices", x: "3%", y: "42%", delay: 0.7 },
+  { text: "TypeScript", x: "7%", y: "20%", delay: 0 },
+  { text: "Node.js", x: "80%", y: "16%", delay: 0.3 },
+  { text: "PostgreSQL", x: "5%", y: "60%", delay: 0.6 },
+  { text: "AWS", x: "84%", y: "55%", delay: 0.2 },
+  { text: "GraphQL", x: "10%", y: "80%", delay: 0.8 },
+  { text: "AI Agents", x: "76%", y: "76%", delay: 0.5 },
+  { text: "Docker", x: "86%", y: "36%", delay: 0.4 },
+  { text: "Microservices", x: "2%", y: "40%", delay: 0.7 },
 ];
+
+function useCountUp(target: number, duration = 1800, started: boolean) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { setCount(target); clearInterval(timer); }
+      else setCount(Math.floor(start));
+    }, 16);
+    return () => clearInterval(timer);
+  }, [target, duration, started]);
+  return count;
+}
+
+function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
+  const count = useCountUp(value, 1500, started);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStarted(true); }, { threshold: 0.5 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{
+      borderRadius: "12px", padding: "0.85rem 0.5rem", textAlign: "center",
+      background: "rgba(13,27,46,0.7)", border: "1px solid rgba(26,108,245,0.2)",
+      backdropFilter: "blur(8px)",
+    }}>
+      <div style={{
+        fontSize: "1.75rem", fontWeight: 900, lineHeight: 1,
+        background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 60%, #7eb3ff 100%)",
+        WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+      }}>
+        {count}{suffix}
+      </div>
+      <div style={{ color: "#7a9cc5", fontSize: "0.7rem", marginTop: "0.3rem" }}>{label}</div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -56,66 +101,59 @@ export default function Hero() {
   }, [displayed, typing, roleIndex]);
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        background: "#050d1a",
-      }}
-    >
-      {/* Strong glow orbs */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full opacity-20 blur-[120px]"
-        style={{ background: "radial-gradient(circle, #1a6cf5 0%, transparent 70%)" }} />
-      <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full opacity-15 blur-[100px]"
-        style={{ background: "radial-gradient(circle, #4d8ff7 0%, transparent 70%)" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-5 blur-[150px]"
-        style={{ background: "radial-gradient(circle, #1a6cf5 0%, transparent 60%)" }} />
+    <section id="hero" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#050d1a" }}>
+      {/* Glow orbs */}
+      <div style={{ position: "absolute", top: "25%", left: "33%", width: "500px", height: "500px", borderRadius: "50%", opacity: 0.18, filter: "blur(120px)", background: "radial-gradient(circle, #1a6cf5 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "25%", right: "33%", width: "400px", height: "400px", borderRadius: "50%", opacity: 0.12, filter: "blur(100px)", background: "radial-gradient(circle, #4d8ff7 0%, transparent 70%)", pointerEvents: "none" }} />
 
       {/* Grid */}
-      <div className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "linear-gradient(#4d8ff7 1px, transparent 1px), linear-gradient(90deg, #4d8ff7 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-        }}
-      />
+      <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(#4d8ff7 1px, transparent 1px), linear-gradient(90deg, #4d8ff7 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 
-      {/* Floating tech tags */}
+      {/* Floating tags */}
       {floatingTags.map((tag) => (
         <motion.div
           key={tag.text}
-          className="absolute hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
           style={{
-            left: tag.x,
-            top: tag.y,
-            background: "rgba(13,27,46,0.8)",
-            border: "1px solid rgba(26,108,245,0.25)",
-            color: "#4d8ff7",
+            position: "absolute", left: tag.x, top: tag.y,
+            display: "flex", alignItems: "center", gap: "6px",
+            padding: "5px 12px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 500,
+            background: "rgba(13,27,46,0.85)", border: "1px solid rgba(26,108,245,0.25)", color: "#4d8ff7",
             backdropFilter: "blur(8px)",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{
-            opacity: [0.4, 0.8, 0.4],
-            y: [0, -8, 0],
-            scale: 1,
-          }}
+          animate={{ opacity: [0.4, 0.85, 0.4], y: [0, -10, 0], scale: 1 }}
           transition={{
-            opacity: { duration: 3, repeat: Infinity, delay: tag.delay },
-            y: { duration: 4, repeat: Infinity, delay: tag.delay, ease: "easeInOut" },
-            scale: { duration: 0.5, delay: tag.delay + 0.5 },
+            opacity: { duration: 3.5, repeat: Infinity, delay: tag.delay },
+            y: { duration: 4.5, repeat: Infinity, delay: tag.delay, ease: "easeInOut" },
+            scale: { duration: 0.5, delay: tag.delay + 0.3 },
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#1a6cf5]" />
+          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1a6cf5", flexShrink: 0 }} />
           {tag.text}
         </motion.div>
       ))}
 
-      {/* Main content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 1.5rem", maxWidth: "800px", margin: "0 auto" }}>
+
+        {/* Open to Work badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+          style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "5px 14px", borderRadius: "999px", marginBottom: "1.5rem", background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)" }}
+        >
+          <span style={{ position: "relative", display: "inline-flex" }}>
+            <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e", display: "block" }} />
+            <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#22c55e", animation: "ping 1.5s cubic-bezier(0,0,0.2,1) infinite", opacity: 0.6 }} />
+          </span>
+          <span style={{ fontSize: "0.72rem", fontWeight: 600, color: "#4ade80" }}>Open to Work</span>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-[#4d8ff7] text-xs font-semibold tracking-[0.3em] uppercase mb-5"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          style={{ color: "#4d8ff7", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "1rem" }}
         >
           Hello, I&apos;m
         </motion.p>
@@ -123,99 +161,69 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-black tracking-tight mb-5 leading-none"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, marginBottom: "1.2rem" }}
         >
-          <span className="text-[#e8f0fe]">Aniket </span>
-          <span className="accent-text">Rai</span>
+          <span style={{ color: "#e8f0fe" }}>Aniket </span>
+          <span style={{ background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 50%, #7eb3ff 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Rai</span>
         </motion.h1>
 
-        {/* Typing animation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="h-10 flex items-center justify-center mb-5"
-        >
-          <span className="text-lg md:text-xl font-light text-[#7a9cc5]">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          style={{ height: "2.5rem", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.2rem" }}>
+          <span style={{ fontSize: "1.15rem", fontWeight: 300, color: "#7a9cc5" }}>
             {displayed}
-            <span className="inline-block w-0.5 h-5 bg-[#1a6cf5] ml-0.5 animate-pulse align-middle" />
+            <span style={{ display: "inline-block", width: "2px", height: "1.1rem", background: "#1a6cf5", marginLeft: "2px", verticalAlign: "middle", animation: "pulse 1s infinite" }} />
           </span>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-[#7a9cc5] text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8"
+          transition={{ delay: 0.45 }}
+          style={{ color: "#7a9cc5", fontSize: "0.9rem", maxWidth: "480px", margin: "0 auto 1.75rem", lineHeight: 1.7 }}
         >
           Building scalable backend systems, data pipelines & AI agents
-          for B2B SaaS. Based in{" "}
-          <span className="text-[#e8f0fe]">Hyderabad, India</span>.
+          for B2B SaaS. Based in <span style={{ color: "#e8f0fe" }}>Hyderabad, India</span>.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex items-center justify-center gap-3 flex-wrap mb-8"
+          transition={{ delay: 0.55 }}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2rem" }}
         >
           <button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-6 py-3 rounded-xl bg-[#1a6cf5] hover:bg-[#2a7cf8] text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#1a6cf5]/30 hover:shadow-[#1a6cf5]/50 hover:-translate-y-0.5"
+            style={{ padding: "0.7rem 1.6rem", borderRadius: "10px", background: "#1a6cf5", color: "#fff", fontWeight: 600, fontSize: "0.85rem", border: "none", cursor: "pointer", boxShadow: "0 4px 20px rgba(26,108,245,0.35)", transition: "all 0.2s" }}
           >
             View My Work
           </button>
-          <a
-            href="/Aniket_Resume.pdf"
-            download
-            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[#1e3a5f] hover:border-[#1a6cf5]/60 text-[#7a9cc5] hover:text-[#e8f0fe] font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5"
-          >
-            <Download size={14} />
-            Resume
+          <a href="/Aniket_Resume.pdf" download
+            style={{ display: "flex", alignItems: "center", gap: "6px", padding: "0.7rem 1.6rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", transition: "all 0.2s" }}>
+            <Download size={14} /> Resume
           </a>
-          <div className="flex gap-2">
-            <a
-              href="https://www.linkedin.com/in/aniket-kumar-rai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-xl border border-[#1e3a5f] text-[#7a9cc5] hover:text-[#4d8ff7] hover:border-[#1a6cf5]/40 transition-all duration-200 hover:-translate-y-0.5"
-            >
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <a href="https://www.linkedin.com/in/aniket-kumar-rai" target="_blank" rel="noopener noreferrer"
+              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Linkedin size={16} />
             </a>
-            <a
-              href="mailto:rai078945@gmail.com"
-              className="p-3 rounded-xl border border-[#1e3a5f] text-[#7a9cc5] hover:text-[#4d8ff7] hover:border-[#1a6cf5]/40 transition-all duration-200 hover:-translate-y-0.5"
-            >
+            <a href="mailto:rai078945@gmail.com"
+              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Mail size={16} />
             </a>
           </div>
         </motion.div>
 
-        {/* Stats */}
+        {/* Animated stat counters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto"
+          transition={{ delay: 0.7 }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.75rem", maxWidth: "520px", margin: "0 auto" }}
         >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7 + i * 0.08 }}
-              className="rounded-xl p-3 text-center"
-              style={{
-                background: "rgba(13,27,46,0.6)",
-                border: "1px solid rgba(26,108,245,0.2)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <div className="text-2xl font-black accent-text">{stat.value}</div>
-              <div className="text-[#7a9cc5] text-xs mt-0.5">{stat.label}</div>
-            </motion.div>
+          {stats.map((s) => (
+            <StatCard key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
           ))}
         </motion.div>
       </div>
@@ -223,13 +231,17 @@ export default function Hero() {
       {/* Scroll arrow */}
       <motion.button
         onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#4a6b8a] hover:text-[#4d8ff7] transition-colors animate-bounce cursor-pointer"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+        style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", background: "none", border: "none", color: "#4a6b8a", cursor: "pointer", animation: "bounce 2s infinite" }}
       >
         <ArrowDown size={20} />
       </motion.button>
+
+      <style>{`
+        @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)} }
+        @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0} }
+      `}</style>
     </section>
   );
 }
