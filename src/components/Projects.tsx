@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw } from "lucide-react";
 
 const projects = [
   {
@@ -33,6 +33,16 @@ const projects = [
     color: "#4ade80",
     borderColor: "rgba(74,222,128,0.25)",
     bgColor: "rgba(74,222,128,0.08)",
+  },
+  {
+    icon: RefreshCw,
+    title: "Restore & Export Platform",
+    description: "Architected a unified config-driven Restore/Export engine (Gen3) eliminating code changes per new cloud onboarding. Built the S3 Data Migration action layer — old metadata (2+ years) fetched on-demand via AWS Athena and hydrated into DB, cutting Archives query time from 10s+ to under 2s. Also delivered CM Download Status with ETA calculation and a DAL AI-Agent for automated Restore/Export health monitoring.",
+    tags: ["Node.js", "TypeScript", "AWS Athena", "S3", "PostgreSQL", "Config-Driven"],
+    metrics: ["10s+ → <2s query time", "Zero code per new cloud", "ETA calculation"],
+    color: "#38bdf8",
+    borderColor: "rgba(56,189,248,0.25)",
+    bgColor: "rgba(56,189,248,0.08)",
   },
   {
     icon: Shield,
