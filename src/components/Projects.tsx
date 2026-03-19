@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp } from "lucide-react";
 
 const projects = [
   {
@@ -23,6 +23,16 @@ const projects = [
     color: "#fb923c",
     borderColor: "rgba(251,146,60,0.25)",
     bgColor: "rgba(251,146,60,0.08)",
+  },
+  {
+    icon: TrendingUp,
+    title: "Anomaly Detection",
+    description: "AI-powered data integrity engine within SysCloud's Backup & Compare module that identifies unauthorized changes, data corruption, and security threats across Google Workspace, Microsoft 365, and QuickBooks. Operates through two detection mechanisms: a Rule Engine performing deep JSON comparison between backup snapshots to detect field-level changes (additions, deletions, edits) classified into High, Medium, or Low criticality via configurable per-field rules; and a Trend-Level system combining historical backup data with audit logs, feeding time-series data into Facebook's Prophet ML algorithm via a NestJS-based Python service with multi-confidence interval analysis (99%, 95%, 80%) for statistically significant deviation detection. Detected anomalies are tagged in archive tables with dynamic tag management and real-time aggregation counts. Fully orchestrated through MDLOps and actionable via the Addon Actions framework (Dismiss, Hold, Mark True Positive, Transfer Ownership) with end-to-end audit logging.",
+    tags: ["Node.js", "TypeScript", "Prophet ML", "NestJS", "Python", "PostgreSQL", "MDLOps"],
+    metrics: ["3 cloud platforms", "3 confidence intervals", "Rule + ML detection"],
+    color: "#c084fc",
+    borderColor: "rgba(192,132,252,0.25)",
+    bgColor: "rgba(192,132,252,0.08)",
   },
   {
     icon: Zap,
