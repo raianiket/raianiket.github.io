@@ -1,9 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users } from "lucide-react";
 
 const projects = [
+  {
+    icon: LayoutDashboard,
+    title: "Customer Dashboard",
+    description: "Per-tenant operational intelligence interface providing real-time and near-real-time visibility into cloud data protection. Sources data from two dedicated per-customer databases — Transaction DB (live data) and Cache DB (pre-computed materialized views) — powering 13+ widgets: License Management, Backup/Restore/Export Status & Trends, Usage Statistics, Compliance, Ransomware Detection, AI Anomaly Detection, eDiscovery, and Archiver. All widgets follow a Unified Materialized View pattern supporting both single-cloud and all-cloud views, with data isolation enforced at cloud and entity level and concurrent scheduled MV refresh to ensure dashboard responsiveness without impacting transactional workloads.",
+    tags: ["Node.js", "TypeScript", "PostgreSQL", "Materialized Views", "GraphQL", "PostGraphile"],
+    metrics: ["13+ widgets", "12+ clouds", "Zero transactional impact"],
+    color: "#818cf8",
+    borderColor: "rgba(129,140,248,0.25)",
+    bgColor: "rgba(129,140,248,0.08)",
+  },
+  {
+    icon: Users,
+    title: "Partner Portal Dashboard",
+    description: "Multi-tenant MSP admin dashboard with consolidated visibility across all managed customers' data protection posture. Data flows from each customer's Transaction and Cache DBs into a centralized Master DB via AWS Lambda-triggered sync, with no PII exposure. Built on a 4-layer hierarchical aggregation: per-cloud per-customer granular data → all-cloud per-customer rollup → all-customer MSP-level consolidation → per-cloud performance analysis across all MSP customers. Status breakdowns (Completed, In Progress, Failed) are embedded as both daily timeline entries and overall summaries, enabling trend analysis and point-in-time reporting.",
+    tags: ["Node.js", "TypeScript", "AWS Lambda", "PostgreSQL", "Multi-tenant", "Aggregation"],
+    metrics: ["4-layer aggregation", "Zero PII exposure", "Full MSP visibility"],
+    color: "#f472b6",
+    borderColor: "rgba(244,114,182,0.25)",
+    bgColor: "rgba(244,114,182,0.08)",
+  },
   {
     icon: Brain,
     title: "Sky 2.0 — SysCloud AI",
