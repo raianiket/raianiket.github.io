@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity } from "lucide-react";
 
 const projects = [
   {
@@ -33,6 +33,16 @@ const projects = [
     color: "#a78bfa",
     borderColor: "rgba(167,139,250,0.25)",
     bgColor: "rgba(167,139,250,0.08)",
+  },
+  {
+    icon: Activity,
+    title: "Timeseries Jobs Framework",
+    description: "Data consolidation engine (v2.0) built on Node.js that aggregates and transforms data from multiple database sources into Grafana for visualization, analytics, and operational monitoring. Fetches job definitions from a Master DB and executes them across 6 source types (Trans, Cache, Master, MasterTrans, DriveRealtime, MailRealtime), consolidating timeseries data into destination DBs for dashboard consumption. Features parallel execution via Promise.allSettled(), built-in retry mechanisms with connection filtering for failed jobs, and dynamic timeseries date handling that auto-adapts queries to the current execution context for real-time data freshness. Deployed via Docker with AWS CodeBuild CI/CD pipeline, SonarQube quality gates, and AWS SSM Parameter Store for secure credential management.",
+    tags: ["Node.js", "TypeScript", "Grafana", "Docker", "AWS CodeBuild", "SSM", "SonarQube"],
+    metrics: ["6 DB source types", "Parallel execution", "Auto-retry on failure"],
+    color: "#34d399",
+    borderColor: "rgba(52,211,153,0.25)",
+    bgColor: "rgba(52,211,153,0.08)",
   },
   {
     icon: Database,
