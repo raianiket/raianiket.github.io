@@ -22,10 +22,10 @@ export default function Education() {
     <section id="education" style={{ padding: "6rem 1.5rem" }}>
       <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
@@ -41,7 +41,7 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1rem" }}>
@@ -67,8 +67,8 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1rem" }}>
               <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -82,7 +82,7 @@ export default function Education() {
                   key={c.name}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ borderColor: "rgba(26,108,245,0.4)" }}
                   style={{ borderRadius: "12px", padding: "1rem 1.25rem", background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)", transition: "border-color 0.3s", display: "flex", alignItems: "center", justifyContent: "space-between" }}

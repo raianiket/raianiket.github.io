@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code2, Database, Cloud, Bot } from "lucide-react";
+import { FadeIn, FadeInStagger, FadeInItem } from "./FadeIn";
 
 const highlights = [
   {
@@ -30,13 +31,7 @@ export default function About() {
   return (
     <section id="about" style={{ padding: "6rem 1.5rem" }}>
       <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: "3rem" }}
-        >
+        <FadeIn style={{ textAlign: "center", marginBottom: "3rem" }}>
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             About Me
           </p>
@@ -59,45 +54,40 @@ export default function About() {
             migrations that eliminate code changes entirely to AI-powered natural language
             interfaces, I build for reliability, performance, and zero manual intervention.
           </p>
-        </motion.div>
+        </FadeIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
-          {highlights.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{
-                borderColor: "rgba(26,108,245,0.45)",
-                boxShadow: "0 0 28px rgba(26,108,245,0.12)",
-              }}
-              style={{
-                borderRadius: "16px", padding: "1.25rem",
-                background: "rgba(13,27,46,0.7)",
-                border: "1px solid rgba(30,58,95,0.8)",
-                cursor: "default",
-                transition: "border-color 0.3s, box-shadow 0.3s",
-              }}
-            >
-              <div style={{
-                width: "36px", height: "36px", borderRadius: "10px",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)",
-                marginBottom: "0.85rem",
-              }}>
-                <item.icon size={17} color="#4d8ff7" />
-              </div>
-              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
-                {item.title}
-              </h3>
-              <p style={{ color: "#7a9cc5", fontSize: "0.76rem", lineHeight: 1.6 }}>
-                {item.desc}
-              </p>
-            </motion.div>
+        <FadeInStagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
+          {highlights.map((item) => (
+            <FadeInItem key={item.title}>
+              <motion.div
+                whileHover={{ borderColor: "rgba(26,108,245,0.45)", boxShadow: "0 0 28px rgba(26,108,245,0.12)" }}
+                style={{
+                  borderRadius: "16px", padding: "1.25rem",
+                  background: "rgba(13,27,46,0.7)",
+                  border: "1px solid rgba(30,58,95,0.8)",
+                  cursor: "default",
+                  transition: "border-color 0.3s, box-shadow 0.3s",
+                  height: "100%",
+                }}
+              >
+                <div style={{
+                  width: "36px", height: "36px", borderRadius: "10px",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)",
+                  marginBottom: "0.85rem",
+                }}>
+                  <item.icon size={17} color="#4d8ff7" />
+                </div>
+                <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: "#7a9cc5", fontSize: "0.76rem", lineHeight: 1.6 }}>
+                  {item.desc}
+                </p>
+              </motion.div>
+            </FadeInItem>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </section>
   );

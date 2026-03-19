@@ -59,10 +59,10 @@ export default function Experience() {
     <section id="experience" style={{ padding: "6rem 1.5rem" }}>
       <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="text-center"
           style={{ marginBottom: "3.5rem" }}
         >
@@ -77,10 +77,10 @@ export default function Experience() {
         {experience.map((exp) => (
           <motion.div
             key={exp.company}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
               <div style={{
@@ -102,7 +102,7 @@ export default function Experience() {
                   key={role.title}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: ri * 0.1 }}
                   style={{ position: "relative", marginBottom: ri < exp.roles.length - 1 ? "1.25rem" : 0 }}
                 >
