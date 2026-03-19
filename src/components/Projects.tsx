@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database } from "lucide-react";
 
 const projects = [
   {
@@ -33,6 +33,16 @@ const projects = [
     color: "#a78bfa",
     borderColor: "rgba(167,139,250,0.25)",
     bgColor: "rgba(167,139,250,0.08)",
+  },
+  {
+    icon: Database,
+    title: "PostgreSQL Batch Jobs Framework",
+    description: "Centralized job orchestration engine (v3.0) built on Node.js and AWS Batch that drives all scheduled and on-demand DB operations across SysCloud's infrastructure. Fetches job definitions from a Master DB and distributes execution across 5 database types — Trans, Cache, Master, Grafana, and CacheTrans — keeping all UI dashboards in sync. Features a priority job system where critical jobs bypass all skip logic, plus an intelligent skip mechanism that evaluates resource availability, active session counts, and explicit skip lists. Integrates AWS Secrets Manager for credential management, DynamoDB for state tracking, and AWS Batch for container-based execution capable of handling hundreds of thousands of jobs. Full observability via execution logging and a dedicated Grafana dashboard tracking Success, Failure, and Skipped outcomes with skip reasons.",
+    tags: ["Node.js", "TypeScript", "AWS Batch", "DynamoDB", "PostgreSQL", "Grafana", "Secrets Manager"],
+    metrics: ["100K+ jobs handled", "5 DB types orchestrated", "Priority + skip logic"],
+    color: "#facc15",
+    borderColor: "rgba(250,204,21,0.25)",
+    bgColor: "rgba(250,204,21,0.08)",
   },
   {
     icon: Zap,
