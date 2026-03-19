@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch } from "lucide-react";
 
 const projects = [
   {
@@ -83,6 +83,16 @@ const projects = [
     color: "#38bdf8",
     borderColor: "rgba(56,189,248,0.25)",
     bgColor: "rgba(56,189,248,0.08)",
+  },
+  {
+    icon: GitBranch,
+    title: "Addon Actions Engine",
+    description: "Workflow-driven system managing remediation actions across Compliance, Ransomware, Anomaly Detection, eDiscovery, and Archiver modules. Uses a Parent-Child architecture: actions (Dismiss, Hold, Release Hold, Mark True Positive, Transfer Ownership, Remove Sharing, Deletion) are initiated via PostGraphile mutations, populate a Parent Action Table, then trigger async child processing through AWS SQS and MDLOps. Handles two distinct child paths: Common Addon Actions and BDI Common Actions, performing batch record population, dynamic tag modifications on archive tables, and resource availability checks. A dedicated Presentation Table powers real-time UI tracking with auto-generated status text across 8 states (Not Started through Completed with Exceptions), progress metrics, and Microsoft Teams alerts for failures. Fully auditable via Grafana logging and trace IDs for cross-system tracking.",
+    tags: ["Node.js", "TypeScript", "AWS SQS", "PostGraphile", "PostgreSQL", "Grafana", "MS Teams"],
+    metrics: ["8 action types", "8 status states", "Full audit trail"],
+    color: "#f87171",
+    borderColor: "rgba(248,113,113,0.25)",
+    bgColor: "rgba(248,113,113,0.08)",
   },
   {
     icon: Shield,
