@@ -88,7 +88,7 @@ function SkillBadge({ skill, groupColor, groupBorder, groupBg }: { skill: string
     <motion.span
       initial={{ opacity: 0, scale: 0.85 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-60px" }}
       whileHover={{ scale: 1.06, y: -1 }}
       style={{
         display: "inline-flex", alignItems: "center", gap: "5px",
@@ -123,10 +123,10 @@ export default function Skills() {
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Technical Skills</p>
@@ -137,8 +137,8 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           style={{ borderRadius: "20px", padding: "1.75rem", background: "rgba(13,27,46,0.8)", border: "1px solid rgba(26,108,245,0.2)", marginBottom: "2.5rem" }}
         >
           <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4d8ff7", marginBottom: "1.25rem" }}>
@@ -154,8 +154,8 @@ export default function Skills() {
               key={group.label}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: gi * 0.06 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: gi * 0.06 }}
               style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem" }}
               className="skill-row"
             >

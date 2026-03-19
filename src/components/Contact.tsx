@@ -23,10 +23,10 @@ export default function Contact() {
     >
       <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Contact
@@ -45,7 +45,7 @@ export default function Contact() {
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4 }}
             onClick={copyEmail}
             whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
@@ -74,7 +74,7 @@ export default function Contact() {
             target="_blank" rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4, delay: 0.1 }}
             whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
             style={{
@@ -98,7 +98,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4, delay: 0.2 }}
             style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
@@ -124,7 +124,7 @@ export default function Contact() {
           href="mailto:rai078945@gmail.com"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-60px" }}
           transition={{ delay: 0.4 }}
           style={{
             display: "inline-flex", alignItems: "center", gap: "0.5rem",
