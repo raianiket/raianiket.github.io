@@ -36,7 +36,7 @@ const projects = [
   },
   {
     icon: RefreshCw,
-    title: "Restore & Export Platform",
+    title: "Restore & Export Action",
     description: "Built from scratch for Gen3 and evolved through Gen4 — now fully automated with zero code changes per new cloud. Supports 3 restore/export modes: (1) User/Account/Company level for full data restore, (2) Folder level with deep recursive traversal that populates the complete folder structure and preserves hierarchy so customers restore exactly what they see, and (3) Item level for pinpoint single-item restore/export. For enterprise customers, processes millions of items per second while hydrating metadata on-demand via AWS Athena for archives older than 2 years — cutting query time from 10s+ to under 2s.",
     tags: ["Node.js", "TypeScript", "AWS Athena", "S3", "PostgreSQL", "Recursive CTEs", "Config-Driven"],
     metrics: ["Millions of items/sec", "10s+ → <2s query time", "Zero code per new cloud"],
