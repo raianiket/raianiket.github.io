@@ -7,7 +7,7 @@ const projects = [
   {
     icon: LayoutDashboard,
     title: "Customer Dashboard",
-    description: "Per-tenant operational intelligence interface providing real-time and near-real-time visibility into cloud data protection. Sources data from two dedicated per-customer databases — Transaction DB (live data) and Cache DB (pre-computed materialized views) — powering 13+ widgets: License Management, Backup/Restore/Export Status & Trends, Usage Statistics, Compliance, Ransomware Detection, AI Anomaly Detection, eDiscovery, and Archiver. All widgets follow a Unified Materialized View pattern supporting both single-cloud and all-cloud views, with data isolation enforced at cloud and entity level and concurrent scheduled MV refresh to ensure dashboard responsiveness without impacting transactional workloads.",
+    description: "Per-tenant operational intelligence interface providing real-time and near-real-time visibility into cloud data protection. Sources data from two dedicated per-customer databases: Transaction DB (live data) and Cache DB (pre-computed materialized views), powering 13+ widgets: License Management, Backup/Restore/Export Status & Trends, Usage Statistics, Compliance, Ransomware Detection, AI Anomaly Detection, eDiscovery, and Archiver. All widgets follow a Unified Materialized View pattern supporting both single-cloud and all-cloud views, with data isolation enforced at cloud and entity level and concurrent scheduled MV refresh to ensure dashboard responsiveness without impacting transactional workloads.",
     tags: ["Node.js", "TypeScript", "PostgreSQL", "Materialized Views", "GraphQL", "PostGraphile"],
     metrics: ["13+ widgets", "12+ clouds", "Zero transactional impact"],
     color: "#818cf8",
@@ -26,8 +26,8 @@ const projects = [
   },
   {
     icon: Brain,
-    title: "Sky 2.0 — SysCloud AI",
-    description: "AI-powered natural language interface where customers ask questions, the AI dynamically builds queries, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions — eliminating manual browsing.",
+    title: "Sky 2.0 - SysCloud AI",
+    description: "AI-powered natural language interface where customers ask questions, the AI dynamically builds queries, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions, eliminating manual browsing.",
     tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"],
     metrics: ["NL-to-query", "Zero manual navigation", "Full product coverage"],
     color: "#a78bfa",
@@ -37,7 +37,7 @@ const projects = [
   {
     icon: Database,
     title: "PostgreSQL Batch Jobs Framework",
-    description: "Centralized job orchestration engine (v3.0) built on Node.js and AWS Batch that drives all scheduled and on-demand DB operations across SysCloud's infrastructure. Fetches job definitions from a Master DB and distributes execution across 5 database types — Trans, Cache, Master, Grafana, and CacheTrans — keeping all UI dashboards in sync. Features a priority job system where critical jobs bypass all skip logic, plus an intelligent skip mechanism that evaluates resource availability, active session counts, and explicit skip lists. Integrates AWS Secrets Manager for credential management, DynamoDB for state tracking, and AWS Batch for container-based execution capable of handling hundreds of thousands of jobs. Full observability via execution logging and a dedicated Grafana dashboard tracking Success, Failure, and Skipped outcomes with skip reasons.",
+    description: "Centralized job orchestration engine (v3.0) built on Node.js and AWS Batch that drives all scheduled and on-demand DB operations across SysCloud's infrastructure. Fetches job definitions from a Master DB and distributes execution across 5 database types (Trans, Cache, Master, Grafana, and CacheTrans) keeping all UI dashboards in sync. Features a priority job system where critical jobs bypass all skip logic, plus an intelligent skip mechanism that evaluates resource availability, active session counts, and explicit skip lists. Integrates AWS Secrets Manager for credential management, DynamoDB for state tracking, and AWS Batch for container-based execution capable of handling hundreds of thousands of jobs. Full observability via execution logging and a dedicated Grafana dashboard tracking Success, Failure, and Skipped outcomes with skip reasons.",
     tags: ["Node.js", "TypeScript", "AWS Batch", "DynamoDB", "PostgreSQL", "Grafana", "Secrets Manager"],
     metrics: ["100K+ jobs handled", "5 DB types orchestrated", "Priority + skip logic"],
     color: "#facc15",
@@ -47,7 +47,7 @@ const projects = [
   {
     icon: Zap,
     title: "MDL 2.0 Framework",
-    description: "Config-driven framework replacing complex function/mutation logic with simple JSON configuration. Each action executes as a micro-task inside PostGraphile. Migrated 12+ cloud integrations — adding a new cloud now requires zero code changes.",
+    description: "Config-driven framework replacing complex function/mutation logic with simple JSON configuration. Each action executes as a micro-task inside PostGraphile. Migrated 12+ cloud integrations, adding a new cloud now requires zero code changes.",
     tags: ["TypeScript", "PostGraphile", "PostgreSQL", "JSON Config", "Node.js"],
     metrics: ["12+ cloud integrations", "Zero code per new cloud", "Owns restore, sync, backup"],
     color: "#4d8ff7",
@@ -67,7 +67,7 @@ const projects = [
   {
     icon: RefreshCw,
     title: "Restore & Export Action",
-    description: "Built from scratch for Gen3 and evolved through Gen4 — now fully automated with zero code changes per new cloud. Supports 3 restore/export modes: (1) User/Account/Company level for full data restore, (2) Folder level with deep recursive traversal that populates the complete folder structure and preserves hierarchy so customers restore exactly what they see, and (3) Item level for pinpoint single-item restore/export. For enterprise customers, processes millions of items per second while hydrating metadata on-demand via AWS Athena for archives older than 2 years — cutting query time from 10s+ to under 2s.",
+    description: "Built from scratch for Gen3 and evolved through Gen4, now fully automated with zero code changes per new cloud. Supports 3 restore/export modes: (1) User/Account/Company level for full data restore, (2) Folder level with deep recursive traversal that populates the complete folder structure and preserves hierarchy so customers restore exactly what they see, and (3) Item level for pinpoint single-item restore/export. For enterprise customers, processes millions of items per second while hydrating metadata on-demand via AWS Athena for archives older than 2 years, cutting query time from 10s+ to under 2s.",
     tags: ["Node.js", "TypeScript", "AWS Athena", "S3", "PostgreSQL", "Recursive CTEs", "Config-Driven"],
     metrics: ["Millions of items/sec", "10s+ → <2s query time", "Zero code per new cloud"],
     color: "#38bdf8",
