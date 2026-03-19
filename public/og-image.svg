@@ -1,0 +1,93 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#050d1a"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(26,108,245,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow orbs -->
+  <ellipse cx="200" cy="150" rx="300" ry="200" fill="rgba(26,108,245,0.08)"/>
+  <ellipse cx="1000" cy="480" rx="280" ry="180" fill="rgba(167,139,250,0.06)"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="180" width="4" height="270" rx="2" fill="url(#accentBar)"/>
+  <defs>
+    <linearGradient id="accentBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a6cf5"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8f0fe"/>
+      <stop offset="100%" stop-color="#7eb3ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Name -->
+  <text x="120" y="270" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="url(#nameGrad)" letter-spacing="-1">Aniket Rai</text>
+
+  <!-- Title -->
+  <text x="122" y="330" font-family="Arial, sans-serif" font-size="28" font-weight="500" fill="#7a9cc5">Senior Software Engineer</text>
+
+  <!-- Divider -->
+  <rect x="120" y="358" width="500" height="1.5" rx="1" fill="rgba(26,108,245,0.3)"/>
+
+  <!-- Tech pills -->
+  <rect x="120" y="378" width="130" height="36" rx="18" fill="rgba(26,108,245,0.12)" stroke="rgba(26,108,245,0.3)" stroke-width="1"/>
+  <text x="185" y="401" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#4d8ff7" text-anchor="middle">Node.js</text>
+
+  <rect x="264" y="378" width="148" height="36" rx="18" fill="rgba(26,108,245,0.12)" stroke="rgba(26,108,245,0.3)" stroke-width="1"/>
+  <text x="338" y="401" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#4d8ff7" text-anchor="middle">TypeScript</text>
+
+  <rect x="426" y="378" width="148" height="36" rx="18" fill="rgba(26,108,245,0.12)" stroke="rgba(26,108,245,0.3)" stroke-width="1"/>
+  <text x="500" y="401" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#4d8ff7" text-anchor="middle">PostgreSQL</text>
+
+  <rect x="588" y="378" width="110" height="36" rx="18" fill="rgba(167,139,250,0.12)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+  <text x="643" y="401" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="middle">AI Agents</text>
+
+  <rect x="712" y="378" width="80" height="36" rx="18" fill="rgba(26,108,245,0.12)" stroke="rgba(26,108,245,0.3)" stroke-width="1"/>
+  <text x="752" y="401" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#4d8ff7" text-anchor="middle">AWS</text>
+
+  <!-- Stats -->
+  <text x="120" y="470" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#e8f0fe">5+</text>
+  <text x="120" y="500" font-family="Arial, sans-serif" font-size="14" fill="#7a9cc5">Years Exp.</text>
+
+  <text x="240" y="470" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#e8f0fe">11</text>
+  <text x="240" y="500" font-family="Arial, sans-serif" font-size="14" fill="#7a9cc5">Projects</text>
+
+  <text x="340" y="470" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#e8f0fe">4x</text>
+  <text x="340" y="500" font-family="Arial, sans-serif" font-size="14" fill="#7a9cc5">Faster Jobs</text>
+
+  <text x="450" y="470" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#e8f0fe">4</text>
+  <text x="450" y="500" font-family="Arial, sans-serif" font-size="14" fill="#7a9cc5">AI Agents</text>
+
+  <!-- URL -->
+  <text x="120" y="570" font-family="Arial, sans-serif" font-size="18" fill="#4d8ff7">raianiket.github.io</text>
+
+  <!-- Right side decorative code block -->
+  <rect x="780" y="160" width="340" height="280" rx="16" fill="rgba(13,27,46,0.9)" stroke="rgba(26,108,245,0.2)" stroke-width="1"/>
+  <rect x="780" y="160" width="340" height="36" rx="16" fill="rgba(26,108,245,0.1)"/>
+  <rect x="780" y="185" width="340" height="11" rx="0" fill="rgba(26,108,245,0.1)"/>
+  <circle cx="804" cy="178" r="5" fill="#ff5f57"/>
+  <circle cx="822" cy="178" r="5" fill="#febc2e"/>
+  <circle cx="840" cy="178" r="5" fill="#28c840"/>
+  <text x="800" y="225" font-family="monospace" font-size="13" fill="#4d8ff7">const</text>
+  <text x="845" y="225" font-family="monospace" font-size="13" fill="#e8f0fe"> engineer = {"{"}  </text>
+  <text x="800" y="250" font-family="monospace" font-size="13" fill="#7a9cc5">  stack:</text>
+  <text x="858" y="250" font-family="monospace" font-size="13" fill="#4ade80"> "Node.js + TS",</text>
+  <text x="800" y="275" font-family="monospace" font-size="13" fill="#7a9cc5">  db:</text>
+  <text x="835" y="275" font-family="monospace" font-size="13" fill="#4ade80">     "PostgreSQL",</text>
+  <text x="800" y="300" font-family="monospace" font-size="13" fill="#7a9cc5">  cloud:</text>
+  <text x="852" y="300" font-family="monospace" font-size="13" fill="#4ade80">  "AWS",</text>
+  <text x="800" y="325" font-family="monospace" font-size="13" fill="#7a9cc5">  ai:</text>
+  <text x="832" y="325" font-family="monospace" font-size="13" fill="#a78bfa">     true,</text>
+  <text x="800" y="350" font-family="monospace" font-size="13" fill="#7a9cc5">  yoe:</text>
+  <text x="836" y="350" font-family="monospace" font-size="13" fill="#fb923c">     5,</text>
+  <text x="800" y="375" font-family="monospace" font-size="13" fill="#e8f0fe">{"}"}</text>
+  <text x="800" y="400" font-family="monospace" font-size="13" fill="#e8f0fe">{"}"}</text>
+  <text x="800" y="400" font-family="monospace" font-size="13" fill="#e8f0fe">}</text>
+</svg>

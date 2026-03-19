@@ -16,11 +16,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://raianiket.github.io",
     siteName: "Aniket Rai Portfolio",
+    images: [{ url: "https://raianiket.github.io/og-image.svg", width: 1200, height: 630, alt: "Aniket Rai – Senior Software Engineer" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Aniket Rai – Senior Software Engineer",
     description: "5+ years building scalable backend systems, data pipelines & AI agents.",
+    images: ["https://raianiket.github.io/og-image.svg"],
   },
 };
 
