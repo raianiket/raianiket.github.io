@@ -46,13 +46,13 @@ export default function About() {
               scale
             </span>
           </h2>
-          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.75, maxWidth: "580px", margin: "0 auto", textAlign: "center" }}>
-            I&apos;m a Senior Software Engineer at{" "}
-            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>SysCloud Technologies</strong>,
-            where I&apos;ve spent 5+ years designing and owning large-scale backend
-            systems for a B2B SaaS cloud-backup platform. From config-driven framework
-            migrations that eliminate code changes entirely to AI-powered natural language
-            interfaces, I build for reliability, performance, and zero manual intervention.
+          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.85, maxWidth: "620px", margin: "0 auto", textAlign: "center" }}>
+            5+ years of backend engineering at{" "}
+            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>SysCloud Technologies</strong>.{" "}
+            Config-driven frameworks handling 12+ cloud integrations with zero code changes.{" "}
+            AI agents that detect and resolve production issues before customers notice.{" "}
+            A natural language interface where customers talk to their data instead of navigating dashboards.{" "}
+            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>Real systems. Real scale. Real impact.</strong>
           </p>
         </FadeIn>
 
