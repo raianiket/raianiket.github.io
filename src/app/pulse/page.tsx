@@ -353,7 +353,6 @@ export default function PulseDashboard() {
 
       <style>{`
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        * { cursor: default !important; }
       `}</style>
     </div>
   );
