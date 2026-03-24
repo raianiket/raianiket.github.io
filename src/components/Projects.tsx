@@ -1,7 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X } from "lucide-react";
+
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const projects = [
   {
@@ -127,82 +130,194 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+type Project = typeof projects[number];
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const Icon = project.icon;
   return (
-    <section id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), #050d1a" }}>
-      <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        style={{
+          position: "fixed", inset: 0, zIndex: 1000,
+          background: "rgba(5,13,26,0.88)", backdropFilter: "blur(10px)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          padding: "1.5rem",
+        }}
+      >
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          style={{ textAlign: "center", marginBottom: "3.5rem" }}
+          initial={{ opacity: 0, y: 32, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.96 }}
+          transition={{ duration: 0.4, ease: EASE }}
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            width: "100%", maxWidth: "640px", maxHeight: "85vh", overflowY: "auto",
+            background: "rgba(7,20,36,0.99)",
+            border: `1px solid ${project.borderColor}`,
+            borderRadius: "24px", padding: "2rem",
+            boxShadow: `0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px ${project.borderColor}`,
+            position: "relative",
+          }}
         >
-          <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-            Projects
-          </p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "0.75rem" }}>
-            Things I&apos;ve built
-          </h2>
-          <p style={{ color: "#7a9cc5", fontSize: "0.88rem", maxWidth: "480px", margin: "0 auto" }}>
-            Key systems and frameworks I designed and owned at SysCloud.
-          </p>
-        </motion.div>
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            style={{ position: "absolute", top: "1.25rem", right: "1.25rem", background: "rgba(30,58,95,0.5)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "6px", cursor: "pointer", color: "#7a9cc5", display: "flex" }}
+          >
+            <X size={16} />
+          </button>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-              whileHover={{ y: -4, boxShadow: `0 12px 40px ${p.bgColor}` }}
-              style={{
-                borderRadius: "18px", padding: "1.5rem",
-                background: "rgba(13,27,46,0.8)",
-                border: `1px solid ${p.borderColor}`,
-                transition: "all 0.3s",
-                cursor: "default",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1rem" }}>
-                <div style={{ width: "42px", height: "42px", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", background: p.bgColor, border: `1px solid ${p.borderColor}`, flexShrink: 0 }}>
-                  <p.icon size={20} color={p.color} />
-                </div>
-                <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color, letterSpacing: "0.05em" }}>
-                  {p.category}
+          {/* Header */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div style={{ width: "52px", height: "52px", borderRadius: "14px", display: "flex", alignItems: "center", justifyContent: "center", background: project.bgColor, border: `1px solid ${project.borderColor}`, flexShrink: 0 }}>
+              <Icon size={24} color={project.color} />
+            </div>
+            <div>
+              <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: project.bgColor, border: `1px solid ${project.borderColor}`, color: project.color, letterSpacing: "0.05em" }}>
+                {project.category}
+              </span>
+              <h2 style={{ color: "#e8f0fe", fontWeight: 800, fontSize: "1.25rem", marginTop: "0.4rem" }}>{project.title}</h2>
+            </div>
+          </div>
+
+          {/* Accent line */}
+          <div style={{ height: "2px", borderRadius: "999px", background: `linear-gradient(90deg, ${project.color}, transparent)`, marginBottom: "1.5rem", opacity: 0.6 }} />
+
+          {/* Description */}
+          <p style={{ color: "#c8daf4", fontSize: "0.85rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+            {project.description}
+          </p>
+
+          {/* Metrics */}
+          <div style={{ marginBottom: "1.25rem" }}>
+            <p style={{ color: "#4d8ff7", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.6rem" }}>Key Metrics</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+              {project.metrics.map((m) => (
+                <span key={m} style={{ fontSize: "0.75rem", fontWeight: 600, padding: "0.3rem 0.75rem", borderRadius: "999px", background: project.bgColor, border: `1px solid ${project.borderColor}`, color: project.color }}>
+                  ✓ {m}
                 </span>
-              </div>
+              ))}
+            </div>
+          </div>
 
-              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "1rem", marginBottom: "0.6rem" }}>
-                {p.title}
-              </h3>
-              <p style={{ color: "#7a9cc5", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem" }}>
-                {p.description}
-              </p>
+          {/* Tech stack */}
+          <div>
+            <p style={{ color: "#4d8ff7", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.6rem" }}>Tech Stack</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+              {project.tags.map((t) => (
+                <span key={t} style={{ fontSize: "0.72rem", padding: "0.25rem 0.65rem", borderRadius: "999px", background: "rgba(30,58,95,0.6)", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5" }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
-              {/* Metrics */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1rem" }}>
-                {p.metrics.map((m) => (
-                  <span key={m} style={{ fontSize: "0.68rem", fontWeight: 600, padding: "0.2rem 0.6rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color }}>
-                    ✓ {m}
+export default function Projects() {
+  const [selected, setSelected] = useState<Project | null>(null);
+
+  return (
+    <>
+      <section id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), #050d1a" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            style={{ textAlign: "center", marginBottom: "3.5rem" }}
+          >
+            <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+              Projects
+            </p>
+            <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "0.75rem" }}>
+              Things I&apos;ve built
+            </h2>
+            <p style={{ color: "#7a9cc5", fontSize: "0.88rem", maxWidth: "480px", margin: "0 auto" }}>
+              Key systems and frameworks I designed and owned at SysCloud. <span style={{ color: "#4d8ff7" }}>Click any card</span> for full details.
+            </p>
+          </motion.div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
+            {projects.map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.07 }}
+                whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
+                onClick={() => setSelected(p)}
+                style={{
+                  borderRadius: "18px", padding: "1.5rem",
+                  background: "rgba(13,27,46,0.8)",
+                  border: `1px solid ${p.borderColor}`,
+                  transition: "border-color 0.3s",
+                  cursor: "pointer",
+                  position: "relative", overflow: "hidden",
+                }}
+              >
+                {/* Click hint */}
+                <div style={{
+                  position: "absolute", top: "0.75rem", right: "0.75rem",
+                  display: "flex", alignItems: "center", gap: "4px",
+                  fontSize: "0.58rem", color: p.color, opacity: 0.7,
+                }}>
+                  <ExternalLink size={10} /> Details
+                </div>
+
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1rem" }}>
+                  <div style={{ width: "42px", height: "42px", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", background: p.bgColor, border: `1px solid ${p.borderColor}`, flexShrink: 0 }}>
+                    <p.icon size={20} color={p.color} />
+                  </div>
+                  <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color, letterSpacing: "0.05em" }}>
+                    {p.category}
                   </span>
-                ))}
-              </div>
+                </div>
 
-              {/* Tech tags */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                {p.tags.map((t) => (
-                  <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "rgba(30,58,95,0.5)", border: "1px solid rgba(30,58,95,0.8)", color: "#7a9cc5" }}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "1rem", marginBottom: "0.6rem" }}>
+                  {p.title}
+                </h3>
+                <p style={{
+                  color: "#7a9cc5", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem",
+                  display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
+                }}>
+                  {p.description}
+                </p>
+
+                {/* Metrics */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1rem" }}>
+                  {p.metrics.map((m) => (
+                    <span key={m} style={{ fontSize: "0.68rem", fontWeight: 600, padding: "0.2rem 0.6rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color }}>
+                      ✓ {m}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Tech tags */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                  {p.tags.map((t) => (
+                    <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "rgba(30,58,95,0.5)", border: "1px solid rgba(30,58,95,0.8)", color: "#7a9cc5" }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Project detail modal */}
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+    </>
   );
 }
