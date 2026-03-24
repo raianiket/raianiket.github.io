@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, RotateCcw, Copy, Check, Share2, Mic, MicOff, Download, Mail } from "lucide-react";
+import { X, Send, Copy, Check, Share2, Mic, MicOff } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -501,17 +501,16 @@ export default function ChatBot() {
                           zIndex: 10, minWidth: "160px",
                         }}
                       >
-                        {[
-                          ...(!recruiterMode ? [{ icon: null, label: "👔 Recruiter Mode", action: () => { activateRecruiterMode(); setShowHeaderMenu(false); } }] : []),
-                          { icon: Mail, label: "Email transcript", action: emailTranscript },
-                          { icon: Download, label: "Download .txt", action: downloadTranscript },
-                          { icon: RotateCcw, label: "Reset chat", action: () => { reset(); setShowHeaderMenu(false); } },
-                        ].map(({ icon: Icon, label, action }) => (
-                          <button key={label} onClick={() => { action(); setShowHeaderMenu(false); }}
+                        {([
+                          { label: recruiterMode ? "🚪 Exit Recruiter Mode" : "👔 Recruiter Mode", action: () => { recruiterMode ? (setRecruiterMode(false), setSuggestions(INITIAL_SUGGESTIONS)) : activateRecruiterMode(); setShowHeaderMenu(false); } },
+                          { label: "📧 Email transcript", action: () => { emailTranscript(); setShowHeaderMenu(false); } },
+                          { label: "⬇ Download .txt", action: () => { downloadTranscript(); setShowHeaderMenu(false); } },
+                          { label: "↺ Reset chat", action: () => { reset(); setShowHeaderMenu(false); } },
+                        ] as { label: string; action: () => void }[]).map(({ label, action }) => (
+                          <button key={label} onClick={action}
                             style={{ width: "100%", display: "flex", alignItems: "center", gap: "8px", padding: "0.45rem 0.75rem", background: "none", border: "none", cursor: "pointer", color: "#7a9cc5", fontSize: "0.75rem", borderRadius: "8px", textAlign: "left", transition: "all 0.15s" }}
                             onMouseEnter={e => { e.currentTarget.style.background = "rgba(26,108,245,0.1)"; e.currentTarget.style.color = "#e8f0fe"; }}
                             onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#7a9cc5"; }}>
-                            {Icon && <Icon size={12} />}
                             {label}
                           </button>
                         ))}
