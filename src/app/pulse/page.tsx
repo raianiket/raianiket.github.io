@@ -133,6 +133,14 @@ export default function PulseDashboard() {
   const chatMessages = events.filter(e => e.event_type === "chatbot_message").map(e => e.label).filter(Boolean);
   const unansweredCount = new Set(events.filter(e => e.event_type === "chatbot_unanswered").map(e => e.label)).size;
 
+  // Recruiter vs normal sessions
+  const recruiterSessions = new Set(events.filter(e => e.event_type === "recruiter_mode").map(e => e.session_id)).size;
+  const normalSessions = Math.max(0, totalSessions - recruiterSessions);
+  const recruiterConversionPct = totalSessions > 0 ? Math.round((recruiterSessions / totalSessions) * 100) : 0;
+  // Recruiter-specific actions (questions asked after recruiter mode activated per session)
+  const recruiterQuestions = events.filter(e => e.event_type === "chatbot_message" &&
+    events.some(r => r.event_type === "recruiter_mode" && r.session_id === e.session_id)).length;
+
   // Most asked questions — group by label
   const questionCounts = events
     .filter(e => e.event_type === "chatbot_message" && e.label)
@@ -155,6 +163,7 @@ export default function PulseDashboard() {
     chatbot_open: "#fb923c",
     chatbot_message: "#fbbf24",
     chatbot_unanswered: "#ef4444",
+    recruiter_mode: "#fbbf24",
     welcome_explore: "#38bdf8",
     welcome_bot: "#f472b6",
     contact_click: "#34d399",
@@ -249,6 +258,7 @@ export default function PulseDashboard() {
           <StatCard icon={Globe} label="Explore Chosen" value={exploreClicks} color="#38bdf8" sub={`${botClicks} chose bot`} />
           <StatCard icon={Clock} label="Bot vs Explore" value={`${botClicks}:${exploreClicks}`} color="#f472b6" sub="bot : explore" />
           <StatCard icon={AlertTriangle} label="Unanswered Qs" value={unansweredCount} color="#ef4444" sub="unique questions" />
+          <StatCard icon={MessageCircle} label="Recruiter Sessions" value={recruiterSessions} color="#fbbf24" sub={`${recruiterConversionPct}% of all sessions`} />
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem", marginBottom: "1.25rem" }}>
@@ -348,6 +358,48 @@ export default function PulseDashboard() {
               );
             })}
             {Object.keys(questionCounts).length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No questions yet</p>}
+          </div>
+
+          {/* Recruiter vs Normal */}
+          <div style={{ background: "rgba(13,27,46,0.8)", border: "1px solid rgba(251,191,36,0.25)", borderRadius: "16px", padding: "1.25rem" }}>
+            <p style={{ color: "#fbbf24", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>👔 Recruiter vs Normal</p>
+            {/* Bar visualization */}
+            <div style={{ marginBottom: "1.25rem" }}>
+              {[
+                { label: "👔 Recruiter", count: recruiterSessions, color: "#fbbf24", bg: "rgba(251,191,36,0.15)" },
+                { label: "👤 Normal", count: normalSessions, color: "#4d8ff7", bg: "rgba(26,108,245,0.15)" },
+              ].map(({ label, count, color, bg }) => {
+                const max = Math.max(recruiterSessions, normalSessions) || 1;
+                return (
+                  <div key={label} style={{ marginBottom: "0.75rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+                      <span style={{ color: "#c8daf4", fontSize: "0.75rem" }}>{label}</span>
+                      <span style={{ color, fontSize: "0.72rem", fontWeight: 700 }}>{count} sessions</span>
+                    </div>
+                    <div style={{ height: "8px", borderRadius: "999px", background: "rgba(30,58,95,0.6)", overflow: "hidden" }}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(count / max) * 100}%` }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ height: "100%", borderRadius: "999px", background: bg, border: `1px solid ${color}40` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Stats row */}
+            <div style={{ display: "flex", gap: "0.75rem" }}>
+              {[
+                { label: "Conversion", value: `${recruiterConversionPct}%`, color: "#fbbf24" },
+                { label: "Recruiter Qs", value: recruiterQuestions, color: "#fb923c" },
+              ].map(({ label, value, color }) => (
+                <div key={label} style={{ flex: 1, padding: "0.5rem 0.65rem", borderRadius: "10px", background: "rgba(5,13,26,0.6)", border: `1px solid ${color}20`, textAlign: "center" }}>
+                  <div style={{ color, fontSize: "1.1rem", fontWeight: 900 }}>{value}</div>
+                  <div style={{ color: "#4a6b8a", fontSize: "0.6rem", marginTop: "2px" }}>{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Unanswered questions */}
