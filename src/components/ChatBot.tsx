@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, RotateCcw } from "lucide-react";
+import { X, Send, Bot, RotateCcw, Sparkles } from "lucide-react";
 import { RESPONSES, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS } from "@/data/chatResponses";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -143,29 +143,34 @@ export default function ChatBot() {
 
         <motion.button
           onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
-          whileHover={{ scale: 1.08 }}
+          animate={open ? { y: 0 } : { y: [0, -10, 0] }}
+          transition={open ? {} : { duration: 1.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.6 }}
+          whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.95 }}
           style={{
-            width: "54px", height: "54px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #1a6cf5, #4d8ff7)",
-            border: "none", cursor: "pointer",
+            width: "58px", height: "58px", borderRadius: "50%",
+            background: "linear-gradient(135deg, #1a6cf5, #7eb3ff)",
+            border: "2px solid rgba(126,179,255,0.4)",
+            cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 4px 28px rgba(26,108,245,0.5)",
+            boxShadow: "0 4px 28px rgba(26,108,245,0.6), 0 0 0 4px rgba(26,108,245,0.15)",
             position: "relative",
           }}
         >
         {/* Pulse ring */}
         {!open && (
           <motion.span
-            animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
-            style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(26,108,245,0.4)", pointerEvents: "none" }}
+            animate={{ scale: [1, 1.7], opacity: [0.6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+            style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(26,108,245,0.45)", pointerEvents: "none" }}
           />
         )}
         <AnimatePresence mode="wait">
           {open
-            ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={20} color="#fff" /></motion.span>
-            : <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><MessageCircle size={20} color="#fff" /></motion.span>
+            ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
+            : <motion.span key="spark" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                <Sparkles size={22} color="#fff" />
+              </motion.span>
           }
         </AnimatePresence>
         <AnimatePresence>
