@@ -21,7 +21,7 @@ export default function WelcomeModal() {
     setVisible(false);
     if (mode === "tldr") {
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("openChatBot"));
+        window.dispatchEvent(new CustomEvent("openChatBot", { detail: { full: true } }));
       }, 400);
     }
   };
