@@ -120,26 +120,28 @@ export default function ChatBot() {
     <>
       {/* Floating button with label */}
       <div style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
-        {/* Label tooltip — always visible */}
-        <div
-          style={{
-            background: "rgba(7,20,36,0.95)",
-            border: "1px solid rgba(26,108,245,0.35)",
-            borderRadius: "10px",
-            padding: "0.4rem 0.75rem",
-            display: "flex", alignItems: "center", gap: "6px",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <motion.span
-            animate={{ opacity: [1, 0.4, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
-          />
-          <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
-          <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
-        </div>
+        {/* Label tooltip — hide when small panel is open */}
+        {(!open || fullscreen) && (
+          <div
+            style={{
+              background: "rgba(7,20,36,0.95)",
+              border: "1px solid rgba(26,108,245,0.35)",
+              borderRadius: "10px",
+              padding: "0.4rem 0.75rem",
+              display: "flex", alignItems: "center", gap: "6px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <motion.span
+              animate={{ opacity: [1, 0.4, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
+            />
+            <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
+            <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
+          </div>
+        )}
 
         <motion.button
           onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
@@ -149,7 +151,7 @@ export default function ChatBot() {
           whileTap={{ scale: 0.95 }}
           style={{
             width: "72px", height: "72px", borderRadius: "50%",
-            background: "#ffffff",
+            background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
             border: "3px solid rgba(126,179,255,0.5)",
             cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
@@ -170,7 +172,7 @@ export default function ChatBot() {
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
             : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "screen" }} />
               </motion.span>
           }
         </AnimatePresence>
@@ -241,13 +243,14 @@ export default function ChatBot() {
               background: "rgba(7,20,36,0.9)",
             }}>
               <div style={{
-                width: "36px", height: "36px", borderRadius: "11px", flexShrink: 0,
-                background: "linear-gradient(135deg, rgba(26,108,245,0.35), rgba(77,143,247,0.15))",
-                border: "1px solid rgba(26,108,245,0.35)",
+                width: "42px", height: "42px", borderRadius: "50%", flexShrink: 0,
+                background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
+                border: "2px solid rgba(26,108,245,0.4)",
                 display: "flex", alignItems: "center", justifyContent: "center",
+                overflow: "hidden",
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "screen" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.85rem", marginBottom: "2px" }}>Aniket Assistant Bot</p>
