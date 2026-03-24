@@ -5,7 +5,7 @@ export interface ResponseEntry {
 
 export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
   {
-    pattern: /^(hi|hello|hey|sup|yo|howdy)/,
+    pattern: /^(hi|hello|hey|sup|yo|howdy)\b/,
     response: {
       text: "Hey! I'm Aniket's portfolio assistant. I can tell you about his skills, projects, experience, or how to get in touch. What would you like to know?",
       suggestions: ["Who is Aniket?", "What's his tech stack?", "Show me his projects"],
