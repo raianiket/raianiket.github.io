@@ -449,7 +449,15 @@ export default function ChatBot() {
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.85rem" }}>Aniket Assistant Bot</p>
                   {recruiterMode && (
-                    <span style={{ fontSize: "0.58rem", fontWeight: 700, padding: "0.1rem 0.45rem", borderRadius: "999px", background: "rgba(251,191,36,0.15)", border: "1px solid rgba(251,191,36,0.35)", color: "#fbbf24" }}>RECRUITER</span>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => { setRecruiterMode(false); setSuggestions(INITIAL_SUGGESTIONS); }}
+                      title="Exit Recruiter Mode"
+                      style={{ fontSize: "0.58rem", fontWeight: 700, padding: "0.1rem 0.45rem", borderRadius: "999px", background: "rgba(251,191,36,0.15)", border: "1px solid rgba(251,191,36,0.35)", color: "#fbbf24", cursor: "pointer", display: "flex", alignItems: "center", gap: "3px" }}
+                    >
+                      RECRUITER <span style={{ opacity: 0.7 }}>×</span>
+                    </motion.button>
                   )}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
