@@ -502,6 +502,7 @@ export default function ChatBot() {
                         }}
                       >
                         {[
+                          ...(!recruiterMode ? [{ icon: null, label: "👔 Recruiter Mode", action: () => { activateRecruiterMode(); setShowHeaderMenu(false); } }] : []),
                           { icon: Mail, label: "Email transcript", action: emailTranscript },
                           { icon: Download, label: "Download .txt", action: downloadTranscript },
                           { icon: RotateCcw, label: "Reset chat", action: () => { reset(); setShowHeaderMenu(false); } },
@@ -510,7 +511,7 @@ export default function ChatBot() {
                             style={{ width: "100%", display: "flex", alignItems: "center", gap: "8px", padding: "0.45rem 0.75rem", background: "none", border: "none", cursor: "pointer", color: "#7a9cc5", fontSize: "0.75rem", borderRadius: "8px", textAlign: "left", transition: "all 0.15s" }}
                             onMouseEnter={e => { e.currentTarget.style.background = "rgba(26,108,245,0.1)"; e.currentTarget.style.color = "#e8f0fe"; }}
                             onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#7a9cc5"; }}>
-                            <Icon size={12} />
+                            {Icon && <Icon size={12} />}
                             {label}
                           </button>
                         ))}
