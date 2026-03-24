@@ -69,5 +69,8 @@ body::after {
 
 /* Hide default cursor when custom cursor active */
 @media (pointer: fine) {
-  * { cursor: none !important; }
+  body.custom-cursor *:not(input):not(textarea):not(select) { cursor: none !important; }
+  body.custom-cursor input,
+  body.custom-cursor textarea,
+  body.custom-cursor select { cursor: text !important; }
 }
