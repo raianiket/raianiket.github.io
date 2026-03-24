@@ -185,7 +185,15 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
     },
   },
   {
-    pattern: /experience|syscloud|work history|career|role|job/,
+    pattern: /what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in/,
+    response: {
+      text: "Aniket is actively open to:\n\n🎯 Senior Backend Engineer\n🎯 Senior Full-Stack Engineer\n🎯 Backend-heavy roles (Node.js / TypeScript)\n🎯 AI/LLM Engineering roles\n🎯 Platform / Infrastructure Engineering\n\n📍 Hyderabad | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: 90 days (negotiable)\n\nReach out at rai078945@gmail.com!",
+      suggestions: ["His notice period?", "How to contact him?", "His tech stack"],
+      topic: "roles",
+    },
+  },
+  {
+    pattern: /experience|syscloud|work history|career|current role|his role|job history/,
     response: {
       text: "Aniket has been at SysCloud Technologies for 5+ years:\n\n🔵 Senior Software Engineer (Jun 2023 – Present) · Hyderabad\nAI agents, Sky 2.0, MDL 2.0, Partner Portal, Dashboard overhaul\n\n🟢 Software Engineer (May 2021 – Jun 2023) · Chennai\nConfig-driven Restore/Export, S3 data integrity pipeline, ELK Stack\n\n⚪ Software Engineer Intern (Nov 2020 – Apr 2021) · Chennai\nGraphQL queries, monolith → microservices POCs",
       suggestions: ["What has he built as SSE?", "His tech stack", "How to contact him?"],
@@ -226,7 +234,7 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
     },
   },
   {
-    pattern: /notice|joining|open to work|looking|opportunity|hire|available|when can|start date/,
+    pattern: /notice|joining|open to work|opportunity|when can.*join|start date|joining date/,
     response: {
       text: "Aniket is open to Senior Backend, Full-Stack, and Backend-heavy roles.\n\n• Notice period: 90 days (negotiable)\n• Location: Hybrid, Remote, or Work from Office\n• For exact joining timeline, reach out directly to confirm — rai078945@gmail.com",
       suggestions: ["How to contact him?", "His experience", "What's his tech stack?"],
