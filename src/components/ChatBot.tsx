@@ -602,7 +602,7 @@ export default function ChatBot() {
 
               {messages.map((msg) => (
                 <motion.div key={msg.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}
-                  onMouseEnter={() => msg.from === "bot" && setHoveredId(msg.id)}
+                  onMouseEnter={() => setHoveredId(msg.id)}
                   onMouseLeave={() => setHoveredId(null)}
                   style={{ display: "flex", flexDirection: "column", alignItems: msg.from === "user" ? "flex-end" : "flex-start", gap: "3px" }}>
                   {msg.from === "compose" ? (
@@ -659,9 +659,28 @@ export default function ChatBot() {
                     </div>
                   )}
 
-                  {/* User message time */}
+                  {/* User message: time + reuse */}
                   {msg.from === "user" && (
-                    <span style={{ fontSize: "0.6rem", color: "#2d4a6a", paddingInline: "4px" }}>{msg.time}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "5px", paddingInline: "4px" }}>
+                      <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>{msg.time}</span>
+                      <AnimatePresence>
+                        {hoveredId === msg.id && (
+                          <motion.button
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.15 }}
+                            onClick={() => { setInput(msg.text); setTimeout(() => inputRef.current?.focus(), 50); }}
+                            title="Edit & resend"
+                            style={{ fontSize: "0.58rem", fontWeight: 600, padding: "0.12rem 0.45rem", borderRadius: "999px", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.25)", color: "#4d8ff7", cursor: "pointer", transition: "all 0.15s" }}
+                            onMouseEnter={e => { e.currentTarget.style.background = "rgba(26,108,245,0.2)"; }}
+                            onMouseLeave={e => { e.currentTarget.style.background = "rgba(26,108,245,0.1)"; }}
+                          >
+                            ↩ Edit
+                          </motion.button>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   )}
                 </motion.div>
               ))}
