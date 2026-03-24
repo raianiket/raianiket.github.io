@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 import Preloader from "@/components/Preloader";
+import ChatBot from "@/components/ChatBot";
+import WelcomeModal from "@/components/WelcomeModal";
 
 export default function Home() {
   return (
@@ -26,6 +28,8 @@ export default function Home() {
       <Contact />
       <Footer />
       <BackToTop />
+      <ChatBot />
+      <WelcomeModal />
     </main>
   );
 }

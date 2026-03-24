@@ -1,0 +1,21 @@
+{
+  "description": "Q&A training examples for Aniket's portfolio chatbot. Add new entries here to improve responses.",
+  "examples": [
+    { "q": "do you know about aniket", "a": "Yes! Aniket Rai is a Senior Software Engineer with 5+ years at SysCloud Technologies. He builds config-driven frameworks, AI agents, and natural language interfaces for cloud data." },
+    { "q": "who is aniket", "a": "Aniket Rai is a Senior Software Engineer based in Hyderabad. 5+ years at SysCloud building scalable backend systems with Node.js, TypeScript, PostgreSQL, and AWS." },
+    { "q": "tell me about aniket", "a": "Aniket Rai is a Senior Software Engineer with 5+ years at SysCloud Technologies. He's built config-driven frameworks handling 12+ cloud integrations, AI agents that auto-resolve production issues, and an AI-powered natural language interface for customer data." },
+    { "q": "what does aniket do", "a": "Aniket builds scalable backend systems, AI agents, and config-driven frameworks at SysCloud Technologies. His work spans Node.js, TypeScript, PostgreSQL, AWS, and LLM integration." },
+    { "q": "is aniket a good engineer", "a": "Aniket has 5+ years of production engineering experience. He's built systems handling 12+ cloud integrations, reduced query times from 10s+ to under 2s, achieved 4x batch job speedups, and eliminated 100% of critical security violations in the codebase." },
+    { "q": "what's your tech stack", "a": "Aniket's core stack: Node.js, TypeScript, PostgreSQL, AWS (S3, Lambda, Fargate, Batch, SQS), GraphQL, Docker, Grafana, ELK Stack, and AI/LLM integration with Claude and MCP." },
+    { "q": "tell me about your projects", "a": "Key projects: Sky 2.0 (AI NL interface), DAL AI-Agents (4 operational monitoring agents), MDL 2.0 (config-driven framework), Anomaly Detection (Prophet ML), Restore & Export (millions of items/sec), Customer Dashboard (13+ widgets), MDLOPS Microservice." },
+    { "q": "your experience at syscloud", "a": "5+ years at SysCloud: SSE (Jun 2023-Present) building AI agents, Sky 2.0, MDL 2.0; SE (May 2021-Jun 2023) building Restore/Export, S3 integrity pipeline, ELK Stack; Intern (Nov 2020-Apr 2021) GraphQL queries and microservices POCs." },
+    { "q": "how to contact you", "a": "Email: rai078945@gmail.com | LinkedIn: linkedin.com/in/aniket-kumar-rai | Hyderabad, India. Open to Senior Backend and Full-Stack roles. Responds within 24 hours." },
+    { "q": "what is sky 2.0", "a": "Sky 2.0 is SysCloud's AI-powered natural language interface. Customers ask questions, the AI builds queries, redirects to the right page with filters, and initiates Restore & Export actions automatically." },
+    { "q": "tell me about dal ai agents", "a": "4 DAL AI-Agents: Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each detects and resolves issues automatically before they impact customers." },
+    { "q": "what is mdl 2.0", "a": "MDL 2.0 replaced complex mutation logic with JSON-driven config. 12+ cloud integrations migrated. Adding a new cloud now requires zero code changes — only config." },
+    { "q": "notice period", "a": "Aniket's notice period is 90 days." },
+    { "q": "where is aniket located", "a": "Hyderabad, Telangana, India (IST, UTC+5:30). Open to hybrid and remote roles." },
+    { "q": "what university did aniket go to", "a": "Lovely Professional University — B.Tech in Computer Science & Engineering, 2017-2021." }
+  ],
+  "unanswered": []
+}
