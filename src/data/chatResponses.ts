@@ -221,7 +221,7 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
     pattern: /contact|email|reach|connect|linkedin/,
     response: {
       text: "You can reach Aniket at:\n\n📧 rai078945@gmail.com\n💼 linkedin.com/in/aniket-kumar-rai\n📍 Hyderabad, India (IST, UTC+5:30)\n\nHe's open to Senior Backend, Full-Stack, and Backend-heavy roles. Typically responds within 24 hours!",
-      suggestions: ["What roles is he open to?", "His notice period?", "Tell me about him"],
+      suggestions: ["✉ Send Aniket an email", "What roles is he open to?", "His notice period?"],
       topic: "contact",
     },
   },
