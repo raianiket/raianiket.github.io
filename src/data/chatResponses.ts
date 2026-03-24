@@ -187,7 +187,7 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
   {
     pattern: /what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in/,
     response: {
-      text: "Aniket is actively open to:\n\n🎯 Senior Backend Engineer\n🎯 Senior Full-Stack Engineer\n🎯 Backend-heavy roles (Node.js / TypeScript)\n🎯 AI/LLM Engineering roles\n🎯 Platform / Infrastructure Engineering\n\n📍 Hyderabad | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: 90 days (negotiable)\n\nReach out at rai078945@gmail.com!",
+      text: "Aniket is actively open to:\n\n🎯 Senior Backend Engineer\n🎯 Senior Full-Stack Engineer\n🎯 Backend-heavy roles (Node.js / TypeScript)\n🎯 AI/LLM Engineering roles\n\n📍 Hyderabad | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: 90 days (negotiable)\n\nReach out at rai078945@gmail.com!",
       suggestions: ["His notice period?", "How to contact him?", "His tech stack"],
       topic: "roles",
     },
