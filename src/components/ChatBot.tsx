@@ -198,6 +198,7 @@ export default function ChatBot() {
   const activateRecruiterMode = () => {
     setRecruiterMode(true);
     setSuggestions(RECRUITER_SUGGESTIONS);
+    track("recruiter_mode", { label: "activated" });
     const botMsg: Message = {
       from: "bot",
       text: "Switched to Recruiter Mode! 👔\n\nI'll now prioritize the most relevant information for evaluating Aniket. Use the quick actions below or ask me anything specific.",
