@@ -148,12 +148,12 @@ export default function ChatBot() {
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.95 }}
           style={{
-            width: "58px", height: "58px", borderRadius: "50%",
+            width: "72px", height: "72px", borderRadius: "50%",
             background: "#ffffff",
-            border: "2px solid rgba(126,179,255,0.4)",
+            border: "3px solid rgba(126,179,255,0.5)",
             cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 4px 28px rgba(26,108,245,0.6), 0 0 0 4px rgba(26,108,245,0.15)",
+            boxShadow: "0 6px 36px rgba(26,108,245,0.7), 0 0 0 6px rgba(26,108,245,0.2)",
             position: "relative",
           }}
         >
@@ -170,7 +170,7 @@ export default function ChatBot() {
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
             : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
               </motion.span>
           }
         </AnimatePresence>
