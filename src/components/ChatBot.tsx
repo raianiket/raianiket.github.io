@@ -170,7 +170,7 @@ export default function ChatBot() {
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
             : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/bot.png" alt="bot" style={{ width: "34px", height: "34px", objectFit: "contain" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "34px", height: "34px", objectFit: "contain" }} />
               </motion.span>
           }
         </AnimatePresence>
@@ -247,7 +247,7 @@ export default function ChatBot() {
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/bot.png" alt="bot" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.85rem", marginBottom: "2px" }}>Aniket Assistant Bot</p>
