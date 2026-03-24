@@ -141,22 +141,7 @@ export default function Hero() {
       <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 1.5rem", maxWidth: "800px", margin: "0 auto" }}>
 
 
-        {/* Availability badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "1.25rem", padding: "0.35rem 0.9rem", borderRadius: "999px", background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.25)", cursor: "default" }}
-        >
-          <motion.span
-            animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4ade80", display: "inline-block", boxShadow: "0 0 6px #4ade80", flexShrink: 0 }}
-          />
-          <span style={{ color: "#4ade80", fontSize: "0.7rem", fontWeight: 600 }}>Open to Work</span>
-        </motion.div>
-
-        <motion.p
+<motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
