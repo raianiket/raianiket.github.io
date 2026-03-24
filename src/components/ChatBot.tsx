@@ -481,17 +481,24 @@ export default function ChatBot() {
 
                 {/* Action text badges */}
                 {([
-                  { label: "Share", action: sharePortfolio },
-                  { label: "Email", action: emailTranscript },
-                  { label: "Save", action: downloadTranscript },
-                  { label: "Reset", action: reset, danger: true },
-                ] as { label: string; action: () => void; danger?: boolean }[]).map(({ label, action, danger }) => (
-                  <button key={label} onClick={action} title={label}
-                    style={{ fontSize: "0.6rem", fontWeight: 600, padding: "0.2rem 0.5rem", borderRadius: "999px", border: "1px solid rgba(30,58,95,0.7)", background: "none", color: "#4a6b8a", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = danger ? "rgba(239,68,68,0.4)" : "rgba(26,108,245,0.4)"; e.currentTarget.style.color = danger ? "#ef4444" : "#e8f0fe"; e.currentTarget.style.background = danger ? "rgba(239,68,68,0.07)" : "rgba(26,108,245,0.07)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.7)"; e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
-                    {label}
-                  </button>
+                  { label: "Share", tooltip: "Share portfolio link", action: sharePortfolio },
+                  { label: "Email", tooltip: "Email this transcript", action: emailTranscript },
+                  { label: "Save", tooltip: "Download transcript (.txt)", action: downloadTranscript },
+                  { label: "Reset", tooltip: "Clear conversation", action: reset, danger: true },
+                ] as { label: string; tooltip: string; action: () => void; danger?: boolean }[]).map(({ label, tooltip, action, danger }) => (
+                  <div key={label} style={{ position: "relative" }}
+                    onMouseEnter={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "1"; }}
+                    onMouseLeave={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "0"; }}>
+                    <button onClick={action}
+                      style={{ fontSize: "0.6rem", fontWeight: 600, padding: "0.2rem 0.5rem", borderRadius: "999px", border: "1px solid rgba(30,58,95,0.7)", background: "none", color: "#4a6b8a", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s" }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = danger ? "rgba(239,68,68,0.4)" : "rgba(26,108,245,0.4)"; e.currentTarget.style.color = danger ? "#ef4444" : "#e8f0fe"; e.currentTarget.style.background = danger ? "rgba(239,68,68,0.07)" : "rgba(26,108,245,0.07)"; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.7)"; e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
+                      {label}
+                    </button>
+                    <div className="hdr-tip" style={{ position: "absolute", bottom: "calc(100% + 6px)", left: "50%", transform: "translateX(-50%)", background: "rgba(7,20,36,0.97)", border: "1px solid rgba(30,58,95,0.9)", borderRadius: "7px", padding: "0.25rem 0.55rem", fontSize: "0.6rem", color: "#c8daf4", whiteSpace: "nowrap", pointerEvents: "none", opacity: 0, transition: "opacity 0.15s", zIndex: 20 }}>
+                      {tooltip}
+                    </div>
+                  </div>
                 ))}
 
                 {fullscreen && (
