@@ -139,10 +139,10 @@ export default function WelcomeModal() {
                 </div>
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "2px" }}>
-                    <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.9rem" }}>TL;DR</p>
+                    <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.9rem" }}>Skip the Scroll</p>
                     <span style={{ fontSize: "0.58rem", fontWeight: 700, padding: "0.1rem 0.45rem", borderRadius: "999px", background: "rgba(26,108,245,0.2)", border: "1px solid rgba(26,108,245,0.35)", color: "#4d8ff7", letterSpacing: "0.05em" }}>RECOMMENDED</span>
                   </div>
-                  <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>Ask the assistant bot anything instead</p>
+                  <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>Ask the bot anything, get answers fast</p>
                 </div>
               </motion.button>
             </div>
