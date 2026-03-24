@@ -1,6 +1,8 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Github, Linkedin, Mail, Users } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const links = [
   { label: "About", href: "#about" },
@@ -17,6 +19,22 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [visitors, setVisitors] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function fetchVisitors() {
+      const { data } = await supabase
+        .from("events")
+        .select("session_id")
+        .eq("event_type", "page_view");
+      if (data) {
+        const unique = new Set(data.map((e: { session_id: string }) => e.session_id)).size;
+        if (unique >= 100) setVisitors(unique);
+      }
+    }
+    fetchVisitors();
+  }, []);
+
   return (
     <footer style={{ borderTop: "1px solid rgba(30,58,95,0.6)", background: "#050d1a", padding: "3rem 1.5rem 2rem" }}>
       <div style={{ maxWidth: "960px", margin: "0 auto" }}>
@@ -67,6 +85,12 @@ export default function Footer() {
           <span style={{ fontSize: "0.73rem", color: "#4a6b8a" }}>
             Built with Next.js · Deployed on GitHub Pages
           </span>
+          {visitors !== null && (
+            <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "0.72rem", color: "#4d8ff7", background: "rgba(26,108,245,0.08)", border: "1px solid rgba(26,108,245,0.2)", borderRadius: "999px", padding: "0.2rem 0.65rem" }}>
+              <Users size={11} />
+              {visitors.toLocaleString()}+ visitors
+            </span>
+          )}
         </div>
 
       </div>
