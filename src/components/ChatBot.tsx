@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Copy, Check, Share2, Mic, MicOff } from "lucide-react";
+import { X, Send, Copy, Check, Share2, Mic, MicOff, Mail, Download, RotateCcw } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -110,7 +110,6 @@ export default function ChatBot() {
   const [hoveredId, setHoveredId] = useState<number | string | null>(null);
   const [recruiterMode, setRecruiterMode] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [showHeaderMenu, setShowHeaderMenu] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<{ stop: () => void } | null>(null);
@@ -137,13 +136,6 @@ export default function ChatBot() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typingText, typing]);
 
-  // Close header menu on outside click
-  useEffect(() => {
-    if (!showHeaderMenu) return;
-    const handler = () => setShowHeaderMenu(false);
-    setTimeout(() => window.addEventListener("click", handler), 0);
-    return () => window.removeEventListener("click", handler);
-  }, [showHeaderMenu]);
 
   const typeMessage = (text: string, onDone: () => void) => {
     setIsTypingEffect(true);
@@ -472,60 +464,27 @@ export default function ChatBot() {
                 </div>
               </div>
 
-              {/* Header actions */}
-              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                <button onClick={sharePortfolio} title="Share portfolio"
-                  style={{ background: "none", border: "none", cursor: "pointer", padding: "5px", color: "#4a6b8a", display: "flex", borderRadius: "6px", transition: "color 0.2s" }}
-                  onMouseEnter={e => e.currentTarget.style.color = "#4d8ff7"}
-                  onMouseLeave={e => e.currentTarget.style.color = "#4a6b8a"}>
-                  <Share2 size={13} />
-                </button>
-                <div style={{ position: "relative" }}>
-                  <button onClick={(e) => { e.stopPropagation(); setShowHeaderMenu(!showHeaderMenu); }} title="More options"
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "5px", color: "#4a6b8a", display: "flex", borderRadius: "6px", fontSize: "1rem", lineHeight: 1, transition: "color 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#4d8ff7"}
-                    onMouseLeave={e => e.currentTarget.style.color = "#4a6b8a"}>
-                    ⋯
+              {/* Header actions — always visible icon buttons */}
+              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                {([
+                  { icon: Share2, label: "Share portfolio", action: sharePortfolio, color: "#4a6b8a", hoverColor: "#4d8ff7" },
+                  { icon: Mail, label: "Email transcript", action: emailTranscript, color: "#4a6b8a", hoverColor: "#4d8ff7" },
+                  { icon: Download, label: "Download transcript", action: downloadTranscript, color: "#4a6b8a", hoverColor: "#4d8ff7" },
+                  { icon: RotateCcw, label: "Reset chat", action: reset, color: "#4a6b8a", hoverColor: "#ef4444" },
+                ] as { icon: React.ElementType; label: string; action: () => void; color: string; hoverColor: string }[]).map(({ icon: Icon, label, action, color, hoverColor }) => (
+                  <button key={label} onClick={action} title={label}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "6px", color, display: "flex", borderRadius: "7px", transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.color = hoverColor; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = color; e.currentTarget.style.background = "none"; }}>
+                    <Icon size={13} />
                   </button>
-                  <AnimatePresence>
-                    {showHeaderMenu && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                        transition={{ duration: 0.15 }}
-                        onClick={e => e.stopPropagation()}
-                        style={{
-                          position: "absolute", top: "100%", right: 0, marginTop: "4px",
-                          background: "rgba(7,20,36,0.98)", border: "1px solid rgba(30,58,95,0.9)",
-                          borderRadius: "12px", padding: "0.35rem",
-                          boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
-                          zIndex: 10, minWidth: "160px",
-                        }}
-                      >
-                        {([
-                          { label: recruiterMode ? "🚪 Exit Recruiter Mode" : "👔 Recruiter Mode", action: () => { recruiterMode ? (setRecruiterMode(false), setSuggestions(INITIAL_SUGGESTIONS)) : activateRecruiterMode(); setShowHeaderMenu(false); } },
-                          { label: "📧 Email transcript", action: () => { emailTranscript(); setShowHeaderMenu(false); } },
-                          { label: "⬇ Download .txt", action: () => { downloadTranscript(); setShowHeaderMenu(false); } },
-                          { label: "↺ Reset chat", action: () => { reset(); setShowHeaderMenu(false); } },
-                        ] as { label: string; action: () => void }[]).map(({ label, action }) => (
-                          <button key={label} onClick={action}
-                            style={{ width: "100%", display: "flex", alignItems: "center", gap: "8px", padding: "0.45rem 0.75rem", background: "none", border: "none", cursor: "pointer", color: "#7a9cc5", fontSize: "0.75rem", borderRadius: "8px", textAlign: "left", transition: "all 0.15s" }}
-                            onMouseEnter={e => { e.currentTarget.style.background = "rgba(26,108,245,0.1)"; e.currentTarget.style.color = "#e8f0fe"; }}
-                            onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#7a9cc5"; }}>
-                            {label}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                ))}
                 {fullscreen && (
                   <button onClick={() => { setOpen(false); setFullscreen(false); }} title="Close"
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "5px", color: "#4a6b8a", display: "flex", marginLeft: "2px", transition: "color 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#e8f0fe"}
-                    onMouseLeave={e => e.currentTarget.style.color = "#4a6b8a"}>
-                    <X size={16} />
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "6px", color: "#4a6b8a", display: "flex", borderRadius: "7px", marginLeft: "2px", transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#e8f0fe"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
+                    <X size={15} />
                   </button>
                 )}
               </div>
