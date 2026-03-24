@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
-import { Eye, MousePointer, Download, MessageCircle, Clock, Monitor, Globe, BarChart3, RefreshCw, Lock } from "lucide-react";
+import { Eye, MousePointer, Download, MessageCircle, Clock, Monitor, Globe, BarChart3, RefreshCw, Lock, AlertTriangle } from "lucide-react";
 
 const PULSE_PIN = "4444"; // Change this to your preferred PIN
 
@@ -131,6 +131,19 @@ export default function PulseDashboard() {
     .reduce((acc, e) => { acc[e.browser] = (acc[e.browser] || 0) + 1; return acc; }, {} as Record<string, number>);
 
   const chatMessages = events.filter(e => e.event_type === "chatbot_message").map(e => e.label).filter(Boolean);
+  const unansweredCount = new Set(events.filter(e => e.event_type === "chatbot_unanswered").map(e => e.label)).size;
+
+  // Most asked questions — group by label
+  const questionCounts = events
+    .filter(e => e.event_type === "chatbot_message" && e.label)
+    .reduce((acc, e) => { acc[e.label] = (acc[e.label] || 0) + 1; return acc; }, {} as Record<string, number>);
+
+  // Unanswered questions — from chatbot_unanswered events
+  const unansweredQuestions = events
+    .filter(e => e.event_type === "chatbot_unanswered" && e.label)
+    .map(e => ({ question: e.label, time: e.created_at }))
+    .filter((v, i, arr) => arr.findIndex(x => x.question === v.question) === i) // dedupe
+    .slice(0, 15);
 
   const recent = events.slice(0, 20);
 
@@ -141,6 +154,7 @@ export default function PulseDashboard() {
     resume_download: "#4ade80",
     chatbot_open: "#fb923c",
     chatbot_message: "#fbbf24",
+    chatbot_unanswered: "#ef4444",
     welcome_explore: "#38bdf8",
     welcome_bot: "#f472b6",
     contact_click: "#34d399",
@@ -234,6 +248,7 @@ export default function PulseDashboard() {
           <StatCard icon={MousePointer} label="Contact Clicks" value={contactClicks} color="#34d399" />
           <StatCard icon={Globe} label="Explore Chosen" value={exploreClicks} color="#38bdf8" sub={`${botClicks} chose bot`} />
           <StatCard icon={Clock} label="Bot vs Explore" value={`${botClicks}:${exploreClicks}`} color="#f472b6" sub="bot : explore" />
+          <StatCard icon={AlertTriangle} label="Unanswered Qs" value={unansweredCount} color="#ef4444" sub="unique questions" />
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem", marginBottom: "1.25rem" }}>
@@ -310,16 +325,57 @@ export default function PulseDashboard() {
             {Object.keys(deviceCounts).length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No data yet</p>}
           </div>
 
-          {/* Chatbot questions */}
+          {/* Most asked questions */}
           <div style={{ background: "rgba(13,27,46,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "16px", padding: "1.25rem" }}>
-            <p style={{ color: "#fbbf24", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>Bot Questions Asked</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", maxHeight: "200px", overflowY: "auto" }}>
-              {chatMessages.slice(0, 15).map((q, i) => (
-                <div key={i} style={{ fontSize: "0.73rem", padding: "0.3rem 0.65rem", borderRadius: "8px", background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", color: "#c8daf4" }}>
-                  {q}
+            <p style={{ color: "#fbbf24", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>Most Asked Questions</p>
+            {Object.entries(questionCounts).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([q, count]) => {
+              const max = Math.max(...Object.values(questionCounts));
+              return (
+                <div key={q} style={{ marginBottom: "0.6rem" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px", gap: "0.5rem" }}>
+                    <span style={{ color: "#c8daf4", fontSize: "0.72rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{q}</span>
+                    <span style={{ color: "#fbbf24", fontSize: "0.7rem", fontWeight: 700, flexShrink: 0 }}>{count}x</span>
+                  </div>
+                  <div style={{ height: "3px", borderRadius: "999px", background: "rgba(30,58,95,0.6)", overflow: "hidden" }}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(count / max) * 100}%` }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ height: "100%", borderRadius: "999px", background: "linear-gradient(90deg, #fbbf24, #f59e0b)" }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+            {Object.keys(questionCounts).length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No questions yet</p>}
+          </div>
+
+          {/* Unanswered questions */}
+          <div style={{ background: "rgba(13,27,46,0.8)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: "16px", padding: "1.25rem" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem" }}>
+              <p style={{ color: "#ef4444", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                ⚠ Unanswered Questions
+              </p>
+              {unansweredQuestions.length > 0 && (
+                <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.5rem", borderRadius: "999px", background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.35)", color: "#ef4444", fontWeight: 700 }}>
+                  {unansweredQuestions.length} new
+                </span>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", maxHeight: "200px", overflowY: "auto" }}>
+              {unansweredQuestions.map((item, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", padding: "0.35rem 0.65rem", borderRadius: "8px", background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)" }}>
+                  <span style={{ color: "#ef4444", fontSize: "0.65rem", marginTop: "1px", flexShrink: 0 }}>✗</span>
+                  <span style={{ color: "#c8daf4", fontSize: "0.72rem", flex: 1 }}>{item.question}</span>
+                  <span style={{ color: "#4a6b8a", fontSize: "0.62rem", whiteSpace: "nowrap", flexShrink: 0 }}>{timeAgo(item.time)}</span>
                 </div>
               ))}
-              {chatMessages.length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No questions yet</p>}
+              {unansweredQuestions.length === 0 && (
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <span style={{ color: "#4ade80", fontSize: "0.75rem" }}>✓</span>
+                  <p style={{ color: "#4a6b8a", fontSize: "0.75rem" }}>Bot answered everything so far!</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
