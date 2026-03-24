@@ -10,8 +10,9 @@ export default function WelcomeModal() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const isDev = window.location.hostname === "localhost";
     const seen = sessionStorage.getItem("portfolio_welcome_seen");
-    if (!seen) {
+    if (isDev || !seen) {
       setTimeout(() => setVisible(true), 800);
     }
   }, []);
