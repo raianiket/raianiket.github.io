@@ -11,10 +11,63 @@ import { supabase } from "@/lib/supabase";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 interface Message {
-  from: "user" | "bot";
+  from: "user" | "bot" | "compose";
   text: string;
   time: string;
   id: number | string;
+}
+
+function EmailCompose({ fullscreen }: { fullscreen: boolean }) {
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const handleSend = () => {
+    if (!subject.trim() && !body.trim()) return;
+    const mailto = `mailto:rai078945@gmail.com?subject=${encodeURIComponent(subject || "Reaching out from your portfolio")}&body=${encodeURIComponent(body)}`;
+    window.open(mailto);
+    setSent(true);
+    track("contact_click", { label: "email_compose" });
+  };
+
+  if (sent) {
+    return (
+      <div style={{ padding: "0.75rem 1rem", borderRadius: "14px", background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.25)", color: "#4ade80", fontSize: "0.75rem", textAlign: "center" }}>
+        ✓ Email client opened! Aniket typically responds within 24 hours.
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding: "0.85rem 1rem", borderRadius: "14px", background: "rgba(13,27,46,0.95)", border: "1px solid rgba(26,108,245,0.3)", display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "2px" }}>
+        <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#4d8ff7" }}>✉ Compose Email to Aniket</span>
+        <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>rai078945@gmail.com</span>
+      </div>
+      <input
+        value={subject}
+        onChange={e => setSubject(e.target.value)}
+        placeholder="Subject"
+        style={{ background: "rgba(5,13,26,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "#e8f0fe", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", transition: "border-color 0.2s" }}
+        onFocus={e => e.target.style.borderColor = "rgba(26,108,245,0.5)"}
+        onBlur={e => e.target.style.borderColor = "rgba(30,58,95,0.8)"}
+      />
+      <textarea
+        value={body}
+        onChange={e => setBody(e.target.value)}
+        placeholder="Write your message..."
+        rows={3}
+        style={{ background: "rgba(5,13,26,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "#e8f0fe", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", resize: "none", lineHeight: 1.6, fontFamily: "inherit", transition: "border-color 0.2s" }}
+        onFocus={e => e.target.style.borderColor = "rgba(26,108,245,0.5)"}
+        onBlur={e => e.target.style.borderColor = "rgba(30,58,95,0.8)"}
+      />
+      <button
+        onClick={handleSend}
+        style={{ alignSelf: "flex-end", padding: "0.35rem 1rem", borderRadius: "999px", background: subject.trim() || body.trim() ? "#1a6cf5" : "rgba(30,58,95,0.4)", border: "none", color: subject.trim() || body.trim() ? "#fff" : "#4a6b8a", fontSize: "0.7rem", fontWeight: 700, cursor: subject.trim() || body.trim() ? "pointer" : "default", transition: "all 0.2s" }}>
+        Send via Email Client →
+      </button>
+    </div>
+  );
 }
 
 function nextId() { return Date.now() + Math.random(); }
@@ -154,6 +207,12 @@ export default function ChatBot() {
 
   const send = useCallback((text: string) => {
     if (!text.trim() || typing || isTypingEffect) return;
+    // Email compose shortcut
+    if (text.trim() === "✉ Send Aniket an email") {
+      const composeMsg: Message = { from: "compose", text: "", time: now(), id: nextId() };
+      setMessages((m) => [...m, composeMsg]);
+      return;
+    }
     const userMsg: Message = { from: "user", text: text.trim(), time: now(), id: nextId() };
     setMessages((m) => [...m, userMsg]);
     track("chatbot_message", { label: text.trim() });
@@ -546,6 +605,11 @@ export default function ChatBot() {
                   onMouseEnter={() => msg.from === "bot" && setHoveredId(msg.id)}
                   onMouseLeave={() => setHoveredId(null)}
                   style={{ display: "flex", flexDirection: "column", alignItems: msg.from === "user" ? "flex-end" : "flex-start", gap: "3px" }}>
+                  {msg.from === "compose" ? (
+                    <div style={{ width: "100%", maxWidth: "92%" }}>
+                      <EmailCompose fullscreen={fullscreen} />
+                    </div>
+                  ) : (
                   <div style={{
                     maxWidth: "88%", padding: fullscreen ? "0.75rem 1.1rem" : "0.6rem 0.9rem",
                     borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
@@ -555,6 +619,7 @@ export default function ChatBot() {
                     fontSize: fullscreen ? "0.88rem" : "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line",
                     position: "relative",
                   }}>{msg.text}</div>
+                  )}
 
                   {/* Bot message actions: time + reactions + copy */}
                   {msg.from === "bot" && (
