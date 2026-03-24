@@ -149,7 +149,7 @@ export default function ChatBot() {
           whileTap={{ scale: 0.95 }}
           style={{
             width: "58px", height: "58px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #1a6cf5, #7eb3ff)",
+            background: "#ffffff",
             border: "2px solid rgba(126,179,255,0.4)",
             cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
@@ -170,7 +170,7 @@ export default function ChatBot() {
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
             : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "34px", height: "34px", objectFit: "contain" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "multiply" }} />
               </motion.span>
           }
         </AnimatePresence>
