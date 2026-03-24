@@ -206,10 +206,10 @@ export default function ChatBot() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: fullscreen ? 32 : 24, scale: fullscreen ? 0.95 : 0.94 }}
+            initial={{ opacity: 0, y: fullscreen ? 40 : 30, scale: fullscreen ? 0.95 : 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: fullscreen ? 20 : 24, scale: fullscreen ? 0.96 : 0.94 }}
-            transition={{ duration: fullscreen ? 0.45 : 0.3, ease: EASE }}
+            exit={{ opacity: 0, y: fullscreen ? 80 : 120, scale: 0.88 }}
+            transition={{ duration: fullscreen ? 0.45 : 0.35, ease: EASE }}
             style={fullscreen ? {
               position: "fixed", inset: 0, margin: "auto",
               zIndex: 998,
