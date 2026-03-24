@@ -250,10 +250,18 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
     },
   },
   {
-    pattern: /portfolio|website|built this|next\.?js/,
+    pattern: /how.*built.*chatbot|what.*tech.*chatbot|chatbot.*built|chatbot.*tech|built.*this.*bot|how.*bot.*work|tech.*behind.*bot|how.*assistant.*built/,
     response: {
-      text: "This portfolio was built by Aniket using:\n\n• Next.js 14 + TypeScript\n• Framer Motion for animations\n• Lucide React for icons\n• Deployed on GitHub Pages\n\nThis chatbot is also built by him — runs fully client-side with no backend!",
-      suggestions: ["His other projects", "Tech stack", "How to contact him?"],
+      text: "This chatbot was built entirely by Aniket! 🤖\n\nTech behind it:\n\n• React (Next.js) — UI and state management\n• TypeScript — fully typed, zero runtime errors\n• Framer Motion — animations and transitions\n• Pattern-matching NLP — regex-based intent detection\n• Supabase — real-time event tracking (visits, questions, reactions)\n• Web Speech API — voice input support\n• 100% client-side — no backend, no API calls for chat\n\nEverything you see — context memory, recruiter mode, emoji reactions, voice input — all custom built by Aniket.",
+      suggestions: ["Tell me about his projects", "His tech stack", "How to contact him?"],
+      topic: "chatbot_tech",
+    },
+  },
+  {
+    pattern: /portfolio|website|built this|next\.?js|how.*portfolio.*built|what.*tech.*portfolio|portfolio.*tech/,
+    response: {
+      text: "This portfolio was built by Aniket using:\n\n• Next.js 14 + TypeScript\n• Framer Motion for animations\n• Supabase for visitor analytics (Portfolio Pulse)\n• Lucide React for icons\n• Deployed on GitHub Pages\n\nThe chatbot inside is also fully built by him — runs client-side with no backend!",
+      suggestions: ["How was the chatbot built?", "His other projects", "How to contact him?"],
       topic: "portfolio",
     },
   },
