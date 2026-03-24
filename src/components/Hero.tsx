@@ -151,7 +151,6 @@ export default function Hero() {
             style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4ade80", display: "inline-block", boxShadow: "0 0 6px #4ade80", flexShrink: 0 }}
           />
           <span style={{ color: "#4ade80", fontSize: "0.7rem", fontWeight: 600 }}>Open to Work</span>
-          <span style={{ color: "#7a9cc5", fontSize: "0.65rem" }}>· Senior Backend / Full-Stack roles</span>
         </motion.div>
 
         <motion.p
