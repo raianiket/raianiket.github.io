@@ -120,34 +120,26 @@ export default function ChatBot() {
     <>
       {/* Floating button with label */}
       <div style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
-        {/* Label tooltip */}
-        <AnimatePresence>
-          {!open && (
-            <motion.div
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              transition={{ delay: 1.5, duration: 0.4 }}
-              style={{
-                background: "rgba(7,20,36,0.95)",
-                border: "1px solid rgba(26,108,245,0.35)",
-                borderRadius: "10px",
-                padding: "0.4rem 0.75rem",
-                display: "flex", alignItems: "center", gap: "6px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <motion.span
-                animate={{ opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
-              />
-              <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
-              <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Label tooltip — always visible */}
+        <div
+          style={{
+            background: "rgba(7,20,36,0.95)",
+            border: "1px solid rgba(26,108,245,0.35)",
+            borderRadius: "10px",
+            padding: "0.4rem 0.75rem",
+            display: "flex", alignItems: "center", gap: "6px",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <motion.span
+            animate={{ opacity: [1, 0.4, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
+          />
+          <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
+          <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
+        </div>
 
         <motion.button
           onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
