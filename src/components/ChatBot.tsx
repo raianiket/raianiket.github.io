@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Copy, Check, Share2, Mic, MicOff, Mail, Download, RotateCcw } from "lucide-react";
+import { X, Send, Copy, Check, Mic, MicOff } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -464,36 +464,42 @@ export default function ChatBot() {
                 </div>
               </div>
 
-              {/* Header actions — always visible icon buttons */}
-              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                {/* Recruiter mode toggle */}
+              {/* Header actions — text badge buttons */}
+              <div style={{ display: "flex", alignItems: "center", gap: "5px", flexWrap: "nowrap" }}>
+                {/* Recruiter toggle badge */}
                 {!recruiterMode ? (
                   <button onClick={activateRecruiterMode} title="Switch to Recruiter Mode"
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "4px 7px", color: "#92780a", display: "flex", alignItems: "center", gap: "4px", borderRadius: "7px", fontSize: "0.65rem", fontWeight: 600, transition: "all 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(251,191,36,0.12)"; e.currentTarget.style.color = "#fbbf24"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#92780a"; }}>
-                    👔
+                    style={{ fontSize: "0.6rem", fontWeight: 700, padding: "0.2rem 0.55rem", borderRadius: "999px", border: "1px solid rgba(251,191,36,0.3)", background: "rgba(251,191,36,0.07)", color: "#92780a", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s", letterSpacing: "0.02em" }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(251,191,36,0.6)"; e.currentTarget.style.color = "#fbbf24"; e.currentTarget.style.background = "rgba(251,191,36,0.14)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(251,191,36,0.3)"; e.currentTarget.style.color = "#92780a"; e.currentTarget.style.background = "rgba(251,191,36,0.07)"; }}>
+                    👔 Recruiter
                   </button>
                 ) : null}
+
+                {/* Divider */}
+                <span style={{ width: "1px", height: "14px", background: "rgba(30,58,95,0.8)", flexShrink: 0 }} />
+
+                {/* Action text badges */}
                 {([
-                  { icon: Share2, label: "Share portfolio", action: sharePortfolio, color: "#4a6b8a", hoverColor: "#4d8ff7" },
-                  { icon: Mail, label: "Email transcript", action: emailTranscript, color: "#4a6b8a", hoverColor: "#4d8ff7" },
-                  { icon: Download, label: "Download transcript", action: downloadTranscript, color: "#4a6b8a", hoverColor: "#4d8ff7" },
-                  { icon: RotateCcw, label: "Reset chat", action: reset, color: "#4a6b8a", hoverColor: "#ef4444" },
-                ] as { icon: React.ElementType; label: string; action: () => void; color: string; hoverColor: string }[]).map(({ icon: Icon, label, action, color, hoverColor }) => (
+                  { label: "Share", action: sharePortfolio },
+                  { label: "Email", action: emailTranscript },
+                  { label: "Save", action: downloadTranscript },
+                  { label: "Reset", action: reset, danger: true },
+                ] as { label: string; action: () => void; danger?: boolean }[]).map(({ label, action, danger }) => (
                   <button key={label} onClick={action} title={label}
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "6px", color, display: "flex", borderRadius: "7px", transition: "all 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.color = hoverColor; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = color; e.currentTarget.style.background = "none"; }}>
-                    <Icon size={13} />
+                    style={{ fontSize: "0.6rem", fontWeight: 600, padding: "0.2rem 0.5rem", borderRadius: "999px", border: "1px solid rgba(30,58,95,0.7)", background: "none", color: "#4a6b8a", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = danger ? "rgba(239,68,68,0.4)" : "rgba(26,108,245,0.4)"; e.currentTarget.style.color = danger ? "#ef4444" : "#e8f0fe"; e.currentTarget.style.background = danger ? "rgba(239,68,68,0.07)" : "rgba(26,108,245,0.07)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.7)"; e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
+                    {label}
                   </button>
                 ))}
+
                 {fullscreen && (
                   <button onClick={() => { setOpen(false); setFullscreen(false); }} title="Close"
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "6px", color: "#4a6b8a", display: "flex", borderRadius: "7px", marginLeft: "2px", transition: "all 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.color = "#e8f0fe"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
-                    <X size={15} />
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", color: "#4a6b8a", display: "flex", borderRadius: "6px", marginLeft: "1px", transition: "color 0.2s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "#e8f0fe"}
+                    onMouseLeave={e => e.currentTarget.style.color = "#4a6b8a"}>
+                    <X size={14} />
                   </button>
                 )}
               </div>
