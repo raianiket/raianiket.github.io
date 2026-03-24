@@ -44,6 +44,7 @@ const INITIAL_MSG: Message = {
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MSG]);
   const [suggestions, setSuggestions] = useState<string[]>(INITIAL_SUGGESTIONS);
   const [input, setInput] = useState("");
@@ -55,7 +56,11 @@ export default function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const handler = () => setOpen(true);
+    const handler = (e: Event) => {
+      const full = (e as CustomEvent).detail?.full === true;
+      setFullscreen(full);
+      setOpen(true);
+    };
     window.addEventListener("openChatBot", handler);
     return () => window.removeEventListener("openChatBot", handler);
   }, []);
@@ -145,7 +150,7 @@ export default function ChatBot() {
         </AnimatePresence>
 
         <motion.button
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           style={{
@@ -184,13 +189,41 @@ export default function ChatBot() {
 
       {/* Chat window */}
       <AnimatePresence>
+        {open && fullscreen && (
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => { setOpen(false); setFullscreen(false); }}
+            style={{
+              position: "fixed", inset: 0, zIndex: 997,
+              background: "rgba(5,13,26,0.85)",
+              backdropFilter: "blur(8px)",
+            }}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.94 }}
+            initial={{ opacity: 0, y: fullscreen ? 32 : 24, scale: fullscreen ? 0.95 : 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.94 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            style={{
+            exit={{ opacity: 0, y: fullscreen ? 20 : 24, scale: fullscreen ? 0.96 : 0.94 }}
+            transition={{ duration: fullscreen ? 0.45 : 0.3, ease: EASE }}
+            style={fullscreen ? {
+              position: "fixed", inset: 0, margin: "auto",
+              zIndex: 998,
+              width: "min(640px, 92vw)", height: "min(680px, 88vh)",
+              background: "rgba(5,13,26,0.98)",
+              border: "1px solid rgba(30,58,95,0.9)",
+              borderRadius: "24px",
+              display: "flex", flexDirection: "column",
+              boxShadow: "0 32px 100px rgba(0,0,0,0.75), 0 0 0 1px rgba(26,108,245,0.15)",
+              backdropFilter: "blur(20px)",
+              overflow: "hidden",
+            } : {
               position: "fixed", bottom: "5.75rem", right: "1.75rem", zIndex: 998,
               width: "360px", maxHeight: "540px",
               background: "rgba(5,13,26,0.98)",
@@ -232,6 +265,12 @@ export default function ChatBot() {
                 style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", color: "#4a6b8a", display: "flex" }}>
                 <RotateCcw size={14} />
               </button>
+              {fullscreen && (
+                <button onClick={() => { setOpen(false); setFullscreen(false); }} title="Close"
+                  style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", color: "#4a6b8a", display: "flex", marginLeft: "4px" }}>
+                  <X size={16} />
+                </button>
+              )}
             </div>
 
             {/* Messages */}
@@ -240,12 +279,12 @@ export default function ChatBot() {
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}
                   style={{ display: "flex", flexDirection: "column", alignItems: msg.from === "user" ? "flex-end" : "flex-start", gap: "3px" }}>
                   <div style={{
-                    maxWidth: "88%", padding: "0.6rem 0.9rem",
+                    maxWidth: "88%", padding: fullscreen ? "0.75rem 1.1rem" : "0.6rem 0.9rem",
                     borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                     background: msg.from === "user" ? "linear-gradient(135deg, #1a6cf5, #4d8ff7)" : "rgba(13,27,46,0.95)",
                     border: msg.from === "user" ? "none" : "1px solid rgba(30,58,95,0.8)",
                     color: msg.from === "user" ? "#fff" : "#c8daf4",
-                    fontSize: "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line",
+                    fontSize: fullscreen ? "0.88rem" : "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line",
                   }}>{msg.text}</div>
                   <span style={{ fontSize: "0.6rem", color: "#2d4a6a", paddingInline: "4px" }}>{msg.time}</span>
                 </motion.div>
