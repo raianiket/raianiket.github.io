@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { track, trackSectionTime } from "@/lib/track";
 import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -223,10 +224,27 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    let stopTimer: (() => void) | null = null;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        track("section_view", { section: "projects" });
+        stopTimer = trackSectionTime("projects");
+      } else {
+        stopTimer?.();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+    return () => { observer.disconnect(); stopTimer?.(); };
+  }, []);
 
   return (
     <>
-      <section id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), #050d1a" }}>
+      <section ref={sectionRef} id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), #050d1a" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -255,7 +273,7 @@ export default function Projects() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.07 }}
                 whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
-                onClick={() => setSelected(p)}
+                onClick={() => { setSelected(p); track("project_click", { section: "projects", label: p.title }); }}
                 style={{
                   borderRadius: "18px", padding: "1.5rem",
                   background: "rgba(13,27,46,0.8)",

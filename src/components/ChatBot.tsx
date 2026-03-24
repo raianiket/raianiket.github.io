@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, RotateCcw } from "lucide-react";
 import { RESPONSES, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS } from "@/data/chatResponses";
+import { track } from "@/lib/track";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -68,6 +69,7 @@ export default function ChatBot() {
   useEffect(() => {
     if (open) {
       setUnread(0);
+      track("chatbot_open", { label: fullscreen ? "welcome_modal" : "floating_button" });
       setTimeout(() => inputRef.current?.focus(), 300);
     }
   }, [open]);
@@ -94,6 +96,7 @@ export default function ChatBot() {
   const send = (text: string) => {
     if (!text.trim() || typing || isTypingEffect) return;
     setMessages((m) => [...m, { from: "user", text: text.trim(), time: now() }]);
+    track("chatbot_message", { label: text.trim() });
     setInput("");
     setTyping(true);
     setTimeout(() => {

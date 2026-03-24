@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin, Download } from "lucide-react";
+import { track } from "@/lib/track";
 
 const roles = [
   "Backend Systems Engineer",
@@ -77,6 +78,8 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => { track("page_view", { section: "hero" }); }, []);
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
 
@@ -203,16 +206,16 @@ export default function Hero() {
           >
             View My Work
           </button>
-          <a href="/Aniket_Resume.pdf" download
+          <a href="/Aniket_Resume.pdf" download onClick={() => track("resume_download")}
             style={{ display: "flex", alignItems: "center", gap: "6px", padding: "0.7rem 1.6rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", transition: "all 0.2s" }}>
             <Download size={14} /> Resume
           </a>
           <div style={{ display: "flex", gap: "0.5rem" }}>
-            <a href="https://www.linkedin.com/in/aniket-kumar-rai" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/aniket-kumar-rai" target="_blank" rel="noopener noreferrer" onClick={() => track("contact_click", { label: "linkedin" })}
               style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Linkedin size={16} />
             </a>
-            <a href="mailto:rai078945@gmail.com"
+            <a href="mailto:rai078945@gmail.com" onClick={() => track("contact_click", { label: "email" })}
               style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Mail size={16} />
             </a>
