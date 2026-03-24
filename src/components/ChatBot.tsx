@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, RotateCcw, Sparkles } from "lucide-react";
+import { X, Send, RotateCcw } from "lucide-react";
 import { RESPONSES, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS } from "@/data/chatResponses";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -168,8 +168,9 @@ export default function ChatBot() {
         <AnimatePresence mode="wait">
           {open
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
-            : <motion.span key="spark" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <Sparkles size={22} color="#fff" />
+            : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/bot.png" alt="bot" style={{ width: "34px", height: "34px", objectFit: "contain" }} />
               </motion.span>
           }
         </AnimatePresence>
@@ -245,7 +246,8 @@ export default function ChatBot() {
                 border: "1px solid rgba(26,108,245,0.35)",
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}>
-                <Bot size={17} color="#4d8ff7" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/bot.png" alt="bot" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.85rem", marginBottom: "2px" }}>Aniket Assistant Bot</p>
