@@ -12,6 +12,7 @@ export default function CustomCursor() {
   useEffect(() => {
     // Hide on touch devices
     if (window.matchMedia("(pointer: coarse)").matches) return;
+    document.body.classList.add("custom-cursor");
 
     const move = (e: MouseEvent) => { setPos({ x: e.clientX, y: e.clientY }); setVisible(true); };
     const down = () => setClicking(true);
