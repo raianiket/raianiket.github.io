@@ -145,9 +145,9 @@ export const RESPONSES: { pattern: RegExp; response: ResponseEntry }[] = [
     },
   },
   {
-    pattern: /notice|joining|open to work|looking|opportunity|hire|available/,
+    pattern: /notice|joining|open to work|looking|opportunity|hire|available|when can|start date/,
     response: {
-      text: "Aniket is open to Senior Backend, Full-Stack, and Backend-heavy roles.\n\n• Notice period: 90 days\n• Location: Hybrid or Remote (Hyderabad-based)\n• For salary details, reach out at rai078945@gmail.com",
+      text: "Aniket is open to Senior Backend, Full-Stack, and Backend-heavy roles.\n\n• Notice period: 90 days (negotiable)\n• Location: Hybrid or Remote (Hyderabad-based)\n• For exact joining timeline, reach out directly to confirm — rai078945@gmail.com",
       suggestions: ["How to contact him?", "His experience", "What's his tech stack?"],
     },
   },
