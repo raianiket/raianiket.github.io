@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll } from "lucide-react";
+import { track } from "@/lib/track";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -29,6 +30,7 @@ export default function WelcomeModal() {
 
   const choose = (mode: "explore" | "tldr") => {
     sessionStorage.setItem("portfolio_welcome_seen", "1");
+    track(mode === "explore" ? "welcome_explore" : "welcome_bot");
     setVisible(false);
     if (mode === "tldr") {
       setTimeout(() => {
