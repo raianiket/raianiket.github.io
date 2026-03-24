@@ -466,6 +466,15 @@ export default function ChatBot() {
 
               {/* Header actions — always visible icon buttons */}
               <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                {/* Recruiter mode toggle */}
+                {!recruiterMode ? (
+                  <button onClick={activateRecruiterMode} title="Switch to Recruiter Mode"
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "4px 7px", color: "#92780a", display: "flex", alignItems: "center", gap: "4px", borderRadius: "7px", fontSize: "0.65rem", fontWeight: 600, transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(251,191,36,0.12)"; e.currentTarget.style.color = "#fbbf24"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#92780a"; }}>
+                    👔
+                  </button>
+                ) : null}
                 {([
                   { icon: Share2, label: "Share portfolio", action: sharePortfolio, color: "#4a6b8a", hoverColor: "#4d8ff7" },
                   { icon: Mail, label: "Email transcript", action: emailTranscript, color: "#4a6b8a", hoverColor: "#4d8ff7" },
