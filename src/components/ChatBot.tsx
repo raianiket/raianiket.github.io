@@ -524,29 +524,30 @@ export default function ChatBot() {
             {/* Messages */}
             <div style={{ flex: 1, overflowY: "auto", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.65rem" }}>
 
-              {/* Recruiter mode CTA — show when not in recruiter mode and messages are at default */}
+              {/* Recruiter banner — shown after initial message only */}
               {!recruiterMode && messages.length === 1 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
+                <motion.button
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  style={{ display: "flex", justifyContent: "center" }}
+                  transition={{ delay: 0.6 }}
+                  onClick={activateRecruiterMode}
+                  style={{
+                    width: "100%", display: "flex", alignItems: "center", gap: "10px",
+                    padding: "0.65rem 0.9rem", borderRadius: "14px",
+                    background: "linear-gradient(135deg, rgba(251,191,36,0.1), rgba(245,158,11,0.06))",
+                    border: "1px solid rgba(251,191,36,0.4)",
+                    cursor: "pointer", textAlign: "left",
+                    transition: "all 0.2s",
+                  }}
+                  whileHover={{ borderColor: "rgba(251,191,36,0.7)", scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <button
-                    onClick={activateRecruiterMode}
-                    style={{
-                      display: "flex", alignItems: "center", gap: "6px",
-                      padding: "0.35rem 0.85rem", borderRadius: "999px",
-                      background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.3)",
-                      color: "#fbbf24", fontSize: "0.7rem", fontWeight: 600, cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(251,191,36,0.15)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(251,191,36,0.08)"; }}
-                  >
-                    👔 I&apos;m a recruiter
-                  </button>
-                </motion.div>
+                  <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>👔</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ color: "#fbbf24", fontSize: "0.78rem", fontWeight: 700, marginBottom: "2px" }}>Are you a recruiter?</div>
+                    <div style={{ color: "#92780a", fontSize: "0.66rem" }}>Switch to Recruiter Mode for tailored insights →</div>
+                  </div>
+                </motion.button>
               )}
 
               {messages.map((msg) => (
