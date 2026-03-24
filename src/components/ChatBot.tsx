@@ -14,11 +14,10 @@ interface Message {
   from: "user" | "bot";
   text: string;
   time: string;
-  id: number;
+  id: number | string;
 }
 
-let msgId = 0;
-function nextId() { return ++msgId; }
+function nextId() { return Date.now() + Math.random(); }
 
 function now() {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -106,9 +105,9 @@ export default function ChatBot() {
   const [typingText, setTypingText] = useState("");
   const [isTypingEffect, setIsTypingEffect] = useState(false);
   const [lastTopic, setLastTopic] = useState<string | null>(null);
-  const [reactions, setReactions] = useState<Record<number, "👍" | "👎">>({});
-  const [copiedId, setCopiedId] = useState<number | null>(null);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [reactions, setReactions] = useState<Record<string, "👍" | "👎">>({});
+  const [copiedId, setCopiedId] = useState<number | string | null>(null);
+  const [hoveredId, setHoveredId] = useState<number | string | null>(null);
   const [recruiterMode, setRecruiterMode] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [showHeaderMenu, setShowHeaderMenu] = useState(false);
@@ -208,14 +207,14 @@ export default function ChatBot() {
     setMessages((m) => [...m, botMsg]);
   };
 
-  const copyMessage = (text: string, id: number) => {
+  const copyMessage = (text: string, id: number | string) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
     });
   };
 
-  const setReaction = (id: number, emoji: "👍" | "👎") => {
+  const setReaction = (id: number | string, emoji: "👍" | "👎") => {
     setReactions((r) => {
       if (r[id] === emoji) {
         const next = { ...r };
