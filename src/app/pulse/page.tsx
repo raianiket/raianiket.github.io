@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { Eye, MousePointer, Download, MessageCircle, Clock, Monitor, Globe, BarChart3, RefreshCw, Lock } from "lucide-react";
 
-const PULSE_PIN = "1234"; // Change this to your preferred PIN
+const PULSE_PIN = "4444"; // Change this to your preferred PIN
 
 interface Event {
   id: number;
