@@ -223,9 +223,34 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   );
 }
 
+export { projects };
+
+// Unique tech tags across all projects for the filter
+const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
+// Category colors
+const catColors: Record<string, string> = { "AI & ML": "#a78bfa", "Backend": "#4d8ff7", "Dashboard": "#818cf8", "Infrastructure": "#facc15" };
+
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const toggleTag = (tag: string) => {
+    setActiveTags((prev) => prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]);
+    setActiveCategory(null);
+  };
+
+  const toggleCategory = (cat: string) => {
+    setActiveCategory((prev) => prev === cat ? null : cat);
+    setActiveTags([]);
+  };
+
+  const filteredProjects = projects.filter((p) => {
+    if (activeCategory) return p.category === activeCategory;
+    if (activeTags.length === 0) return true;
+    return activeTags.every((t) => p.tags.includes(t));
+  });
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -265,14 +290,64 @@ export default function Projects() {
             </p>
           </motion.div>
 
+          {/* Category filter */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", justifyContent: "center", marginBottom: "1rem" }}>
+            {Object.entries(catColors).map(([cat, color]) => (
+              <motion.button key={cat} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={() => toggleCategory(cat)}
+                style={{
+                  fontSize: "0.7rem", fontWeight: 600, padding: "0.3rem 0.85rem", borderRadius: "999px",
+                  background: activeCategory === cat ? `${color}22` : "rgba(13,27,46,0.6)",
+                  border: `1px solid ${activeCategory === cat ? color : "rgba(30,58,95,0.6)"}`,
+                  color: activeCategory === cat ? color : "#4a6b8a",
+                  cursor: "pointer", transition: "all 0.2s",
+                }}>
+                {cat}
+              </motion.button>
+            ))}
+            {(activeTags.length > 0 || activeCategory) && (
+              <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={() => { setActiveTags([]); setActiveCategory(null); }}
+                style={{ fontSize: "0.68rem", padding: "0.3rem 0.75rem", borderRadius: "999px", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", color: "#ef4444", cursor: "pointer" }}>
+                ✕ Clear
+              </motion.button>
+            )}
+          </div>
+
+          {/* Tech tag filter — show most common tags */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", justifyContent: "center", marginBottom: "2.5rem" }}>
+            {["Node.js", "TypeScript", "PostgreSQL", "AWS", "AI Agent", "LLM", "GraphQL", "Docker", "Grafana"].map((tag) => (
+              <motion.button key={tag} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={() => toggleTag(tag)}
+                style={{
+                  fontSize: "0.65rem", padding: "0.22rem 0.6rem", borderRadius: "999px",
+                  background: activeTags.includes(tag) ? "rgba(26,108,245,0.18)" : "rgba(30,58,95,0.4)",
+                  border: `1px solid ${activeTags.includes(tag) ? "rgba(26,108,245,0.55)" : "rgba(30,58,95,0.7)"}`,
+                  color: activeTags.includes(tag) ? "#7eb3ff" : "#4a6b8a",
+                  cursor: "pointer", transition: "all 0.2s",
+                }}>
+                {tag}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Result count */}
+          {(activeTags.length > 0 || activeCategory) && (
+            <p style={{ textAlign: "center", color: "#4a6b8a", fontSize: "0.72rem", marginBottom: "1.5rem", marginTop: "-1.5rem" }}>
+              Showing {filteredProjects.length} of {projects.length} projects
+            </p>
+          )}
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
-            {projects.map((p, i) => (
+            <AnimatePresence>
+            {filteredProjects.map((p, i) => (
               <motion.div
                 key={p.title}
                 initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.07 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                layout
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
                 whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
                 onClick={() => { setSelected(p); track("project_click", { section: "projects", label: p.title }); }}
                 style={{
@@ -331,6 +406,7 @@ export default function Projects() {
                 </div>
               </motion.div>
             ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>

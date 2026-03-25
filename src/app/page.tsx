@@ -14,6 +14,7 @@ import ChatBot from "@/components/ChatBot";
 import WelcomeModal from "@/components/WelcomeModal";
 import CustomCursor from "@/components/CustomCursor";
 import SectionDots from "@/components/SectionDots";
+import SearchOverlay from "@/components/SearchOverlay";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       <WelcomeModal />
       <CustomCursor />
       <SectionDots />
+      <SearchOverlay />
     </main>
   );
 }
