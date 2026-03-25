@@ -7,8 +7,7 @@ import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS, RECRUITER
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
 import { supabase } from "@/lib/supabase";
-
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { EASE, SESSION_KEY, CONTACT_EMAIL, PORTFOLIO_URL } from "@/lib/constants";
 
 interface Message {
   from: "user" | "bot" | "compose";
@@ -24,7 +23,7 @@ function EmailCompose({ fullscreen }: { fullscreen: boolean }) {
 
   const handleSend = () => {
     if (!subject.trim() && !body.trim()) return;
-    const mailto = `mailto:rai078945@gmail.com?subject=${encodeURIComponent(subject || "Reaching out from your portfolio")}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject || "Reaching out from your portfolio")}&body=${encodeURIComponent(body)}`;
     window.open(mailto);
     setSent(true);
     track("contact_click", { label: "email_compose" });
@@ -42,7 +41,7 @@ function EmailCompose({ fullscreen }: { fullscreen: boolean }) {
     <div style={{ padding: "0.85rem 1rem", borderRadius: "14px", background: "rgba(13,27,46,0.95)", border: "1px solid rgba(26,108,245,0.3)", display: "flex", flexDirection: "column", gap: "0.55rem" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "2px" }}>
         <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#4d8ff7" }}>✉ Compose Email to Aniket</span>
-        <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>rai078945@gmail.com</span>
+        <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>{CONTACT_EMAIL}</span>
       </div>
       <input
         value={subject}
@@ -99,7 +98,7 @@ async function logUnanswered(question: string) {
     await supabase.from("events").insert({
       event_type: "chatbot_unanswered",
       label: question,
-      session_id: sessionStorage.getItem("portfolio_session") || "unknown",
+      session_id: sessionStorage.getItem(SESSION_KEY) || "unknown",
     });
   } catch { /* ignore */ }
 }
@@ -121,7 +120,7 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
     const title = jobMatch[1].trim();
     return {
       response: {
-        text: `Interesting — you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years of Senior Backend / Full-Stack experience\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 90-day notice (negotiable)\n\nReach out at rai078945@gmail.com to start the conversation!`,
+        text: `Interesting — you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years of Senior Backend / Full-Stack experience\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 90-day notice (negotiable)\n\nReach out at ${CONTACT_EMAIL} to start the conversation!`,
         suggestions: ["His full tech stack", "Projects & impact", "Notice period?", "Schedule an interview"],
         topic: "job_match",
       },
@@ -202,7 +201,7 @@ export default function ChatBot() {
         setIsTypingEffect(false);
         onDone();
       }
-    }, 10);
+    }, 20);
   };
 
   const send = useCallback((text: string) => {
@@ -264,6 +263,8 @@ export default function ChatBot() {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
+    }).catch(() => {
+      // Clipboard not available (non-HTTPS / permissions denied) — silently ignore
     });
   };
 
@@ -295,8 +296,8 @@ export default function ChatBot() {
       ...messages.map((m) => `[${m.time}] ${m.from === "bot" ? "🤖 Bot" : "👤 You"}\n${m.text}`),
       "",
       "───────────────────────────────────────",
-      "Contact: rai078945@gmail.com",
-      "Portfolio: raianiket.github.io",
+      `Contact: ${CONTACT_EMAIL}`,
+      `Portfolio: ${PORTFOLIO_URL}`,
     ];
     const blob = new Blob([lines.join("\n")], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -308,7 +309,7 @@ export default function ChatBot() {
   };
 
   const sharePortfolio = () => {
-    const url = "https://raianiket.github.io";
+    const url = PORTFOLIO_URL;
     const text = "Check out Aniket Rai's portfolio — Senior Software Engineer with 5+ years in AI, AWS & scalable systems.";
     if (navigator.share) {
       navigator.share({ title: "Aniket Rai — Portfolio", text, url });
@@ -334,7 +335,8 @@ export default function ChatBot() {
     const SR = w.SpeechRecognition || w.webkitSpeechRecognition;
 
     if (!SR) {
-      alert("Voice input is not supported in this browser. Try Chrome or Edge.");
+      setInput("⚠ Voice input requires Chrome or Edge");
+      setTimeout(() => setInput(""), 2500);
       return;
     }
 
@@ -393,11 +395,12 @@ export default function ChatBot() {
           transition={open ? {} : { duration: 1.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.6 }}
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.95 }}
+          aria-label={open ? "Close assistant" : "Open Aniket Assistant Bot"}
           style={{
             width: "72px", height: "72px", borderRadius: "50%",
             background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
             border: "3px solid rgba(126,179,255,0.5)",
-            cursor: "pointer",
+            cursor: "pointer", overflow: "hidden",
             display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: "0 6px 36px rgba(26,108,245,0.7), 0 0 0 6px rgba(26,108,245,0.2)",
             position: "relative",
@@ -415,7 +418,7 @@ export default function ChatBot() {
               ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
               : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "screen" }} />
+                  <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </motion.span>
             }
           </AnimatePresence>
@@ -496,7 +499,7 @@ export default function ChatBot() {
                 overflow: "hidden",
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "screen" }} />
+                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "multiply" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>

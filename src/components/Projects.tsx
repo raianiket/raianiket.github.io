@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
+import { EASE } from "@/lib/constants";
 import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X } from "lucide-react";
 
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 
 const projects = [
   {

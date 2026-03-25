@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { Eye, MousePointer, Download, MessageCircle, Clock, Monitor, Globe, BarChart3, RefreshCw, Lock, AlertTriangle } from "lucide-react";
 
-const PULSE_PIN = "4444"; // Change this to your preferred PIN
+const PULSE_PIN = "4444";
 
 interface Event {
   id: number;
@@ -64,6 +64,7 @@ export default function PulseDashboard() {
   const [pinError, setPinError] = useState(false);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -84,14 +85,21 @@ export default function PulseDashboard() {
 
   const fetchEvents = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("events")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(1000);
-    setEvents((data as Event[]) || []);
-    setLastRefresh(new Date());
-    setLoading(false);
+    setFetchError(false);
+    try {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(1000);
+      if (error) throw error;
+      setEvents((data as Event[]) || []);
+      setLastRefresh(new Date());
+    } catch {
+      setFetchError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -236,8 +244,8 @@ export default function PulseDashboard() {
               <BarChart3 size={20} color="#4d8ff7" />
               <h1 style={{ color: "#e8f0fe", fontWeight: 900, fontSize: "1.5rem" }}>Portfolio Pulse</h1>
             </div>
-            <p style={{ color: "#4a6b8a", fontSize: "0.72rem" }}>
-              {lastRefresh ? `Last updated ${timeAgo(lastRefresh.toISOString())}` : "Loading..."}
+            <p style={{ color: fetchError ? "#ef4444" : "#4a6b8a", fontSize: "0.72rem" }}>
+              {fetchError ? "⚠ Failed to load — check connection" : lastRefresh ? `Last updated ${timeAgo(lastRefresh.toISOString())}` : "Loading..."}
             </p>
           </div>
           <button

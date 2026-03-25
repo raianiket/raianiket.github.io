@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { EASE } from "@/lib/constants";
 
-// Ease-out expo — feels premium, decelerates quickly then glides to rest
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 
 interface FadeInProps {
   children: ReactNode;
