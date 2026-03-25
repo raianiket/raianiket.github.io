@@ -61,7 +61,7 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
   return (
     <div ref={ref} style={{
       borderRadius: "12px", padding: "0.85rem 0.5rem", textAlign: "center",
-      background: "rgba(13,27,46,0.7)", border: "1px solid rgba(26,108,245,0.2)",
+      background: "var(--bg-card-alpha)", border: "1px solid rgba(26,108,245,0.2)",
       backdropFilter: "blur(8px)",
     }}>
       <div style={{
@@ -71,7 +71,7 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
       }}>
         {count}{suffix}
       </div>
-      <div style={{ color: "#7a9cc5", fontSize: "0.7rem", marginTop: "0.3rem" }}>{label}</div>
+      <div style={{ color: "var(--text-secondary)", fontSize: "0.7rem", marginTop: "0.3rem" }}>{label}</div>
     </div>
   );
 }
@@ -104,7 +104,7 @@ export default function Hero() {
   }, [displayed, typing, roleIndex]);
 
   return (
-    <section id="hero" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#050d1a" }}>
+    <section id="hero" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "var(--bg-primary)" }}>
       {/* Glow orbs */}
       <div style={{ position: "absolute", top: "25%", left: "33%", width: "500px", height: "500px", borderRadius: "50%", opacity: 0.18, filter: "blur(120px)", background: "radial-gradient(circle, #1a6cf5 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "25%", right: "33%", width: "400px", height: "400px", borderRadius: "50%", opacity: 0.12, filter: "blur(100px)", background: "radial-gradient(circle, #4d8ff7 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -121,7 +121,7 @@ export default function Hero() {
             position: "absolute", left: tag.x, top: tag.y,
             display: "flex", alignItems: "center", gap: "8px",
             padding: "8px 18px", borderRadius: "999px", fontSize: "0.88rem", fontWeight: 600,
-            background: "rgba(13,27,46,0.92)", border: "1px solid rgba(26,108,245,0.35)", color: "#7eb3ff",
+            background: "var(--bg-tag)", border: "1px solid rgba(26,108,245,0.35)", color: "var(--tag-text)",
             backdropFilter: "blur(10px)",
             boxShadow: "0 4px 20px rgba(26,108,245,0.12)",
           }}
@@ -156,13 +156,13 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{ fontSize: "clamp(2.4rem, 9vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, marginBottom: "1.2rem" }}
         >
-          <span style={{ color: "#e8f0fe" }}>Aniket </span>
+          <span style={{ color: "var(--text-primary)" }}>Aniket </span>
           <span style={{ background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 50%, #7eb3ff 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Rai</span>
         </motion.h1>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           style={{ height: "clamp(2rem, 6vw, 2.5rem)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.2rem" }}>
-          <span style={{ fontSize: "1.15rem", fontWeight: 300, color: "#7a9cc5" }}>
+          <span style={{ fontSize: "1.15rem", fontWeight: 300, color: "var(--text-secondary)" }}>
             {displayed}
             <span style={{ display: "inline-block", width: "2px", height: "1.1rem", background: "#1a6cf5", marginLeft: "2px", verticalAlign: "middle", animation: "pulse 1s infinite" }} />
           </span>
@@ -172,10 +172,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          style={{ color: "#7a9cc5", fontSize: "0.9rem", maxWidth: "480px", margin: "0 auto 1.75rem", lineHeight: 1.7 }}
+          style={{ color: "var(--text-secondary)", fontSize: "0.9rem", maxWidth: "480px", margin: "0 auto 1.75rem", lineHeight: 1.7 }}
         >
           Building scalable backend systems, data pipelines & AI agents
-          for B2B SaaS. Based in <span style={{ color: "#e8f0fe" }}>Hyderabad, India</span>.
+          for B2B SaaS. Based in <span style={{ color: "var(--text-primary)" }}>Hyderabad, India</span>.
         </motion.p>
 
         {/* CTAs */}
@@ -193,16 +193,16 @@ export default function Hero() {
             View My Work
           </button>
           <a href="/Aniket_Resume.pdf" download onClick={() => track("resume_download")}
-            style={{ display: "flex", alignItems: "center", gap: "6px", padding: "0.7rem 1.6rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", transition: "all 0.2s" }}>
+            style={{ display: "flex", alignItems: "center", gap: "6px", padding: "0.7rem 1.6rem", borderRadius: "10px", border: "1px solid var(--border-strong)", color: "var(--text-secondary)", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", transition: "all 0.2s" }}>
             <Download size={14} /> Resume
           </a>
           <div style={{ display: "flex", gap: "0.5rem" }}>
             <a href="https://www.linkedin.com/in/aniket-kumar-rai" target="_blank" rel="noopener noreferrer" onClick={() => track("contact_click", { label: "linkedin" })}
-              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
+              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid var(--border-strong)", color: "var(--text-secondary)", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Linkedin size={16} />
             </a>
             <a href="mailto:rai078945@gmail.com" onClick={() => track("contact_click", { label: "email" })}
-              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
+              style={{ padding: "0.7rem", borderRadius: "10px", border: "1px solid var(--border-strong)", color: "var(--text-secondary)", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "all 0.2s" }}>
               <Mail size={16} />
             </a>
           </div>
@@ -226,7 +226,7 @@ export default function Hero() {
       <motion.button
         onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-        style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", background: "none", border: "none", color: "#4a6b8a", cursor: "pointer", animation: "bounce 2s infinite" }}
+        style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", background: "none", border: "none", color: "var(--text-muted)", cursor: "pointer", animation: "bounce 2s infinite" }}
       >
         <ArrowDown size={20} />
       </motion.button>

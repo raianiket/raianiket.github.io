@@ -35,7 +35,7 @@ export default function About() {
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             About Me
           </p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "1.25rem" }}>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "1.25rem" }}>
             Building things that{" "}
             <span style={{
               background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 50%, #7eb3ff 100%)",
@@ -46,13 +46,13 @@ export default function About() {
               scale
             </span>
           </h2>
-          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.85, maxWidth: "620px", margin: "0 auto", textAlign: "center" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.85, maxWidth: "620px", margin: "0 auto", textAlign: "center" }}>
             5+ years of backend engineering at{" "}
-            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>SysCloud Technologies</strong>.{" "}
+            <strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>SysCloud Technologies</strong>.{" "}
             Config-driven frameworks handling 12+ cloud integrations with zero code changes.{" "}
             AI agents that detect and resolve production issues before customers notice.{" "}
             A natural language interface where customers talk to their data instead of navigating dashboards.{" "}
-            <strong style={{ color: "#e8f0fe", fontWeight: 600 }}>Real systems. Real scale. Real impact.</strong>
+            <strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>Real systems. Real scale. Real impact.</strong>
           </p>
         </FadeIn>
 
@@ -63,8 +63,8 @@ export default function About() {
                 whileHover={{ borderColor: "rgba(26,108,245,0.45)", boxShadow: "0 0 28px rgba(26,108,245,0.12)" }}
                 style={{
                   borderRadius: "16px", padding: "1.25rem",
-                  background: "rgba(13,27,46,0.7)",
-                  border: "1px solid rgba(30,58,95,0.8)",
+                  background: "var(--bg-card-alpha)",
+                  border: "1px solid var(--border-strong)",
                   cursor: "default",
                   transition: "border-color 0.3s, box-shadow 0.3s",
                   height: "100%",
@@ -78,10 +78,10 @@ export default function About() {
                 }}>
                   <item.icon size={17} color="#4d8ff7" />
                 </div>
-                <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
+                <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
                   {item.title}
                 </h3>
-                <p style={{ color: "#7a9cc5", fontSize: "0.76rem", lineHeight: 1.6 }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.76rem", lineHeight: 1.6 }}>
                   {item.desc}
                 </p>
               </motion.div>

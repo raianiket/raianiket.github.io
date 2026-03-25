@@ -64,12 +64,12 @@ function ProfBar({ skill, index }: { skill: typeof coreSkills[0]; index: number 
     <div ref={ref} style={{ marginBottom: "0.85rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-          <span style={{ fontWeight: 600, color: "#e8f0fe", fontSize: "0.82rem" }}>{skill.name}</span>
+          <span style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "0.82rem" }}>{skill.name}</span>
           <span style={{ fontSize: "0.65rem", padding: "1px 7px", borderRadius: "999px", background: `${skill.color}20`, border: `1px solid ${skill.color}50`, color: skill.color, fontWeight: 600 }}>{skill.level}</span>
         </div>
-        <span style={{ fontSize: "0.7rem", color: "#7a9cc5" }}>{skill.years}</span>
+        <span style={{ fontSize: "0.7rem", color: "var(--text-secondary)" }}>{skill.years}</span>
       </div>
-      <div style={{ height: "6px", borderRadius: "999px", background: "rgba(30,58,95,0.5)", overflow: "hidden" }}>
+      <div style={{ height: "6px", borderRadius: "999px", background: "var(--bar-track)", overflow: "hidden" }}>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: started ? `${skill.pct}%` : 0 }}
@@ -118,7 +118,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 0%, rgba(26,108,245,0.05) 0%, transparent 60%), #050d1a" }}
+      style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 0%, rgba(26,108,245,0.05) 0%, transparent 60%), var(--bg-primary)" }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Header */}
@@ -130,7 +130,7 @@ export default function Skills() {
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Technical Skills</p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe" }}>What I work with</h2>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)" }}>What I work with</h2>
         </motion.div>
 
         {/* Core expertise — proficiency bars */}
@@ -139,7 +139,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          style={{ borderRadius: "20px", padding: "1.75rem", background: "rgba(13,27,46,0.8)", border: "1px solid rgba(26,108,245,0.2)", marginBottom: "2.5rem" }}
+          style={{ borderRadius: "20px", padding: "1.75rem", background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(26,108,245,0.2)", marginBottom: "2.5rem" }}
         >
           <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4d8ff7", marginBottom: "1.25rem" }}>
             ⚡ Core Expertise
@@ -165,7 +165,7 @@ export default function Skills() {
                   <group.icon size={12} color={group.color} />
                   <span style={{ fontSize: "0.67rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: group.color }}>{group.label}</span>
                 </div>
-                <span style={{ fontSize: "0.6rem", color: "#4a6b8a", paddingLeft: "1.1rem" }}>{group.skills.length} skills</span>
+                <span style={{ fontSize: "0.6rem", color: "var(--text-muted)", paddingLeft: "1.1rem" }}>{group.skills.length} skills</span>
               </div>
 
               {/* Badges */}
