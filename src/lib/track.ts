@@ -1,12 +1,13 @@
 import { supabase } from "./supabase";
+import { SESSION_KEY } from "./constants";
 
 // Generate or retrieve session ID
 function getSessionId(): string {
   if (typeof window === "undefined") return "";
-  let sid = sessionStorage.getItem("pp_session");
+  let sid = sessionStorage.getItem(SESSION_KEY);
   if (!sid) {
     sid = Math.random().toString(36).slice(2) + Date.now().toString(36);
-    sessionStorage.setItem("pp_session", sid);
+    sessionStorage.setItem(SESSION_KEY, sid);
   }
   return sid;
 }

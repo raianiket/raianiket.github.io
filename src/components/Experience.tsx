@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import { EASE } from "@/lib/constants";
 
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 
 const roles = [
   {

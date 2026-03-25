@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll } from "lucide-react";
 import { track } from "@/lib/track";
+import { EASE } from "@/lib/constants";
 
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 
 export default function WelcomeModal() {
   const [visible, setVisible] = useState(false);
