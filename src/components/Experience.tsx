@@ -88,7 +88,7 @@ export default function Experience() {
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Experience
           </p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe" }}>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)" }}>
             Where I&apos;ve worked
           </h2>
         </motion.div>
@@ -101,8 +101,8 @@ export default function Experience() {
           transition={{ duration: 0.75, ease: EASE }}
           style={{
             borderRadius: "20px",
-            border: "1px solid rgba(30,58,95,0.8)",
-            background: "rgba(13,27,46,0.6)",
+            border: "1px solid var(--border-strong)",
+            background: "var(--bg-card-alpha)",
             padding: "1.75rem",
             marginBottom: "2rem",
           }}
@@ -118,15 +118,15 @@ export default function Experience() {
               <span style={{ color: "#4d8ff7", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.5px" }}>SC</span>
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "1.1rem", marginBottom: "0.2rem" }}>
+              <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1.1rem", marginBottom: "0.2rem" }}>
                 SysCloud Technologies Pvt Ltd
               </h3>
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-                <span style={{ color: "#7a9cc5", fontSize: "0.73rem" }}>Nov 2020 – Present</span>
+                <span style={{ color: "var(--text-secondary)", fontSize: "0.73rem" }}>Nov 2020 – Present</span>
                 <span style={{ color: "#1e3a5f" }}>·</span>
                 <span style={{ fontSize: "0.73rem", fontWeight: 600, color: "#4d8ff7", background: "rgba(77,143,247,0.1)", border: "1px solid rgba(77,143,247,0.2)", padding: "0.1rem 0.5rem", borderRadius: "999px" }}>5+ years</span>
                 <span style={{ color: "#1e3a5f" }}>·</span>
-                <span style={{ color: "#7a9cc5", fontSize: "0.73rem" }}>B2B SaaS · Cloud Backup</span>
+                <span style={{ color: "var(--text-secondary)", fontSize: "0.73rem" }}>B2B SaaS · Cloud Backup</span>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function Experience() {
                 </span>
               ))}
             </div>
-            <div style={{ height: "6px", borderRadius: "999px", background: "rgba(30,58,95,0.6)", overflow: "hidden", display: "flex" }}>
+            <div style={{ height: "6px", borderRadius: "999px", background: "var(--company-bar-track)", overflow: "hidden", display: "flex" }}>
               {[...roles].reverse().map((r) => (
                 <motion.div
                   key={r.short}
@@ -189,7 +189,7 @@ export default function Experience() {
                 position: "absolute", left: "-2rem", top: "1.1rem",
                 width: "14px", height: "14px", borderRadius: "50%",
                 border: `2px solid ${role.dotColor}`,
-                background: "#050d1a",
+                background: "var(--dot-bg)",
                 boxShadow: `0 0 8px ${role.dotColor}55`,
                 zIndex: 1,
               }} />
@@ -199,8 +199,8 @@ export default function Experience() {
                 onClick={() => setExpanded(expanded === role.title ? "" : role.title)}
                 style={{
                   borderRadius: "16px", overflow: "hidden", cursor: "pointer",
-                  background: expanded === role.title ? "rgba(13,27,46,0.9)" : "rgba(13,27,46,0.5)",
-                  border: `1px solid ${expanded === role.title ? role.borderColor : "rgba(30,58,95,0.6)"}`,
+                  background: expanded === role.title ? "var(--bg-card-alpha-hi)" : "var(--bg-card-alpha-lo)",
+                  border: `1px solid ${expanded === role.title ? role.borderColor : "var(--border-medium)"}`,
                   transition: "all 0.3s",
                 }}
               >
@@ -208,7 +208,7 @@ export default function Experience() {
                 <div style={{ padding: "1rem 1.25rem", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem" }}>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap", marginBottom: "0.45rem" }}>
-                      <h4 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.95rem" }}>
+                      <h4 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.95rem" }}>
                         {role.title}
                       </h4>
                       <span style={{
@@ -220,7 +220,7 @@ export default function Experience() {
                         {role.duration}
                       </span>
                     </div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", color: "#7a9cc5", fontSize: "0.72rem" }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", color: "var(--text-secondary)", fontSize: "0.72rem" }}>
                       <span style={{ display: "flex", alignItems: "center", gap: "3px" }}>
                         <Calendar size={11} /> {role.period}
                       </span>
@@ -229,7 +229,7 @@ export default function Experience() {
                       </span>
                     </div>
                   </div>
-                  <div style={{ color: "#4a6b8a", flexShrink: 0, marginTop: "2px" }}>
+                  <div style={{ color: "var(--text-muted)", flexShrink: 0, marginTop: "2px" }}>
                     {expanded === role.title ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </div>
                 </div>
@@ -247,7 +247,7 @@ export default function Experience() {
                       <div style={{ padding: "0.9rem 1.25rem 1.1rem", borderTop: `1px solid ${role.borderColor}` }}>
                         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                           {role.bullets.map((b, bi) => (
-                            <li key={bi} style={{ display: "flex", gap: "0.6rem", fontSize: "0.78rem", color: "#7a9cc5", lineHeight: 1.65, marginBottom: bi < role.bullets.length - 1 ? "0.65rem" : 0 }}>
+                            <li key={bi} style={{ display: "flex", gap: "0.6rem", fontSize: "0.78rem", color: "var(--text-secondary)", lineHeight: 1.65, marginBottom: bi < role.bullets.length - 1 ? "0.65rem" : 0 }}>
                               <span style={{ color: role.color, flexShrink: 0, marginTop: "3px", fontSize: "0.6rem" }}>▸</span>
                               <span>{b}</span>
                             </li>

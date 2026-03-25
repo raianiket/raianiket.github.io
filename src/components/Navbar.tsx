@@ -52,11 +52,11 @@ export default function Navbar() {
     window.dispatchEvent(new CustomEvent("openSearch"));
   };
 
-  const navBg = scrolled ? "rgba(5,13,26,0.88)" : "transparent";
-  const navBorder = scrolled ? "1px solid rgba(30,58,95,0.5)" : "1px solid transparent";
-  const textColor = "#7a9cc5";
-  const activeColor = "#e8f0fe";
-  const mobileBg = "rgba(13,27,46,0.97)";
+  const navBg = scrolled ? "var(--nav-bg)" : "transparent";
+  const navBorder = scrolled ? "1px solid var(--border-faint)" : "1px solid transparent";
+  const textColor = "var(--text-secondary)";
+  const activeColor = "var(--text-primary)";
+  const mobileBg = "var(--nav-mobile-bg)";
 
   return (
     <motion.header

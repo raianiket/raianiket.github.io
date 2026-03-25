@@ -18,7 +18,7 @@ export default function Contact() {
       id="contact"
       style={{
         padding: "6rem 1.5rem",
-        background: "radial-gradient(ellipse at 50% 100%, rgba(26,108,245,0.07) 0%, transparent 60%), #050d1a",
+        background: "radial-gradient(ellipse at 50% 100%, rgba(26,108,245,0.07) 0%, transparent 60%), var(--bg-primary)",
       }}
     >
       <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
@@ -31,10 +31,10 @@ export default function Contact() {
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Contact
           </p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "1rem" }}>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "1rem" }}>
             Let&apos;s work together
           </h2>
-          <p style={{ color: "#7a9cc5", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "420px", margin: "0 auto 3rem" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "420px", margin: "0 auto 3rem" }}>
             Open to senior backend, full-stack, and backend-heavy roles. I typically respond within 24 hours.
           </p>
         </motion.div>
@@ -52,7 +52,7 @@ export default function Contact() {
             style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
               padding: "1.25rem 0.75rem", borderRadius: "16px", cursor: "pointer",
-              background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)",
+              background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
               transition: "all 0.3s",
             } as React.CSSProperties}
           >
@@ -60,8 +60,8 @@ export default function Contact() {
               <Mail size={17} color="#4d8ff7" />
             </div>
             <div>
-              <p style={{ color: "#7a9cc5", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Email</p>
-              <p style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 500 }}>rai078945@gmail.com</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Email</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>rai078945@gmail.com</p>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: copied ? "#4ade80" : "#4a6b8a" }}>
               {copied ? <><Check size={11} /> Copied!</> : <><Copy size={11} /> Click to copy</>}
@@ -80,7 +80,7 @@ export default function Contact() {
             style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
               padding: "1.25rem 0.75rem", borderRadius: "16px", textDecoration: "none",
-              background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)",
+              background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
               transition: "all 0.3s",
             } as React.CSSProperties}
           >
@@ -88,8 +88,8 @@ export default function Contact() {
               <Linkedin size={17} color="#4d8ff7" />
             </div>
             <div>
-              <p style={{ color: "#7a9cc5", fontSize: "0.68rem", marginBottom: "0.2rem" }}>LinkedIn</p>
-              <p style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 500 }}>aniket-kumar-rai</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>LinkedIn</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>aniket-kumar-rai</p>
             </div>
             <p style={{ fontSize: "0.65rem", color: "#4a6b8a" }}>Open profile ↗</p>
           </motion.a>
@@ -103,15 +103,15 @@ export default function Contact() {
             style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
               padding: "1.25rem 0.75rem", borderRadius: "16px",
-              background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)",
+              background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
             }}
           >
             <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
               <MapPin size={17} color="#4d8ff7" />
             </div>
             <div>
-              <p style={{ color: "#7a9cc5", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Location</p>
-              <p style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 500 }}>Hyderabad, India</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Location</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>Hyderabad, India</p>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem" }}>
               <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#22c55e", display: "inline-block" }} />
@@ -146,7 +146,7 @@ export default function Contact() {
               exit={{ opacity: 0, y: 20 }}
               style={{
                 position: "fixed", bottom: "5rem", left: "50%", transform: "translateX(-50%)",
-                background: "rgba(13,27,46,0.95)", border: "1px solid rgba(34,197,94,0.4)",
+                background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(34,197,94,0.4)",
                 color: "#4ade80", fontSize: "0.82rem", fontWeight: 600,
                 padding: "0.65rem 1.25rem", borderRadius: "10px",
                 display: "flex", alignItems: "center", gap: "0.5rem",
@@ -159,7 +159,7 @@ export default function Contact() {
           )}
         </AnimatePresence>
 
-        <div style={{ marginTop: "4rem", color: "#4a6b8a", fontSize: "0.75rem" }}>
+        <div style={{ marginTop: "4rem", color: "var(--text-muted)", fontSize: "0.75rem" }}>
           Built with Next.js & Tailwind · © {new Date().getFullYear()} Aniket Rai
         </div>
       </div>

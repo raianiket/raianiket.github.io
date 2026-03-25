@@ -463,8 +463,8 @@ export default function ChatBot() {
     <>
       {/* Floating button with label */}
       <div style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
-        {/* Label tooltip — hide when small panel is open */}
-        {(!open || fullscreen) && (
+        {/* Label tooltip — hide when panel is open */}
+        {!open && (
           <div
             style={{
               background: "rgba(7,20,36,0.95)",
