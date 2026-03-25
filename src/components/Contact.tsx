@@ -165,7 +165,10 @@ export default function Contact() {
       </div>
 
       <style>{`
-        @media (max-width: 600px) {
+        @media (max-width: 680px) {
+          .contact-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 420px) {
           .contact-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

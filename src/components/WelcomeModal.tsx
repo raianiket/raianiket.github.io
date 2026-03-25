@@ -70,11 +70,11 @@ export default function WelcomeModal() {
               transition={{ duration: 0.5, ease: EASE }}
               style={{
                 pointerEvents: "all",
-                width: "90%", maxWidth: "440px",
+                width: "92%", maxWidth: "440px",
                 background: "rgba(7,20,36,0.98)",
                 border: "1px solid rgba(30,58,95,0.9)",
-                borderRadius: "28px",
-                padding: "2rem 1.75rem 1.5rem",
+                borderRadius: "24px",
+                padding: "clamp(1.25rem, 5vw, 2rem) clamp(1rem, 5vw, 1.75rem) 1.25rem",
                 boxShadow: "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(26,108,245,0.15), 0 0 80px rgba(26,108,245,0.08)",
                 position: "relative", overflow: "hidden",
               }}
@@ -126,7 +126,7 @@ export default function WelcomeModal() {
                 <p style={{ color: "#4d8ff7", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.4rem", textAlign: "center" }}>
                   Hi, I&apos;m Aniket&apos;s Assistant
                 </p>
-                <h2 style={{ color: "#e8f0fe", fontSize: "1.45rem", fontWeight: 800, marginBottom: "0.5rem", lineHeight: 1.3, textAlign: "center" }}>
+                <h2 style={{ color: "#e8f0fe", fontSize: "clamp(1.1rem, 5vw, 1.45rem)", fontWeight: 800, marginBottom: "0.5rem", lineHeight: 1.3, textAlign: "center" }}>
                   How do you want to explore?
                 </h2>
                 <p style={{ color: "#7a9cc5", fontSize: "0.81rem", lineHeight: 1.65, marginBottom: "1.75rem", textAlign: "center" }}>

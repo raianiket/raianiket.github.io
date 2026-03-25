@@ -474,6 +474,7 @@ export default function ChatBot() {
               display: "flex", alignItems: "center", gap: "6px",
               boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
               whiteSpace: "nowrap",
+              maxWidth: "calc(100vw - 6rem)",
             }}
           >
             <motion.span
@@ -569,8 +570,8 @@ export default function ChatBot() {
               backdropFilter: "blur(20px)",
               overflow: "hidden",
             } : {
-              position: "fixed", bottom: "5.75rem", right: "1.75rem", zIndex: 998,
-              width: "360px", maxHeight: "560px",
+              position: "fixed", bottom: "5.75rem", right: "max(0.75rem, min(1.75rem, calc(100vw - 362px)))", zIndex: 998,
+              width: "min(360px, calc(100vw - 1.5rem))", maxHeight: "min(560px, 80vh)",
               background: "rgba(5,13,26,0.98)",
               border: "1px solid rgba(30,58,95,0.9)",
               borderRadius: "22px",
