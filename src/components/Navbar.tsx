@@ -52,13 +52,11 @@ export default function Navbar() {
     window.dispatchEvent(new CustomEvent("openSearch"));
   };
 
-  const navBg = scrolled
-    ? (isDark ? "rgba(5,13,26,0.88)" : "rgba(9,29,56,0.92)")
-    : "transparent";
+  const navBg = scrolled ? "rgba(5,13,26,0.88)" : "transparent";
   const navBorder = scrolled ? "1px solid rgba(30,58,95,0.5)" : "1px solid transparent";
-  const textColor = isDark ? "#7a9cc5" : "#8ab8df";
-  const activeColor = isDark ? "#e8f0fe" : "#e0eeff";
-  const mobileBg = isDark ? "rgba(13,27,46,0.97)" : "rgba(9,29,56,0.97)";
+  const textColor = "#7a9cc5";
+  const activeColor = "#e8f0fe";
+  const mobileBg = "rgba(13,27,46,0.97)";
 
   return (
     <motion.header
@@ -156,11 +154,11 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
               style={{
-                background: isDark ? "rgba(30,58,95,0.4)" : "rgba(77,143,247,0.15)",
-                border: isDark ? "1px solid rgba(30,58,95,0.6)" : "1px solid rgba(77,143,247,0.4)",
+                background: "rgba(30,58,95,0.4)",
+                border: "1px solid rgba(30,58,95,0.6)",
                 borderRadius: "8px", cursor: "pointer",
                 padding: "0.4rem 0.5rem", display: "flex", alignItems: "center", justifyContent: "center",
-                color: isDark ? "#7eb3ff" : "#7eb3ff",
+                color: "#7eb3ff",
                 transition: "all 0.3s", marginLeft: "0.25rem",
               }}
             >

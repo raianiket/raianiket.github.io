@@ -14,18 +14,19 @@
   --text-muted: #4a6b8a;
 }
 
-/* Light mode = "Blue" variant — brighter navy, stays dark-compatible with inline styles */
-[data-theme="light"] {
-  --bg-primary: #091d38;
-  --bg-surface: #102d52;
-  --bg-card: #163660;
-  --border: #24537e;
-  --accent: #4d8ff7;
-  --accent-light: #7eb3ff;
-  --accent-glow: rgba(77, 143, 247, 0.18);
-  --text-primary: #e0eeff;
-  --text-secondary: #8ab8df;
-  --text-muted: #5a90c0;
+/* Light mode — CSS filter inversion on html element
+   dark navy → light blue-white, light text → dark text, accents stay blue
+   Images/video are re-inverted back to original colors               */
+html[data-theme="light"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-theme="light"] img,
+html[data-theme="light"] video,
+html[data-theme="light"] canvas,
+html[data-theme="light"] [style*="mixBlendMode"],
+html[data-theme="light"] [data-no-invert] {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 * {
