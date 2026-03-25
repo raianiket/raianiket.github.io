@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ResumePrintBar from "@/components/ResumePrintBar";
 
 export const metadata: Metadata = {
   title: "Aniket Rai – Resume",
@@ -93,17 +94,7 @@ export default function ResumePage() {
         }
       `}</style>
 
-      {/* Top bar — hidden on print */}
-      <div className="no-print">
-        <span>📄 Aniket Rai – Resume · <a href="https://raianiket.github.io">raianiket.github.io</a></span>
-        <button onClick={undefined}>
-          <a href="/Aniket_Resume.pdf" download style={{ color: "#1e40af", textDecoration: "none" }}>⬇ Download PDF</a>
-        </button>
-        <button onClick={undefined}>
-          <span onClick={() => { if (typeof window !== "undefined") window.print(); }} style={{ cursor: "pointer" }}>🖨 Print</span>
-        </button>
-        <a href="/">← Back to Portfolio</a>
-      </div>
+      <ResumePrintBar />
 
       <div className="page">
         {/* Header */}
