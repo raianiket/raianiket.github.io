@@ -133,13 +133,13 @@ export default function Navbar() {
               onClick={openSearch}
               title="Search (⌘K)"
               style={{
-                background: "none", border: "1px solid rgba(30,58,95,0.5)", borderRadius: "8px",
+                background: "none", border: "1px solid var(--border-faint)", borderRadius: "8px",
                 cursor: "pointer", padding: "0.4rem 0.5rem", color: textColor,
                 display: "flex", alignItems: "center", gap: "5px",
                 fontSize: "0.72rem", transition: "all 0.2s", marginLeft: "0.25rem",
               }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(26,108,245,0.5)"; e.currentTarget.style.color = "#4d8ff7"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.5)"; e.currentTarget.style.color = textColor; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-faint)"; e.currentTarget.style.color = textColor; }}
             >
               <Search size={13} />
               <span className="search-label">Search</span>
@@ -154,11 +154,11 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
               style={{
-                background: "rgba(30,58,95,0.4)",
-                border: "1px solid rgba(30,58,95,0.6)",
+                background: "var(--toggle-bg)",
+                border: "1px solid var(--toggle-border)",
                 borderRadius: "8px", cursor: "pointer",
                 padding: "0.4rem 0.5rem", display: "flex", alignItems: "center", justifyContent: "center",
-                color: "#7eb3ff",
+                color: "var(--toggle-icon)",
                 transition: "all 0.3s", marginLeft: "0.25rem",
               }}
             >

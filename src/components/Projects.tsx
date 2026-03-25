@@ -270,7 +270,7 @@ export default function Projects() {
 
   return (
     <>
-      <section ref={sectionRef} id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), #050d1a" }}>
+      <section ref={sectionRef} id="projects" style={{ padding: "6rem 1.5rem", background: "radial-gradient(ellipse at 50% 50%, rgba(26,108,245,0.04) 0%, transparent 70%), var(--bg-primary)" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -282,10 +282,10 @@ export default function Projects() {
             <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
               Projects
             </p>
-            <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe", marginBottom: "0.75rem" }}>
+            <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.75rem" }}>
               Things I&apos;ve built
             </h2>
-            <p style={{ color: "#7a9cc5", fontSize: "0.88rem", maxWidth: "480px", margin: "0 auto" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", maxWidth: "480px", margin: "0 auto" }}>
               Key systems and frameworks I designed and owned at SysCloud. <span style={{ color: "#4d8ff7" }}>Click any card</span> for full details.
             </p>
           </motion.div>
@@ -297,9 +297,9 @@ export default function Projects() {
                 onClick={() => toggleCategory(cat)}
                 style={{
                   fontSize: "0.7rem", fontWeight: 600, padding: "0.3rem 0.85rem", borderRadius: "999px",
-                  background: activeCategory === cat ? `${color}22` : "rgba(13,27,46,0.6)",
-                  border: `1px solid ${activeCategory === cat ? color : "rgba(30,58,95,0.6)"}`,
-                  color: activeCategory === cat ? color : "#4a6b8a",
+                  background: activeCategory === cat ? `${color}22` : "var(--chip-bg)",
+                  border: `1px solid ${activeCategory === cat ? color : "var(--chip-border)"}`,
+                  color: activeCategory === cat ? color : "var(--text-muted)",
                   cursor: "pointer", transition: "all 0.2s",
                 }}>
                 {cat}
@@ -321,9 +321,9 @@ export default function Projects() {
                 onClick={() => toggleTag(tag)}
                 style={{
                   fontSize: "0.65rem", padding: "0.22rem 0.6rem", borderRadius: "999px",
-                  background: activeTags.includes(tag) ? "rgba(26,108,245,0.18)" : "rgba(30,58,95,0.4)",
-                  border: `1px solid ${activeTags.includes(tag) ? "rgba(26,108,245,0.55)" : "rgba(30,58,95,0.7)"}`,
-                  color: activeTags.includes(tag) ? "#7eb3ff" : "#4a6b8a",
+                  background: activeTags.includes(tag) ? "rgba(26,108,245,0.18)" : "var(--chip-bg)",
+                  border: `1px solid ${activeTags.includes(tag) ? "rgba(26,108,245,0.55)" : "var(--chip-border)"}`,
+                  color: activeTags.includes(tag) ? "var(--tag-text)" : "var(--text-muted)",
                   cursor: "pointer", transition: "all 0.2s",
                 }}>
                 {tag}
@@ -333,7 +333,7 @@ export default function Projects() {
 
           {/* Result count */}
           {(activeTags.length > 0 || activeCategory) && (
-            <p style={{ textAlign: "center", color: "#4a6b8a", fontSize: "0.72rem", marginBottom: "1.5rem", marginTop: "-1.5rem" }}>
+            <p style={{ textAlign: "center", color: "var(--text-muted)", fontSize: "0.72rem", marginBottom: "1.5rem", marginTop: "-1.5rem" }}>
               Showing {filteredProjects.length} of {projects.length} projects
             </p>
           )}
@@ -352,9 +352,10 @@ export default function Projects() {
                 onClick={() => { setSelected(p); track("project_click", { section: "projects", label: p.title }); }}
                 style={{
                   borderRadius: "18px", padding: "1.5rem",
-                  background: "rgba(13,27,46,0.8)",
+                  background: "var(--bg-card-alpha-hi)",
                   border: `1px solid ${p.borderColor}`,
-                  transition: "border-color 0.3s",
+                  boxShadow: "var(--shadow-card)",
+                  transition: "border-color 0.3s, box-shadow 0.3s",
                   cursor: "pointer",
                   position: "relative", overflow: "hidden",
                 }}
@@ -377,11 +378,11 @@ export default function Projects() {
                   </span>
                 </div>
 
-                <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "1rem", marginBottom: "0.6rem" }}>
+                <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.6rem" }}>
                   {p.title}
                 </h3>
                 <p style={{
-                  color: "#7a9cc5", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem",
+                  color: "var(--text-secondary)", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem",
                   display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
                 }}>
                   {p.description}
@@ -399,7 +400,7 @@ export default function Projects() {
                 {/* Tech tags */}
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                   {p.tags.map((t) => (
-                    <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "rgba(30,58,95,0.5)", border: "1px solid rgba(30,58,95,0.8)", color: "#7a9cc5" }}>
+                    <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "var(--chip-bg-solid)", border: "1px solid var(--chip-border-solid)", color: "var(--text-secondary)" }}>
                       {t}
                     </span>
                   ))}
