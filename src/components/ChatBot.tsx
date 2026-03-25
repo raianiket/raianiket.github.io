@@ -87,6 +87,16 @@ function getVariableDelay(text: string): number {
   return Math.min(600 + text.length * 1.8, 2800);
 }
 
+function getTimeBasedSuggestions(): string[] {
+  if (typeof window === "undefined") return INITIAL_SUGGESTIONS;
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return ["Is he available for interviews?", "What's his notice period?", "His tech stack", "Recent AI projects"];
+  if (h >= 12 && h < 18) return ["Most impactful projects", "His full tech stack", "Open to remote roles?", "AI/LLM experience"];
+  return INITIAL_SUGGESTIONS;
+}
+
+const CHAT_STORAGE_KEY = "chatbot_history_v1";
+
 async function logUnanswered(question: string) {
   try {
     const existing = JSON.parse(localStorage.getItem("chatbot_unanswered") || "[]");
@@ -150,7 +160,7 @@ export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MSG]);
-  const [suggestions, setSuggestions] = useState<string[]>(INITIAL_SUGGESTIONS);
+  const [suggestions, setSuggestions] = useState<string[]>(getTimeBasedSuggestions);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const [unread, setUnread] = useState(0);
@@ -165,6 +175,12 @@ export default function ChatBot() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<{ stop: () => void } | null>(null);
+  const messagesRef = useRef<Message[]>(messages);
+  const openRef = useRef(open);
+  const nudgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const nudgeFiredRef = useRef(false);
+  const userTypingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isUserTyping, setIsUserTyping] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -188,6 +204,45 @@ export default function ChatBot() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typingText, typing]);
 
+  // Keep refs in sync
+  useEffect(() => { messagesRef.current = messages; }, [messages]);
+  useEffect(() => { openRef.current = open; }, [open]);
+
+  // Persist chat history to localStorage
+  useEffect(() => {
+    if (messages.length <= 1) return;
+    try {
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages.filter(m => m.from !== "compose")));
+    } catch { /* ignore */ }
+  }, [messages]);
+
+  // Restore history on first mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(CHAT_STORAGE_KEY);
+      if (!saved) return;
+      const parsed: Message[] = JSON.parse(saved);
+      if (parsed.length <= 1) return;
+      const welcome: Message = { from: "bot", text: "Welcome back! 👋 Picking up where we left off.", time: now(), id: nextId() };
+      setMessages([...parsed, welcome]);
+    } catch { /* ignore */ }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Proactive nudge — fires 30s after last user message
+  useEffect(() => {
+    if (!messages.some(m => m.from === "user")) return;
+    if (nudgeFiredRef.current) return;
+    if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current);
+    nudgeTimerRef.current = setTimeout(() => {
+      if (nudgeFiredRef.current) return;
+      nudgeFiredRef.current = true;
+      const nudge: Message = { from: "bot", text: "Still here if you have more questions! 👋\n\nWant to know about Aniket's AI work, his availability, or how to get in touch?", time: now(), id: nextId() };
+      setMessages(m => [...m, nudge]);
+      if (!openRef.current) setUnread(u => u + 1);
+      setSuggestions(["His AI/ML projects", "Availability & notice", "How to contact him", "His tech stack"]);
+    }, 30000);
+    return () => { if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current); };
+  }, [messages]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const typeMessage = (text: string, onDone: () => void) => {
     setIsTypingEffect(true);
@@ -212,6 +267,31 @@ export default function ChatBot() {
       setMessages((m) => [...m, composeMsg]);
       return;
     }
+    // Reset nudge on new user message
+    nudgeFiredRef.current = false;
+
+    // Frustration detection
+    const inputLower = text.trim().toLowerCase();
+    const recentUserTexts = messagesRef.current.filter(m => m.from === "user").slice(-3).map(m => m.text.toLowerCase().trim());
+    const frustrated = /\?{2,}|wtf|not (helpful|right|working)|that'?s? wrong/i.test(text)
+      || (recentUserTexts.length >= 2 && recentUserTexts.every(m => m === inputLower));
+    if (frustrated) {
+      setMessages(m => [...m, { from: "user", text: text.trim(), time: now(), id: nextId() }]);
+      setInput("");
+      track("chatbot_message", { label: "frustrated" });
+      setTyping(true);
+      setTimeout(() => {
+        setTyping(false);
+        const fr = `Hmm, looks like I might not be hitting the mark! 😅\n\nLet me connect you directly:\n📧 ${CONTACT_EMAIL}\n💼 linkedin.com/in/aniket-kumar-rai\n\nOr try asking something specific like "What's his tech stack?" or "Is he open to remote?"`;
+        typeMessage(fr, () => {
+          setMessages(m => [...m, { from: "bot", text: fr, time: now(), id: nextId() }]);
+          setTypingText("");
+          setSuggestions(["✉ Send Aniket an email", "What's his tech stack?", "Is he open to remote?"]);
+        });
+      }, 800);
+      return;
+    }
+
     const userMsg: Message = { from: "user", text: text.trim(), time: now(), id: nextId() };
     setMessages((m) => [...m, userMsg]);
     track("chatbot_message", { label: text.trim() });
@@ -236,7 +316,9 @@ export default function ChatBot() {
 
   const reset = () => {
     setMessages([INITIAL_MSG]);
-    setSuggestions(INITIAL_SUGGESTIONS);
+    setSuggestions(getTimeBasedSuggestions());
+    try { localStorage.removeItem(CHAT_STORAGE_KEY); } catch { /* ignore */ }
+    nudgeFiredRef.current = false;
     setTypingText("");
     setTyping(false);
     setIsTypingEffect(false);
@@ -724,12 +806,39 @@ export default function ChatBot() {
               ))}
             </div>
 
+            {/* User typing indicator */}
+            <AnimatePresence>
+              {isUserTyping && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  style={{ padding: "0.2rem 1.1rem", display: "flex", alignItems: "center", gap: "4px" }}
+                >
+                  <span style={{ fontSize: "0.58rem", color: "#2d4a6a", fontStyle: "italic" }}>typing</span>
+                  {[0, 1, 2].map(d => (
+                    <motion.span key={d} animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 0.7, repeat: Infinity, delay: d * 0.2 }}
+                      style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#2d4a6a", display: "inline-block" }} />
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             {/* Input */}
             <div style={{ padding: "0.7rem 1rem", borderTop: "1px solid rgba(30,58,95,0.7)", display: "flex", gap: "0.5rem", alignItems: "center", background: "rgba(7,20,36,0.8)" }}>
               <input
                 ref={inputRef}
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  if (e.target.value.trim()) {
+                    setIsUserTyping(true);
+                    if (userTypingTimerRef.current) clearTimeout(userTypingTimerRef.current);
+                    userTypingTimerRef.current = setTimeout(() => setIsUserTyping(false), 1000);
+                  } else {
+                    setIsUserTyping(false);
+                  }
+                }}
                 onKeyDown={(e) => e.key === "Enter" && send(input)}
                 placeholder="Ask me anything..."
                 style={{ flex: 1, background: "rgba(13,27,46,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "12px", padding: "0.5rem 0.75rem", color: "#e8f0fe", fontSize: "0.78rem", outline: "none", transition: "border-color 0.2s" }}
