@@ -154,14 +154,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, marginBottom: "1.2rem" }}
+          style={{ fontSize: "clamp(2.4rem, 9vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, marginBottom: "1.2rem" }}
         >
           <span style={{ color: "#e8f0fe" }}>Aniket </span>
           <span style={{ background: "linear-gradient(135deg, #1a6cf5 0%, #4d8ff7 50%, #7eb3ff 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Rai</span>
         </motion.h1>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          style={{ height: "2.5rem", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.2rem" }}>
+          style={{ height: "clamp(2rem, 6vw, 2.5rem)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.2rem" }}>
           <span style={{ fontSize: "1.15rem", fontWeight: 300, color: "#7a9cc5" }}>
             {displayed}
             <span style={{ display: "inline-block", width: "2px", height: "1.1rem", background: "#1a6cf5", marginLeft: "2px", verticalAlign: "middle", animation: "pulse 1s infinite" }} />
@@ -183,6 +183,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
+          className="hero-ctas"
           style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2rem" }}
         >
           <button
@@ -236,7 +237,12 @@ export default function Hero() {
         @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0} }
         @media (max-width: 768px) {
           .floating-tag { display: none !important; }
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 320px !important; }
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; }
+        }
+        @media (max-width: 480px) {
+          .hero-ctas { flex-direction: column !important; align-items: stretch !important; }
+          .hero-ctas a, .hero-ctas button { justify-content: center !important; text-align: center !important; }
+          .hero-ctas .hero-icons { justify-content: center !important; }
         }
       `}</style>
     </section>
