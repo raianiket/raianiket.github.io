@@ -26,8 +26,8 @@
     },
     {
       "pattern": "resume|cv|download.*resume|resume.*download",
-      "text": "You can download Aniket's resume from the portfolio! Look for the 'Download Resume' button in the hero section at the top. 📄\n\nOr reach out at rai078945@gmail.com and he'll send it directly.",
-      "suggestions": ["His experience", "His tech stack", "How to contact him?"],
+      "text": "Here are your options for Aniket's resume 📄\n\n🌐 View online: raianiket.github.io/resume\n⬇ Download PDF: Look for the 'Resume' button in the top navbar\n\nThe online version is always up to date and print-ready. Want me to send the link?",
+      "suggestions": ["View resume online →", "⬇ Download resume PDF", "His experience highlights", "How to contact him?"],
       "topic": "resume"
     },
     {

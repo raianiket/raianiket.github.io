@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon, Search } from "lucide-react";
+import { useTheme } from "@/lib/ThemeContext";
 
 const links = [
   { label: "About", href: "#about" },
@@ -16,6 +17,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("");
+  const { isDark, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -46,6 +48,18 @@ export default function Navbar() {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const openSearch = () => {
+    window.dispatchEvent(new CustomEvent("openSearch"));
+  };
+
+  const navBg = isDark
+    ? (scrolled ? "rgba(5,13,26,0.85)" : "transparent")
+    : (scrolled ? "rgba(240,246,255,0.92)" : "transparent");
+  const navBorder = scrolled ? "1px solid rgba(30,58,95,0.5)" : "1px solid transparent";
+  const textColor = isDark ? "#7a9cc5" : "#2d4a6a";
+  const activeColor = isDark ? "#e8f0fe" : "#08172e";
+  const mobileBg = isDark ? "rgba(13,27,46,0.97)" : "rgba(240,246,255,0.97)";
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -55,8 +69,8 @@ export default function Navbar() {
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
         transition: "all 0.3s",
         backdropFilter: scrolled ? "blur(20px)" : "none",
-        background: scrolled ? "rgba(5,13,26,0.85)" : "transparent",
-        borderBottom: scrolled ? "1px solid rgba(30,58,95,0.5)" : "1px solid transparent",
+        background: navBg,
+        borderBottom: navBorder,
       }}
     >
       <nav style={{ maxWidth: "1100px", margin: "0 auto", padding: "1rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -83,7 +97,7 @@ export default function Navbar() {
                   style={{
                     border: "none", cursor: "pointer",
                     fontSize: "0.82rem", fontWeight: isActive ? 600 : 400,
-                    color: isActive ? "#e8f0fe" : "#7a9cc5",
+                    color: isActive ? activeColor : textColor,
                     padding: "0.4rem 0.75rem", borderRadius: "8px",
                     background: isActive ? "rgba(26,108,245,0.12)" : "transparent",
                     transition: "all 0.2s",
@@ -115,16 +129,67 @@ export default function Navbar() {
               Resume
             </a>
           </li>
+          {/* Search */}
+          <li>
+            <button
+              onClick={openSearch}
+              title="Search (⌘K)"
+              style={{
+                background: "none", border: "1px solid rgba(30,58,95,0.5)", borderRadius: "8px",
+                cursor: "pointer", padding: "0.4rem 0.5rem", color: textColor,
+                display: "flex", alignItems: "center", gap: "5px",
+                fontSize: "0.72rem", transition: "all 0.2s", marginLeft: "0.25rem",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(26,108,245,0.5)"; e.currentTarget.style.color = "#4d8ff7"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.5)"; e.currentTarget.style.color = textColor; }}
+            >
+              <Search size={13} />
+              <span className="search-label">Search</span>
+              <span style={{ fontSize: "0.6rem", opacity: 0.6, letterSpacing: "0" }} className="search-kbd">⌘K</span>
+            </button>
+          </li>
+          {/* Theme toggle */}
+          <li>
+            <motion.button
+              onClick={toggle}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              style={{
+                background: isDark ? "rgba(30,58,95,0.4)" : "rgba(26,108,245,0.1)",
+                border: isDark ? "1px solid rgba(30,58,95,0.6)" : "1px solid rgba(26,108,245,0.3)",
+                borderRadius: "8px", cursor: "pointer",
+                padding: "0.4rem 0.5rem", display: "flex", alignItems: "center", justifyContent: "center",
+                color: isDark ? "#7eb3ff" : "#1a6cf5",
+                transition: "all 0.3s", marginLeft: "0.25rem",
+              }}
+            >
+              <AnimatePresence mode="wait">
+                {isDark
+                  ? <motion.span key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><Sun size={15} /></motion.span>
+                  : <motion.span key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><Moon size={15} /></motion.span>
+                }
+              </AnimatePresence>
+            </motion.button>
+          </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", cursor: "pointer", color: "#7a9cc5", display: "none" }}
-          className="mobile-toggle"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile icons */}
+        <div style={{ display: "none", alignItems: "center", gap: "8px" }} className="mobile-actions">
+          <button onClick={openSearch} style={{ background: "none", border: "none", cursor: "pointer", color: textColor, padding: "4px", display: "flex" }}>
+            <Search size={18} />
+          </button>
+          <motion.button onClick={toggle} whileTap={{ scale: 0.9 }}
+            style={{ background: "none", border: "none", cursor: "pointer", color: isDark ? "#7eb3ff" : "#1a6cf5", padding: "4px", display: "flex" }}>
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </motion.button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ background: "none", border: "none", cursor: "pointer", color: textColor, display: "flex" }}
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -134,7 +199,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            style={{ background: "rgba(13,27,46,0.97)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(30,58,95,0.5)", padding: "0 1.5rem 1rem" }}
+            style={{ background: mobileBg, backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(30,58,95,0.5)", padding: "0 1.5rem 1rem" }}
           >
             {links.map((l) => (
               <button
@@ -143,7 +208,7 @@ export default function Navbar() {
                 style={{
                   display: "block", width: "100%", textAlign: "left", padding: "0.85rem 0",
                   borderBottom: "1px solid rgba(30,58,95,0.3)", background: "none", border: "none",
-                  color: active === l.href.slice(1) ? "#e8f0fe" : "#7a9cc5",
+                  color: active === l.href.slice(1) ? activeColor : textColor,
                   fontSize: "0.9rem", cursor: "pointer",
                 } as React.CSSProperties}
               >
@@ -160,7 +225,10 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
-          .mobile-toggle { display: flex !important; }
+          .mobile-actions { display: flex !important; }
+        }
+        @media (max-width: 900px) {
+          .search-label, .search-kbd { display: none; }
         }
       `}</style>
     </motion.header>

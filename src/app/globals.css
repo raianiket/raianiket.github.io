@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+[data-theme="dark"] {
   --bg-primary: #050d1a;
   --bg-surface: #0d1b2e;
   --bg-card: #0f2035;
@@ -13,10 +14,24 @@
   --text-muted: #4a6b8a;
 }
 
+[data-theme="light"] {
+  --bg-primary: #f0f6ff;
+  --bg-surface: #e4eeff;
+  --bg-card: #d8e6ff;
+  --border: #94b4d8;
+  --accent: #1a6cf5;
+  --accent-light: #4d8ff7;
+  --accent-glow: rgba(26, 108, 245, 0.10);
+  --text-primary: #08172e;
+  --text-secondary: #2d4a6a;
+  --text-muted: #4a6b8a;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 html {

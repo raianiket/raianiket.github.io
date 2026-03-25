@@ -261,6 +261,21 @@ export default function ChatBot() {
 
   const send = useCallback((text: string) => {
     if (!text.trim() || typing || isTypingEffect) return;
+    // Resume link shortcuts
+    if (text.trim() === "View resume online →") {
+      window.open("/resume", "_blank");
+      const botMsg: Message = { from: "bot", text: "Opening Aniket's resume in a new tab! 🌐\nURL: raianiket.github.io/resume\n\nYou can also print it directly from that page.", time: now(), id: nextId() };
+      setMessages(m => [...m, { from: "user", text: text.trim(), time: now(), id: nextId() }, botMsg]);
+      setSuggestions(["⬇ Download resume PDF", "His experience highlights", "How to contact him?"]);
+      return;
+    }
+    if (text.trim() === "⬇ Download resume PDF") {
+      const a = document.createElement("a"); a.href = "/Aniket_Resume.pdf"; a.download = "Aniket_Resume.pdf"; a.click();
+      const botMsg: Message = { from: "bot", text: "Resume download started! 📥\n\nYou can also view it online at raianiket.github.io/resume", time: now(), id: nextId() };
+      setMessages(m => [...m, { from: "user", text: text.trim(), time: now(), id: nextId() }, botMsg]);
+      setSuggestions(["View resume online →", "His experience highlights", "How to contact him?"]);
+      return;
+    }
     // Email compose shortcut
     if (text.trim() === "✉ Send Aniket an email") {
       const composeMsg: Message = { from: "compose", text: "", time: now(), id: nextId() };
