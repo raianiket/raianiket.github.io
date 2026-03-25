@@ -103,6 +103,7 @@ export default function Experience() {
             borderRadius: "20px",
             border: "1px solid var(--border-strong)",
             background: "var(--bg-card-alpha)",
+            boxShadow: "var(--shadow-card)",
             padding: "1.75rem",
             marginBottom: "2rem",
           }}

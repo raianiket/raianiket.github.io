@@ -65,6 +65,7 @@ export default function About() {
                   borderRadius: "16px", padding: "1.25rem",
                   background: "var(--bg-card-alpha)",
                   border: "1px solid var(--border-strong)",
+                  boxShadow: "var(--shadow-card)",
                   cursor: "default",
                   transition: "border-color 0.3s, box-shadow 0.3s",
                   height: "100%",

@@ -28,6 +28,13 @@
   --tag-text: #7eb3ff;
   --bar-track: rgba(30, 58, 95, 0.5);
   --company-bar-track: rgba(30, 58, 95, 0.6);
+  --chip-bg: rgba(30, 58, 95, 0.4);
+  --chip-border: rgba(30, 58, 95, 0.7);
+  --chip-bg-solid: rgba(30, 58, 95, 0.5);
+  --chip-border-solid: rgba(30, 58, 95, 0.8);
+  --toggle-bg: rgba(30, 58, 95, 0.4);
+  --toggle-border: rgba(30, 58, 95, 0.6);
+  --toggle-icon: #7eb3ff;
 }
 
 [data-theme="light"] {
@@ -42,21 +49,28 @@
   --text-secondary: #3d5a80;
   --text-muted: #6b8cae;
   /* Extended variables */
-  --bg-card-alpha: rgba(255, 255, 255, 0.88);
-  --bg-card-alpha-hi: rgba(255, 255, 255, 0.98);
-  --bg-card-alpha-lo: rgba(255, 255, 255, 0.7);
+  --bg-card-alpha: #ffffff;
+  --bg-card-alpha-hi: #ffffff;
+  --bg-card-alpha-lo: rgba(255, 255, 255, 0.8);
   --bg-tag: rgba(255, 255, 255, 0.95);
   --border-strong: rgba(26, 108, 245, 0.18);
   --border-medium: rgba(26, 108, 245, 0.12);
   --border-subtle: rgba(26, 108, 245, 0.07);
   --border-faint: rgba(26, 108, 245, 0.1);
-  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.07);
   --nav-bg: rgba(250, 250, 248, 0.92);
   --nav-mobile-bg: rgba(250, 250, 248, 0.97);
   --dot-bg: #fafaf8;
   --tag-text: #1550d0;
   --bar-track: rgba(26, 108, 245, 0.1);
   --company-bar-track: rgba(26, 108, 245, 0.1);
+  --chip-bg: rgba(26, 108, 245, 0.06);
+  --chip-border: rgba(26, 108, 245, 0.2);
+  --chip-bg-solid: rgba(26, 108, 245, 0.06);
+  --chip-border-solid: rgba(26, 108, 245, 0.2);
+  --toggle-bg: rgba(26, 108, 245, 0.08);
+  --toggle-border: rgba(26, 108, 245, 0.25);
+  --toggle-icon: #1550d0;
 }
 
 * {

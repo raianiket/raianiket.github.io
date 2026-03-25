@@ -139,7 +139,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          style={{ borderRadius: "20px", padding: "1.75rem", background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(26,108,245,0.2)", marginBottom: "2.5rem" }}
+          style={{ borderRadius: "20px", padding: "1.75rem", background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(26,108,245,0.2)", boxShadow: "var(--shadow-card)", marginBottom: "2.5rem" }}
         >
           <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4d8ff7", marginBottom: "1.25rem" }}>
             ⚡ Core Expertise
