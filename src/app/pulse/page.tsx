@@ -68,13 +68,13 @@ export default function PulseDashboard() {
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("pulse_auth");
+    const saved = localStorage.getItem("pulse_auth");
     if (saved === PULSE_PIN) setAuthed(true);
   }, []);
 
   const submitPin = () => {
     if (pin === PULSE_PIN) {
-      sessionStorage.setItem("pulse_auth", pin);
+      localStorage.setItem("pulse_auth", pin);
       setAuthed(true);
       setPinError(false);
     } else {
