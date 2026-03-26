@@ -172,6 +172,7 @@ export default function ChatBot() {
   const [hoveredId, setHoveredId] = useState<number | string | null>(null);
   const [recruiterMode, setRecruiterMode] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [justClosed, setJustClosed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<{ stop: () => void } | null>(null);
@@ -180,6 +181,7 @@ export default function ChatBot() {
   const nudgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const nudgeFiredRef = useRef(false);
   const userTypingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wasOpenRef = useRef(false);
   const [isUserTyping, setIsUserTyping] = useState(false);
 
   useEffect(() => {
@@ -207,6 +209,16 @@ export default function ChatBot() {
   // Keep refs in sync
   useEffect(() => { messagesRef.current = messages; }, [messages]);
   useEffect(() => { openRef.current = open; }, [open]);
+
+  // Show "come back" tooltip for 5s after closing
+  useEffect(() => {
+    if (open) { wasOpenRef.current = true; return; }
+    if (!wasOpenRef.current) return;
+    wasOpenRef.current = false;
+    setJustClosed(true);
+    const t = setTimeout(() => setJustClosed(false), 5000);
+    return () => clearTimeout(t);
+  }, [open]);
 
   // Persist chat history to localStorage
   useEffect(() => {
@@ -464,28 +476,58 @@ export default function ChatBot() {
       {/* Floating button with label */}
       <div style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
         {/* Label tooltip — hide when panel is open */}
-        {!open && (
-          <div
-            style={{
-              background: "rgba(7,20,36,0.95)",
-              border: "1px solid rgba(26,108,245,0.35)",
-              borderRadius: "10px",
-              padding: "0.4rem 0.75rem",
-              display: "flex", alignItems: "center", gap: "6px",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-              whiteSpace: "nowrap",
-              maxWidth: "calc(100vw - 6rem)",
-            }}
-          >
-            <motion.span
-              animate={{ opacity: [1, 0.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
-            />
-            <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
-            <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {!open && justClosed && (
+            <motion.div
+              key="comeback"
+              initial={{ opacity: 0, y: 12, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.92 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              style={{
+                background: "rgba(7,20,36,0.97)",
+                border: "1px solid rgba(26,108,245,0.5)",
+                borderRadius: "12px",
+                padding: "0.5rem 0.9rem",
+                display: "flex", alignItems: "center", gap: "7px",
+                boxShadow: "0 4px 24px rgba(26,108,245,0.25)",
+                whiteSpace: "nowrap",
+                maxWidth: "calc(100vw - 6rem)",
+              }}
+            >
+              <span style={{ fontSize: "0.88rem" }}>↩</span>
+              <span style={{ color: "#7eb3ff", fontSize: "0.72rem", fontWeight: 600 }}>Come back & ask anything</span>
+              <span style={{ color: "#4d8ff7", fontSize: "0.75rem", lineHeight: 1 }}>↙</span>
+            </motion.div>
+          )}
+          {!open && !justClosed && (
+            <motion.div
+              key="default"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                background: "rgba(7,20,36,0.95)",
+                border: "1px solid rgba(26,108,245,0.35)",
+                borderRadius: "10px",
+                padding: "0.4rem 0.75rem",
+                display: "flex", alignItems: "center", gap: "6px",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+                whiteSpace: "nowrap",
+                maxWidth: "calc(100vw - 6rem)",
+              }}
+            >
+              <motion.span
+                animate={{ opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
+              />
+              <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
+              <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.button
           onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
@@ -554,10 +596,10 @@ export default function ChatBot() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: fullscreen ? 40 : 30, scale: fullscreen ? 0.95 : 0.92 }}
+            initial={{ opacity: 0, y: fullscreen ? 40 : 60, scale: fullscreen ? 0.95 : 0.88 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: fullscreen ? 80 : 120, scale: 0.88 }}
-            transition={{ duration: fullscreen ? 0.45 : 0.35, ease: EASE }}
+            exit={{ opacity: 0, y: fullscreen ? 120 : 220, scale: 0.72, x: 20 }}
+            transition={{ duration: fullscreen ? 0.45 : 0.4, ease: [0.4, 0, 1, 1] }}
             style={fullscreen ? {
               position: "fixed", inset: 0, margin: "auto",
               zIndex: 998,
