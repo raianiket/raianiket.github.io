@@ -114,7 +114,7 @@ export default function ResumePage() {
           <h2>Summary</h2>
           <p style={{ fontSize: "0.78rem", color: "#334155", lineHeight: 1.65 }}>
             Senior Software Engineer with 5+ years of experience building scalable backend systems, data pipelines, and AI agents at SysCloud.
-            Deep expertise in Node.js, TypeScript, PostgreSQL, and AWS. Designed and owned production frameworks used across 12+ cloud integrations,
+            Deep expertise in Node.js, TypeScript, PostgreSQL, and AWS, with hands-on experience in PHP and Python for scripting, automation, and tooling. Designed and owned production frameworks used across 12+ cloud integrations,
             including AI-powered NL interfaces, anomaly detection systems, and high-throughput job orchestration engines.
             Seeking a senior backend/full-stack role with a high-impact team.
           </p>
@@ -182,7 +182,7 @@ export default function ResumePage() {
             <div className="skill-group">
               <div className="skill-label">Languages</div>
               <div className="skill-tags">
-                {["TypeScript", "JavaScript", "Node.js", "SQL", "Python"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["TypeScript", "JavaScript", "Node.js", "PHP", "SQL", "Python"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">

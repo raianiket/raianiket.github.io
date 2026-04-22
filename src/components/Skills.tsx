@@ -20,6 +20,7 @@ const logoMap: Record<string, { bg: string; text: string; label: string }> = {
   "Node.js":                 { bg: "#339933", text: "#fff",    label: "N"   },
   "SQL":                     { bg: "#4479a1", text: "#fff",    label: "SQL" },
   "Python":                  { bg: "#3776ab", text: "#ffd343", label: "Py"  },
+  "PHP":                     { bg: "#8892be", text: "#fff",    label: "PHP" },
   "Express.js":              { bg: "#fff",    text: "#000",    label: "Ex"  },
   "GraphQL":                 { bg: "#e10098", text: "#fff",    label: "GQL" },
   "PostGraphile":            { bg: "#e10098", text: "#fff",    label: "PG"  },
@@ -40,7 +41,7 @@ const logoMap: Record<string, { bg: string; text: string; label: string }> = {
 
 // ── Skill groups ──────────────────────────────────────────────────────────────
 const skillGroups = [
-  { icon: Globe,    label: "Languages",         color: "#4d8ff7", border: "rgba(77,143,247,0.3)",   bg: "rgba(77,143,247,0.1)",   skills: ["TypeScript","JavaScript","Node.js","SQL","Python"] },
+  { icon: Globe,    label: "Languages",         color: "#4d8ff7", border: "rgba(77,143,247,0.3)",   bg: "rgba(77,143,247,0.1)",   skills: ["TypeScript","JavaScript","Node.js","SQL","Python","PHP"] },
   { icon: Code2,    label: "Backend & APIs",    color: "#7eb3ff", border: "rgba(126,179,255,0.3)",  bg: "rgba(126,179,255,0.08)", skills: ["Express.js","GraphQL","PostGraphile","REST APIs","Microservices","Batch Processing","Config-Driven Architecture"] },
   { icon: Database, label: "Databases",         color: "#a5b4fc", border: "rgba(165,180,252,0.3)",  bg: "rgba(165,180,252,0.08)", skills: ["PostgreSQL","CTEs","Materialized Views","Query Optimization","AWS Athena","MongoDB"] },
   { icon: Cloud,    label: "Cloud & AWS",       color: "#4ade80", border: "rgba(74,222,128,0.3)",   bg: "rgba(74,222,128,0.08)",  skills: ["S3","Lambda","Fargate","Batch","SQS","CodeCommit","CodeBuild","CodePipeline","EventBridge","S3 Event Notifications","Docker","Serverless"] },
