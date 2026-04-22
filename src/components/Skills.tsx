@@ -11,6 +11,7 @@ const coreSkills = [
   { name: "AWS",                  years: "4 yrs", level: "Advanced",  pct: 82, color: "#ff9900" },
   { name: "GraphQL",              years: "4 yrs", level: "Advanced",  pct: 80, color: "#e10098" },
   { name: "AI Agent Development", years: "1 yr",  level: "Advanced",  pct: 78, color: "#a78bfa" },
+  { name: "PHP",                  years: "1 yr",  level: "Intermediate", pct: 50, color: "#8892be" },
 ];
 
 // ── Tech logo colours & abbreviations ────────────────────────────────────────
