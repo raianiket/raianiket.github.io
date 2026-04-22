@@ -161,7 +161,7 @@
     },
     {
       "pattern": "project|built|build|what has he made|show.*project",
-      "text": "Here are Aniket's key projects at SysCloud. Which one would you like to know in detail?\n\n\ud83e\udd16 Sky 2.0 \u2014 AI-powered NL interface\n\ud83d\udee1\ufe0f DAL AI-Agents \u2014 Operational monitoring agents\n\u26a1 MDL 2.0 \u2014 Config-driven cloud framework\n\ud83d\udcca Anomaly Detection \u2014 Prophet ML + Rule Engine\n\ud83d\udd04 Restore & Export \u2014 High-speed data recovery\n\ud83d\udcc8 Customer Dashboard \u2014 Multi-cloud insights\n\ud83d\udc65 Partner Portal \u2014 MSP management dashboard\n\ud83d\udd27 MDLOPS Microservice \u2014 Async addon orchestration\n\ud83d\uddc4\ufe0f Batch Jobs Framework \u2014 100K+ job orchestration",
+      "text": "Here are Aniket's key projects at SysCloud. Which one would you like to know in detail?\n\n\ud83e\udd16 Sky 2.0 \u2014 AI-powered NL interface\n\ud83d\udee1\ufe0f DAL AI-Agents \u2014 Operational monitoring agents\n\u26a1 MDL 2.0 \u2014 Config-driven cloud framework\n\ud83d\udcca Anomaly Detection \u2014 Prophet ML + Rule Engine\n\ud83d\udd04 Restore & Export \u2014 High-speed data recovery + Bulk Export\n\ud83d\udd0d Slack eDiscovery \u2014 PHP + Node.js full-stack integration\n\ud83d\udcc8 Customer Dashboard \u2014 Multi-cloud insights\n\ud83d\udc65 Partner Portal \u2014 MSP management dashboard\n\ud83d\udd27 MDLOPS Microservice \u2014 Async addon orchestration\n\ud83d\uddc4\ufe0f Batch Jobs Framework \u2014 100K+ job orchestration",
       "suggestions": [
         "Sky 2.0",
         "DAL AI-Agents",
@@ -211,8 +211,18 @@
       "topic": "project_mdl"
     },
     {
+      "pattern": "slack|ediscovery|eDiscovery|slack ediscovery|bulk export",
+      "text": "\ud83d\udd0d Slack eDiscovery Search\n\nDescription: End-to-end integration of Slack eDiscovery across UI (React), backend (PHP + Node.js), and database (PostgreSQL). Customers can search and retrieve Slack files, messages, and chats directly through the platform. Configured PHP backend services for Slack data ingestion and event handling, built Node.js APIs, and wrote GraphQL mutations.\n\nAlso built Bulk Export as part of this, extending the PHP export backend from single user-level to multi-user exports in one request with a unified download URL.\n\nTech Stack: PHP \u00b7 Node.js \u00b7 TypeScript \u00b7 GraphQL \u00b7 React \u00b7 PostgreSQL\n\nKey Metrics:\n\u2713 Full-stack delivery (UI + backend + DB)\n\u2713 Bulk multi-user export\n\u2713 PHP + Node.js backend",
+      "suggestions": [
+        "Restore & Export",
+        "Tell me about all projects",
+        "PHP experience"
+      ],
+      "topic": "project_slack"
+    },
+    {
       "pattern": "restore.*export|export.*restore|athena.*archive|archive",
-      "text": "\ud83d\udd04 Restore & Export Action\n\nDescription: Built from scratch for Gen3, evolved through Gen4. Supports 3 modes: (1) User/Account/Company level full restore, (2) Folder level with deep recursive traversal preserving hierarchy, (3) Item level pinpoint restore. For archives 2+ years old \u2014 fetches metadata on-demand via AWS Athena.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 AWS Athena \u00b7 S3 \u00b7 PostgreSQL \u00b7 Recursive CTEs \u00b7 Config-Driven\n\nKey Metrics:\n\u2713 Millions of items/sec\n\u2713 Query time 10s+ \u2192 under 2s\n\u2713 Zero code per new cloud",
+      "text": "\ud83d\udd04 Restore & Export Action\n\nDescription: Built from scratch for Gen3, evolved through Gen4. Supports 3 modes: (1) User/Account/Company level full restore, (2) Folder level with deep recursive traversal preserving hierarchy, (3) Item level pinpoint restore. For archives 2+ years old, fetches metadata on-demand via AWS Athena. Also extended the PHP export backend to support Bulk Export; refactored from single user-level to multi-user exports in one request with a unified download URL.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 PHP \u00b7 AWS Athena \u00b7 S3 \u00b7 PostgreSQL \u00b7 Recursive CTEs \u00b7 Config-Driven\n\nKey Metrics:\n\u2713 Millions of items/sec\n\u2713 Query time 10s+ \u2192 under 2s\n\u2713 Bulk multi-user export",
       "suggestions": [
         "Customer Dashboard",
         "MDL 2.0",

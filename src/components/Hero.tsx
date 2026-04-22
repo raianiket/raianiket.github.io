@@ -29,6 +29,7 @@ const floatingTags = [
   { text: "AI Agents", x: "76%", y: "76%", delay: 0.5 },
   { text: "Docker", x: "86%", y: "36%", delay: 0.4 },
   { text: "Microservices", x: "2%", y: "40%", delay: 0.7 },
+  { text: "PHP", x: "78%", y: "90%", delay: 0.9 },
 ];
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
