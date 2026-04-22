@@ -150,7 +150,7 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), SQL, Python\n\ud83d\udd27 Backend: Node.js, Express, GraphQL (PostGraphile), Microservices\n\ud83d\uddc4\ufe0f Databases: PostgreSQL, MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (S3, Lambda, Fargate, Batch, SQS, CodePipeline)\n\ud83e\udd16 AI: LLM Integration, Claude, MCP, AI Agents, Prophet ML\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udd27 Backend: Node.js, Express, GraphQL (PostGraphile), Microservices\n\ud83d\uddc4\ufe0f Databases: PostgreSQL, MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (S3, Lambda, Fargate, Batch, SQS, CodePipeline)\n\ud83e\udd16 AI: LLM Integration, Claude, MCP, AI Agents, Prophet ML\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
