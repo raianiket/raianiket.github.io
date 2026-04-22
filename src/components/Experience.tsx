@@ -22,7 +22,8 @@ const roles = [
     bullets: [
       "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table; also launched the Partner Portal end-to-end to onboard MSPs.",
       "Delivered the Restore & Export action layer for S3 Data Migration, fetching older metadata on-demand via AWS Athena and populating the DB, reducing Archives query time from 10s+ to under 2s for large datasets.",
-      "Integrated Slack eDiscovery Search, enabling customers to search and retrieve Slack files, messages, and chats.",
+      "Integrated Slack eDiscovery Search end-to-end across UI (React), backend (PHP), and database (PostgreSQL) by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.",
+      "Built the Bulk Export feature by extending the PHP export backend to support multi-user exports under a single URL; previous implementation handled only single user-level export, refactored to process multiple users in one request with unified download link generation.",
       "Launched MDLOPS, a TypeScript microservice from scratch, using cm-runner-plus + JSON-driven config to handle 5 add-on modules with parallel execution via PM2; integrated anomaly detection using the Prophet algorithm.",
       "Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) to automate operational monitoring and resolve issues before they impact customers.",
       "Designed and owned MDL 2.0, a framework replacing complex mutation logic with JSON-driven config; migrated 12+ cloud integrations so adding a new cloud requires zero code changes, only config.",

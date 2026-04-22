@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
 import { EASE } from "@/lib/constants";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search } from "lucide-react";
 
 
 
@@ -54,12 +54,23 @@ const projects = [
     bgColor: "rgba(77,143,247,0.08)",
   },
   {
+    icon: Search,
+    title: "Slack eDiscovery Search",
+    description: "End-to-end integration of Slack eDiscovery Search across UI (React), backend (PHP + Node.js), and database (PostgreSQL). Customers can search and retrieve Slack files, messages, and chats directly through the platform. Configured PHP backend services for Slack data ingestion and event handling, built Node.js APIs, and wrote GraphQL mutations for the full search and results interface.",
+    category: "Backend",
+    tags: ["PHP", "Node.js", "TypeScript", "GraphQL", "React", "PostgreSQL"],
+    metrics: ["Full-stack delivery", "UI + backend + DB", "PHP + Node.js backend"],
+    color: "#4ade80",
+    borderColor: "rgba(74,222,128,0.25)",
+    bgColor: "rgba(74,222,128,0.08)",
+  },
+  {
     icon: RefreshCw,
     title: "Restore & Export Action",
-    description: "Built from scratch for Gen3 and evolved through Gen4, now fully automated with zero code changes per new cloud. Supports 3 restore/export modes: (1) User/Account/Company level for full data restore, (2) Folder level with deep recursive traversal that populates the complete folder structure and preserves hierarchy so customers restore exactly what they see, and (3) Item level for pinpoint single-item restore/export. For enterprise customers, processes millions of items per second while hydrating metadata on-demand via AWS Athena for archives older than 2 years, cutting query time from 10s+ to under 2s.",
+    description: "Built from scratch for Gen3 and evolved through Gen4, now fully automated with zero code changes per new cloud. Supports 3 restore/export modes: (1) User/Account/Company level for full data restore, (2) Folder level with deep recursive traversal preserving hierarchy, and (3) Item level for pinpoint single-item restore/export. For enterprise customers, processes millions of items per second while hydrating metadata on-demand via AWS Athena for archives older than 2 years, cutting query time from 10s+ to under 2s. Also extended the PHP export backend to deliver Bulk Export; refactored from single user-level to multi-user exports processed in one request with a unified download URL.",
     category: "Backend",
-    tags: ["Node.js", "TypeScript", "AWS Athena", "S3", "PostgreSQL", "Recursive CTEs", "Config-Driven"],
-    metrics: ["Millions of items/sec", "10s+ → <2s query time", "Zero code per new cloud"],
+    tags: ["Node.js", "TypeScript", "PHP", "AWS Athena", "S3", "PostgreSQL", "Recursive CTEs", "Config-Driven"],
+    metrics: ["Millions of items/sec", "10s+ → <2s query time", "Bulk multi-user export"],
     color: "#38bdf8",
     borderColor: "rgba(56,189,248,0.25)",
     bgColor: "rgba(56,189,248,0.08)",
