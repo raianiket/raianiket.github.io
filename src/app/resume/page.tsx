@@ -133,13 +133,15 @@ export default function ResumePage() {
               <span className="role-meta">Jun 2023 – Present · 2+ yrs</span>
             </div>
             <ul>
-              <li>Built Sky 2.0 — AI-powered NL interface where customers ask questions; AI builds queries, navigates to the relevant page, and initiates Restore & Export actions, eliminating manual browsing.</li>
+              <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
+              <li>Built the <strong>Bulk Export</strong> feature by extending the export action across UI (React), backend (PHP), and database (PostgreSQL) to support multi-user exports under a single URL; previous implementation handled only single user-level export, refactored to process multiple users in one request with unified download link generation.</li>
+              <li>Built Sky 2.0, an AI-powered NL interface where customers ask questions; AI builds queries, navigates to the relevant page, and initiates Restore &amp; Export actions, eliminating manual browsing.</li>
               <li>Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
-              <li>Designed MDL 2.0 — JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations. Adding a new cloud now requires zero code changes.</li>
+              <li>Designed MDL 2.0, a JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations so adding a new cloud requires zero code changes.</li>
               <li>Revamped Customer Dashboard aggregating data across 12+ clouds; launched Partner Portal for MSP onboarding end-to-end.</li>
-              <li>Delivered Restore & Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
+              <li>Delivered Restore &amp; Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
               <li>Launched MDLOPS microservice from scratch using TypeScript + PM2 + JSON config, handling 5 add-on modules with parallel execution and Prophet ML anomaly detection.</li>
-              <li>Overhauled Batch Job & Materialized View refresh framework with parallel host-level execution — achieved 4× faster job execution.</li>
+              <li>Overhauled Batch Job &amp; Materialized View refresh framework with parallel host-level execution, achieved 4x faster job execution.</li>
               <li>Resolved all critical SonarQube security violations (to 0) and cut total issues by 90%.</li>
             </ul>
           </div>
