@@ -13,7 +13,7 @@
     { "q": "what is sky 2.0", "a": "Sky 2.0 is SysCloud's AI-powered natural language interface. Customers ask questions, the AI builds queries, redirects to the right page with filters, and initiates Restore & Export actions automatically." },
     { "q": "tell me about dal ai agents", "a": "4 DAL AI-Agents: Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each detects and resolves issues automatically before they impact customers." },
     { "q": "what is mdl 2.0", "a": "MDL 2.0 replaced complex mutation logic with JSON-driven config. 12+ cloud integrations migrated. Adding a new cloud now requires zero code changes — only config." },
-    { "q": "notice period", "a": "Aniket's notice period is 90 days." },
+    { "q": "notice period", "a": "Aniket's notice period is 45 days." },
     { "q": "where is aniket located", "a": "Hyderabad, Telangana, India (IST, UTC+5:30). Open to hybrid and remote roles." },
     { "q": "what university did aniket go to", "a": "Lovely Professional University — B.Tech in Computer Science & Engineering, 2017-2021." },
     { "q": "does aniket know php", "a": "Yes, Aniket has 1 year of PHP experience at SysCloud. He used PHP in two projects: (1) Slack eDiscovery — configured PHP backend services for Slack data ingestion and event handling; (2) Bulk Export — extended the PHP export backend to support multi-user exports under a single URL." },

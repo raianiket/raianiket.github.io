@@ -45,7 +45,7 @@
     },
     {
       "pattern": "i.?am a recruiter|i.?m a recruiter|recruiter here|talent.*acqui|from.*hr|am recruiter|i am recruiter",
-      "text": "Welcome, Recruiter! \ud83d\udc54 Great to have you here.\n\nHere's Aniket at a glance:\n\n\u2022 Role: Senior Software Engineer (5+ years)\n\u2022 Stack: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 AI/LLM\n\u2022 Notice: 90 days (negotiable)\n\u2022 Location: Hyderabad | Open to hybrid/remote\n\u2022 Availability: Open to senior backend / full-stack roles\n\nWhat would you like to dig deeper into?",
+      "text": "Welcome, Recruiter! \ud83d\udc54 Great to have you here.\n\nHere's Aniket at a glance:\n\n\u2022 Role: Senior Software Engineer (5+ years)\n\u2022 Stack: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 AI/LLM\n\u2022 Notice: 45 days (negotiable)\n\u2022 Location: Hyderabad | Open to hybrid/remote\n\u2022 Availability: Open to senior backend / full-stack roles\n\nWhat would you like to dig deeper into?",
       "suggestions": [
         "His key strengths",
         "Projects & impact metrics",
@@ -67,7 +67,7 @@
     },
     {
       "pattern": "schedule.*interview|interview.*schedule|book.*call|schedule.*call|available.*interview|interview.*available|slot.*interview",
-      "text": "Aniket is happy to connect! Here's how to schedule:\n\n\ud83d\udce7 rai078945@gmail.com\n\ud83d\udcbc linkedin.com/in/aniket-kumar-rai\n\ud83d\udccd Hyderabad, IST (UTC+5:30)\n\nJust send him a message with your preferred time slot \u2014 he typically responds within 24 hours. Notice period is 90 days (negotiable for the right opportunity).",
+      "text": "Aniket is happy to connect! Here's how to schedule:\n\n\ud83d\udce7 rai078945@gmail.com\n\ud83d\udcbc linkedin.com/in/aniket-kumar-rai\n\ud83d\udccd Hyderabad, IST (UTC+5:30)\n\nJust send him a message with your preferred time slot \u2014 he typically responds within 24 hours. Notice period is 45 days (negotiable for the right opportunity).",
       "suggestions": [
         "His notice period?",
         "What roles is he open to?",
@@ -282,7 +282,7 @@
     },
     {
       "pattern": "what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in",
-      "text": "Aniket is actively open to:\n\n\ud83c\udfaf Senior Backend Engineer\n\ud83c\udfaf Senior Full-Stack Engineer\n\ud83c\udfaf Backend-heavy roles (Node.js / TypeScript)\n\ud83c\udfaf AI/LLM Engineering roles\n\n\ud83d\udccd Hyderabad | Open to Hybrid, Remote, or WFO\n\u23f1\ufe0f Notice period: 90 days (negotiable)\n\nReach out at rai078945@gmail.com!",
+      "text": "Aniket is actively open to:\n\n\ud83c\udfaf Senior Backend Engineer\n\ud83c\udfaf Senior Full-Stack Engineer\n\ud83c\udfaf Backend-heavy roles (Node.js / TypeScript)\n\ud83c\udfaf AI/LLM Engineering roles\n\n\ud83d\udccd Hyderabad | Open to Hybrid, Remote, or WFO\n\u23f1\ufe0f Notice period: 45 days (negotiable)\n\nReach out at rai078945@gmail.com!",
       "suggestions": [
         "His notice period?",
         "How to contact him?",
@@ -343,7 +343,7 @@
     },
     {
       "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date",
-      "text": "Aniket is open to Senior Backend, Full-Stack, and Backend-heavy roles.\n\n\u2022 Notice period: 90 days (negotiable)\n\u2022 Location: Hybrid, Remote, or Work from Office\n\u2022 For exact joining timeline, reach out directly to confirm \u2014 rai078945@gmail.com",
+      "text": "Aniket is open to Senior Backend, Full-Stack, and Backend-heavy roles.\n\n\u23f1\ufe0f Notice period: 45 days (negotiable)\n\ud83d\udccd Location: Hyderabad | Open to Hybrid, Remote, or WFO\n\n\ud83d\udca1 The timeline can be flexible depending on the role and team. Reach out to Aniket directly for any clarification:\n\ud83d\udce7 rai078945@gmail.com \u00b7 \ud83d\udcde +91 7668514258",
       "suggestions": [
         "How to contact him?",
         "His experience",
@@ -594,7 +594,7 @@
       ]
     },
     "recruiter": {
-      "text": "Recruiter Quick Reference:\n\n\ud83d\udccb Name: Aniket Rai\n\ud83c\udfe2 Current: Senior SE @ SysCloud Technologies\n\u23f1\ufe0f Experience: 5+ years\n\ud83d\udcbb Primary: Node.js, TypeScript, PostgreSQL, AWS\n\ud83d\udd27 Secondary: AI/LLM, GraphQL, Docker, Grafana\n\ud83d\udccd Location: Hyderabad, India (IST)\n\ud83d\udcc5 Notice: 90 days (negotiable)\n\ud83c\udfaf Open to: Senior Backend, Full-Stack, Backend-heavy roles\n\ud83d\udce7 Contact: rai078945@gmail.com\n\ud83d\udcbc LinkedIn: linkedin.com/in/aniket-kumar-rai",
+      "text": "Recruiter Quick Reference:\n\n\ud83d\udccb Name: Aniket Rai\n\ud83c\udfe2 Current: Senior SE @ SysCloud Technologies\n\u23f1\ufe0f Experience: 5+ years\n\ud83d\udcbb Primary: Node.js, TypeScript, PostgreSQL, AWS\n\ud83d\udd27 Secondary: AI/LLM, GraphQL, Docker, Grafana\n\ud83d\udccd Location: Hyderabad, India (IST)\n\ud83d\udcc5 Notice: 45 days (negotiable)\n\ud83c\udfaf Open to: Senior Backend, Full-Stack, Backend-heavy roles\n\ud83d\udce7 Contact: rai078945@gmail.com\n\ud83d\udcbc LinkedIn: linkedin.com/in/aniket-kumar-rai",
       "suggestions": [
         "Schedule an interview",
         "His key projects",
