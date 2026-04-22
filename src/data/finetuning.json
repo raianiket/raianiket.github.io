@@ -15,7 +15,14 @@
     { "q": "what is mdl 2.0", "a": "MDL 2.0 replaced complex mutation logic with JSON-driven config. 12+ cloud integrations migrated. Adding a new cloud now requires zero code changes — only config." },
     { "q": "notice period", "a": "Aniket's notice period is 90 days." },
     { "q": "where is aniket located", "a": "Hyderabad, Telangana, India (IST, UTC+5:30). Open to hybrid and remote roles." },
-    { "q": "what university did aniket go to", "a": "Lovely Professional University — B.Tech in Computer Science & Engineering, 2017-2021." }
+    { "q": "what university did aniket go to", "a": "Lovely Professional University — B.Tech in Computer Science & Engineering, 2017-2021." },
+    { "q": "does aniket know php", "a": "Yes, Aniket has 1 year of PHP experience at SysCloud. He used PHP in two projects: (1) Slack eDiscovery — configured PHP backend services for Slack data ingestion and event handling; (2) Bulk Export — extended the PHP export backend to support multi-user exports under a single URL." },
+    { "q": "what php experience does aniket have", "a": "Aniket used PHP at SysCloud Technologies in two projects: Slack eDiscovery Search (PHP backend services for data ingestion and event handling) and Bulk Export (extended PHP export backend from single user to multi-user exports). 1 year of hands-on PHP experience." },
+    { "q": "where did aniket use php", "a": "PHP was used in two SysCloud projects: (1) Slack eDiscovery Search — configured PHP backend services for Slack data ingestion and event handling as part of a full-stack integration. (2) Bulk Export — extended the PHP export backend to handle multi-user exports in a single request with a unified download URL." },
+    { "q": "php projects", "a": "Aniket's PHP work at SysCloud: Slack eDiscovery (PHP backend for Slack data ingestion) and Bulk Export (PHP export backend extended for multi-user support). Full-stack delivery across UI (React), backend (PHP + Node.js), and database (PostgreSQL)." },
+    { "q": "can aniket work with php", "a": "Yes. Aniket has hands-on PHP experience from production work at SysCloud — configured PHP backend services for Slack eDiscovery integration and extended the PHP export backend to deliver Bulk Export with multi-user support." },
+    { "q": "what is bulk export", "a": "Bulk Export is a feature Aniket built at SysCloud by extending the PHP export backend. The previous implementation handled only single user-level export. Aniket refactored it to support multi-user exports under a single URL, processing multiple users in one request with unified download link generation." },
+    { "q": "what is slack ediscovery", "a": "Slack eDiscovery Search is a full-stack integration Aniket built at SysCloud. Customers can search and retrieve Slack files, messages, and chats directly through the platform. He configured PHP backend services for data ingestion, built Node.js APIs, wrote GraphQL mutations, and delivered the frontend search interface." }
   ],
   "unanswered": []
 }
