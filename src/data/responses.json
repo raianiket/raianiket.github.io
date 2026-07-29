@@ -402,8 +402,8 @@
       "topic": "impact"
     },
     {
-      "pattern": "current|currently|present|right now|working now",
-      "text": "Aniket is currently a Lead Software Engineer at SysCloud Technologies, Hyderabad (2025 \u2013 Present).\n\nCurrent focus: Customer Dashboard overhaul, Partner Portal for MSP onboarding, and driving technical direction across 12+ cloud integrations.",
+      "pattern": "current position|current role|current job|current title|current company|current|currently|present|right now|working now",
+      "text": "Aniket is currently a Lead Software Engineer at SysCloud Technologies, Hyderabad (2026 \u2013 Present).\n\nCurrent focus: Customer Dashboard overhaul, Partner Portal for MSP onboarding, and driving technical direction across 12+ cloud integrations.",
       "suggestions": [
         "His projects",
         "Tell me about SysCloud",
