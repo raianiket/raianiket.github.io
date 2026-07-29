@@ -139,7 +139,7 @@
     },
     {
       "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)",
-      "text": "Aniket Rai is a Lead Software Engineer with 5+ years at SysCloud Technologies, Hyderabad.\n\nHe builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents that detect and resolve production issues before customers notice, and a natural language interface where customers talk to their data instead of navigating dashboards.\n\nReal systems. Real scale. Real impact.",
+      "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude API + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "What's his tech stack?",
         "AI work he's done",
@@ -553,7 +553,7 @@
     },
     {
       "pattern": "walk.*resume|tell.*yourself|introduce.*yourself|summary|overview|background",
-      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years at SysCloud Technologies building scalable backend systems, data pipelines, and AI agents for a B2B SaaS cloud-backup platform.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 built GraphQL queries, contributed to Gen1\u2192Gen2 migration\n\ud83d\udfe2 SE (May 2021) \u2192 architected Restore/Export Gen3, S3 integrity pipeline, ELK Stack integration\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 AI interface, DAL AI-Agents, MDL 2.0 framework, Slack eDiscovery, Bulk Export\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard overhaul, Partner Portal for MSP onboarding\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 PHP \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
+      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 (Claude API + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
       "suggestions": ["His key projects", "Tech stack", "Why hire him?"],
       "topic": "intro"
     },
