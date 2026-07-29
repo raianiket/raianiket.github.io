@@ -144,7 +144,7 @@ export default function ResumePage() {
                 <h3>Senior Software Engineer</h3>
                 <span className="role-meta">SysCloud · Hyderabad, Telangana</span>
               </div>
-              <span className="role-meta">2023 – 2026 · 2 yrs</span>
+              <span className="role-meta">Jun 2023 – 2026 · 2 yrs</span>
             </div>
             <ul>
               <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
