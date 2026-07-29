@@ -299,7 +299,7 @@
         "How to contact him?"
       ],
       "topic": "experience",
-      "expandedText": "Aniket's career progression at SysCloud:\n\n\ud83d\udcc8 Growth: Intern (Nov 2020) \u2192 SE (May 2021) \u2192 SSE (Jun 2023) \u2192 Lead (2025) \u2014 all at one product, building deep domain mastery.\n\n\ud83d\udd39 As Intern: Authored GraphQL mutations for UI modules. Led POC for monolith \u2192 microservice migration that influenced Gen2 architecture.\n\ud83d\udd39 As SE: Designed & built Restore/Export from scratch (Gen3). Created S3-based data integrity pipeline. Integrated ELK Stack for observability.\n\ud83d\udd39 As SSE: Designed Sky 2.0 (AI interface), DAL AI-Agents (4 production agents), MDL 2.0 (12+ cloud config framework), MDLOPS microservice \u2014 all from the ground up. Led SonarQube quality initiative to 0 critical issues.\n\ud83d\udd39 As Lead: Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding."
+      "expandedText": "Aniket's career progression at SysCloud:\n\n\ud83d\udcc8 Growth: Intern (Nov 2020) \u2192 SE (May 2021) \u2192 SSE (Jun 2023) \u2192 Lead (2026) \u2014 all at one product, building deep domain mastery.\n\n\ud83d\udd39 As Intern: Authored GraphQL mutations for UI modules. Led POC for monolith \u2192 microservice migration that influenced Gen2 architecture.\n\ud83d\udd39 As SE: Designed & built Restore/Export from scratch (Gen3). Created S3-based data integrity pipeline. Integrated ELK Stack for observability.\n\ud83d\udd39 As SSE: Designed Sky 2.0 (AI interface), DAL AI-Agents (4 production agents), MDL 2.0 (12+ cloud config framework), MDLOPS microservice \u2014 all from the ground up. Led SonarQube quality initiative to 0 critical issues.\n\ud83d\udd39 As Lead: Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding."
     },
     {
       "pattern": "aws|cloud|lambda|s3|fargate|batch|sqs|athena",
@@ -680,7 +680,7 @@
   ],
   "followUps": {
     "about": {
-      "text": "Going deeper on Aniket...\n\nHe started as an intern (Nov 2020) and was promoted three times \u2014 SE (2021), SSE (2023), Lead (2025) \u2014 all at the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He designs architecture from scratch \u2014 Sky 2.0, MDL 2.0, MDLOPS all originated from his designs\n\ud83d\udd39 AI-first before it was mainstream \u2014 integrated LLMs and MCP before it was everywhere\n\ud83d\udd39 Obsessed with quality \u2014 took SonarQube critical issues from 100% to 0\n\ud83d\udd39 Every optimization has a number behind it (4x faster, 10s \u2192 2s, 12+ integrations, 0 code changes)",
+      "text": "Going deeper on Aniket...\n\nHe started as an intern (Nov 2020) and was promoted three times \u2014 SE (2021), SSE (2023), Lead (2026) \u2014 all at the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He designs architecture from scratch \u2014 Sky 2.0, MDL 2.0, MDLOPS all originated from his designs\n\ud83d\udd39 AI-first before it was mainstream \u2014 integrated LLMs and MCP before it was everywhere\n\ud83d\udd39 Obsessed with quality \u2014 took SonarQube critical issues from 100% to 0\n\ud83d\udd39 Every optimization has a number behind it (4x faster, 10s \u2192 2s, 12+ integrations, 0 code changes)",
       "suggestions": [
         "His projects",
         "His impact metrics",
@@ -696,7 +696,7 @@
       ]
     },
     "experience": {
-      "text": "Aniket's career progression:\n\n\u26aa Intern (Nov 2020): GraphQL mutations for UI. POC'd monolith \u2192 microservice migration (influenced Gen2).\n\ud83d\udfe2 SE (May 2021): Built Restore/Export from scratch (Gen3). S3 integrity pipeline. ELK Stack integration.\n\ud83d\udd35 SSE (Jun 2023): Designed Sky 2.0 from scratch. Built 4 production AI agents. Architected MDL 2.0. Created MDLOPS microservice. Led quality initiative to 0 SonarQube critical violations.\n\ud83d\udfe3 Lead (2025): Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding.",
+      "text": "Aniket's career progression:\n\n\u26aa Intern (Nov 2020): GraphQL mutations for UI. POC'd monolith \u2192 microservice migration (influenced Gen2).\n\ud83d\udfe2 SE (May 2021): Built Restore/Export from scratch (Gen3). S3 integrity pipeline. ELK Stack integration.\n\ud83d\udd35 SSE (Jun 2023): Designed Sky 2.0 from scratch. Built 4 production AI agents. Architected MDL 2.0. Created MDLOPS microservice. Led quality initiative to 0 SonarQube critical violations.\n\ud83d\udfe3 Lead (2026): Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding.",
       "suggestions": [
         "His impact metrics",
         "Why hire him?",
