@@ -3,7 +3,7 @@ import ResumePrintBar from "@/components/ResumePrintBar";
 
 export const metadata: Metadata = {
   title: "Aniket Rai – Resume",
-  description: "Resume of Aniket Rai, Senior Software Engineer with 5+ years in Node.js, TypeScript, PostgreSQL, AWS, and AI/LLM systems.",
+  description: "Resume of Aniket Rai, Lead Software Engineer with 5+ years in Node.js, TypeScript, PostgreSQL, AWS, and AI/LLM systems.",
   robots: { index: false },
 };
 
@@ -100,7 +100,7 @@ export default function ResumePage() {
         {/* Header */}
         <div className="header">
           <h1>Aniket Rai</h1>
-          <p className="header-sub">Senior Software Engineer · Node.js · TypeScript · PostgreSQL · AWS · AI/LLM</p>
+          <p className="header-sub">Lead Software Engineer · Node.js · TypeScript · PostgreSQL · AWS · AI/LLM</p>
           <div className="contact-row">
             <span>📧 <a href="mailto:rai078945@gmail.com">rai078945@gmail.com</a></span>
             <span>🔗 <a href="https://www.linkedin.com/in/aniket-kumar-rai">linkedin.com/in/aniket-kumar-rai</a></span>
@@ -113,10 +113,10 @@ export default function ResumePage() {
         <div className="section">
           <h2>Summary</h2>
           <p style={{ fontSize: "0.78rem", color: "#334155", lineHeight: 1.65 }}>
-            Senior Software Engineer with 5+ years of experience building scalable backend systems, data pipelines, and AI agents at SysCloud.
-            Deep expertise in Node.js, TypeScript, PostgreSQL, and AWS, with hands-on experience in PHP and Python for scripting, automation, and tooling. Designed and owned production frameworks used across 12+ cloud integrations,
+            Lead Software Engineer with 5+ years of experience driving technical architecture and delivering scalable backend systems, data pipelines, and AI agents at SysCloud.
+            Deep expertise in Node.js, TypeScript, PostgreSQL, and AWS, with hands-on experience in PHP and Python. Designed and owned production frameworks used across 12+ cloud integrations,
             including AI-powered NL interfaces, anomaly detection systems, and high-throughput job orchestration engines.
-            Seeking a senior backend/full-stack role with a high-impact team.
+            Seeking a lead or senior backend/full-stack role with a high-impact team.
           </p>
         </div>
 
@@ -127,10 +127,24 @@ export default function ResumePage() {
           <div className="role">
             <div className="role-header">
               <div>
+                <h3>Lead Software Engineer</h3>
+                <span className="role-meta">SysCloud · Hyderabad, Telangana</span>
+              </div>
+              <span className="role-meta">2025 – Present</span>
+            </div>
+            <ul>
+              <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
+              <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
+            </ul>
+          </div>
+
+          <div className="role">
+            <div className="role-header">
+              <div>
                 <h3>Senior Software Engineer</h3>
                 <span className="role-meta">SysCloud · Hyderabad, Telangana</span>
               </div>
-              <span className="role-meta">Jun 2023 – Present · 2+ yrs</span>
+              <span className="role-meta">Jun 2023 – 2025 · 2 yrs</span>
             </div>
             <ul>
               <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
@@ -138,7 +152,6 @@ export default function ResumePage() {
               <li>Built Sky 2.0, an AI-powered NL interface where customers ask questions; AI builds queries, navigates to the relevant page, and initiates Restore &amp; Export actions, eliminating manual browsing.</li>
               <li>Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
               <li>Designed MDL 2.0, a JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations so adding a new cloud requires zero code changes.</li>
-              <li>Revamped Customer Dashboard aggregating data across 12+ clouds; launched Partner Portal for MSP onboarding end-to-end.</li>
               <li>Delivered Restore &amp; Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
               <li>Launched MDLOPS microservice from scratch using TypeScript + PM2 + JSON config, handling 5 add-on modules with parallel execution and Prophet ML anomaly detection.</li>
               <li>Overhauled Batch Job &amp; Materialized View refresh framework with parallel host-level execution, achieved 4x faster job execution.</li>

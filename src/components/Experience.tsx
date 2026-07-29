@@ -9,18 +9,33 @@ import { EASE } from "@/lib/constants";
 
 const roles = [
   {
+    title: "Lead Software Engineer",
+    short: "Lead",
+    period: "2025 – Present",
+    duration: "Current",
+    location: "Hyderabad, Telangana",
+    color: "#a78bfa",
+    borderColor: "rgba(167,139,250,0.3)",
+    bgColor: "rgba(167,139,250,0.08)",
+    dotColor: "#a78bfa",
+    barWidth: "5%",
+    bullets: [
+      "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table.",
+      "Launched the Partner Portal end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.",
+    ],
+  },
+  {
     title: "Senior Software Engineer",
     short: "SSE",
-    period: "Jun 2023 – Present",
-    duration: "2+ yrs",
+    period: "Jun 2023 – 2025",
+    duration: "2 yrs",
     location: "Hyderabad, Telangana",
     color: "#4d8ff7",
     borderColor: "rgba(77,143,247,0.3)",
     bgColor: "rgba(77,143,247,0.08)",
     dotColor: "#4d8ff7",
-    barWidth: "51%",
+    barWidth: "46%",
     bullets: [
-      "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table; also launched the Partner Portal end-to-end to onboard MSPs.",
       "Delivered the Restore & Export action layer for S3 Data Migration, fetching older metadata on-demand via AWS Athena and populating the DB, reducing Archives query time from 10s+ to under 2s for large datasets.",
       "Integrated Slack eDiscovery Search end-to-end across UI (React), backend (PHP), and database (PostgreSQL) by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.",
       "Built the Bulk Export feature by extending the PHP export backend to support multi-user exports under a single URL; previous implementation handled only single user-level export, refactored to process multiple users in one request with unified download link generation.",
@@ -72,7 +87,7 @@ const roles = [
 ];
 
 export default function Experience() {
-  const [expanded, setExpanded] = useState<string>("Senior Software Engineer");
+  const [expanded, setExpanded] = useState<string>("Lead Software Engineer");
 
   return (
     <section id="experience" style={{ padding: "6rem 1.5rem" }}>
@@ -173,7 +188,7 @@ export default function Experience() {
           {/* Vertical line */}
           <div style={{
             position: "absolute", left: "9px", top: "8px", bottom: "8px",
-            width: "2px", background: "linear-gradient(to bottom, #4d8ff7, #4ade80, #94a3b8)",
+            width: "2px", background: "linear-gradient(to bottom, #a78bfa, #4d8ff7, #4ade80, #94a3b8)",
             borderRadius: "999px", opacity: 0.3,
           }} />
 
