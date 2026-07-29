@@ -18,7 +18,7 @@ const roles = [
     borderColor: "rgba(167,139,250,0.3)",
     bgColor: "rgba(167,139,250,0.08)",
     dotColor: "#a78bfa",
-    barWidth: "5%",
+    barWidth: "4%",
     bullets: [
       "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table.",
       "Launched the Partner Portal end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.",
@@ -28,13 +28,13 @@ const roles = [
     title: "Senior Software Engineer",
     short: "SSE",
     period: "Jun 2023 – 2026",
-    duration: "2 yrs",
+    duration: "2 yrs 10 mos",
     location: "Hyderabad, Telangana",
     color: "#4d8ff7",
     borderColor: "rgba(77,143,247,0.3)",
     bgColor: "rgba(77,143,247,0.08)",
     dotColor: "#4d8ff7",
-    barWidth: "46%",
+    barWidth: "50%",
     bullets: [
       "Delivered the Restore & Export action layer for S3 Data Migration, fetching older metadata on-demand via AWS Athena and populating the DB, reducing Archives query time from 10s+ to under 2s for large datasets.",
       "Integrated Slack eDiscovery Search end-to-end across UI (React), backend (PHP), and database (PostgreSQL) by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.",
@@ -59,7 +59,7 @@ const roles = [
     borderColor: "rgba(74,222,128,0.3)",
     bgColor: "rgba(74,222,128,0.08)",
     dotColor: "#4ade80",
-    barWidth: "39%",
+    barWidth: "37%",
     bullets: [
       "Architected a unified config-driven Restore/Export function (Gen3) eliminating code changes when onboarding new cloud providers; introduced CM Download Status + ETA calculation.",
       "Developed a Timeseries and Batch Framework with multi-environment version support scheduling MVW refresh jobs on login and on schedule; applied CPU-level optimizations for improved throughput.",
