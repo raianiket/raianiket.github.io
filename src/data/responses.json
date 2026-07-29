@@ -2,7 +2,7 @@
   "responses": [
     {
       "pattern": "^ai$|^llm$|\\bllm\\b|ai experience|llm experience|ai work|llm work|artificial intelligence|large language model|generative ai|ai.*llm|llm.*ai",
-      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n\ud83e\udd16 Sky 2.0 \u2014 Built an NL-to-query AI interface using Claude (LLM) where customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions \u2014 zero manual navigation.\n\n\ud83d\udee1\ufe0f DAL AI-Agents \u2014 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n\ud83d\udcca Anomaly Detection \u2014 Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude API, MCP, LLM prompt engineering, Node.js, TypeScript, PostgreSQL.",
+      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n\ud83e\udd16 Sky 2.0 \u2014 Built an NL-to-query AI interface using Claude (LLM) where customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions \u2014 zero manual navigation.\n\n\ud83d\udee1\ufe0f DAL AI-Agents \u2014 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n\ud83d\udcca Anomaly Detection \u2014 Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, MCP, LLM prompt engineering, Node.js, TypeScript, PostgreSQL.",
       "suggestions": [
         "Tell me about Sky 2.0",
         "What are DAL AI-Agents?",
@@ -139,7 +139,7 @@
     },
     {
       "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)",
-      "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude API + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
+      "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "What's his tech stack?",
         "AI work he's done",
@@ -150,14 +150,14 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, Microservices, Distributed Systems, Event-Driven Architecture\n\ud83d\udd27 Backend: Node.js, Express, GraphQL (PostGraphile), High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, Claude API, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, Microservices, Distributed Systems, Event-Driven Architecture\n\ud83d\udd27 Backend: Node.js, Express, GraphQL (PostGraphile), High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, Claude, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
         "AI work he's done"
       ],
       "topic": "skills",
-      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years \u2014 production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level \u2014 Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 8+ services in production \u2014 S3 event triggers, Lambda sync jobs, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: MCP framework, Claude API, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
+      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years \u2014 production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level \u2014 Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 8+ services in production \u2014 S3 event triggers, Lambda sync jobs, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: MCP framework, Claude, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
     },
     {
       "pattern": "project|built|build|what has he made|show.*project",
@@ -553,7 +553,7 @@
     },
     {
       "pattern": "walk.*resume|tell.*yourself|introduce.*yourself|summary|overview|background",
-      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 (Claude API + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
+      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 (Claude + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
       "suggestions": ["His key projects", "Tech stack", "Why hire him?"],
       "topic": "intro"
     },
@@ -698,7 +698,7 @@
       ]
     },
     "skills": {
-      "text": "Deeper into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS \u2014 5+ years, primary language, production-grade Node.js APIs\n\ud83d\uddc4\ufe0f PostgreSQL \u2014 Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n\u2601\ufe0f AWS \u2014 8+ services in prod: S3 \u2192 Lambda \u2192 Fargate \u2192 Batch (100K+ jobs) \u2192 SQS \u2192 Athena\n\ud83e\udd16 AI Stack \u2014 MCP framework, Claude API, LLM agent design, Facebook Prophet for ML anomaly detection\n\ud83d\udd27 PostGraphile \u2014 GraphQL server, micro-task execution engine for all cloud actions",
+      "text": "Deeper into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS \u2014 5+ years, primary language, production-grade Node.js APIs\n\ud83d\uddc4\ufe0f PostgreSQL \u2014 Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n\u2601\ufe0f AWS \u2014 8+ services in prod: S3 \u2192 Lambda \u2192 Fargate \u2192 Batch (100K+ jobs) \u2192 SQS \u2192 Athena\n\ud83e\udd16 AI Stack \u2014 MCP framework, Claude, LLM agent design, Facebook Prophet for ML anomaly detection\n\ud83d\udd27 PostGraphile \u2014 GraphQL server, micro-task execution engine for all cloud actions",
       "suggestions": [
         "AWS experience deep dive",
         "PostgreSQL expertise?",
