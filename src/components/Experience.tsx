@@ -27,7 +27,7 @@ const roles = [
   {
     title: "Senior Software Engineer",
     short: "SSE",
-    period: "2023 – 2026",
+    period: "Jun 2023 – 2026",
     duration: "2 yrs",
     location: "Hyderabad, Telangana",
     color: "#4d8ff7",
