@@ -113,10 +113,9 @@ export default function ResumePage() {
         <div className="section">
           <h2>Summary</h2>
           <p style={{ fontSize: "0.78rem", color: "#334155", lineHeight: 1.65 }}>
-            Lead Software Engineer with 5+ years of experience driving technical architecture and delivering scalable backend systems, data pipelines, and AI agents at SysCloud.
-            Deep expertise in Node.js, TypeScript, PostgreSQL, and AWS, with hands-on experience in PHP and Python. Designed and owned production frameworks used across 12+ cloud integrations,
-            including AI-powered NL interfaces, anomaly detection systems, and high-throughput job orchestration engines.
-            Seeking a lead or senior backend/full-stack role with a high-impact team.
+            Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms on AWS.
+            Leads an 8-10 engineer team through system design, HLD/LLD reviews, PR reviews, and mentoring. Specializes in high-throughput backend systems, Node.js, TypeScript, PostgreSQL,
+            AI/LLM agent development, and config-driven architecture. Hands-on background in PHP and Python.
           </p>
         </div>
 
@@ -135,6 +134,7 @@ export default function ResumePage() {
             <ul>
               <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
               <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
+              <li>Architect <strong>scalable backend solutions</strong> and drive system design decisions, establishing engineering standards across multiple product initiatives.</li>
               <li>Lead <strong>HLD and LLD design reviews</strong> for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.</li>
               <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.</li>
             </ul>
