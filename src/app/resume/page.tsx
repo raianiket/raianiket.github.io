@@ -130,7 +130,7 @@ export default function ResumePage() {
                 <h3>Lead Software Engineer</h3>
                 <span className="role-meta">SysCloud · Hyderabad, Telangana</span>
               </div>
-              <span className="role-meta">2025 – Present</span>
+              <span className="role-meta">2026 – Present</span>
             </div>
             <ul>
               <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
@@ -144,7 +144,7 @@ export default function ResumePage() {
                 <h3>Senior Software Engineer</h3>
                 <span className="role-meta">SysCloud · Hyderabad, Telangana</span>
               </div>
-              <span className="role-meta">Jun 2023 – 2025 · 2 yrs</span>
+              <span className="role-meta">2023 – 2026 · 2 yrs</span>
             </div>
             <ul>
               <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
