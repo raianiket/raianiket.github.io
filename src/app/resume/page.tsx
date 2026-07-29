@@ -135,6 +135,8 @@ export default function ResumePage() {
             <ul>
               <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
               <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
+              <li>Lead <strong>HLD and LLD design reviews</strong> for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.</li>
+              <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.</li>
             </ul>
           </div>
 

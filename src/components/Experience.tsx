@@ -22,6 +22,8 @@ const roles = [
     bullets: [
       "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table.",
       "Launched the Partner Portal end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.",
+      "Lead HLD and LLD design reviews for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.",
+      "Mentor engineers through regular PR reviews and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.",
     ],
   },
   {
