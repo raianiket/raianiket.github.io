@@ -113,9 +113,9 @@ export default function ResumePage() {
         <div className="section">
           <h2>Summary</h2>
           <p style={{ fontSize: "0.78rem", color: "#334155", lineHeight: 1.65 }}>
-            Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms on AWS.
-            Leading an 8–10 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.
-            Specializes in high-throughput backend systems, Node.js, TypeScript, PostgreSQL, AI/LLM agent development, and config-driven architecture. Hands-on background in PHP and Python.
+            Lead Software Engineer with 5+ years building and leading production-grade microservices, distributed systems, and cloud-native backend platforms on AWS.
+            Currently leading an 8-10 engineer team through system design, HLD/LLD reviews, architecture decisions, and technical mentoring.
+            Deep expertise in Node.js, TypeScript, PostgreSQL, and AI/LLM agent development, with a proven track record of designing config-driven frameworks that scale across 12+ cloud integrations with zero per-cloud code changes, and building AI agents that auto-resolve production issues before customer impact.
           </p>
         </div>
 
