@@ -146,7 +146,7 @@
         "How to contact him?"
       ],
       "topic": "about",
-      "expandedText": "Going deeper on Aniket...\n\nHe started as an intern at SysCloud (Nov 2020), was promoted to SE in 2021, SSE in 2023, and most recently to Lead Software Engineer in 2025 \u2014 all within the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He doesn't just implement features \u2014 he designs the architecture from scratch (Sky 2.0, MDL 2.0, MDLOPS all originated from his designs)\n\ud83d\udd39 AI-first before it was mainstream \u2014 built LLM agents and integrated Claude/MCP before AI tooling was everywhere\n\ud83d\udd39 Obsessed with code quality \u2014 took SonarQube critical issues from 100% down to 0\n\ud83d\udd39 Performance-driven \u2014 every optimization has a measurable number behind it (4x faster, 10s \u2192 2s, etc.)"
+      "expandedText": "Going deeper on Aniket...\n\nHe started as an intern at SysCloud (Nov 2020), was promoted to SE in 2021, SSE in 2023, and most recently to Lead Software Engineer in 2026 \u2014 all within the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He doesn't just implement features \u2014 he designs the architecture from scratch (Sky 2.0, MDL 2.0, MDLOPS all originated from his designs)\n\ud83d\udd39 AI-first before it was mainstream \u2014 built LLM agents and integrated Claude/MCP before AI tooling was everywhere\n\ud83d\udd39 Obsessed with code quality \u2014 took SonarQube critical issues from 100% down to 0\n\ud83d\udd39 Performance-driven \u2014 every optimization has a measurable number behind it (4x faster, 10s \u2192 2s, etc.)"
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
@@ -282,7 +282,7 @@
     },
     {
       "pattern": "what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in",
-      "text": "Aniket is actively open to:\n\n\ud83c\udfaf Senior Backend Engineer\n\ud83c\udfaf Senior Full-Stack Engineer\n\ud83c\udfaf Backend-heavy roles (Node.js / TypeScript)\n\ud83c\udfaf AI/LLM Engineering roles\n\n\ud83d\udccd Hyderabad | Open to Hybrid, Remote, or WFO\n\u23f1\ufe0f Notice period: 45 days (negotiable)\n\nReach out at rai078945@gmail.com!",
+      "text": "Aniket is actively open to:\n\n\ud83c\udfaf Lead Software Engineer\n\ud83c\udfaf Senior Backend Engineer\n\ud83c\udfaf Senior Full-Stack Engineer\n\ud83c\udfaf Backend-heavy roles (Node.js / TypeScript)\n\ud83c\udfaf AI/LLM Engineering roles\n\n\ud83d\udccd Hyderabad | Open to Hybrid, Remote, or WFO\n\u23f1\ufe0f Notice period: 45 days (negotiable)\n\nReach out at rai078945@gmail.com!",
       "suggestions": [
         "His notice period?",
         "How to contact him?",
@@ -291,8 +291,8 @@
       "topic": "roles"
     },
     {
-      "pattern": "experience|syscloud|work history|career|current role|his role|job history",
-      "text": "Aniket has been at SysCloud Technologies for 5+ years:\n\n\ud83d\udfe3 Lead Software Engineer (2025 \u2013 Present) \u00b7 Hyderabad\nPartner Portal, Customer Dashboard overhaul\n\n\ud83d\udd35 Senior Software Engineer (Jun 2023 \u2013 2025) \u00b7 Hyderabad\nAI agents, Sky 2.0, MDL 2.0, Slack eDiscovery, Bulk Export\n\n\ud83d\udfe2 Software Engineer (May 2021 \u2013 Jun 2023) \u00b7 Chennai\nConfig-driven Restore/Export, S3 data integrity pipeline, ELK Stack\n\n\u26aa Software Engineer Intern (Nov 2020 \u2013 Apr 2021) \u00b7 Chennai\nGraphQL queries, monolith \u2192 microservices POCs",
+      "pattern": "experience|syscloud|work history|career|his role|job history",
+      "text": "Aniket has been at SysCloud Technologies for 5+ years:\n\n\ud83d\udfe3 Lead Software Engineer (2026 \u2013 Present) \u00b7 Hyderabad\nPartner Portal, Customer Dashboard overhaul\n\n\ud83d\udd35 Senior Software Engineer (Jun 2023 \u2013 2026) \u00b7 Hyderabad\nAI agents, Sky 2.0, MDL 2.0, Slack eDiscovery, Bulk Export\n\n\ud83d\udfe2 Software Engineer (May 2021 \u2013 Jun 2023) \u00b7 Chennai\nConfig-driven Restore/Export, S3 data integrity pipeline, ELK Stack\n\n\u26aa Software Engineer Intern (Nov 2020 \u2013 Apr 2021) \u00b7 Chennai\nGraphQL queries, monolith \u2192 microservices POCs",
       "suggestions": [
         "What has he built as Lead?",
         "His tech stack",
@@ -402,14 +402,24 @@
       "topic": "impact"
     },
     {
-      "pattern": "current position|current role|current job|current title|current company|current|currently|present|right now|working now",
-      "text": "Aniket is currently a Lead Software Engineer at SysCloud Technologies, Hyderabad (2026 \u2013 Present).\n\nCurrent focus: Customer Dashboard overhaul, Partner Portal for MSP onboarding, and driving technical direction across 12+ cloud integrations.",
+      "pattern": "current position|current role|current job|current title|current company|curent|posit|position|current|currently|present|right now|working now",
+      "text": "Aniket is currently a Lead Software Engineer at SysCloud Technologies, Hyderabad (2026 \u2013 Present).\n\nCurrent focus:\n\u2022 Customer Dashboard overhaul across 12+ cloud integrations\n\u2022 Partner Portal for MSP onboarding\n\u2022 Leading HLD/LLD design reviews for an 8-10 engineer team\n\u2022 PR reviews, mentoring, and hiring interviews",
       "suggestions": [
         "His projects",
         "Tell me about SysCloud",
         "His tech stack"
       ],
       "topic": "current"
+    },
+    {
+      "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review.*team|hiring.*interview|interview.*candidate|management style|people management",
+      "text": "As Lead Software Engineer at SysCloud, Aniket leads an 8-10 engineer team:\n\n👥 Team size: 8-10 engineers\n📐 Design reviews: Leads HLD (High Level Design) and LLD (Low Level Design) sessions for all major features before implementation\n🔍 PR reviews: Conducts regular code reviews enforcing quality, consistency, and best practices across Node.js, TypeScript, and PostgreSQL\n🤝 Mentoring: Guides engineers through technical discussions, architectural decisions, and onboarding\n🎯 Hiring: Participates in technical interviews for engineering candidates, evaluating system design and fundamentals\n\nHis style is hands-on — he's both the technical decision-maker and an active contributor shipping production code.",
+      "suggestions": [
+        "What has he built as Lead?",
+        "His architecture experience",
+        "How to contact him?"
+      ],
+      "topic": "leadership"
     },
     {
       "pattern": "what is syscloud|syscloud product|syscloud company|what does syscloud",
@@ -463,7 +473,7 @@
     },
     {
       "pattern": "how many year|years of exp|how long|since when|how much exp",
-      "text": "Aniket has 5+ years of professional experience, all at SysCloud Technologies:\n\n\u2022 Nov 2020 \u2013 Apr 2021: Software Engineer Intern\n\u2022 May 2021 \u2013 Jun 2023: Software Engineer\n\u2022 Jun 2023 \u2013 2025: Senior Software Engineer\n\u2022 2025 \u2013 Present: Lead Software Engineer",
+      "text": "Aniket has 5+ years of professional experience, all at SysCloud Technologies:\n\n\u2022 Nov 2020 \u2013 Apr 2021: Software Engineer Intern\n\u2022 May 2021 \u2013 Jun 2023: Software Engineer\n\u2022 Jun 2023 \u2013 2026: Senior Software Engineer\n\u2022 2026 \u2013 Present: Lead Software Engineer",
       "suggestions": [
         "What did he build as Lead?",
         "His tech stack",
@@ -543,7 +553,7 @@
     },
     {
       "pattern": "walk.*resume|tell.*yourself|introduce.*yourself|summary|overview|background",
-      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years at SysCloud Technologies building scalable backend systems, data pipelines, and AI agents for a B2B SaaS cloud-backup platform.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 built GraphQL queries, contributed to Gen1\u2192Gen2 migration\n\ud83d\udfe2 SE (May 2021) \u2192 architected Restore/Export Gen3, S3 integrity pipeline, ELK Stack integration\n\ud83d\udd35 SSE (Jun 2023\u20132025) \u2192 Sky 2.0 AI interface, DAL AI-Agents, MDL 2.0 framework, Slack eDiscovery, Bulk Export\n\ud83d\udfe3 Lead (2025\u2013Present) \u2192 Customer Dashboard overhaul, Partner Portal for MSP onboarding\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 PHP \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
+      "text": "\ud83d\udc4b Aniket Rai \u2014 Lead Software Engineer\n\n5+ years at SysCloud Technologies building scalable backend systems, data pipelines, and AI agents for a B2B SaaS cloud-backup platform.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 built GraphQL queries, contributed to Gen1\u2192Gen2 migration\n\ud83d\udfe2 SE (May 2021) \u2192 architected Restore/Export Gen3, S3 integrity pipeline, ELK Stack integration\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 AI interface, DAL AI-Agents, MDL 2.0 framework, Slack eDiscovery, Bulk Export\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard overhaul, Partner Portal for MSP onboarding\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 PHP \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
       "suggestions": ["His key projects", "Tech stack", "Why hire him?"],
       "topic": "intro"
     },
