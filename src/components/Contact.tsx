@@ -35,7 +35,7 @@ export default function Contact() {
             Let&apos;s work together
           </h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "420px", margin: "0 auto 3rem" }}>
-            Open to senior backend, full-stack, and backend-heavy roles. I typically respond within 24 hours.
+            Open to Lead, Staff, Principal, or SDE III-level roles. I typically respond within 24 hours.
           </p>
         </motion.div>
 
