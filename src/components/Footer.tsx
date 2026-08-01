@@ -47,7 +47,7 @@ export default function Footer() {
             <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.4rem" }}>
               Aniket <span style={{ background: "linear-gradient(135deg, #1a6cf5, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Rai</span>
             </div>
-            <div style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>Senior Software Engineer · Hyderabad, India</div>
+            <div style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>Lead Software Engineer · Hyderabad, India</div>
           </div>
 
           {/* Nav links */}
