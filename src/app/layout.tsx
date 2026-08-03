@@ -6,15 +6,15 @@ import { ThemeProvider } from "@/lib/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aniket Rai – Senior Software Engineer",
+  title: "Aniket Rai – Lead Software Engineer",
   description:
-    "Senior Software Engineer with 5+ years building scalable backend systems, AI agents, and data pipelines. Expert in Node.js, TypeScript, PostgreSQL, and AWS. Open to full-time roles.",
-  keywords: ["Aniket Rai", "Senior Software Engineer", "Node.js", "TypeScript", "PostgreSQL", "AWS", "Backend Engineer", "AI Engineer", "Hyderabad", "Full Stack"],
+    "Lead Software Engineer with 5+ years building scalable backend systems, AI agents, and data pipelines. Expert in Node.js, TypeScript, Python, PostgreSQL, and AWS. Open to Lead, Staff, Principal, or SDE III-level roles.",
+  keywords: ["Aniket Rai", "Lead Software Engineer", "Node.js", "TypeScript", "Python", "PostgreSQL", "AWS", "Backend Engineer", "AI Engineer", "Hyderabad", "Full Stack"],
   authors: [{ name: "Aniket Rai", url: "https://raianiket.github.io" }],
   metadataBase: new URL("https://raianiket.github.io"),
   alternates: { canonical: "https://raianiket.github.io" },
   openGraph: {
-    title: "Aniket Rai – Senior Software Engineer",
+    title: "Aniket Rai – Lead Software Engineer",
     description: "5+ years building scalable backend systems, AI agents & data pipelines. Node.js · TypeScript · PostgreSQL · AWS · AI/LLM. Open to new roles.",
     type: "profile",
     url: "https://raianiket.github.io",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
         url: "https://raianiket.github.io/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Aniket Rai – Senior Software Engineer | Node.js · TypeScript · AWS",
+        alt: "Aniket Rai – Lead Software Engineer | Node.js · TypeScript · AWS",
         type: "image/svg+xml",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aniket Rai – Senior Software Engineer",
+    title: "Aniket Rai – Lead Software Engineer",
     description: "5+ years in Node.js, TypeScript, PostgreSQL, AWS & AI/LLM. Open to new roles.",
     images: ["https://raianiket.github.io/og-image.svg"],
     creator: "@aniketrai",

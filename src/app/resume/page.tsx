@@ -103,6 +103,7 @@ export default function ResumePage() {
           <p className="header-sub">Lead Software Engineer · Node.js · TypeScript · PostgreSQL · AWS · AI/LLM</p>
           <div className="contact-row">
             <span>📧 <a href="mailto:rai078945@gmail.com">rai078945@gmail.com</a></span>
+            <span>📞 <a href="tel:+917668514258">+91 7668514258</a></span>
             <span>🔗 <a href="https://www.linkedin.com/in/aniket-kumar-rai">linkedin.com/in/aniket-kumar-rai</a></span>
             <span>🌐 <a href="https://raianiket.github.io">raianiket.github.io</a></span>
             <span>📍 Hyderabad, Telangana</span>
@@ -239,11 +240,11 @@ export default function ResumePage() {
         <div className="section">
           <h2>Key Projects (SysCloud)</h2>
           {[
-            { title: "Sky 2.0 – SysCloud AI", tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"], desc: "AI-powered NL interface — customers describe intent, AI builds queries and initiates actions without manual browsing." },
+            { title: "Sky 2.0 – SysCloud AI", tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"], desc: "AI-powered NL interface: customers describe intent, AI builds queries and initiates actions without manual browsing." },
             { title: "DAL AI-Agents", tags: ["AI Agent", "LLM", "Node.js", "TypeScript", "PostgreSQL"], desc: "4 AI agents for automated operational monitoring with zero-touch auto-remediation before customer impact." },
             { title: "MDL 2.0 Framework", tags: ["TypeScript", "PostGraphile", "PostgreSQL", "JSON Config"], desc: "Config-driven framework replacing mutation logic; 12+ cloud integrations with zero code changes per new cloud." },
             { title: "Restore & Export Action", tags: ["Node.js", "AWS Athena", "S3", "Recursive CTEs"], desc: "3 restore modes supporting millions of items/sec; Athena integration reduces archive query time from 10s+ to under 2s." },
-            { title: "Customer Dashboard", tags: ["Node.js", "PostgreSQL", "Materialized Views", "GraphQL"], desc: "13+ widgets, 12+ clouds, data from Transaction + Cache DBs with concurrent MV refresh — zero transactional impact." },
+            { title: "Customer Dashboard", tags: ["Node.js", "PostgreSQL", "Materialized Views", "GraphQL"], desc: "13+ widgets, 12+ clouds, data from Transaction + Cache DBs with concurrent MV refresh, zero transactional impact." },
             { title: "PostgreSQL Batch Jobs Framework", tags: ["Node.js", "AWS Batch", "DynamoDB", "Grafana"], desc: "Centralized orchestration engine handling 100K+ jobs across 5 DB types with priority + skip logic." },
           ].map((p) => (
             <div key={p.title} className="project-item">
@@ -259,7 +260,7 @@ export default function ResumePage() {
           <h2>Education</h2>
           <div className="edu-row">
             <div>
-              <h3>Bachelor of Technology — Computer Science & Engineering</h3>
+              <h3>Bachelor of Technology, Computer Science & Engineering</h3>
               <span className="role-meta">Lovely Professional University</span>
             </div>
             <span className="role-meta">2017 – 2021</span>

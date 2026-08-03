@@ -48,7 +48,8 @@ export default function About() {
           </h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.85, maxWidth: "620px", margin: "0 auto", textAlign: "center" }}>
             5+ years of backend engineering at{" "}
-            <strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>SysCloud Technologies</strong>.{" "}
+            <strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>SysCloud Technologies</strong>,{" "}
+            now leading an 8-10 engineer team through system design and architecture decisions.{" "}
             Config-driven frameworks handling 12+ cloud integrations with zero code changes.{" "}
             AI agents that detect and resolve production issues before customers notice.{" "}
             A natural language interface where customers talk to their data instead of navigating dashboards.{" "}

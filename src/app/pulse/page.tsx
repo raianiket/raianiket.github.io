@@ -245,7 +245,7 @@ export default function PulseDashboard() {
               <h1 style={{ color: "#e8f0fe", fontWeight: 900, fontSize: "1.5rem" }}>Portfolio Pulse</h1>
             </div>
             <p style={{ color: fetchError ? "#ef4444" : "#4a6b8a", fontSize: "0.72rem" }}>
-              {fetchError ? "⚠ Failed to load — check connection" : lastRefresh ? `Last updated ${timeAgo(lastRefresh.toISOString())}` : "Loading..."}
+              {fetchError ? "⚠ Failed to load, check connection" : lastRefresh ? `Last updated ${timeAgo(lastRefresh.toISOString())}` : "Loading..."}
             </p>
           </div>
           <button
@@ -462,7 +462,7 @@ export default function PulseDashboard() {
                 <span style={{ color: "#2d4a6a", fontSize: "0.65rem", whiteSpace: "nowrap" }}>{timeAgo(e.created_at)}</span>
               </div>
             ))}
-            {recent.length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No events yet — visit the portfolio to start tracking</p>}
+            {recent.length === 0 && <p style={{ color: "#2d4a6a", fontSize: "0.75rem" }}>No events yet. Visit the portfolio to start tracking</p>}
           </div>
         </div>
       </div>

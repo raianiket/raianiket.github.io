@@ -6,6 +6,7 @@ import { ArrowDown, Mail, Linkedin, Download } from "lucide-react";
 import { track } from "@/lib/track";
 
 const roles = [
+  "Lead Software Engineer",
   "Backend Systems Engineer",
   "AI Agent Developer",
   "Node.js & TypeScript Expert",
@@ -22,6 +23,7 @@ const stats = [
 
 const floatingTags = [
   { text: "TypeScript", x: "7%", y: "20%", delay: 0 },
+  { text: "Python", x: "22%", y: "13%", delay: 0.35 },
   { text: "Node.js", x: "80%", y: "16%", delay: 0.3 },
   { text: "PostgreSQL", x: "5%", y: "60%", delay: 0.6 },
   { text: "AWS", x: "84%", y: "55%", delay: 0.2 },

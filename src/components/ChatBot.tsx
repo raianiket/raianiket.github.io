@@ -127,10 +127,13 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
   // Auto-suggest based on job title detection
   const jobMatch = raw.match(/(?:hiring for|looking for|need a?n?\s+|position for)\s+([a-z\s]+(?:engineer|developer|architect|lead))/i);
   if (jobMatch) {
-    const title = jobMatch[1].trim();
+    // The capture group can include a leading article ("hiring for a lead
+    // engineer" -> "a lead engineer"), which duplicated into "hiring for a a
+    // lead engineer" since the template below also prepends "a".
+    const title = jobMatch[1].trim().replace(/^(a|an)\s+/i, "");
     return {
       response: {
-        text: `Interesting — you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years of Senior Backend / Full-Stack experience\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 90-day notice (negotiable)\n\nReach out at ${CONTACT_EMAIL} to start the conversation!`,
+        text: `Interesting, you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years leading backend / full-stack systems at the Lead/Staff level\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 45-day notice (negotiable)\n\nReach out at ${CONTACT_EMAIL} to start the conversation!`,
         suggestions: ["His full tech stack", "Projects & impact", "Notice period?", "Schedule an interview"],
         topic: "job_match",
       },
@@ -391,14 +394,14 @@ export default function ChatBot() {
 
   const emailTranscript = () => {
     const body = messages.map((m) => `[${m.time}] ${m.from === "bot" ? "Bot" : "You"}: ${m.text}`).join("\n\n");
-    const subject = "Aniket Rai — Portfolio Chat Transcript";
+    const subject = "Aniket Rai: Portfolio Chat Transcript";
     window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   };
 
   const downloadTranscript = () => {
     const lines = [
       "═══════════════════════════════════════",
-      "     Aniket Rai — Portfolio Chat",
+      "     Aniket Rai: Portfolio Chat",
       `     ${new Date().toLocaleString()}`,
       "═══════════════════════════════════════",
       "",
@@ -419,9 +422,9 @@ export default function ChatBot() {
 
   const sharePortfolio = () => {
     const url = PORTFOLIO_URL;
-    const text = "Check out Aniket Rai's portfolio — Senior Software Engineer with 5+ years in AI, AWS & scalable systems.";
+    const text = "Check out Aniket Rai's portfolio, Lead Software Engineer with 5+ years in AI, AWS & scalable systems.";
     if (navigator.share) {
-      navigator.share({ title: "Aniket Rai — Portfolio", text, url });
+      navigator.share({ title: "Aniket Rai: Portfolio", text, url });
     } else {
       navigator.clipboard.writeText(`${text}\n${url}`);
     }
