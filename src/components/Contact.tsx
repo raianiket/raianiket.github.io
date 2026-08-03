@@ -2,15 +2,22 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Linkedin, MapPin, Copy, Check } from "lucide-react";
+import { Mail, Phone, Linkedin, MapPin, Copy, Check } from "lucide-react";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [phoneCopied, setPhoneCopied] = useState(false);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("rai078945@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const copyPhone = () => {
+    navigator.clipboard.writeText("+91 7668514258");
+    setPhoneCopied(true);
+    setTimeout(() => setPhoneCopied(false), 2000);
   };
 
   return (
@@ -40,7 +47,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "2.5rem" }} className="contact-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginBottom: "2.5rem" }} className="contact-grid">
           {/* Email — clickable copy */}
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -65,6 +72,33 @@ export default function Contact() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: copied ? "#4ade80" : "#4a6b8a" }}>
               {copied ? <><Check size={11} /> Copied!</> : <><Copy size={11} /> Click to copy</>}
+            </div>
+          </motion.button>
+
+          {/* Phone, clickable copy */}
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            onClick={copyPhone}
+            whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
+            style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
+              padding: "1.25rem 0.75rem", borderRadius: "16px", cursor: "pointer",
+              background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
+              transition: "all 0.3s",
+            } as React.CSSProperties}
+          >
+            <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
+              <Phone size={17} color="#4d8ff7" />
+            </div>
+            <div>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Phone</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>+91 7668514258</p>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: phoneCopied ? "#4ade80" : "#4a6b8a" }}>
+              {phoneCopied ? <><Check size={11} /> Copied!</> : <><Copy size={11} /> Click to copy</>}
             </div>
           </motion.button>
 
