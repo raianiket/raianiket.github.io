@@ -631,6 +631,7 @@ export default function ChatBot() {
               padding: "0.9rem 1.25rem",
               borderBottom: "1px solid rgba(30,58,95,0.7)",
               display: "flex", alignItems: "center", gap: "0.75rem",
+              flexWrap: "wrap", rowGap: "0.5rem",
               background: "rgba(7,20,36,0.9)",
               position: "relative",
             }}>
@@ -670,7 +671,7 @@ export default function ChatBot() {
               </div>
 
               {/* Header actions — text badge buttons */}
-              <div style={{ display: "flex", alignItems: "center", gap: "5px", flexWrap: "nowrap" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "5px", flexWrap: "wrap", justifyContent: "flex-end" }}>
                 {/* Recruiter toggle badge */}
                 {!recruiterMode ? (
                   <button onClick={activateRecruiterMode} title="Switch to Recruiter Mode"
