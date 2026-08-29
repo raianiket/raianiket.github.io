@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
 import { EASE } from "@/lib/constants";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen, Briefcase } from "lucide-react";
 
 
 
@@ -151,6 +151,17 @@ const projects = [
     color: "#009485",
     borderColor: "rgba(0,148,133,0.25)",
     bgColor: "rgba(0,148,133,0.08)",
+  },
+  {
+    icon: Briefcase,
+    title: "Job Autopilot",
+    description: "A personal automation pipeline for the job search: discovers postings from LinkedIn plus 100+ company ATS boards (Greenhouse, Lever, Ashby) and aggregators, scores each one with Claude against a 6-dimension rubric that flags ghost and scam listings, fills out the application, and preps interview answers from a STAR story bank; a human confirms every submission.",
+    category: "Personal",
+    tags: ["Node.js", "TypeScript", "Playwright", "Claude", "Supabase", "REST APIs"],
+    metrics: ["100+ sources merged", "AI scoring + red-flag detection", "Human confirms every apply"],
+    color: "#0a66c2",
+    borderColor: "rgba(10,102,194,0.25)",
+    bgColor: "rgba(10,102,194,0.08)",
   },
 ];
 
