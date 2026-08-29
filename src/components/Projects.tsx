@@ -20,6 +20,7 @@ const projects = [
     borderColor: "rgba(167,139,250,0.25)",
     bgColor: "rgba(167,139,250,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Shield,
@@ -32,6 +33,7 @@ const projects = [
     borderColor: "rgba(251,146,60,0.25)",
     bgColor: "rgba(251,146,60,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: TrendingUp,
@@ -44,6 +46,7 @@ const projects = [
     borderColor: "rgba(192,132,252,0.25)",
     bgColor: "rgba(192,132,252,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Zap,
@@ -56,6 +59,7 @@ const projects = [
     borderColor: "rgba(77,143,247,0.25)",
     bgColor: "rgba(77,143,247,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Search,
@@ -68,6 +72,7 @@ const projects = [
     borderColor: "rgba(74,222,128,0.25)",
     bgColor: "rgba(74,222,128,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: RefreshCw,
@@ -80,6 +85,7 @@ const projects = [
     borderColor: "rgba(56,189,248,0.25)",
     bgColor: "rgba(56,189,248,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: LayoutDashboard,
@@ -92,6 +98,7 @@ const projects = [
     borderColor: "rgba(129,140,248,0.25)",
     bgColor: "rgba(129,140,248,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Users,
@@ -104,6 +111,7 @@ const projects = [
     borderColor: "rgba(244,114,182,0.25)",
     bgColor: "rgba(244,114,182,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: GitBranch,
@@ -116,6 +124,7 @@ const projects = [
     borderColor: "rgba(248,113,113,0.25)",
     bgColor: "rgba(248,113,113,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Server,
@@ -128,6 +137,7 @@ const projects = [
     borderColor: "rgba(74,222,128,0.25)",
     bgColor: "rgba(74,222,128,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Database,
@@ -140,6 +150,7 @@ const projects = [
     borderColor: "rgba(250,204,21,0.25)",
     bgColor: "rgba(250,204,21,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Activity,
@@ -152,6 +163,7 @@ const projects = [
     borderColor: "rgba(52,211,153,0.25)",
     bgColor: "rgba(52,211,153,0.08)",
     link: null as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: BookOpen,
@@ -164,6 +176,7 @@ const projects = [
     borderColor: "rgba(0,148,133,0.25)",
     bgColor: "rgba(0,148,133,0.08)",
     link: "https://github.com/raianiket/fastapi-task-manager" as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: Briefcase,
@@ -176,6 +189,7 @@ const projects = [
     borderColor: "rgba(10,102,194,0.25)",
     bgColor: "rgba(10,102,194,0.08)",
     link: "https://github.com/raianiket/job-autopilot" as string | null,
+    demoLink: null as string | null,
   },
   {
     icon: MessageCircle,
@@ -188,6 +202,7 @@ const projects = [
     borderColor: "rgba(26,108,245,0.25)",
     bgColor: "rgba(26,108,245,0.08)",
     link: "https://github.com/raianiket/mini-message-app" as string | null,
+    demoLink: "https://whatsapp-mern-1ae85.web.app" as string | null,
   },
 ];
 
@@ -277,23 +292,44 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             </div>
           </div>
 
-          {/* GitHub link — only present for projects with a public repo */}
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "6px",
-                marginTop: "1.5rem", padding: "0.5rem 0.9rem", borderRadius: "10px",
-                fontSize: "0.78rem", fontWeight: 600, color: project.color,
-                background: project.bgColor, border: `1px solid ${project.borderColor}`,
-                textDecoration: "none",
-              }}
-            >
-              <Github size={14} /> View on GitHub
-            </a>
+          {/* GitHub / live demo links — only present when a project has them */}
+          {(project.link || project.demoLink) && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "1.5rem" }}>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "6px",
+                    padding: "0.5rem 0.9rem", borderRadius: "10px",
+                    fontSize: "0.78rem", fontWeight: 600, color: project.color,
+                    background: project.bgColor, border: `1px solid ${project.borderColor}`,
+                    textDecoration: "none",
+                  }}
+                >
+                  <Github size={14} /> View on GitHub
+                </a>
+              )}
+              {project.demoLink && (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "6px",
+                    padding: "0.5rem 0.9rem", borderRadius: "10px",
+                    fontSize: "0.78rem", fontWeight: 600, color: project.color,
+                    background: project.bgColor, border: `1px solid ${project.borderColor}`,
+                    textDecoration: "none",
+                  }}
+                >
+                  <ExternalLink size={14} /> Live Demo
+                </a>
+              )}
+            </div>
           )}
         </motion.div>
       </motion.div>
