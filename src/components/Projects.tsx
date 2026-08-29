@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
 import { EASE } from "@/lib/constants";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen, Briefcase } from "lucide-react";
+import { ExternalLink, Github, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen, Briefcase, MessageCircle } from "lucide-react";
 
 
 
@@ -19,6 +19,7 @@ const projects = [
     color: "#a78bfa",
     borderColor: "rgba(167,139,250,0.25)",
     bgColor: "rgba(167,139,250,0.08)",
+    link: null as string | null,
   },
   {
     icon: Shield,
@@ -30,6 +31,7 @@ const projects = [
     color: "#fb923c",
     borderColor: "rgba(251,146,60,0.25)",
     bgColor: "rgba(251,146,60,0.08)",
+    link: null as string | null,
   },
   {
     icon: TrendingUp,
@@ -41,6 +43,7 @@ const projects = [
     color: "#c084fc",
     borderColor: "rgba(192,132,252,0.25)",
     bgColor: "rgba(192,132,252,0.08)",
+    link: null as string | null,
   },
   {
     icon: Zap,
@@ -52,6 +55,7 @@ const projects = [
     color: "#4d8ff7",
     borderColor: "rgba(77,143,247,0.25)",
     bgColor: "rgba(77,143,247,0.08)",
+    link: null as string | null,
   },
   {
     icon: Search,
@@ -63,6 +67,7 @@ const projects = [
     color: "#4ade80",
     borderColor: "rgba(74,222,128,0.25)",
     bgColor: "rgba(74,222,128,0.08)",
+    link: null as string | null,
   },
   {
     icon: RefreshCw,
@@ -74,6 +79,7 @@ const projects = [
     color: "#38bdf8",
     borderColor: "rgba(56,189,248,0.25)",
     bgColor: "rgba(56,189,248,0.08)",
+    link: null as string | null,
   },
   {
     icon: LayoutDashboard,
@@ -85,6 +91,7 @@ const projects = [
     color: "#818cf8",
     borderColor: "rgba(129,140,248,0.25)",
     bgColor: "rgba(129,140,248,0.08)",
+    link: null as string | null,
   },
   {
     icon: Users,
@@ -96,6 +103,7 @@ const projects = [
     color: "#f472b6",
     borderColor: "rgba(244,114,182,0.25)",
     bgColor: "rgba(244,114,182,0.08)",
+    link: null as string | null,
   },
   {
     icon: GitBranch,
@@ -107,6 +115,7 @@ const projects = [
     color: "#f87171",
     borderColor: "rgba(248,113,113,0.25)",
     bgColor: "rgba(248,113,113,0.08)",
+    link: null as string | null,
   },
   {
     icon: Server,
@@ -118,6 +127,7 @@ const projects = [
     color: "#4ade80",
     borderColor: "rgba(74,222,128,0.25)",
     bgColor: "rgba(74,222,128,0.08)",
+    link: null as string | null,
   },
   {
     icon: Database,
@@ -129,6 +139,7 @@ const projects = [
     color: "#facc15",
     borderColor: "rgba(250,204,21,0.25)",
     bgColor: "rgba(250,204,21,0.08)",
+    link: null as string | null,
   },
   {
     icon: Activity,
@@ -140,6 +151,7 @@ const projects = [
     color: "#34d399",
     borderColor: "rgba(52,211,153,0.25)",
     bgColor: "rgba(52,211,153,0.08)",
+    link: null as string | null,
   },
   {
     icon: BookOpen,
@@ -151,6 +163,7 @@ const projects = [
     color: "#009485",
     borderColor: "rgba(0,148,133,0.25)",
     bgColor: "rgba(0,148,133,0.08)",
+    link: "https://github.com/raianiket/fastapi-task-manager" as string | null,
   },
   {
     icon: Briefcase,
@@ -162,6 +175,19 @@ const projects = [
     color: "#0a66c2",
     borderColor: "rgba(10,102,194,0.25)",
     bgColor: "rgba(10,102,194,0.08)",
+    link: "https://github.com/raianiket/job-autopilot" as string | null,
+  },
+  {
+    icon: MessageCircle,
+    title: "mini-message-app",
+    description: "A real-time, WhatsApp-style chat app with no custom backend: React talks directly to Firestore, and every message, typing indicator, read receipt, and presence update syncs live across clients through onSnapshot listeners and security rules alone. Originally a 2020 project for learning Firebase's realtime data model; a 2026 pass modernized the stack and added presence, read receipts, and unread badges.",
+    category: "Personal",
+    tags: ["React", "Firebase", "Firestore", "MUI", "React Router"],
+    metrics: ["Zero custom backend", "Real-time sync via Firestore", "Presence + read receipts"],
+    color: "#1a6cf5",
+    borderColor: "rgba(26,108,245,0.25)",
+    bgColor: "rgba(26,108,245,0.08)",
+    link: "https://github.com/raianiket/mini-message-app" as string | null,
   },
 ];
 
@@ -250,6 +276,25 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               ))}
             </div>
           </div>
+
+          {/* GitHub link — only present for projects with a public repo */}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "6px",
+                marginTop: "1.5rem", padding: "0.5rem 0.9rem", borderRadius: "10px",
+                fontSize: "0.78rem", fontWeight: 600, color: project.color,
+                background: project.bgColor, border: `1px solid ${project.borderColor}`,
+                textDecoration: "none",
+              }}
+            >
+              <Github size={14} /> View on GitHub
+            </a>
+          )}
         </motion.div>
       </motion.div>
     </AnimatePresence>

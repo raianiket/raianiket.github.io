@@ -150,7 +150,7 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
@@ -180,25 +180,35 @@
       "topic": "project_job_autopilot"
     },
     {
+      "pattern": "mini message app|mini.message.app|chatbox|whatsapp clone|whatsapp.style|firebase chat|realtime chat|real.time chat",
+      "text": "\ud83d\udcac mini-message-app (personal project)\n\nDescription: A real-time, WhatsApp-style chat app with no custom backend \u2014 React talks directly to Firestore, and every message, typing indicator, read receipt, and presence update syncs live across clients through onSnapshot listeners and security rules alone. Originally built in 2020 to learn Firebase's realtime data model; a 2026 pass modernized the dependency stack and added presence, read receipts, and unread badges.\n\nTech Stack: React \u00b7 Firebase (Auth + Firestore) \u00b7 MUI \u00b7 React Router\n\nKey Metrics:\n\u2713 Zero custom backend\n\u2713 Real-time sync via Firestore listeners\n\u2713 Presence + read receipts + unread badges\n\nNote: this is a personal project, not SysCloud production work.",
+      "suggestions": [
+        "Tell me about all projects",
+        "Job Autopilot",
+        "His React experience"
+      ],
+      "topic": "project_mini_message_app"
+    },
+    {
       "pattern": "personal projects?|side projects?",
-      "text": "\ud83c\udfaf Personal projects (outside SysCloud)\n\n\ud83d\udcda FastAPI Task Manager, CRUD REST API exploring Python/FastAPI\n\ud83d\udcbc Job Autopilot, LinkedIn + ATS job search automation with AI scoring\n\nWhich one would you like to know in detail?",
+      "text": "\ud83c\udfaf Personal projects (outside SysCloud)\n\n\ud83d\udcda FastAPI Task Manager, CRUD REST API exploring Python/FastAPI\n\ud83d\udcbc Job Autopilot, LinkedIn + ATS job search automation with AI scoring\n\ud83d\udcac mini-message-app, real-time WhatsApp-style chat with no custom backend\n\nWhich one would you like to know in detail?",
       "suggestions": [
         "FastAPI Task Manager",
         "Job Autopilot",
-        "Tell me about all projects"
+        "mini-message-app"
       ],
       "topic": "projects_personal"
     },
     {
       "pattern": "project|built|build|what has he made|show.*project",
-      "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n\ud83e\udd16 AI & ML\nSky 2.0 \u2014 AI-powered NL interface\nDAL AI-Agents \u2014 Operational monitoring agents\nAnomaly Detection \u2014 Prophet ML + Rule Engine\n\n\u26a1 Backend\nMDL 2.0 \u2014 Config-driven cloud framework\nSlack eDiscovery \u2014 PHP + Node.js full-stack integration\nRestore & Export \u2014 High-speed data recovery + Bulk Export\nMDLOPS Microservice \u2014 Async addon orchestration\n\n\ud83d\udcc8 Dashboard\nCustomer Dashboard \u2014 Multi-cloud insights\nPartner Portal \u2014 MSP management dashboard\n\n\ud83d\uddc4\ufe0f Infrastructure\nBatch Jobs Framework \u2014 100K+ job orchestration\n\n\ud83c\udfaf Personal\nFastAPI Task Manager \u2014 CRUD REST API exploring Python/FastAPI\nJob Autopilot \u2014 LinkedIn + ATS job search automation with AI scoring",
+      "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n\ud83e\udd16 AI & ML\nSky 2.0 \u2014 AI-powered NL interface\nDAL AI-Agents \u2014 Operational monitoring agents\nAnomaly Detection \u2014 Prophet ML + Rule Engine\n\n\u26a1 Backend\nMDL 2.0 \u2014 Config-driven cloud framework\nSlack eDiscovery \u2014 PHP + Node.js full-stack integration\nRestore & Export \u2014 High-speed data recovery + Bulk Export\nMDLOPS Microservice \u2014 Async addon orchestration\n\n\ud83d\udcc8 Dashboard\nCustomer Dashboard \u2014 Multi-cloud insights\nPartner Portal \u2014 MSP management dashboard\n\n\ud83d\uddc4\ufe0f Infrastructure\nBatch Jobs Framework \u2014 100K+ job orchestration\n\n\ud83c\udfaf Personal\nFastAPI Task Manager \u2014 CRUD REST API exploring Python/FastAPI\nJob Autopilot \u2014 LinkedIn + ATS job search automation with AI scoring\nmini-message-app \u2014 Real-time WhatsApp-style chat with no custom backend",
       "suggestions": [
         "Sky 2.0",
         "DAL AI-Agents",
         "MDL 2.0",
         "Restore & Export",
-        "FastAPI Task Manager",
-        "Job Autopilot"
+        "Job Autopilot",
+        "mini-message-app"
       ],
       "topic": "projects"
     },
@@ -626,7 +636,7 @@
     },
     {
       "pattern": "react|frontend|front.end|ui.*experience|react.*experience|front.*end.*experience",
-      "text": "\u269b\ufe0f React / Frontend Experience\n\nAniket is primarily a backend engineer but has shipped full-stack features end-to-end:\n\n\u2022 Slack eDiscovery Search, delivered the full frontend search and results UI\n\u2022 Bulk Export, extended the export UI (React) to support multi-user selection\n\u2022 Gen4 & Gen5 cloud pages, shipped Reports, Restore, Export, Dashboard, Errors pages across full stack\n\u2022 Homepage widgets, Audit Log, License Management, Usage Stats\n\u2022 As intern: authored GraphQL queries powering frontend data rendering\n\nFrontend is functional and production-delivered, not his primary focus.",
+      "text": "\u269b\ufe0f React / Frontend Experience\n\nAniket is primarily a backend engineer but has shipped full-stack features end-to-end:\n\n\u2022 Slack eDiscovery Search, delivered the full frontend search and results UI\n\u2022 Bulk Export, extended the export UI (React) to support multi-user selection\n\u2022 Gen4 & Gen5 cloud pages, shipped Reports, Restore, Export, Dashboard, Errors pages across full stack\n\u2022 Homepage widgets, Audit Log, License Management, Usage Stats\n\u2022 As intern: authored GraphQL queries powering frontend data rendering\n\u2022 mini-message-app (personal), a full React + Firebase real-time chat app built and owned solo, front to back\n\nFrontend is functional and production-delivered, not his primary focus.",
       "suggestions": [
         "Backend experience",
         "GraphQL experience",
