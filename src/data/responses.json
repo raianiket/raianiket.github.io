@@ -139,7 +139,7 @@
     },
     {
       "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)",
-      "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
+      "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8\u201310 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "What's his tech stack?",
         "AI work he's done",
@@ -150,7 +150,7 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, GraphQL (PostGraphile), High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
@@ -160,13 +160,24 @@
       "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 8+ services in production, S3 event triggers, Lambda sync jobs, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: MCP framework, Claude, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
     },
     {
+      "pattern": "fastapi|fast api|task manager|task management api|python project|personal project|side project",
+      "text": "\ud83d\udcda FastAPI Task Manager (personal project)\n\nDescription: A personal project built to explore Python's backend ecosystem from Aniket's Node.js/Express background. A CRUD REST API for task management with FastAPI, SQLAlchemy, and Pydantic on SQLite. Implements correct PUT (full replace) vs PATCH (partial update) REST semantics, full pytest coverage, and auto-generated Swagger/ReDoc documentation.\n\nTech Stack: Python \u00b7 FastAPI \u00b7 SQLAlchemy \u00b7 Pydantic \u00b7 SQLite \u00b7 pytest\n\nKey Metrics:\n\u2713 Full CRUD + correct PUT/PATCH semantics\n\u2713 Automated test coverage\n\u2713 Auto-generated API docs\n\nNote: this is a personal learning project, not SysCloud production work.",
+      "suggestions": [
+        "His Python experience",
+        "Tell me about all projects",
+        "What is his tech stack?"
+      ],
+      "topic": "project_fastapi"
+    },
+    {
       "pattern": "project|built|build|what has he made|show.*project",
-      "text": "Here are Aniket's key projects at SysCloud. Which one would you like to know in detail?\n\n\ud83e\udd16 Sky 2.0, AI-powered NL interface\n\ud83d\udee1\ufe0f DAL AI-Agents, Operational monitoring agents\n\u26a1 MDL 2.0, Config-driven cloud framework\n\ud83d\udcca Anomaly Detection, Prophet ML + Rule Engine\n\ud83d\udd04 Restore & Export, High-speed data recovery + Bulk Export\n\ud83d\udd0d Slack eDiscovery, PHP + Node.js full-stack integration\n\ud83d\udcc8 Customer Dashboard, Multi-cloud insights\n\ud83d\udc65 Partner Portal, MSP management dashboard\n\ud83d\udd27 MDLOPS Microservice, Async addon orchestration\n\ud83d\uddc4\ufe0f Batch Jobs Framework, 100K+ job orchestration",
+      "text": "Here are Aniket's key projects at SysCloud, plus a personal project on the side. Which one would you like to know in detail?\n\n\ud83e\udd16 Sky 2.0, AI-powered NL interface\n\ud83d\udee1\ufe0f DAL AI-Agents, Operational monitoring agents\n\u26a1 MDL 2.0, Config-driven cloud framework\n\ud83d\udcca Anomaly Detection, Prophet ML + Rule Engine\n\ud83d\udd04 Restore & Export, High-speed data recovery + Bulk Export\n\ud83d\udd0d Slack eDiscovery, PHP + Node.js full-stack integration\n\ud83d\udcc8 Customer Dashboard, Multi-cloud insights\n\ud83d\udc65 Partner Portal, MSP management dashboard\n\ud83d\udd27 MDLOPS Microservice, Async addon orchestration\n\ud83d\uddc4\ufe0f Batch Jobs Framework, 100K+ job orchestration\n\ud83d\udcda FastAPI Task Manager (personal), CRUD REST API exploring Python/FastAPI",
       "suggestions": [
         "Sky 2.0",
         "DAL AI-Agents",
         "MDL 2.0",
-        "Restore & Export"
+        "Restore & Export",
+        "FastAPI Task Manager"
       ],
       "topic": "projects"
     },
@@ -353,7 +364,7 @@
     },
     {
       "pattern": "salary|compensation|ctc|pay|package|lpa|lakh",
-      "text": "💼 Compensation\n\nAniket is open to discussing compensation based on the role, responsibilities, and growth opportunity.\n\nFor a direct conversation, please reach out:\n📧 rai078945@gmail.com\n📞 +91 7668514258\n\nHe typically responds within 24 hours.",
+      "text": "\ud83d\udcbc Compensation\n\nAniket is open to discussing compensation based on the role, responsibilities, and growth opportunity.\n\nFor a direct conversation, please reach out:\n\ud83d\udce7 rai078945@gmail.com\n\ud83d\udcde +91 7668514258\n\nHe typically responds within 24 hours.",
       "suggestions": [
         "His notice period?",
         "How to contact him?",
@@ -413,7 +424,7 @@
     },
     {
       "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review.*team|hiring.*interview|interview.*candidate|management style|people management",
-      "text": "As Lead Software Engineer at SysCloud, Aniket leads an 8-10 engineer team:\n\n👥 Team size: 8-10 engineers\n📐 Design reviews: Leads HLD (High Level Design) and LLD (Low Level Design) sessions for all major features before implementation\n🔍 PR reviews: Conducts regular code reviews enforcing quality, consistency, and best practices across Node.js, TypeScript, and PostgreSQL\n🤝 Mentoring: Guides engineers through technical discussions, architectural decisions, and onboarding\n🎯 Hiring: Participates in technical interviews for engineering candidates, evaluating system design and fundamentals\n\nHis style is hands-on: he's both the technical decision-maker and an active contributor shipping production code.",
+      "text": "As Lead Software Engineer at SysCloud, Aniket leads an 8-10 engineer team:\n\n\ud83d\udc65 Team size: 8-10 engineers\n\ud83d\udcd0 Design reviews: Leads HLD (High Level Design) and LLD (Low Level Design) sessions for all major features before implementation\n\ud83d\udd0d PR reviews: Conducts regular code reviews enforcing quality, consistency, and best practices across Node.js, TypeScript, and PostgreSQL\n\ud83e\udd1d Mentoring: Guides engineers through technical discussions, architectural decisions, and onboarding\n\ud83c\udfaf Hiring: Participates in technical interviews for engineering candidates, evaluating system design and fundamentals\n\nHis style is hands-on: he's both the technical decision-maker and an active contributor shipping production code.",
       "suggestions": [
         "What has he built as Lead?",
         "His architecture experience",
@@ -554,127 +565,212 @@
     {
       "pattern": "walk.*resume|tell.*yourself|introduce.*yourself|summary|overview|background",
       "text": "\ud83d\udc4b Aniket Rai, Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 (Claude + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
-      "suggestions": ["His key projects", "Tech stack", "Why hire him?"],
+      "suggestions": [
+        "His key projects",
+        "Tech stack",
+        "Why hire him?"
+      ],
       "topic": "intro"
     },
     {
       "pattern": "why.*leav|why.*left|why.*switch|why.*looking|reason.*leaving|leaving.*syscloud|why.*move|why.*job change",
       "text": "Aniket has had a strong 5-year run at SysCloud, growing from intern to Lead Software Engineer, owning major systems end-to-end.\n\nHe's now looking for a new challenge where he can:\n\ud83d\udd39 Work on larger-scale distributed systems\n\ud83d\udd39 Deepen AI/LLM engineering in a product-focused environment\n\ud83d\udd39 Collaborate with a high-impact engineering team\n\nFor more context, reach out directly: rai078945@gmail.com or +91 7668514258",
-      "suggestions": ["His strengths", "What roles is he open to?", "How to contact him?"],
+      "suggestions": [
+        "His strengths",
+        "What roles is he open to?",
+        "How to contact him?"
+      ],
       "topic": "why_leaving"
     },
     {
       "pattern": "why.*one company|only.*syscloud|single company|loyal|5 year.*one|same company",
       "text": "Staying at one company for 5 years is a sign of depth, not stagnation. At SysCloud, Aniket's role evolved significantly:\n\n\u2022 Intern \u2192 SE \u2192 SSE \u2192 Lead (promoted three times)\n\u2022 Went from writing GraphQL queries to designing company-wide frameworks\n\u2022 Each year brought new ownership: Gen3, AI Agents, Sky 2.0, MDL 2.0\n\nHe built deep domain expertise and shipped production systems used by enterprise customers daily. That's the kind of depth most engineers don't get by job-hopping.",
-      "suggestions": ["His biggest achievement", "His tech stack", "What roles is he open to?"],
+      "suggestions": [
+        "His biggest achievement",
+        "His tech stack",
+        "What roles is he open to?"
+      ],
       "topic": "loyalty"
     },
     {
-      "pattern": "python|python experience|python work|where.*python|used python",
-      "text": "\ud83d\udc0d Python Experience\n\nAniket uses Python primarily for scripting, automation, and data/ML tooling:\n\n\u2022 Anomaly Detection, integrated Facebook Prophet ML (Python) for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%) via a NestJS/Python service\n\u2022 Scripting & tooling, automation scripts and data processing utilities\n\nPython is a secondary language alongside his primary Node.js/TypeScript stack.",
-      "suggestions": ["Anomaly Detection project", "His tech stack", "AI experience"],
+      "pattern": "python|python experience|python work|where.*python|used python|fastapi|fast api",
+      "text": "\ud83d\udc0d Python Experience\n\nAniket uses Python primarily for scripting, automation, and data/ML tooling, and recently explored it for backend API development:\n\n\u2022 Anomaly Detection, integrated Facebook Prophet ML (Python) for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%) via a NestJS/Python service\n\u2022 Scripting & tooling, automation scripts and data processing utilities\n\u2022 FastAPI (personal project), built a Task Management REST API (FastAPI, SQLAlchemy, Pydantic, SQLite) with full CRUD, pytest coverage, and auto-generated Swagger docs, exploring Python's backend ecosystem from his Node.js/Express background\n\nPython is a secondary language alongside his primary Node.js/TypeScript stack.",
+      "suggestions": [
+        "Anomaly Detection project",
+        "His tech stack",
+        "AI experience",
+        "Tell me about the FastAPI project"
+      ],
       "topic": "python"
     },
     {
       "pattern": "react|frontend|front.end|ui.*experience|react.*experience|front.*end.*experience",
       "text": "\u269b\ufe0f React / Frontend Experience\n\nAniket is primarily a backend engineer but has shipped full-stack features end-to-end:\n\n\u2022 Slack eDiscovery Search, delivered the full frontend search and results UI\n\u2022 Bulk Export, extended the export UI (React) to support multi-user selection\n\u2022 Gen4 & Gen5 cloud pages, shipped Reports, Restore, Export, Dashboard, Errors pages across full stack\n\u2022 Homepage widgets, Audit Log, License Management, Usage Stats\n\u2022 As intern: authored GraphQL queries powering frontend data rendering\n\nFrontend is functional and production-delivered, not his primary focus.",
-      "suggestions": ["Backend experience", "GraphQL experience", "His tech stack"],
+      "suggestions": [
+        "Backend experience",
+        "GraphQL experience",
+        "His tech stack"
+      ],
       "topic": "react"
     },
     {
       "pattern": "docker|container|containeriz",
       "text": "\ud83d\udc33 Docker Experience\n\nAniket uses Docker in his infrastructure and CI/CD work at SysCloud:\n\n\u2022 Containerized services as part of the AWS Fargate-based deployment pipeline\n\u2022 Used in the Timeseries and Batch Framework for multi-environment deployments via AWS CodeBuild\n\u2022 Part of the CI/CD pipeline alongside AWS CodePipeline and SonarQube\n\nDocker is a standard tool in his AWS-based infrastructure stack.",
-      "suggestions": ["AWS experience", "CI/CD experience", "His tech stack"],
+      "suggestions": [
+        "AWS experience",
+        "CI/CD experience",
+        "His tech stack"
+      ],
       "topic": "docker"
     },
     {
       "pattern": "elk|elasticsearch|logstash|kibana|elk stack|log.*monitor|centralized.*log",
       "text": "\ud83d\udcca ELK Stack Experience\n\nAniket integrated the full ELK Stack at SysCloud as the centralized observability layer:\n\n\u2022 Set up Elasticsearch for log indexing and search\n\u2022 Configured Logstash for log ingestion and transformation\n\u2022 Built Kibana dashboards for real-time backend error visualization\n\u2022 Integrated with Grafana for unified monitoring across the application framework\n\nThis became the primary backend monitoring solution used across all services.",
-      "suggestions": ["Grafana experience", "AWS experience", "S3 integrity pipeline"],
+      "suggestions": [
+        "Grafana experience",
+        "AWS experience",
+        "S3 integrity pipeline"
+      ],
       "topic": "elk"
     },
     {
       "pattern": "s3.*pipeline|data integrity|integrity.*pipeline|missing.*zip|re.backup|s3.*integrity",
       "text": "\ud83d\uddc4\ufe0f S3 Data Integrity Pipeline\n\nAniket engineered a weekly automated pipeline at SysCloud to ensure S3 backup data integrity:\n\n\u2022 Detects missing zip files and count mismatches across S3 buckets\n\u2022 Built with Node.js, AWS Fargate, Lambda, and Athena\n\u2022 Automatically triggers re-backup when discrepancies are found\n\u2022 Full Grafana monitoring for observability and alerting\n\nThis runs weekly in production, protecting data integrity for enterprise customers.",
-      "suggestions": ["AWS experience", "ELK Stack", "Batch Jobs Framework"],
+      "suggestions": [
+        "AWS experience",
+        "ELK Stack",
+        "Batch Jobs Framework"
+      ],
       "topic": "s3_pipeline"
     },
     {
       "pattern": "version.copy|multiple version|s3.*version|restoration.*fail|outdated.*db",
       "text": "\ud83d\udd04 Version-Copy Mechanism\n\nAniket built a version-copy mechanism to fix restoration failures caused by S3 object versioning issues:\n\n\u2022 Problem: S3 objects with multiple versions had outdated DB associations causing restore failures\n\u2022 Solution: Identifies S3 objects with multiple versions, extracts the older ones, and creates new objects with correct DB associations\n\u2022 Resolved a class of restoration failures for enterprise customers\n\nThis is the kind of low-level infrastructure debugging that requires deep knowledge of both S3 versioning and database state.",
-      "suggestions": ["S3 integrity pipeline", "Restore & Export", "AWS experience"],
+      "suggestions": [
+        "S3 integrity pipeline",
+        "Restore & Export",
+        "AWS experience"
+      ],
       "topic": "version_copy"
     },
     {
       "pattern": "config.driven|config driven|json.*config|zero.*code.*change|new cloud.*zero|framework.*config",
       "text": "\u26a1 Config-Driven Architecture\n\nOne of Aniket's signature patterns. Instead of writing code per feature or per cloud integration, he designs systems where behavior is fully driven by JSON config:\n\n\ud83d\udd39 MDL 2.0, 12+ cloud integrations. Adding a new cloud = only JSON config, zero code changes\n\ud83d\udd39 Gen4/Gen5 cloud pages, config-driven templates so any new cloud is automatically supported\n\ud83d\udd39 MDLOPS, 5 async add-on modules handled via JSON-driven config\n\ud83d\udd39 Restore/Export Gen3, unified config-driven function eliminating per-cloud code\n\nThis pattern scales indefinitely. It's how one engineer supports 12+ cloud providers without writing 12 separate implementations.",
-      "suggestions": ["MDL 2.0", "Gen4/Gen5 pages", "His tech stack"],
+      "suggestions": [
+        "MDL 2.0",
+        "Gen4/Gen5 pages",
+        "His tech stack"
+      ],
       "topic": "config_driven"
     },
     {
       "pattern": "postgraphile|post.graphile|graphile",
       "text": "\ud83d\udd0c PostGraphile\n\nPostGraphile is a tool that automatically generates a GraphQL API from a PostgreSQL schema. Aniket has deep expertise with it at SysCloud:\n\n\u2022 All GraphQL mutations and queries at SysCloud run through PostGraphile\n\u2022 MDL 2.0 executes each action as a micro-task inside PostGraphile\n\u2022 DAL AI-Agents include a PostGraphile Slow-Queries agent for performance monitoring\n\u2022 Built as an intern: authored GraphQL mutations within the PostGraphile server\n\nHe's been working with PostGraphile for 4+ years across Gen1 through Gen5.",
-      "suggestions": ["GraphQL experience", "MDL 2.0", "DAL AI-Agents"],
+      "suggestions": [
+        "GraphQL experience",
+        "MDL 2.0",
+        "DAL AI-Agents"
+      ],
       "topic": "postgraphile"
     },
     {
       "pattern": "addon.*action|add.on|parent.*child.*schema|dismiss|hold.*release|eDiscovery.*action|bdi",
       "text": "\ud83d\udd27 Add-On Actions\n\nAniket modeled the parent/child schema and full mutation layer for SysCloud's Add-On Actions system:\n\n\u2022 Actions covered: Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, Transfer Ownership, Deletion\n\u2022 Modules: eDiscovery, BDI (Backup Data Insights)\n\u2022 Architecture: Parent Action Table \u2192 async child processing via AWS SQS and MDLOps\n\u2022 Real-time UI tracking with auto-generated status text across 8 states\n\u2022 Grafana logging with trace IDs for cross-system tracking\n\nThis is a complex event-driven system handling multiple async workflows in parallel.",
-      "suggestions": ["MDLOPS Microservice", "AWS SQS experience", "His projects"],
+      "suggestions": [
+        "MDLOPS Microservice",
+        "AWS SQS experience",
+        "His projects"
+      ],
       "topic": "addon_actions"
     },
     {
       "pattern": "mcp|model context protocol|claude.*mcp|mcp.*claude|tool.*use.*ai",
       "text": "\ud83e\udd16 MCP (Model Context Protocol)\n\nMCP is Anthropic's open protocol for connecting AI models to external tools and data sources. Aniket uses it in production:\n\n\u2022 Sky 2.0 uses MCP to connect the Claude LLM to SysCloud's internal APIs and database\n\u2022 Allows the AI to dynamically query data, navigate pages, and initiate actions (Restore, Export)\n\u2022 Aniket integrated MCP before it became mainstream in the industry\n\nThis is cutting-edge AI infrastructure work, not just prompt engineering.",
-      "suggestions": ["Sky 2.0", "AI experience", "DAL AI-Agents"],
+      "suggestions": [
+        "Sky 2.0",
+        "AI experience",
+        "DAL AI-Agents"
+      ],
       "topic": "mcp"
     },
     {
       "pattern": "biggest.*achiev|proudest|most proud|best.*work|top.*achiev|highlight.*career|most.*impact",
       "text": "\ud83c\udfc6 Aniket's Biggest Achievements\n\n1\ufe0f\u20e3 Sky 2.0, Built an AI that lets customers talk to their data. Zero navigation required. This went from idea to production.\n\n2\ufe0f\u20e3 MDL 2.0, Designed a framework that made 12+ cloud integrations maintainable by one engineer. Adding a new cloud went from weeks of coding to pure config.\n\n3\ufe0f\u20e3 4x Batch Job speedup, Overhauled the job framework with parallel host-level execution. 4x faster is a measurable, production result.\n\n4\ufe0f\u20e3 SonarQube: 0 critical issues, Led a quality initiative that eliminated 100% of critical security violations and cut total issues by 90%.\n\n5\ufe0f\u20e3 Query time 10s+ \u2192 under 2s, Athena-based metadata hydration for enterprise archives. 5x improvement in a user-facing operation.",
-      "suggestions": ["MDL 2.0", "Sky 2.0", "Batch Jobs Framework"],
+      "suggestions": [
+        "MDL 2.0",
+        "Sky 2.0",
+        "Batch Jobs Framework"
+      ],
       "topic": "achievement"
     },
     {
       "pattern": "hardest.*problem|toughest.*bug|difficult.*challenge|complex.*problem|challenging.*task|hard.*bug",
       "text": "\ud83e\udde0 Hardest Problem Solved\n\nThe batch job parallelization challenge stands out:\n\nSysCloud's materialized view refresh jobs were running sequentially per host. With 12+ cloud integrations and growing data volume, job execution time was becoming a bottleneck affecting customer-facing dashboard freshness.\n\nAniket redesigned the framework with parallel host-level execution, CPU-level optimizations, and intelligent scheduling. Result: 4x faster execution in production.\n\nAnother strong example: the S3 version-copy mechanism, which required diagnosing subtle data integrity failures caused by S3 object versioning mismatches with DB state, then building an automated fix that runs without human intervention.",
-      "suggestions": ["Batch Jobs Framework", "S3 integrity pipeline", "His achievements"],
+      "suggestions": [
+        "Batch Jobs Framework",
+        "S3 integrity pipeline",
+        "His achievements"
+      ],
       "topic": "hard_problem"
     },
     {
       "pattern": "performance.*improv|optimiz|speed.*up|latency|slow.*query|query.*optimiz|faster",
       "text": "\u26a1 Performance Improvements\n\nAniket has multiple measurable performance wins:\n\n\ud83d\udd39 4x faster batch job execution, parallel host-level execution in the Batch Job framework\n\ud83d\udd39 10s+ \u2192 under 2s query time, AWS Athena on-demand metadata hydration for 2+ year old archives\n\ud83d\udd39 PostgreSQL CTEs & Materialized Views, pre-computed views with concurrent refresh, zero transactional impact\n\ud83d\udd39 CPU-level optimizations in the Timeseries framework for improved throughput\n\ud83d\udd39 PostGraphile Slow-Queries AI-Agent, detects and resolves slow queries before they impact customers",
-      "suggestions": ["Batch Jobs Framework", "PostgreSQL expertise", "DAL AI-Agents"],
+      "suggestions": [
+        "Batch Jobs Framework",
+        "PostgreSQL expertise",
+        "DAL AI-Agents"
+      ],
       "topic": "performance"
     },
     {
       "pattern": "work.*auth|visa|authorized|eligib|can.*work.*india|right.*work",
       "text": "\u2705 Work Authorization\n\nAniket is fully authorized to work in India. No visa or sponsorship required.\n\n\ud83d\udccd Based in Hyderabad, Telangana\n\ud83c\udf0d Open to Hyderabad, Pune, Bangalore, Chennai, or fully Remote/Hybrid roles\n\nFor international opportunities, contact Aniket directly: rai078945@gmail.com or +91 7668514258",
-      "suggestions": ["His location", "Notice period", "How to contact him?"],
+      "suggestions": [
+        "His location",
+        "Notice period",
+        "How to contact him?"
+      ],
       "topic": "work_auth"
     },
     {
       "pattern": "kafka|apache kafka|streaming|event.*stream|message.*queue",
       "text": "\ud83d\udce8 Apache Kafka\n\nAniket has familiarity with Apache Kafka (listed as familiar on his resume). His primary async messaging experience is with AWS SQS in production, which he uses in the Add-On Actions system for inter-service communication.\n\nKafka knowledge is theoretical/conceptual at this stage.",
-      "suggestions": ["AWS SQS experience", "His tech stack", "Microservices experience"],
+      "suggestions": [
+        "AWS SQS experience",
+        "His tech stack",
+        "Microservices experience"
+      ],
       "topic": "kafka"
     },
     {
       "pattern": "snowflake|data warehouse|warehouse",
       "text": "\u2744\ufe0f Snowflake\n\nSnowflake is listed as familiar on Aniket's resume. His primary database expertise is PostgreSQL (5+ years, expert level). He has conceptual knowledge of Snowflake as a data warehousing solution.",
-      "suggestions": ["PostgreSQL expertise", "AWS Athena experience", "His tech stack"],
+      "suggestions": [
+        "PostgreSQL expertise",
+        "AWS Athena experience",
+        "His tech stack"
+      ],
       "topic": "snowflake"
     },
     {
       "pattern": "jenkins|ci.*cd.*tool|build.*tool|pipeline.*tool",
       "text": "\ud83d\udd27 CI/CD Tools\n\nAniket's primary CI/CD experience is with AWS CodePipeline and AWS CodeBuild in production. Jenkins is listed as familiar, conceptual knowledge, not primary tooling.\n\nCI/CD stack: AWS CodePipeline \u00b7 AWS CodeBuild \u00b7 SonarQube \u00b7 Git \u00b7 Docker",
-      "suggestions": ["AWS experience", "SonarQube/code quality", "His tech stack"],
+      "suggestions": [
+        "AWS experience",
+        "SonarQube/code quality",
+        "His tech stack"
+      ],
       "topic": "jenkins"
     },
     {
       "pattern": "gen4|gen5|gen3|cloud page|generation|cloud.*template|new cloud.*page",
       "text": "\ud83c\udf10 Gen3 / Gen4 / Gen5 Cloud Pages\n\nSysCloud supports 12+ cloud providers (Google Workspace, Microsoft 365, Slack, QuickBooks, etc.). Each generation improved how pages are built:\n\n\ud83d\udd39 Gen3 (SE role), Aniket architected the unified config-driven Restore/Export function. Adding a new cloud no longer required separate code.\n\n\ud83d\udd39 Gen4 & Gen5 (Lead role), Shipped full cloud pages: Reports, Restore, Export, Dashboard, Errors, Limitations + Homepage widgets (Audit Log, License Management, Usage Stats). Introduced a config-driven template so any new cloud is automatically supported across all pages with zero additional code.",
-      "suggestions": ["MDL 2.0", "Config-driven architecture", "His projects"],
+      "suggestions": [
+        "MDL 2.0",
+        "Config-driven architecture",
+        "His projects"
+      ],
       "topic": "cloud_pages"
     },
     {

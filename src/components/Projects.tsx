@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
 import { EASE } from "@/lib/constants";
-import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search } from "lucide-react";
+import { ExternalLink, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen } from "lucide-react";
 
 
 
@@ -141,6 +141,17 @@ const projects = [
     borderColor: "rgba(52,211,153,0.25)",
     bgColor: "rgba(52,211,153,0.08)",
   },
+  {
+    icon: BookOpen,
+    title: "FastAPI Task Manager",
+    description: "A personal project exploring Python's backend ecosystem from a Node.js/Express background: a CRUD REST API for task management built with FastAPI, SQLAlchemy, and Pydantic on SQLite. Implements correct PUT (full replace) vs PATCH (partial update) REST semantics, full pytest coverage, and auto-generated Swagger/ReDoc docs.",
+    category: "Personal",
+    tags: ["Python", "FastAPI", "SQLAlchemy", "Pydantic", "SQLite", "pytest"],
+    metrics: ["Full CRUD + PUT/PATCH", "Automated test coverage", "Auto-generated API docs"],
+    color: "#009485",
+    borderColor: "rgba(0,148,133,0.25)",
+    bgColor: "rgba(0,148,133,0.08)",
+  },
 ];
 
 type Project = typeof projects[number];
@@ -236,10 +247,85 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
 export { projects };
 
-// Unique tech tags across all projects for the filter
-const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
-// Category colors
+// SysCloud-owned work vs. personal side projects — kept as separate sections so
+// personal exploration never reads as production work owned at SysCloud.
+const workProjects = projects.filter((p) => p.category !== "Personal");
+const personalProjects = projects.filter((p) => p.category === "Personal");
+
+// Unique tech tags across work projects for the filter
+const allTags = Array.from(new Set(workProjects.flatMap((p) => p.tags))).sort();
+// Category colors (work projects only — Personal has its own section, not a filter)
 const catColors: Record<string, string> = { "AI & ML": "#a78bfa", "Backend": "#4d8ff7", "Dashboard": "#818cf8", "Infrastructure": "#facc15" };
+
+function ProjectCard({ project: p, index: i, onClick }: { project: Project; index: number; onClick: () => void }) {
+  return (
+    <motion.div
+      key={p.title}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      layout
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
+      whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
+      onClick={onClick}
+      style={{
+        borderRadius: "18px", padding: "1.5rem",
+        background: "var(--bg-card-alpha-hi)",
+        border: `1px solid ${p.borderColor}`,
+        boxShadow: "var(--shadow-card)",
+        transition: "border-color 0.3s, box-shadow 0.3s",
+        cursor: "pointer",
+        position: "relative", overflow: "hidden",
+      }}
+    >
+      {/* Click hint */}
+      <div style={{
+        position: "absolute", top: "0.75rem", right: "0.75rem",
+        display: "flex", alignItems: "center", gap: "4px",
+        fontSize: "0.58rem", color: p.color, opacity: 0.7,
+      }}>
+        <ExternalLink size={10} /> Details
+      </div>
+
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1rem" }}>
+        <div style={{ width: "42px", height: "42px", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", background: p.bgColor, border: `1px solid ${p.borderColor}`, flexShrink: 0 }}>
+          <p.icon size={20} color={p.color} />
+        </div>
+        <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color, letterSpacing: "0.05em" }}>
+          {p.category}
+        </span>
+      </div>
+
+      <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.6rem" }}>
+        {p.title}
+      </h3>
+      <p style={{
+        color: "var(--text-secondary)", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem",
+        display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
+      }}>
+        {p.description}
+      </p>
+
+      {/* Metrics */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1rem" }}>
+        {p.metrics.map((m) => (
+          <span key={m} style={{ fontSize: "0.68rem", fontWeight: 600, padding: "0.2rem 0.6rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color }}>
+            ✓ {m}
+          </span>
+        ))}
+      </div>
+
+      {/* Tech tags */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+        {p.tags.map((t) => (
+          <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "var(--chip-bg-solid)", border: "1px solid var(--chip-border-solid)", color: "var(--text-secondary)" }}>
+            {t}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
@@ -257,7 +343,7 @@ export default function Projects() {
     setActiveTags([]);
   };
 
-  const filteredProjects = projects.filter((p) => {
+  const filteredProjects = workProjects.filter((p) => {
     if (activeCategory) return p.category === activeCategory;
     if (activeTags.length === 0) return true;
     return activeTags.every((t) => p.tags.includes(t));
@@ -345,83 +431,60 @@ export default function Projects() {
           {/* Result count */}
           {(activeTags.length > 0 || activeCategory) && (
             <p style={{ textAlign: "center", color: "var(--text-muted)", fontSize: "0.72rem", marginBottom: "1.5rem", marginTop: "-1.5rem" }}>
-              Showing {filteredProjects.length} of {projects.length} projects
+              Showing {filteredProjects.length} of {workProjects.length} projects
             </p>
           )}
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: "1.25rem" }}>
             <AnimatePresence>
             {filteredProjects.map((p, i) => (
-              <motion.div
+              <ProjectCard
                 key={p.title}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                layout
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
-                whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
+                project={p}
+                index={i}
                 onClick={() => { setSelected(p); track("project_click", { section: "projects", label: p.title }); }}
-                style={{
-                  borderRadius: "18px", padding: "1.5rem",
-                  background: "var(--bg-card-alpha-hi)",
-                  border: `1px solid ${p.borderColor}`,
-                  boxShadow: "var(--shadow-card)",
-                  transition: "border-color 0.3s, box-shadow 0.3s",
-                  cursor: "pointer",
-                  position: "relative", overflow: "hidden",
-                }}
-              >
-                {/* Click hint */}
-                <div style={{
-                  position: "absolute", top: "0.75rem", right: "0.75rem",
-                  display: "flex", alignItems: "center", gap: "4px",
-                  fontSize: "0.58rem", color: p.color, opacity: 0.7,
-                }}>
-                  <ExternalLink size={10} /> Details
-                </div>
-
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1rem" }}>
-                  <div style={{ width: "42px", height: "42px", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", background: p.bgColor, border: `1px solid ${p.borderColor}`, flexShrink: 0 }}>
-                    <p.icon size={20} color={p.color} />
-                  </div>
-                  <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color, letterSpacing: "0.05em" }}>
-                    {p.category}
-                  </span>
-                </div>
-
-                <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.6rem" }}>
-                  {p.title}
-                </h3>
-                <p style={{
-                  color: "var(--text-secondary)", fontSize: "0.78rem", lineHeight: 1.65, marginBottom: "1.1rem",
-                  display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
-                }}>
-                  {p.description}
-                </p>
-
-                {/* Metrics */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1rem" }}>
-                  {p.metrics.map((m) => (
-                    <span key={m} style={{ fontSize: "0.68rem", fontWeight: 600, padding: "0.2rem 0.6rem", borderRadius: "999px", background: p.bgColor, border: `1px solid ${p.borderColor}`, color: p.color }}>
-                      ✓ {m}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Tech tags */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                  {p.tags.map((t) => (
-                    <span key={t} style={{ fontSize: "0.68rem", padding: "0.2rem 0.55rem", borderRadius: "999px", background: "var(--chip-bg-solid)", border: "1px solid var(--chip-border-solid)", color: "var(--text-secondary)" }}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              />
             ))}
             </AnimatePresence>
           </div>
         </div>
       </section>
+
+      {/* Personal projects — kept visually separate from SysCloud-owned work above */}
+      {personalProjects.length > 0 && (
+        <section style={{ padding: "0 1.5rem 6rem", background: "var(--bg-primary)" }}>
+          <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              style={{ textAlign: "center", marginBottom: "2rem" }}
+            >
+              <p style={{ color: "#009485", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+                On the side
+              </p>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.5rem" }}>
+                Personal projects
+              </h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", maxWidth: "480px", margin: "0 auto" }}>
+                Exploration outside of SysCloud, not production work.
+              </p>
+            </motion.div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: "1.25rem" }}>
+              {personalProjects.map((p, i) => (
+                <ProjectCard
+                  key={p.title}
+                  project={p}
+                  index={i}
+                  onClick={() => { setSelected(p); track("project_click", { section: "projects_personal", label: p.title }); }}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Project detail modal */}
       {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
