@@ -243,7 +243,7 @@ export default function ChatBot() {
     } catch { /* ignore */ }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Proactive nudge — fires 30s after last user message
+  // Proactive nudge — fires 90s after last user message
   useEffect(() => {
     if (!messages.some(m => m.from === "user")) return;
     if (nudgeFiredRef.current) return;
@@ -255,7 +255,7 @@ export default function ChatBot() {
       setMessages(m => [...m, nudge]);
       if (!openRef.current) setUnread(u => u + 1);
       setSuggestions(["His AI/ML projects", "Availability & notice", "How to contact him", "His tech stack"]);
-    }, 30000);
+    }, 90000);
     return () => { if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current); };
   }, [messages]); // eslint-disable-line react-hooks/exhaustive-deps
 

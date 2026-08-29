@@ -150,7 +150,7 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
@@ -160,7 +160,7 @@
       "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 8+ services in production, S3 event triggers, Lambda sync jobs, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: MCP framework, Claude, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
     },
     {
-      "pattern": "fastapi|fast api|task manager|task management api|python project|personal project|side project",
+      "pattern": "fastapi|fast api|task manager|task management api|python project",
       "text": "\ud83d\udcda FastAPI Task Manager (personal project)\n\nDescription: A personal project built to explore Python's backend ecosystem from Aniket's Node.js/Express background. A CRUD REST API for task management with FastAPI, SQLAlchemy, and Pydantic on SQLite. Implements correct PUT (full replace) vs PATCH (partial update) REST semantics, full pytest coverage, and auto-generated Swagger/ReDoc documentation.\n\nTech Stack: Python \u00b7 FastAPI \u00b7 SQLAlchemy \u00b7 Pydantic \u00b7 SQLite \u00b7 pytest\n\nKey Metrics:\n\u2713 Full CRUD + correct PUT/PATCH semantics\n\u2713 Automated test coverage\n\u2713 Auto-generated API docs\n\nNote: this is a personal learning project, not SysCloud production work.",
       "suggestions": [
         "His Python experience",
@@ -170,14 +170,35 @@
       "topic": "project_fastapi"
     },
     {
+      "pattern": "job autopilot|job.?auto.?pilot|linkedin automation|easy apply|application automation|apply automation",
+      "text": "\ud83d\udcbc Job Autopilot (personal project)\n\nDescription: A personal automation pipeline for the job search, built while job hunting himself. Discovers postings from LinkedIn plus 100+ company ATS boards (Greenhouse, Lever, Ashby) and job aggregators, scores each one with Claude against a 6-dimension rubric that flags ghost and scam listings, fills out the application, and preps interview answers from a STAR story bank. A human confirms every submission, nothing auto-applies without approval.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 Playwright \u00b7 Claude \u00b7 Supabase \u00b7 REST APIs\n\nKey Metrics:\n\u2713 100+ sources merged\n\u2713 AI scoring + red-flag detection\n\u2713 Human confirms every apply\n\nNote: this is a personal project, not SysCloud production work.",
+      "suggestions": [
+        "Tell me about all projects",
+        "FastAPI Task Manager",
+        "What is his tech stack?"
+      ],
+      "topic": "project_job_autopilot"
+    },
+    {
+      "pattern": "personal projects?|side projects?",
+      "text": "\ud83c\udfaf Personal projects (outside SysCloud)\n\n\ud83d\udcda FastAPI Task Manager, CRUD REST API exploring Python/FastAPI\n\ud83d\udcbc Job Autopilot, LinkedIn + ATS job search automation with AI scoring\n\nWhich one would you like to know in detail?",
+      "suggestions": [
+        "FastAPI Task Manager",
+        "Job Autopilot",
+        "Tell me about all projects"
+      ],
+      "topic": "projects_personal"
+    },
+    {
       "pattern": "project|built|build|what has he made|show.*project",
-      "text": "Here are Aniket's key projects at SysCloud, plus a personal project on the side. Which one would you like to know in detail?\n\n\ud83e\udd16 Sky 2.0, AI-powered NL interface\n\ud83d\udee1\ufe0f DAL AI-Agents, Operational monitoring agents\n\u26a1 MDL 2.0, Config-driven cloud framework\n\ud83d\udcca Anomaly Detection, Prophet ML + Rule Engine\n\ud83d\udd04 Restore & Export, High-speed data recovery + Bulk Export\n\ud83d\udd0d Slack eDiscovery, PHP + Node.js full-stack integration\n\ud83d\udcc8 Customer Dashboard, Multi-cloud insights\n\ud83d\udc65 Partner Portal, MSP management dashboard\n\ud83d\udd27 MDLOPS Microservice, Async addon orchestration\n\ud83d\uddc4\ufe0f Batch Jobs Framework, 100K+ job orchestration\n\ud83d\udcda FastAPI Task Manager (personal), CRUD REST API exploring Python/FastAPI",
+      "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n\ud83e\udd16 AI & ML\nSky 2.0 \u2014 AI-powered NL interface\nDAL AI-Agents \u2014 Operational monitoring agents\nAnomaly Detection \u2014 Prophet ML + Rule Engine\n\n\u26a1 Backend\nMDL 2.0 \u2014 Config-driven cloud framework\nSlack eDiscovery \u2014 PHP + Node.js full-stack integration\nRestore & Export \u2014 High-speed data recovery + Bulk Export\nMDLOPS Microservice \u2014 Async addon orchestration\n\n\ud83d\udcc8 Dashboard\nCustomer Dashboard \u2014 Multi-cloud insights\nPartner Portal \u2014 MSP management dashboard\n\n\ud83d\uddc4\ufe0f Infrastructure\nBatch Jobs Framework \u2014 100K+ job orchestration\n\n\ud83c\udfaf Personal\nFastAPI Task Manager \u2014 CRUD REST API exploring Python/FastAPI\nJob Autopilot \u2014 LinkedIn + ATS job search automation with AI scoring",
       "suggestions": [
         "Sky 2.0",
         "DAL AI-Agents",
         "MDL 2.0",
         "Restore & Export",
-        "FastAPI Task Manager"
+        "FastAPI Task Manager",
+        "Job Autopilot"
       ],
       "topic": "projects"
     },
