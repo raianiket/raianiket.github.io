@@ -777,7 +777,7 @@
     },
     {
       "pattern": "kafka|apache kafka|streaming|event.*stream|message.*queue",
-      "text": "📨 Apache Kafka\n\nAniket has familiarity with Apache Kafka (listed as familiar on his resume). His primary async messaging experience is with AWS SQS in production, which he uses in the Add-On Actions system for inter-service communication.\n\nKafka knowledge is theoretical/conceptual at this stage.",
+      "text": "📨 Apache Kafka\n\nAniket has familiarity with Apache Kafka, though it's conceptual/secondary knowledge. His primary async messaging experience is with AWS SQS in production, which he uses in the Add-On Actions system for inter-service communication.\n\nKafka knowledge is theoretical/conceptual at this stage.",
       "suggestions": [
         "AWS SQS experience",
         "His tech stack",
@@ -787,7 +787,7 @@
     },
     {
       "pattern": "snowflake|data warehouse|warehouse",
-      "text": "❄️ Snowflake\n\nSnowflake is listed as familiar on Aniket's resume. His primary database expertise is PostgreSQL (5+ years, expert level). He has conceptual knowledge of Snowflake as a data warehousing solution.",
+      "text": "❄️ Snowflake\n\nSnowflake is secondary/conceptual knowledge for Aniket. His primary database expertise is PostgreSQL (5+ years, expert level). He has conceptual knowledge of Snowflake as a data warehousing solution.",
       "suggestions": [
         "PostgreSQL expertise",
         "AWS Athena experience",
@@ -797,7 +797,7 @@
     },
     {
       "pattern": "jenkins|ci.*cd.*tool|build.*tool|pipeline.*tool",
-      "text": "🔧 CI/CD Tools\n\nAniket's primary CI/CD experience is with AWS CodePipeline and AWS CodeBuild in production. Jenkins is listed as familiar, conceptual knowledge, not primary tooling.\n\nCI/CD stack: AWS CodePipeline · AWS CodeBuild · SonarQube · Git · Docker",
+      "text": "🔧 CI/CD Tools\n\nAniket's primary CI/CD experience is with AWS CodePipeline and AWS CodeBuild in production. Jenkins is conceptual knowledge, not primary tooling.\n\nCI/CD stack: AWS CodePipeline · AWS CodeBuild · SonarQube · Git · Docker",
       "suggestions": [
         "AWS experience",
         "SonarQube/code quality",
