@@ -22,6 +22,8 @@ const roles = [
     bullets: [
       "Revamped the customer-facing Dashboard to display aggregated backup data across 12+ clouds with zero code changes per new cloud, as all queries and aggregations are dynamically driven from a metadata table.",
       "Launched the Partner Portal end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.",
+      "Continuing to design and scale Sky's agentic workflow on AWS Step Functions, extending multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to new product surfaces.",
+      "Built an AI-powered Hunter Agent that autonomously debugs production issues by correlating signals across the full observability stack (ELK, CloudWatch, Grafana, application monitoring dashboards), pinpoints root cause, and opens an Azure DevOps task assigned to the engineer, tagged for PM visibility, with a suggested fix, taking manual log triage out of the incident loop.",
       "Architect scalable backend solutions and drive system design decisions, establishing engineering standards across multiple product initiatives.",
       "Lead HLD and LLD design reviews for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.",
       "Mentor engineers through regular PR reviews and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.",
@@ -45,7 +47,7 @@ const roles = [
       "Launched MDLOPS, a TypeScript microservice from scratch, using cm-runner-plus + JSON-driven config to handle 5 add-on modules with parallel execution via PM2; integrated anomaly detection using the Prophet algorithm.",
       "Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) to automate operational monitoring and resolve issues before they impact customers.",
       "Designed and owned MDL 2.0, a framework replacing complex mutation logic with JSON-driven config; migrated 12+ cloud integrations so adding a new cloud requires zero code changes, only config.",
-      "Implemented Sky 2.0 (SysCloud AI), an AI-powered NL interface where customers ask questions, the AI builds queries, redirects to the relevant page with filters, and initiates Restore & Export actions.",
+      "Designed and developed Sky (SysCloud AI), a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to build queries, redirect to the relevant page with filters, and initiate Restore & Export actions.",
       "Overhauled the Batch Job & Materialized View refresh framework with parallel host-level execution, achieving 4x faster job execution.",
       "Modeled parent/child schema and mutation layer for Add-On Actions (eDiscovery, BDI) including Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, and Deletion.",
       "Shipped Gen4 & Gen5 cloud pages (Reports, Restore, Export, Dashboard) with a config-driven template so any new cloud is automatically supported across all pages.",

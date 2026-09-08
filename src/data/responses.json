@@ -2,9 +2,9 @@
   "responses": [
     {
       "pattern": "^ai$|^llm$|\\bllm\\b|ai experience|llm experience|ai work|llm work|artificial intelligence|large language model|generative ai|ai.*llm|llm.*ai",
-      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n\ud83e\udd16 Sky 2.0, Built an NL-to-query AI interface using Claude (LLM) where customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions, zero manual navigation.\n\n\ud83d\udee1\ufe0f DAL AI-Agents, 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n\ud83d\udcca Anomaly Detection, Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, MCP, LLM prompt engineering, Node.js, TypeScript, PostgreSQL.",
+      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n\ud83e\udd16 Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval. Customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions, zero manual navigation.\n\n\ud83d\udd75\ufe0f Hunter Agent, autonomously debugs production issues across ELK, CloudWatch, Grafana, and app monitoring dashboards, pinpoints root cause, and opens an Azure DevOps task assigned to the engineer with a suggested fix.\n\n\ud83d\udee1\ufe0f DAL AI-Agents, 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n\ud83d\udcca Anomaly Detection, Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, OpenAI, LangChain, LangGraph, RAG, MCP, AWS Step Functions, Prompt Engineering, Node.js, TypeScript, PostgreSQL.",
       "suggestions": [
-        "Tell me about Sky 2.0",
+        "Tell me about Sky",
         "What are DAL AI-Agents?",
         "Anomaly detection details",
         "What is his tech stack?"
@@ -146,18 +146,18 @@
         "How to contact him?"
       ],
       "topic": "about",
-      "expandedText": "Going deeper on Aniket...\n\nHe started as an intern at SysCloud (Nov 2020), was promoted to SE in 2021, SSE in 2023, and most recently to Lead Software Engineer in 2026, all within the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He doesn't just implement features, he designs the architecture from scratch (Sky 2.0, MDL 2.0, MDLOPS all originated from his designs)\n\ud83d\udd39 AI-first before it was mainstream, built LLM agents and integrated Claude/MCP before AI tooling was everywhere\n\ud83d\udd39 Obsessed with code quality, took SonarQube critical issues from 100% down to 0\n\ud83d\udd39 Performance-driven, every optimization has a measurable number behind it (4x faster, 10s \u2192 2s, etc.)"
+      "expandedText": "Going deeper on Aniket...\n\nHe started as an intern at SysCloud (Nov 2020), was promoted to SE in 2021, SSE in 2023, and most recently to Lead Software Engineer in 2026, all within the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He doesn't just implement features, he designs the architecture from scratch (Sky, MDL 2.0, MDLOPS all originated from his designs)\n\ud83d\udd39 AI-first before it was mainstream, built LLM agents and integrated Claude/MCP before AI tooling was everywhere\n\ud83d\udd39 Obsessed with code quality, took SonarQube critical issues from 100% down to 0\n\ud83d\udd39 Performance-driven, every optimization has a measurable number behind it (4x faster, 10s \u2192 2s, etc.)"
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
-      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n\u2601\ufe0f Cloud: AWS (Lambda, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 AI: AI Agent Development, LLM Integration, Prompt Engineering, MCP, AI Workflow Automation, Anomaly Detection\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n\ud83d\udfe6 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n\ud83d\udcd0 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n\ud83d\udd27 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n\ud83d\uddc4\ufe0f Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n\u2601\ufe0f Cloud: AWS (Lambda, Step Functions, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n\ud83e\udd16 GenAI & Agentic AI: LLMs, OpenAI, RAG, LangChain, LangGraph, Agentic Workflows, Prompt Engineering, AI Agents, Claude, MCP\n\ud83d\udee0\ufe0f Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
         "AI work he's done"
       ],
       "topic": "skills",
-      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 8+ services in production, S3 event triggers, Lambda sync jobs, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: MCP framework, Claude, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
+      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n\ud83d\uddc4\ufe0f PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n\u2601\ufe0f AWS: 9+ services in production, S3 event triggers, Lambda sync jobs, Step Functions agentic orchestration, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n\ud83e\udd16 AI stack: Claude, OpenAI, MCP framework, LangChain/LangGraph-style agentic orchestration on AWS Step Functions, RAG, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
     },
     {
       "pattern": "fastapi|fast api|task manager|task management api|python project",
@@ -201,9 +201,10 @@
     },
     {
       "pattern": "project|built|build|what has he made|show.*project",
-      "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n\ud83e\udd16 AI & ML\nSky 2.0 \u2014 AI-powered NL interface\nDAL AI-Agents \u2014 Operational monitoring agents\nAnomaly Detection \u2014 Prophet ML + Rule Engine\n\n\u26a1 Backend\nMDL 2.0 \u2014 Config-driven cloud framework\nSlack eDiscovery \u2014 PHP + Node.js full-stack integration\nRestore & Export \u2014 High-speed data recovery + Bulk Export\nMDLOPS Microservice \u2014 Async addon orchestration\n\n\ud83d\udcc8 Dashboard\nCustomer Dashboard \u2014 Multi-cloud insights\nPartner Portal \u2014 MSP management dashboard\n\n\ud83d\uddc4\ufe0f Infrastructure\nBatch Jobs Framework \u2014 100K+ job orchestration\n\n\ud83c\udfaf Personal\nFastAPI Task Manager \u2014 CRUD REST API exploring Python/FastAPI\nJob Autopilot \u2014 LinkedIn + ATS job search automation with AI scoring\nmini-message-app \u2014 Real-time WhatsApp-style chat with no custom backend",
+      "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n\ud83e\udd16 AI & ML\nSky \u2014 Agentic NL interface on AWS Step Functions\nHunter Agent \u2014 Production issue investigation agent\nDAL AI-Agents \u2014 Operational monitoring agents\nAnomaly Detection \u2014 Prophet ML + Rule Engine\n\n\u26a1 Backend\nMDL 2.0 \u2014 Config-driven cloud framework\nSlack eDiscovery \u2014 PHP + Node.js full-stack integration\nRestore & Export \u2014 High-speed data recovery + Bulk Export\nMDLOPS Microservice \u2014 Async addon orchestration\n\n\ud83d\udcc8 Dashboard\nCustomer Dashboard \u2014 Multi-cloud insights\nPartner Portal \u2014 MSP management dashboard\n\n\ud83d\uddc4\ufe0f Infrastructure\nBatch Jobs Framework \u2014 100K+ job orchestration\n\n\ud83c\udfaf Personal\nFastAPI Task Manager \u2014 CRUD REST API exploring Python/FastAPI\nJob Autopilot \u2014 LinkedIn + ATS job search automation with AI scoring\nmini-message-app \u2014 Real-time WhatsApp-style chat with no custom backend",
       "suggestions": [
-        "Sky 2.0",
+        "Sky",
+        "Hunter Agent",
         "DAL AI-Agents",
         "MDL 2.0",
         "Restore & Export",
@@ -214,10 +215,10 @@
     },
     {
       "pattern": "^sky 2\\.?0$|^sky$|sky 2\\.0|sky2|syscloud ai|natural language interface",
-      "text": "\ud83e\udd16 Sky 2.0, SysCloud AI\n\nDescription: An AI-powered natural language interface where customers ask questions and the AI dynamically builds queries, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions, eliminating manual navigation entirely.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 Claude \u00b7 MCP \u00b7 PostgreSQL \u00b7 GraphQL\n\nKey Metrics:\n\u2713 NL-to-query in real time\n\u2713 Full product coverage\n\u2713 Zero manual navigation needed",
+      "text": "\ud83e\udd16 Sky, SysCloud AI\n\nDescription: A production-grade agentic workflow orchestrated on AWS Step Functions. Customers ask a question in plain English, and the workflow chains multi-step LLM reasoning, tool execution, and validation, with human-in-the-loop approval before it builds the query, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions. Zero manual navigation.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 AWS Step Functions \u00b7 Claude \u00b7 MCP \u00b7 PostgreSQL \u00b7 GraphQL\n\nKey Metrics:\n\u2713 NL-to-query in real time\n\u2713 Human-in-the-loop approval on every action\n\u2713 Full product coverage\n\u2713 Zero manual navigation needed",
       "suggestions": [
+        "Hunter Agent",
         "DAL AI-Agents",
-        "Anomaly Detection",
         "Tell me about all projects"
       ],
       "topic": "project_sky"
@@ -226,17 +227,27 @@
       "pattern": "^dal$|^ai.?agents?$|dal ai|database health agent|operational monitoring",
       "text": "\ud83d\udee1\ufe0f DAL AI-Agents\n\nDescription: 4 AI agents for automated operational monitoring, Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each agent detects and resolves issues automatically before they impact customers. Zero manual intervention required.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 LLM \u00b7 PostgreSQL \u00b7 AI Agent framework\n\nKey Metrics:\n\u2713 4 production agents\n\u2713 Auto-remediation\n\u2713 Zero customer impact",
       "suggestions": [
-        "Sky 2.0",
-        "Anomaly Detection",
+        "Hunter Agent",
+        "Sky",
         "Tell me about all projects"
       ],
       "topic": "project_dal"
     },
     {
-      "pattern": "anomaly|prophet|data change insight",
-      "text": "\ud83d\udcca Anomaly Detection\n\nDescription: AI-powered data integrity engine inside SysCloud's Backup & Compare module. Two mechanisms: (1) Rule Engine, deep JSON comparison between backup snapshots classifying changes into High/Medium/Low criticality; (2) Trend-Level, Facebook's Prophet ML via NestJS/Python with 99%, 95%, 80% confidence intervals.\n\nCovers Google Workspace, Microsoft 365, and QuickBooks.\n\nTech Stack: Node.js \u00b7 TypeScript \u00b7 Prophet ML \u00b7 NestJS \u00b7 Python \u00b7 PostgreSQL \u00b7 MDLOps\n\nKey Metrics:\n\u2713 3 cloud platforms\n\u2713 3 confidence intervals\n\u2713 Rule + ML dual detection",
+      "pattern": "hunter agent|hunter.?agent|production issue investigation|root.?cause.*agent|observability.*agent",
+      "text": "🕵️ Hunter Agent\n\nDescription: An AI agent that autonomously debugs production issues by correlating signals across SysCloud's full observability stack, ELK, CloudWatch, Grafana, and application monitoring dashboards. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer (PM tagged for visibility) with a suggested fix, taking manual log triage out of the incident loop.\n\nTech Stack: Node.js · TypeScript · Claude · ELK · CloudWatch · Grafana · Azure DevOps\n\nKey Metrics:\n✓ Full observability stack coverage (ELK, CloudWatch, Grafana)\n✓ Automated root-cause analysis\n✓ Module-wise engineer mapping for auto-assignment\n✓ Auto-filed Azure DevOps task + suggested fix",
       "suggestions": [
-        "Sky 2.0",
+        "DAL AI-Agents",
+        "Sky",
+        "Tell me about all projects"
+      ],
+      "topic": "project_hunter"
+    },
+    {
+      "pattern": "anomaly|prophet|data change insight",
+      "text": "\ud83d\udcca Anomaly Detection\n\nDescription: AI-powered data integrity engine inside SysCloud's Backup & Compare module. Two mechanisms: (1) Rule Engine, deep JSON comparison between backup snapshots classifying changes into High/Medium/Low criticality; (2) Trend-Level, Facebook's Prophet ML via NestJS/Python with 99%, 95%, 80% confidence intervals.\n\nCovers Google Workspace, Microsoft 365, and QuickBooks.\n\nTech Stack: Python \u00b7 Prophet ML \u00b7 NestJS \u00b7 Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 MDLOps\n\nKey Metrics:\n\u2713 3 cloud platforms\n\u2713 3 confidence intervals\n\u2713 Rule + ML dual detection",
+      "suggestions": [
+        "Sky",
         "DAL AI-Agents",
         "Tell me about all projects"
       ],
@@ -334,14 +345,14 @@
     },
     {
       "pattern": "experience|syscloud|work history|career|his role|job history",
-      "text": "Aniket has been at SysCloud Technologies for 5+ years:\n\n\ud83d\udfe3 Lead Software Engineer (2026 \u2013 Present) \u00b7 Hyderabad\nPartner Portal, Customer Dashboard overhaul\n\n\ud83d\udd35 Senior Software Engineer (Jun 2023 \u2013 2026) \u00b7 Hyderabad\nAI agents, Sky 2.0, MDL 2.0, Slack eDiscovery, Bulk Export\n\n\ud83d\udfe2 Software Engineer (May 2021 \u2013 Jun 2023) \u00b7 Chennai\nConfig-driven Restore/Export, S3 data integrity pipeline, ELK Stack\n\n\u26aa Software Engineer Intern (Nov 2020 \u2013 Apr 2021) \u00b7 Chennai\nGraphQL queries, monolith \u2192 microservices POCs",
+      "text": "Aniket has been at SysCloud Technologies for 5+ years:\n\n\ud83d\udfe3 Lead Software Engineer (2026 \u2013 Present) \u00b7 Hyderabad\nPartner Portal, Customer Dashboard overhaul\n\n\ud83d\udd35 Senior Software Engineer (Jun 2023 \u2013 2026) \u00b7 Hyderabad\nAI agents, Sky, MDL 2.0, Slack eDiscovery, Bulk Export\n\n\ud83d\udfe2 Software Engineer (May 2021 \u2013 Jun 2023) \u00b7 Chennai\nConfig-driven Restore/Export, S3 data integrity pipeline, ELK Stack\n\n\u26aa Software Engineer Intern (Nov 2020 \u2013 Apr 2021) \u00b7 Chennai\nGraphQL queries, monolith \u2192 microservices POCs",
       "suggestions": [
         "What has he built as Lead?",
         "His tech stack",
         "How to contact him?"
       ],
       "topic": "experience",
-      "expandedText": "Aniket's career progression at SysCloud:\n\n\ud83d\udcc8 Growth: Intern (Nov 2020) \u2192 SE (May 2021) \u2192 SSE (Jun 2023) \u2192 Lead (2026), all at one product, building deep domain mastery.\n\n\ud83d\udd39 As Intern: Authored GraphQL mutations for UI modules. Led POC for monolith \u2192 microservice migration that influenced Gen2 architecture.\n\ud83d\udd39 As SE: Designed & built Restore/Export from scratch (Gen3). Created S3-based data integrity pipeline. Integrated ELK Stack for observability.\n\ud83d\udd39 As SSE: Designed Sky 2.0 (AI interface), DAL AI-Agents (4 production agents), MDL 2.0 (12+ cloud config framework), MDLOPS microservice, all from the ground up. Led SonarQube quality initiative to 0 critical issues.\n\ud83d\udd39 As Lead: Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding."
+      "expandedText": "Aniket's career progression at SysCloud:\n\n\ud83d\udcc8 Growth: Intern (Nov 2020) \u2192 SE (May 2021) \u2192 SSE (Jun 2023) \u2192 Lead (2026), all at one product, building deep domain mastery.\n\n\ud83d\udd39 As Intern: Authored GraphQL mutations for UI modules. Led POC for monolith \u2192 microservice migration that influenced Gen2 architecture.\n\ud83d\udd39 As SE: Designed & built Restore/Export from scratch (Gen3). Created S3-based data integrity pipeline. Integrated ELK Stack for observability.\n\ud83d\udd39 As SSE: Designed Sky (AI interface), DAL AI-Agents (4 production agents), MDL 2.0 (12+ cloud config framework), MDLOPS microservice, all from the ground up. Led SonarQube quality initiative to 0 critical issues.\n\ud83d\udd39 As Lead: Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding."
     },
     {
       "pattern": "aws|cloud|lambda|s3|fargate|batch|sqs|athena",
@@ -565,7 +576,7 @@
     },
     {
       "pattern": "mentor|lead|leadership|team|junior|manage|senior",
-      "text": "As a Lead Software Engineer, Aniket:\n\n\u2022 Mentors junior developers and conducts regular code reviews\n\u2022 Owns features end-to-end, from design to production\n\u2022 Led migration of 12+ cloud integrations to MDL 2.0\n\u2022 Drove SonarQube quality initiatives across the entire codebase\n\u2022 Designed architecture for MDLOPS, MDL 2.0, and Sky 2.0 from scratch",
+      "text": "As a Lead Software Engineer, Aniket:\n\n\u2022 Mentors junior developers and conducts regular code reviews\n\u2022 Owns features end-to-end, from design to production\n\u2022 Led migration of 12+ cloud integrations to MDL 2.0\n\u2022 Drove SonarQube quality initiatives across the entire codebase\n\u2022 Designed architecture for MDLOPS, MDL 2.0, and Sky from scratch",
       "suggestions": [
         "His experience",
         "Why hire him?",
@@ -595,7 +606,7 @@
     },
     {
       "pattern": "walk.*resume|tell.*yourself|introduce.*yourself|summary|overview|background",
-      "text": "\ud83d\udc4b Aniket Rai, Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky 2.0 (Claude + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
+      "text": "\ud83d\udc4b Aniket Rai, Lead Software Engineer\n\n5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies.\n\nLeading an 8\u201310 engineer team through system design, HLD/LLD reviews, architecture decisions, PR reviews, and technical mentoring.\n\nHis journey:\n\u26aa Intern (Nov 2020) \u2192 GraphQL queries, Gen1\u2192Gen2 migration POCs\n\ud83d\udfe2 SE (May 2021) \u2192 Restore/Export Gen3, S3 integrity pipeline, ELK Stack\n\ud83d\udd35 SSE (Jun 2023\u20132026) \u2192 Sky (agentic workflow on AWS Step Functions, Claude + MCP), DAL AI-Agents, MDL 2.0, Slack eDiscovery\n\ud83d\udfe3 Lead (2026\u2013Present) \u2192 Customer Dashboard, Partner Portal, system design leadership\n\nCore: Node.js \u00b7 TypeScript \u00b7 PostgreSQL \u00b7 AWS \u00b7 GraphQL \u00b7 AI/LLM\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "His key projects",
         "Tech stack",
@@ -615,7 +626,7 @@
     },
     {
       "pattern": "why.*one company|only.*syscloud|single company|loyal|5 year.*one|same company",
-      "text": "Staying at one company for 5 years is a sign of depth, not stagnation. At SysCloud, Aniket's role evolved significantly:\n\n\u2022 Intern \u2192 SE \u2192 SSE \u2192 Lead (promoted three times)\n\u2022 Went from writing GraphQL queries to designing company-wide frameworks\n\u2022 Each year brought new ownership: Gen3, AI Agents, Sky 2.0, MDL 2.0\n\nHe built deep domain expertise and shipped production systems used by enterprise customers daily. That's the kind of depth most engineers don't get by job-hopping.",
+      "text": "Staying at one company for 5 years is a sign of depth, not stagnation. At SysCloud, Aniket's role evolved significantly:\n\n\u2022 Intern \u2192 SE \u2192 SSE \u2192 Lead (promoted three times)\n\u2022 Went from writing GraphQL queries to designing company-wide frameworks\n\u2022 Each year brought new ownership: Gen3, AI Agents, Sky, MDL 2.0\n\nHe built deep domain expertise and shipped production systems used by enterprise customers daily. That's the kind of depth most engineers don't get by job-hopping.",
       "suggestions": [
         "His biggest achievement",
         "His tech stack",
@@ -716,9 +727,9 @@
     },
     {
       "pattern": "mcp|model context protocol|claude.*mcp|mcp.*claude|tool.*use.*ai",
-      "text": "\ud83e\udd16 MCP (Model Context Protocol)\n\nMCP is Anthropic's open protocol for connecting AI models to external tools and data sources. Aniket uses it in production:\n\n\u2022 Sky 2.0 uses MCP to connect the Claude LLM to SysCloud's internal APIs and database\n\u2022 Allows the AI to dynamically query data, navigate pages, and initiate actions (Restore, Export)\n\u2022 Aniket integrated MCP before it became mainstream in the industry\n\nThis is cutting-edge AI infrastructure work, not just prompt engineering.",
+      "text": "\ud83e\udd16 MCP (Model Context Protocol)\n\nMCP is Anthropic's open protocol for connecting AI models to external tools and data sources. Aniket uses it in production:\n\n\u2022 Sky uses MCP to connect the Claude LLM to SysCloud's internal APIs and database, as one step in an agentic workflow orchestrated on AWS Step Functions\n\u2022 Allows the AI to dynamically query data, navigate pages, and initiate actions (Restore, Export) with human-in-the-loop approval\n\u2022 Aniket integrated MCP before it became mainstream in the industry\n\nThis is cutting-edge AI infrastructure work, not just prompt engineering.",
       "suggestions": [
-        "Sky 2.0",
+        "Sky",
         "AI experience",
         "DAL AI-Agents"
       ],
@@ -726,10 +737,10 @@
     },
     {
       "pattern": "biggest.*achiev|proudest|most proud|best.*work|top.*achiev|highlight.*career|most.*impact",
-      "text": "\ud83c\udfc6 Aniket's Biggest Achievements\n\n1\ufe0f\u20e3 Sky 2.0, Built an AI that lets customers talk to their data. Zero navigation required. This went from idea to production.\n\n2\ufe0f\u20e3 MDL 2.0, Designed a framework that made 12+ cloud integrations maintainable by one engineer. Adding a new cloud went from weeks of coding to pure config.\n\n3\ufe0f\u20e3 4x Batch Job speedup, Overhauled the job framework with parallel host-level execution. 4x faster is a measurable, production result.\n\n4\ufe0f\u20e3 SonarQube: 0 critical issues, Led a quality initiative that eliminated 100% of critical security violations and cut total issues by 90%.\n\n5\ufe0f\u20e3 Query time 10s+ \u2192 under 2s, Athena-based metadata hydration for enterprise archives. 5x improvement in a user-facing operation.",
+      "text": "\ud83c\udfc6 Aniket's Biggest Achievements\n\n1\ufe0f\u20e3 Sky, Built an AI that lets customers talk to their data. Zero navigation required. This went from idea to production.\n\n2\ufe0f\u20e3 MDL 2.0, Designed a framework that made 12+ cloud integrations maintainable by one engineer. Adding a new cloud went from weeks of coding to pure config.\n\n3\ufe0f\u20e3 4x Batch Job speedup, Overhauled the job framework with parallel host-level execution. 4x faster is a measurable, production result.\n\n4\ufe0f\u20e3 SonarQube: 0 critical issues, Led a quality initiative that eliminated 100% of critical security violations and cut total issues by 90%.\n\n5\ufe0f\u20e3 Query time 10s+ \u2192 under 2s, Athena-based metadata hydration for enterprise archives. 5x improvement in a user-facing operation.",
       "suggestions": [
         "MDL 2.0",
-        "Sky 2.0",
+        "Sky",
         "Batch Jobs Framework"
       ],
       "topic": "achievement"
@@ -817,7 +828,7 @@
   ],
   "followUps": {
     "about": {
-      "text": "Going deeper on Aniket...\n\nHe started as an intern (Nov 2020) and was promoted three times, SE (2021), SSE (2023), Lead (2026), all at the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He designs architecture from scratch, Sky 2.0, MDL 2.0, MDLOPS all originated from his designs\n\ud83d\udd39 AI-first before it was mainstream, integrated LLMs and MCP before it was everywhere\n\ud83d\udd39 Obsessed with quality, took SonarQube critical issues from 100% to 0\n\ud83d\udd39 Every optimization has a number behind it (4x faster, 10s \u2192 2s, 12+ integrations, 0 code changes)",
+      "text": "Going deeper on Aniket...\n\nHe started as an intern (Nov 2020) and was promoted three times, SE (2021), SSE (2023), Lead (2026), all at the same product, which means deep domain expertise.\n\nWhat makes him unique:\n\ud83d\udd39 He designs architecture from scratch, Sky, MDL 2.0, MDLOPS all originated from his designs\n\ud83d\udd39 AI-first before it was mainstream, integrated LLMs and MCP before it was everywhere\n\ud83d\udd39 Obsessed with quality, took SonarQube critical issues from 100% to 0\n\ud83d\udd39 Every optimization has a number behind it (4x faster, 10s \u2192 2s, 12+ integrations, 0 code changes)",
       "suggestions": [
         "His projects",
         "His impact metrics",
@@ -825,7 +836,7 @@
       ]
     },
     "skills": {
-      "text": "Deeper into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS, 5+ years, primary language, production-grade Node.js APIs\n\ud83d\uddc4\ufe0f PostgreSQL, Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n\u2601\ufe0f AWS, 8+ services in prod: S3 \u2192 Lambda \u2192 Fargate \u2192 Batch (100K+ jobs) \u2192 SQS \u2192 Athena\n\ud83e\udd16 AI Stack, MCP framework, Claude, LLM agent design, Facebook Prophet for ML anomaly detection\n\ud83d\udd27 PostGraphile, GraphQL server, micro-task execution engine for all cloud actions",
+      "text": "Deeper into Aniket's tech expertise:\n\n\ud83d\udfe6 TypeScript/JS, 5+ years, primary language, production-grade Node.js APIs\n\ud83d\uddc4\ufe0f PostgreSQL, Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n\u2601\ufe0f AWS, 9+ services in prod: S3 \u2192 Lambda \u2192 Step Functions \u2192 Fargate \u2192 Batch (100K+ jobs) \u2192 SQS \u2192 Athena\n\ud83e\udd16 GenAI & Agentic AI, Claude, OpenAI, MCP, LangChain/LangGraph-style orchestration, RAG, agentic workflows on AWS Step Functions, Facebook Prophet for ML anomaly detection\n\ud83d\udd27 PostGraphile, GraphQL server, micro-task execution engine for all cloud actions",
       "suggestions": [
         "AWS experience deep dive",
         "PostgreSQL expertise?",
@@ -833,7 +844,7 @@
       ]
     },
     "experience": {
-      "text": "Aniket's career progression:\n\n\u26aa Intern (Nov 2020): GraphQL mutations for UI. POC'd monolith \u2192 microservice migration (influenced Gen2).\n\ud83d\udfe2 SE (May 2021): Built Restore/Export from scratch (Gen3). S3 integrity pipeline. ELK Stack integration.\n\ud83d\udd35 SSE (Jun 2023): Designed Sky 2.0 from scratch. Built 4 production AI agents. Architected MDL 2.0. Created MDLOPS microservice. Led quality initiative to 0 SonarQube critical violations.\n\ud83d\udfe3 Lead (2026): Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding.",
+      "text": "Aniket's career progression:\n\n\u26aa Intern (Nov 2020): GraphQL mutations for UI. POC'd monolith \u2192 microservice migration (influenced Gen2).\n\ud83d\udfe2 SE (May 2021): Built Restore/Export from scratch (Gen3). S3 integrity pipeline. ELK Stack integration.\n\ud83d\udd35 SSE (Jun 2023): Designed Sky from scratch as an agentic workflow on AWS Step Functions. Built 4 production AI agents. Architected MDL 2.0. Created MDLOPS microservice. Led quality initiative to 0 SonarQube critical violations.\n\ud83d\udfe3 Lead (2026): Customer Dashboard overhaul across 12+ cloud integrations. Partner Portal end-to-end for MSP onboarding. Continuing to scale Sky's agentic workflow to new product surfaces.",
       "suggestions": [
         "His impact metrics",
         "Why hire him?",
@@ -841,15 +852,15 @@
       ]
     },
     "projects": {
-      "text": "All 9 projects at a glance:\n\n\ud83e\udd16 Sky 2.0, NL\u2192query AI interface (Claude + MCP)\n\ud83d\udee1\ufe0f DAL AI-Agents, 4 production self-healing agents\n\u26a1 MDL 2.0, 12+ cloud integrations, zero code per cloud\n\ud83d\udcca Anomaly Detection, Prophet ML + Rule Engine dual system\n\ud83d\udd04 Restore & Export, 10s+ \u2192 under 2s, millions of items/sec\n\ud83d\udcc8 Customer Dashboard, 13+ widgets, zero transactional impact\n\ud83d\udc65 Partner Portal, 4-layer MSP hierarchical aggregation\n\ud83d\udd27 MDLOPS, 5 async modules, parallel PM2 execution\n\ud83d\uddc4\ufe0f Batch Jobs, 100K+ jobs, 5 DB types orchestrated",
+      "text": "All 10 projects at a glance:\n\n\ud83e\udd16 Sky, agentic NL\u2192query workflow on AWS Step Functions (Claude + MCP)\n\ud83d\udd75\ufe0f Hunter Agent, cross-platform production issue investigation (ELK, CloudWatch, Grafana)\n\ud83d\udee1\ufe0f DAL AI-Agents, 4 production self-healing agents\n\u26a1 MDL 2.0, 12+ cloud integrations, zero code per cloud\n\ud83d\udcca Anomaly Detection, Prophet ML + Rule Engine dual system\n\ud83d\udd04 Restore & Export, 10s+ \u2192 under 2s, millions of items/sec\n\ud83d\udcc8 Customer Dashboard, 13+ widgets, zero transactional impact\n\ud83d\udc65 Partner Portal, 4-layer MSP hierarchical aggregation\n\ud83d\udd27 MDLOPS, 5 async modules, parallel PM2 execution\n\ud83d\uddc4\ufe0f Batch Jobs, 100K+ jobs, 5 DB types orchestrated",
       "suggestions": [
-        "Sky 2.0 details",
+        "Sky details",
         "MDL 2.0 details",
         "His impact metrics"
       ]
     },
     "why_hire": {
-      "text": "Still not convinced? Here's the deeper case:\n\n\ud83d\udcd0 Architecture ownership, Aniket doesn't just code features, he designs the systems. Sky 2.0, DAL AI-Agents, MDL 2.0, MDLOPS, all designed from scratch by him.\n\n\ud83d\udd22 Numbers don't lie, every claim has a metric: 4x faster, 10s\u21922s, 12+ clouds, 0 critical bugs, 100K+ jobs.\n\n\ud83e\udd16 AI ahead of the curve, he was integrating LLMs into production before most teams had it on their roadmap.\n\n\u23f1\ufe0f 5 years, one product, not a job-hopper. Deep expertise, long-term thinking, and genuine ownership.",
+      "text": "Still not convinced? Here's the deeper case:\n\n\ud83d\udcd0 Architecture ownership, Aniket doesn't just code features, he designs the systems. Sky, DAL AI-Agents, MDL 2.0, MDLOPS, all designed from scratch by him.\n\n\ud83d\udd22 Numbers don't lie, every claim has a metric: 4x faster, 10s\u21922s, 12+ clouds, 0 critical bugs, 100K+ jobs.\n\n\ud83e\udd16 AI ahead of the curve, he was integrating LLMs into production before most teams had it on their roadmap.\n\n\u23f1\ufe0f 5 years, one product, not a job-hopper. Deep expertise, long-term thinking, and genuine ownership.",
       "suggestions": [
         "How to contact him?",
         "Schedule an interview",

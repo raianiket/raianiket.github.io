@@ -11,7 +11,7 @@ import { ExternalLink, Github, Zap, Brain, Server, Shield, RefreshCw, LayoutDash
 const projects = [
   {
     icon: Brain,
-    title: "Sky 2.0 - SysCloud AI",
+    title: "Sky - SysCloud AI",
     description: "AI-powered natural language interface where customers ask questions, the AI dynamically builds queries, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions, eliminating manual browsing.",
     category: "AI & ML",
     tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"],
@@ -40,7 +40,7 @@ const projects = [
     title: "Anomaly Detection",
     description: "AI-powered data integrity engine within SysCloud's Backup & Compare module that identifies unauthorized changes, data corruption, and security threats across Google Workspace, Microsoft 365, and QuickBooks. Operates through two detection mechanisms: a Rule Engine performing deep JSON comparison between backup snapshots to detect field-level changes (additions, deletions, edits) classified into High, Medium, or Low criticality via configurable per-field rules; and a Trend-Level system combining historical backup data with audit logs, feeding time-series data into Facebook's Prophet ML algorithm via a NestJS-based Python service with multi-confidence interval analysis (99%, 95%, 80%) for statistically significant deviation detection. Detected anomalies are tagged in archive tables with dynamic tag management and real-time aggregation counts. Fully orchestrated through MDLOps and actionable via the Addon Actions framework (Dismiss, Hold, Mark True Positive, Transfer Ownership) with end-to-end audit logging.",
     category: "AI & ML",
-    tags: ["Node.js", "TypeScript", "Prophet ML", "NestJS", "Python", "PostgreSQL", "MDLOps"],
+    tags: ["Python", "Prophet ML", "NestJS", "Node.js", "TypeScript", "PostgreSQL", "MDLOps"],
     metrics: ["3 cloud platforms", "3 confidence intervals", "Rule + ML detection"],
     color: "#c084fc",
     borderColor: "rgba(192,132,252,0.25)",

@@ -135,6 +135,8 @@ export default function ResumePage() {
             <ul>
               <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
               <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
+              <li>Continuing to design and scale <strong>Sky&apos;s agentic workflow</strong> on AWS Step Functions, extending multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to new product surfaces.</li>
+              <li>Built an AI-powered <strong>Hunter Agent</strong> that autonomously debugs production issues by correlating signals across the full observability stack (ELK, CloudWatch, Grafana, application monitoring dashboards), pinpoints root cause, and opens an Azure DevOps task assigned to the engineer, tagged for PM visibility, with a suggested fix, taking manual log triage out of the incident loop.</li>
               <li>Architect <strong>scalable backend solutions</strong> and drive system design decisions, establishing engineering standards across multiple product initiatives.</li>
               <li>Lead <strong>HLD and LLD design reviews</strong> for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.</li>
               <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.</li>
@@ -152,7 +154,7 @@ export default function ResumePage() {
             <ul>
               <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
               <li>Built the <strong>Bulk Export</strong> feature by extending the export action across UI (React), backend (PHP), and database (PostgreSQL) to support multi-user exports under a single URL; previous implementation handled only single user-level export, refactored to process multiple users in one request with unified download link generation.</li>
-              <li>Built Sky 2.0, an AI-powered NL interface where customers ask questions; AI builds queries, navigates to the relevant page, and initiates Restore &amp; Export actions, eliminating manual browsing.</li>
+              <li>Designed and developed Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to build queries, navigate to the relevant page, and initiate Restore &amp; Export actions.</li>
               <li>Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
               <li>Designed MDL 2.0, a JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations so adding a new cloud requires zero code changes.</li>
               <li>Delivered Restore &amp; Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
@@ -218,13 +220,13 @@ export default function ResumePage() {
             <div className="skill-group">
               <div className="skill-label">Cloud & AWS</div>
               <div className="skill-tags">
-                {["S3", "Lambda", "Fargate", "Batch", "SQS", "EventBridge", "Docker", "Serverless"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["S3", "Lambda", "Step Functions", "Fargate", "Batch", "SQS", "EventBridge", "Docker", "Serverless"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">
-              <div className="skill-label">AI & Automation</div>
+              <div className="skill-label">GenAI & Agentic AI</div>
               <div className="skill-tags">
-                {["AI Agent Development", "LLM Integration", "Claude", "MCP", "Prophet Algorithm"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["LLMs", "OpenAI", "RAG", "LangChain", "LangGraph", "Agentic Workflows", "Prompt Engineering", "AI Agents", "Claude", "MCP", "Prophet Algorithm"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">
@@ -240,7 +242,7 @@ export default function ResumePage() {
         <div className="section">
           <h2>Key Projects (SysCloud)</h2>
           {[
-            { title: "Sky 2.0 – SysCloud AI", tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"], desc: "AI-powered NL interface: customers describe intent, AI builds queries and initiates actions without manual browsing." },
+            { title: "Sky – SysCloud AI", tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"], desc: "AI-powered NL interface: customers describe intent, AI builds queries and initiates actions without manual browsing." },
             { title: "DAL AI-Agents", tags: ["AI Agent", "LLM", "Node.js", "TypeScript", "PostgreSQL"], desc: "4 AI agents for automated operational monitoring with zero-touch auto-remediation before customer impact." },
             { title: "MDL 2.0 Framework", tags: ["TypeScript", "PostGraphile", "PostgreSQL", "JSON Config"], desc: "Config-driven framework replacing mutation logic; 12+ cloud integrations with zero code changes per new cloud." },
             { title: "Restore & Export Action", tags: ["Node.js", "AWS Athena", "S3", "Recursive CTEs"], desc: "3 restore modes supporting millions of items/sec; Athena integration reduces archive query time from 10s+ to under 2s." },
