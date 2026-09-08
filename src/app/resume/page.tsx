@@ -136,10 +136,10 @@ export default function ResumePage() {
               <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
               <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
               <li>Continuing to design and scale <strong>Sky&apos;s agentic workflow</strong> on AWS Step Functions, extending multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to new product surfaces.</li>
-              <li>Built an AI-powered <strong>Hunter Agent</strong> that autonomously debugs production issues by correlating signals across the full observability stack (ELK, CloudWatch, Grafana, application monitoring dashboards), pinpoints root cause, and opens an Azure DevOps task assigned to the engineer, tagged for PM visibility, with a suggested fix, taking manual log triage out of the incident loop.</li>
+              <li>Owned the design and development of an AI-powered <strong>Hunter Agent</strong> that autonomously debugs production issues by correlating signals across the full observability stack (ELK, CloudWatch, Grafana, application monitoring dashboards), pinpoints root cause, and opens an Azure DevOps task assigned to the engineer, tagged for PM visibility, with a suggested fix, taking manual log triage out of the incident loop.</li>
               <li>Architect <strong>scalable backend solutions</strong> and drive system design decisions, establishing engineering standards across multiple product initiatives.</li>
               <li>Lead <strong>HLD and LLD design reviews</strong> for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.</li>
-              <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct hiring interviews to evaluate system design and engineering fundamentals.</li>
+              <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct technical interviews.</li>
             </ul>
           </div>
 
@@ -152,15 +152,15 @@ export default function ResumePage() {
               <span className="role-meta">Jun 2023 – Dec 2025 · 2 yrs 6 mos</span>
             </div>
             <ul>
-              <li>Integrated <strong>Slack eDiscovery Search</strong> end-to-end across UI, backend, and database layers by configuring PHP backend services for Slack data ingestion and event handling, building Node.js APIs, writing GraphQL mutations, and delivering the full frontend search and results interface.</li>
-              <li>Built the <strong>Bulk Export</strong> feature by extending the export action across UI (React), backend (PHP), and database (PostgreSQL) to support multi-user exports under a single URL; previous implementation handled only single user-level export, refactored to process multiple users in one request with unified download link generation.</li>
+              <li>Owned end-to-end architecture and implementation of <strong>Slack eDiscovery Search</strong> across PHP backend services, Node.js APIs, GraphQL mutations, and the React UI, from data ingestion and event handling to the full search and results interface.</li>
+              <li>Owned the redesign of the <strong>Bulk Export</strong> feature across UI (React), backend (PHP), and database (PostgreSQL), refactoring from single-user to multi-user processing to support exports under a single URL with unified download link generation.</li>
               <li>Designed and developed Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to build queries, navigate to the relevant page, and initiate Restore &amp; Export actions.</li>
-              <li>Built 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
+              <li>Owned the design and build of 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
               <li>Designed MDL 2.0, a JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations so adding a new cloud requires zero code changes.</li>
               <li>Delivered Restore &amp; Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
               <li>Launched MDLOPS microservice from scratch using TypeScript + PM2 + JSON config, handling 5 add-on modules with parallel execution and Prophet ML anomaly detection.</li>
               <li>Overhauled Batch Job &amp; Materialized View refresh framework with parallel host-level execution, achieved 4x faster job execution.</li>
-              <li>Resolved all critical SonarQube security violations (to 0) and cut total issues by 90%.</li>
+              <li>Led code quality initiatives that resolved all critical SonarQube security violations (to 0) and cut total issues by 90%.</li>
             </ul>
           </div>
 
@@ -174,9 +174,9 @@ export default function ResumePage() {
             </div>
             <ul>
               <li>Architected config-driven Restore/Export function (Gen3) eliminating code changes when onboarding new cloud providers; introduced CM Download Status + ETA calculation.</li>
-              <li>Developed Timeseries & Batch Framework with multi-environment version support for scheduling MV refresh jobs; applied CPU-level optimizations for improved throughput.</li>
+              <li>Owned development of Timeseries & Batch Framework with multi-environment version support for scheduling MV refresh jobs; applied CPU-level optimizations for improved throughput.</li>
               <li>Engineered weekly S3 data integrity pipeline using Node.js, AWS Fargate, Lambda, and Athena to detect missing files and trigger re-backup with Grafana monitoring.</li>
-              <li>Integrated ELK Stack with Grafana for centralized backend error log collection and real-time monitoring.</li>
+              <li>Owned the integration of ELK Stack with Grafana, establishing centralized backend error log collection and real-time monitoring.</li>
             </ul>
           </div>
 
