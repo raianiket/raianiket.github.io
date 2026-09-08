@@ -11,7 +11,7 @@ const roles = [
   {
     title: "Lead Software Engineer",
     short: "Lead",
-    period: "2026 – Present",
+    period: "Jan 2026 – Present",
     duration: "Current",
     location: "Hyderabad, Telangana",
     color: "#a78bfa",
@@ -32,8 +32,8 @@ const roles = [
   {
     title: "Senior Software Engineer",
     short: "SSE",
-    period: "Jun 2023 – 2026",
-    duration: "2 yrs 10 mos",
+    period: "Jun 2023 – Dec 2025",
+    duration: "2 yrs 6 mos",
     location: "Hyderabad, Telangana",
     color: "#4d8ff7",
     borderColor: "rgba(77,143,247,0.3)",
