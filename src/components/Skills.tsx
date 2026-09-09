@@ -6,14 +6,13 @@ import { Code2, Database, Cloud, Activity, Bot, Wrench, Globe } from "lucide-rea
 
 // ── Core expertise with proficiency bars ──────────────────────────────────────
 const coreSkills = [
-  { name: "TypeScript / Node.js", years: "5 yrs", level: "Expert",    pct: 95, color: "#3178c6" },
-  { name: "JavaScript",           years: "5 yrs", level: "Expert",    pct: 90, color: "#d4a017" },
+  { name: "TypeScript / JavaScript / Node.js", years: "5 yrs", level: "Expert", pct: 95, color: "#3178c6" },
   { name: "PostgreSQL",           years: "5 yrs", level: "Expert",    pct: 92, color: "#336791" },
   { name: "AWS",                  years: "5 yrs", level: "Advanced",  pct: 82, color: "#ff9900" },
   { name: "GraphQL",              years: "4 yrs", level: "Advanced",  pct: 80, color: "#e10098" },
-  { name: "AI Agent Development", years: "1 yr",  level: "Advanced",  pct: 78, color: "#a78bfa" },
-  { name: "PHP",                  years: "1 yr",  level: "Intermediate", pct: 50, color: "#8892be" },
-  { name: "Python",               years: "2 yrs", level: "Intermediate", pct: 60, color: "#3776ab" },
+  { name: "AI Agent Development", years: "2 yrs", level: "Advanced",  pct: 78, color: "#a78bfa" },
+  { name: "PHP",                  years: "2 yrs", level: "Intermediate", pct: 50, color: "#8892be" },
+  { name: "Python",               years: "3 yrs", level: "Intermediate", pct: 60, color: "#3776ab" },
 ];
 
 // ── Tech logo colours & abbreviations ────────────────────────────────────────
@@ -21,6 +20,7 @@ const logoMap: Record<string, { bg: string; text: string; label: string }> = {
   "TypeScript":              { bg: "#3178c6", text: "#fff",    label: "TS"  },
   "JavaScript":              { bg: "#f7df1e", text: "#000",    label: "JS"  },
   "Node.js":                 { bg: "#339933", text: "#fff",    label: "N"   },
+  "React":                   { bg: "#282c34", text: "#61dafb", label: "R"   },
   "SQL":                     { bg: "#4479a1", text: "#fff",    label: "SQL" },
   "Python":                  { bg: "#3776ab", text: "#ffd343", label: "Py"  },
   "PHP":                     { bg: "#8892be", text: "#fff",    label: "PHP" },
@@ -41,15 +41,16 @@ const logoMap: Record<string, { bg: string; text: string; label: string }> = {
   "Claude":                  { bg: "#a78bfa", text: "#fff",    label: "C"   },
   "SonarQube":               { bg: "#4e9bcd", text: "#fff",    label: "SQ"  },
   "Azure DevOps":            { bg: "#0078d4", text: "#fff",    label: "AZ"  },
+  "CloudWatch":              { bg: "#ff9900", text: "#fff",    label: "CW"  },
 };
 
 // ── Skill groups ──────────────────────────────────────────────────────────────
 const skillGroups = [
-  { icon: Globe,    label: "Languages",         color: "#4d8ff7", border: "rgba(77,143,247,0.3)",   bg: "rgba(77,143,247,0.1)",   skills: ["TypeScript","JavaScript","Node.js","SQL","Python","PHP"] },
-  { icon: Code2,    label: "Backend & APIs",    color: "#7eb3ff", border: "rgba(126,179,255,0.3)",  bg: "rgba(126,179,255,0.08)", skills: ["Express.js","FastAPI","GraphQL","PostGraphile","REST APIs","Microservices","Batch Processing","Config-Driven Architecture"] },
-  { icon: Database, label: "Databases",         color: "#a5b4fc", border: "rgba(165,180,252,0.3)",  bg: "rgba(165,180,252,0.08)", skills: ["PostgreSQL","CTEs","Materialized Views","Query Optimization","AWS Athena","MongoDB"] },
-  { icon: Cloud,    label: "Cloud & AWS",       color: "#4ade80", border: "rgba(74,222,128,0.3)",   bg: "rgba(74,222,128,0.08)",  skills: ["S3","Lambda","Fargate","Batch","SQS","CodeCommit","CodeBuild","CodePipeline","EventBridge","S3 Event Notifications","Docker","Serverless"] },
-  { icon: Activity, label: "Monitoring",        color: "#facc15", border: "rgba(250,204,21,0.3)",   bg: "rgba(250,204,21,0.08)",  skills: ["Grafana","Elasticsearch","Logstash","Kibana","ELK Stack"] },
+  { icon: Globe,    label: "Languages",         color: "#4d8ff7", border: "rgba(77,143,247,0.3)",   bg: "rgba(77,143,247,0.1)",   skills: ["TypeScript","JavaScript","SQL","Python","PHP"] },
+  { icon: Code2,    label: "Backend & APIs",    color: "#7eb3ff", border: "rgba(126,179,255,0.3)",  bg: "rgba(126,179,255,0.08)", skills: ["Node.js","React","Express.js","NestJS","FastAPI","GraphQL","PostGraphile","REST APIs","Microservices","Batch Processing","Config-Driven Architecture"] },
+  { icon: Database, label: "Databases",         color: "#a5b4fc", border: "rgba(165,180,252,0.3)",  bg: "rgba(165,180,252,0.08)", skills: ["PostgreSQL","CTEs","Materialized Views","Query Optimization","AWS Athena","MongoDB","DynamoDB"] },
+  { icon: Cloud,    label: "Cloud & AWS",       color: "#4ade80", border: "rgba(74,222,128,0.3)",   bg: "rgba(74,222,128,0.08)",  skills: ["S3","Lambda","Step Functions","Fargate","Batch","SQS","CodeCommit","CodeBuild","CodePipeline","EventBridge","S3 Event Notifications","Secrets Manager","SSM","Docker","Serverless"] },
+  { icon: Activity, label: "Monitoring",        color: "#facc15", border: "rgba(250,204,21,0.3)",   bg: "rgba(250,204,21,0.08)",  skills: ["Grafana","Elasticsearch","Logstash","Kibana","ELK Stack","CloudWatch"] },
   { icon: Bot,      label: "AI & Automation",   color: "#f87171", border: "rgba(248,113,113,0.3)",  bg: "rgba(248,113,113,0.08)", skills: ["AI Agent Development","LLM Integration","Claude","MCP","Anomaly Detection","Prophet Algorithm"] },
   { icon: Wrench,   label: "Tools & Practices", color: "#c084fc", border: "rgba(192,132,252,0.3)",  bg: "rgba(192,132,252,0.08)", skills: ["Git","CI/CD","SonarQube","Azure DevOps","System Design","Code Reviews","Unit Testing","Integration Testing","Agile","PM2"] },
 ];
@@ -66,23 +67,31 @@ function ProfBar({ skill, index }: { skill: typeof coreSkills[0]; index: number 
   }, []);
 
   return (
-    <div ref={ref} style={{ marginBottom: "0.85rem" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-          <span style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "0.82rem" }}>{skill.name}</span>
+    <motion.div
+      ref={ref}
+      whileHover={{ x: 3 }}
+      transition={{ duration: 0.2 }}
+      style={{ marginBottom: "0.7rem", borderRadius: "8px", padding: "0.4rem 0.5rem", margin: "0 -0.5rem 0.4rem" }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "0.5rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}>
+          <span style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.94rem" }}>{skill.name}</span>
           <span style={{ fontSize: "0.65rem", padding: "1px 7px", borderRadius: "999px", background: `${skill.color}20`, border: `1px solid ${skill.color}50`, color: skill.color, fontWeight: 600 }}>{skill.level}</span>
+          <span style={{ fontSize: "0.68rem", color: "var(--text-secondary)" }}>{skill.years}</span>
         </div>
-        <span style={{ fontSize: "0.7rem", color: "var(--text-secondary)" }}>{skill.years}</span>
+        <span style={{ fontSize: "1.35rem", fontWeight: 800, color: skill.color, lineHeight: 1, fontVariantNumeric: "tabular-nums", textShadow: `0 0 18px ${skill.color}55` }}>
+          {skill.pct}<span style={{ fontSize: "0.75rem", opacity: 0.7 }}>%</span>
+        </span>
       </div>
-      <div style={{ height: "6px", borderRadius: "999px", background: "var(--bar-track)", overflow: "hidden" }}>
+      <div style={{ height: "9px", borderRadius: "999px", background: "var(--bar-track)", overflow: "hidden" }}>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: started ? `${skill.pct}%` : 0 }}
-          transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
-          style={{ height: "100%", borderRadius: "999px", background: `linear-gradient(90deg, ${skill.color}, ${skill.color}aa)`, boxShadow: `0 0 8px ${skill.color}60` }}
+          transition={{ duration: 1.1, delay: index * 0.1, ease: "easeOut" }}
+          style={{ height: "100%", borderRadius: "999px", background: `linear-gradient(90deg, ${skill.color}, ${skill.color}aa)`, boxShadow: `0 0 14px ${skill.color}90, 0 0 3px ${skill.color}` }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

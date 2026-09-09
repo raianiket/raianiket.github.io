@@ -27,7 +27,7 @@ const projects = [
     title: "Hunter Agent",
     description: "AI agent that autonomously debugs production issues by correlating signals across SysCloud's full observability stack: Elasticsearch, CloudWatch, and Grafana. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer (with the PM tagged for visibility) alongside a suggested fix, taking manual log triage out of the incident loop entirely.",
     category: "AI & ML",
-    tags: ["Node.js", "TypeScript", "Claude", "ELK", "CloudWatch", "Grafana", "Azure DevOps"],
+    tags: ["Node.js", "TypeScript", "Python", "Claude", "ELK", "CloudWatch", "Grafana", "Azure DevOps"],
     metrics: ["Automated root-cause analysis", "Auto-assigned to owning engineer", "Suggested fix included"],
     color: "#22d3ee",
     borderColor: "rgba(34,211,238,0.25)",

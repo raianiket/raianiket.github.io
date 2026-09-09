@@ -9,6 +9,18 @@ const education = [
     school: "Lovely Professional University",
     period: "2017 – 2021",
   },
+  {
+    degree: "Intermediate, PCM",
+    school: "Gyanpeethika Sr. Sec School",
+    period: "2015 – 2016",
+    grade: "XII",
+  },
+  {
+    degree: "High School, Science",
+    school: "Gyanpeethika Sr. Sec School",
+    period: "2013 – 2014",
+    grade: "X",
+  },
 ];
 
 const certifications = [
@@ -50,17 +62,31 @@ export default function Education() {
               </div>
               <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.9rem" }}>Education</h3>
             </div>
-            {education.map((e) => (
-              <motion.div
-                key={e.degree}
-                whileHover={{ borderColor: "rgba(26,108,245,0.4)" }}
-                style={{ borderRadius: "14px", padding: "1.25rem", background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)", transition: "border-color 0.3s" }}
-              >
-                <p style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem", marginBottom: "0.4rem" }}>{e.degree}</p>
-                <p style={{ color: "#4d8ff7", fontSize: "0.78rem", fontWeight: 600, marginBottom: "0.25rem" }}>{e.school}</p>
-                <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>{e.period}</p>
-              </motion.div>
-            ))}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+              {education.map((e) => (
+                <motion.div
+                  key={e.degree}
+                  whileHover={{ borderColor: "rgba(26,108,245,0.4)" }}
+                  style={{ borderRadius: "14px", padding: "1.25rem", background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)", transition: "border-color 0.3s" }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
+                    {e.grade && (
+                      <span style={{
+                        fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.04em",
+                        color: "#4d8ff7", background: "rgba(26,108,245,0.12)",
+                        border: "1px solid rgba(26,108,245,0.3)", borderRadius: "6px",
+                        padding: "0.1rem 0.4rem", flexShrink: 0,
+                      }}>
+                        ({e.grade})
+                      </span>
+                    )}
+                    <p style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem" }}>{e.degree}</p>
+                  </div>
+                  <p style={{ color: "#4d8ff7", fontSize: "0.78rem", fontWeight: 600, marginBottom: "0.25rem" }}>{e.school}</p>
+                  <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>{e.period}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Certifications */}
