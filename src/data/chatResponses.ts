@@ -24,6 +24,8 @@ export const TYPO_MAP: Record<string, string> = data.typoMap;
 
 export const DEFAULT_RESPONSE: ResponseEntry = data.defaultResponse;
 
+export const DEFAULT_RESPONSE_TEXTS: string[] = data.defaultResponse.texts;
+
 export const INITIAL_SUGGESTIONS: string[] = data.initialSuggestions;
 
 export const RECRUITER_SUGGESTIONS: string[] = data.recruiterSuggestions;
