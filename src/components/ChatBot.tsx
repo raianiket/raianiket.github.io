@@ -115,7 +115,7 @@ async function logUnanswered(question: string) {
 }
 
 function getResponse(input: string, lastTopic: string | null): { response: ResponseEntry; topic: string | null } {
-  const raw = input.toLowerCase().trim();
+  const raw = input.toLowerCase().trim().replace(/\s+/g, " ");
   const normalized = normalizeTypos(raw);
 
   // Follow-up detection — context-aware
@@ -134,7 +134,7 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
     const title = jobMatch[1].trim().replace(/^(a|an)\s+/i, "");
     return {
       response: {
-        text: `Interesting, you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years leading backend / full-stack systems at the Lead/Staff level\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 45-day notice (negotiable)\n\nReach out at ${CONTACT_EMAIL} to start the conversation!`,
+        text: `Interesting, you're hiring for a ${title}! Aniket could be a strong fit.\n\nHis relevant strengths:\n🔹 5+ years leading backend / full-stack systems at the Lead/Staff level\n🔹 Node.js + TypeScript at production scale\n🔹 AI/LLM integration experience\n🔹 System design and architecture ownership\n🔹 Currently serving his notice period, contact him directly for the exact date\n\nReach out at ${CONTACT_EMAIL} to start the conversation!`,
         suggestions: ["His full tech stack", "Projects & impact", "Notice period?", "Schedule an interview"],
         topic: "job_match",
       },

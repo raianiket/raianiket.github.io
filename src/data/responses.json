@@ -2,7 +2,7 @@
   "responses": [
     {
       "pattern": "^ai$|^llm$|\\bllm\\b|ai experience|llm experience|ai work|llm work|artificial intelligence|large language model|generative ai|ai.*llm|llm.*ai|genai|machine learning|does he do ml",
-      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n🤖 Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval. Customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions, zero manual navigation.\n\n🕵️ Hunter Agent, autonomously debugs production issues across ELK, CloudWatch, Grafana, and app monitoring dashboards, pinpoints root cause, and opens an Azure DevOps task assigned to the engineer with a suggested fix.\n\n🛡️ DAL AI-Agents, 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n📊 Anomaly Detection, Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, OpenAI, LangChain, LangGraph, RAG, MCP, AWS Step Functions, Prompt Engineering, Node.js, TypeScript, PostgreSQL.",
+      "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n🤖 Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval. Customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions, zero manual navigation.\n\n🕵️ Hunter Agent, autonomously debugs production issues across ELK, CloudWatch, Grafana, and app monitoring dashboards, pinpoints root cause, and opens an Azure DevOps task assigned to the engineer with a suggested fix.\n\n🛡️ DAL AI-Agents, 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n📊 Anomaly Detection, Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, MCP, AWS Step Functions, Prompt Engineering, LLM Integration, Node.js, TypeScript, PostgreSQL.",
       "suggestions": [
         "Tell me about Sky",
         "What are DAL AI-Agents?",
@@ -34,7 +34,7 @@
       "topic": "security_probe"
     },
     {
-      "pattern": "^(hi|hello|hey|sup|yo|howdy)\\b",
+      "pattern": "^(hi|hello|hey|sup|yo|howdy)[\\s,!.?]*(there|aniket)?[\\s,!.?]*$",
       "text": "Hey! I'm Aniket's portfolio assistant. I can tell you about his skills, projects, experience, or how to get in touch. What would you like to know?",
       "suggestions": [
         "Who is Aniket?",
@@ -150,14 +150,14 @@
     },
     {
       "pattern": "tech|stack|skill|language|tool|expertise|know|technologies|code in|codes in",
-      "text": "Aniket's core stack:\n\n🟦 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n📐 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n🔧 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n🗄️ Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n☁️ Cloud: AWS (Lambda, Step Functions, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n🤖 GenAI & Agentic AI: LLMs, OpenAI, RAG, LangChain, LangGraph, Agentic Workflows, Prompt Engineering, AI Agents, Claude, MCP\n🛠️ Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
+      "text": "Aniket's core stack:\n\n🟦 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n📐 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n🔧 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n🗄️ Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n☁️ Cloud: AWS (Lambda, Step Functions, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n🤖 GenAI & Agentic AI: LLM Integration, Agentic Workflows, Prompt Engineering, AI Agent Development, Claude, MCP, Anomaly Detection, Prophet Algorithm\n🛠️ Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
         "PostgreSQL expertise?",
         "AI work he's done"
       ],
       "topic": "skills",
-      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n🟦 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n🗄️ PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n☁️ AWS: 9+ services in production, S3 event triggers, Lambda sync jobs, Step Functions agentic orchestration, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n🤖 AI stack: Claude, OpenAI, MCP framework, LangChain/LangGraph-style agentic orchestration on AWS Step Functions, RAG, LLM agent design patterns, Facebook Prophet for ML anomaly detection"
+      "expandedText": "Deeper dive into Aniket's tech expertise:\n\n🟦 TypeScript/JS: Primary language for 5+ years, production-grade Node.js APIs, type-safe codebases, microservices\n🗄️ PostgreSQL: Expert-level, Recursive CTEs, Materialized Views, execution plan tuning, parallel host execution achieving 4x throughput\n☁️ AWS: 9+ services in production, S3 event triggers, Lambda sync jobs, Step Functions agentic orchestration, Fargate containers, Batch orchestration (100K+ jobs), SQS async messaging, Athena on-demand queries\n🤖 AI stack: Claude, MCP framework, agentic orchestration on AWS Step Functions, LLM Integration, agent design patterns, Facebook Prophet for ML anomaly detection"
     },
     {
       "pattern": "fastapi|fast api|task manager|task management api|python project",
@@ -334,7 +334,7 @@
       "topic": "project_batch"
     },
     {
-      "pattern": "what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in",
+      "pattern": "what roles|open to|roles.*open|looking for.*role|looking for.*job|is he looking|what.*position|what.*job|interested in",
       "text": "Aniket is actively open to:\n\n🎯 Lead Software Engineer\n🎯 Staff / Principal Engineer\n🎯 SDE III (or equivalent Lead-level titles)\n🎯 AI/LLM Engineering roles at the Lead level\n\n📍 Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: Currently serving, contact him directly for the exact date\n\nReach out at rai078945@gmail.com or +91 7668514258!",
       "suggestions": [
         "His notice period?",
@@ -395,7 +395,7 @@
       "topic": "contact"
     },
     {
-      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date|available.*full.?time|full.?time.*avail|available now|can he join now|when can.*start|is he free",
+      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date|available.*full.?time|full.?time.*avail|available now|his availability|\\bavailability\\b|can he join now|when can.*start|is he free",
       "text": "Aniket is open to Lead, Staff, Principal, or SDE III-level roles.\n\n⏱️ He's currently serving his notice period. The exact timeline can shift, so if this info looks stale or you need the precise date, please reach out to Aniket directly:\n📧 rai078945@gmail.com · 📞 +91 7668514258\n📍 Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO",
       "suggestions": [
         "How to contact him?",
@@ -465,7 +465,7 @@
       "topic": "impact"
     },
     {
-      "pattern": "current position|current role|current job|current title|current company|curent|posit|position|current|currently|present|right now|working now",
+      "pattern": "current position|current role|current job|current title|current company|curent|posit|position|current|currently|present|right now|working now|working on now|working on right now",
       "text": "Aniket is currently a Lead Software Engineer at SysCloud Technologies, Hyderabad (Jan 2026 – Present).\n\nCurrent focus:\n• Customer Dashboard overhaul across 12+ cloud integrations\n• Partner Portal for MSP onboarding\n• Leading HLD/LLD design reviews for an 8-10 engineer team\n• PR reviews, mentoring, and hiring interviews",
       "suggestions": [
         "His projects",
@@ -495,7 +495,7 @@
       "topic": "work_style"
     },
     {
-      "pattern": "handle pressure|handle deadlines|under pressure|pressure.*deadline|deadline.*pressure",
+      "pattern": "handle pressure|handle deadlines|under pressure|pressure.*deadline|deadline.*pressure|work under deadline|under deadline",
       "text": "Aniket's pattern under pressure: scope early, and surface blockers before they become problems.\n\nAt SysCloud, production issues demand a fast response, which is exactly why he built the 4 DAL AI-Agents: to auto-resolve issues before they escalate into a pressure situation at all. His philosophy is to build systems that reduce pressure, not just absorb it.",
       "suggestions": [
         "How does he handle production issues?",
@@ -776,7 +776,7 @@
       "topic": "achievement"
     },
     {
-      "pattern": "hardest.*problem|toughest.*bug|difficult.*challenge|complex.*problem|challenging.*task|hard.*bug|challenging.*problem|problem.*solved",
+      "pattern": "hardest.*problem|toughest.*bug|difficult.*challenge|complex.*problem|challenging.*task|hard.*bug|challenging.*problem|problem.*solved|biggest.*challenge|challenge.*faced",
       "text": "🧠 Hardest Problem Solved\n\nThe batch job parallelization challenge stands out:\n\nSysCloud's materialized view refresh jobs were running sequentially per host. With 12+ cloud integrations and growing data volume, job execution time was becoming a bottleneck affecting customer-facing dashboard freshness.\n\nAniket redesigned the framework with parallel host-level execution, CPU-level optimizations, and intelligent scheduling. Result: 4x faster execution in production.\n\nAnother strong example: the S3 version-copy mechanism, which required diagnosing subtle data integrity failures caused by S3 object versioning mismatches with DB state, then building an automated fix that runs without human intervention.",
       "suggestions": [
         "Batch Jobs Framework",
@@ -846,7 +846,7 @@
       "topic": "cloud_pages"
     },
     {
-      "pattern": "thank|thanks|great|perfect|awesome|cool|nice|helpful",
+      "pattern": "^(thanks|thank you|thank u|great|perfect|awesome|cool|nice|nice one|helpful|got it|sounds good|makes sense)(\\s(a lot|so much|a ton|man|dude))?[\\s,!.?]*$",
       "text": "Happy to help! Feel free to ask anything else, or reach out to Aniket directly at rai078945@gmail.com or +91 7668514258.",
       "suggestions": [
         "Tell me about his projects",
@@ -866,7 +866,7 @@
       ]
     },
     "skills": {
-      "text": "Deeper into Aniket's tech expertise:\n\n🟦 TypeScript/JS, 5+ years, primary language, production-grade Node.js APIs\n🗄️ PostgreSQL, Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n☁️ AWS, 9+ services in prod: S3 → Lambda → Step Functions → Fargate → Batch (100K+ jobs) → SQS → Athena\n🤖 GenAI & Agentic AI, Claude, OpenAI, MCP, LangChain/LangGraph-style orchestration, RAG, agentic workflows on AWS Step Functions, Facebook Prophet for ML anomaly detection\n🔧 PostGraphile, GraphQL server, micro-task execution engine for all cloud actions",
+      "text": "Deeper into Aniket's tech expertise:\n\n🟦 TypeScript/JS, 5+ years, primary language, production-grade Node.js APIs\n🗄️ PostgreSQL, Expert: Recursive CTEs, Materialized Views, execution plan tuning, 4x throughput gains\n☁️ AWS, 9+ services in prod: S3 → Lambda → Step Functions → Fargate → Batch (100K+ jobs) → SQS → Athena\n🤖 GenAI & Agentic AI, Claude, MCP, agentic workflows on AWS Step Functions, LLM Integration, Facebook Prophet for ML anomaly detection\n🔧 PostGraphile, GraphQL server, micro-task execution engine for all cloud actions",
       "suggestions": [
         "AWS experience deep dive",
         "PostgreSQL expertise?",
