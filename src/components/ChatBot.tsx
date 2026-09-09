@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Copy, Check, Mic, MicOff } from "lucide-react";
-import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
+import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, DEFAULT_RESPONSE_TEXTS, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
 import { supabase } from "@/lib/supabase";
@@ -149,7 +149,8 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
   }
 
   logUnanswered(input.trim());
-  return { response: { ...DEFAULT_RESPONSE, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
+  const text = pickRandom(DEFAULT_RESPONSE_TEXTS.length ? DEFAULT_RESPONSE_TEXTS : [DEFAULT_RESPONSE.text], 1)[0];
+  return { response: { ...DEFAULT_RESPONSE, text, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
 }
 
 function pickRandom<T>(pool: T[], count: number): T[] {

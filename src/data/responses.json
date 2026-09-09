@@ -930,6 +930,14 @@
   },
   "defaultResponse": {
     "text": "Whoa, that one's above my pay grade! 😅 I only know what's in my training data (basically Aniket's resume, on repeat). I've saved your question so he can teach me the answer later.\n\nMeanwhile, here's what I actually know:",
+    "texts": [
+      "Whoa, that one's above my pay grade! 😅 I only know what's in my training data (basically Aniket's resume, on repeat). I've saved your question so he can teach me the answer later.\n\nMeanwhile, here's what I actually know:",
+      "Nice try! 😏 That one wasn't in the training set, so I'm staying quiet rather than guessing. I've filed it away for Aniket to answer properly.\n\nHere's what I *can* talk about:",
+      "Hmm, that one stumped me. 🤔 I'm a portfolio bot, not a mind reader, so I only know what's in my dataset. Logged your question for Aniket though.\n\nTry one of these instead:",
+      "404: answer not found. 🔍 I've noted the question so Aniket can patch me with a real response later. Until then, here's what's actually in my index:",
+      "You've officially out-asked me. 🏳️ Not trained on that one yet, but I wrote it down for Aniket. Meanwhile, ask me something I'm actually good at:",
+      "Plot twist: I don't know everything. 😄 That question's new to me, saved it for Aniket to teach me later. Here's what I do know:"
+    ],
     "suggestions": [
       "Who is Aniket?",
       "What's his tech stack?",
