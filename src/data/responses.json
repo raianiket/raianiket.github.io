@@ -425,6 +425,16 @@
       "topic": "remote"
     },
     {
+      "pattern": "night shift|day shift|graveyard|shift.*flexib|work.*hours|working hours|shift timing|which shift",
+      "text": "Good question! 🌙 Aniket normally works standard IST business hours (UTC+5:30), but he's genuinely flexible on shift, happy to align with US/EU overlap hours if a role needs it. Just mention the schedule you're hiring for and he'll work it out.",
+      "suggestions": [
+        "Open to remote roles?",
+        "His notice period?",
+        "How to contact him?"
+      ],
+      "topic": "shift"
+    },
+    {
       "pattern": "how.*built.*chatbot|what.*tech.*chatbot|chatbot.*built|chatbot.*tech|built.*this.*bot|how.*bot.*work|tech.*behind.*bot|how.*assistant.*built",
       "text": "This chatbot was built entirely by Aniket! 🤖\n\nTech behind it:\n\n• React (Next.js), UI and state management\n• TypeScript, fully typed, zero runtime errors\n• Framer Motion, animations and transitions\n• Pattern-matching NLP, regex-based intent detection\n• Supabase, real-time event tracking (visits, questions, reactions)\n• Web Speech API, voice input support\n• 100% client-side, no backend, no API calls for chat\n\nEverything you see, context memory, recruiter mode, emoji reactions, voice input, all custom built by Aniket.",
       "suggestions": [
