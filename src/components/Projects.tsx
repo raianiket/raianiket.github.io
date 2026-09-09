@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { track, trackSectionTime } from "@/lib/track";
 import { EASE } from "@/lib/constants";
-import { ExternalLink, Github, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen, Briefcase, MessageCircle } from "lucide-react";
+import { ExternalLink, Github, Zap, Brain, Server, Shield, RefreshCw, LayoutDashboard, Users, Database, Activity, GitBranch, TrendingUp, X, Search, BookOpen, Briefcase, MessageCircle, Bug } from "lucide-react";
 
 
 
@@ -12,13 +12,26 @@ const projects = [
   {
     icon: Brain,
     title: "Sky - SysCloud AI",
-    description: "AI-powered natural language interface where customers ask questions, the AI dynamically builds queries, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions, eliminating manual browsing.",
+    description: "AI-powered natural language interface where customers ask questions in plain English and Sky handles the rest. Built as a production-grade agentic workflow on AWS Step Functions: an LLM reasoning step interprets intent, a tool-execution step dynamically builds the query, a validation step checks it against the customer's actual data model, and a human-in-the-loop approval gate confirms any state-changing action before it runs. Once approved, Sky redirects the customer to the relevant page with filters pre-applied or directly initiates Restore & Export actions, eliminating manual browsing entirely. Now being extended with new tool integrations and product surfaces in the Lead role.",
     category: "AI & ML",
-    tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"],
-    metrics: ["NL-to-query", "Zero manual navigation", "Full product coverage"],
+    tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "AWS Step Functions", "PostgreSQL"],
+    metrics: ["NL-to-query", "Human-in-the-loop approval", "Zero manual navigation"],
     color: "#a78bfa",
     borderColor: "rgba(167,139,250,0.25)",
     bgColor: "rgba(167,139,250,0.08)",
+    link: null as string | null,
+    demoLink: null as string | null,
+  },
+  {
+    icon: Bug,
+    title: "Hunter Agent",
+    description: "AI agent that autonomously debugs production issues by correlating signals across SysCloud's full observability stack: Elasticsearch, CloudWatch, and Grafana. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer (with the PM tagged for visibility) alongside a suggested fix, taking manual log triage out of the incident loop entirely.",
+    category: "AI & ML",
+    tags: ["Node.js", "TypeScript", "Claude", "ELK", "CloudWatch", "Grafana", "Azure DevOps"],
+    metrics: ["Automated root-cause analysis", "Auto-assigned to owning engineer", "Suggested fix included"],
+    color: "#22d3ee",
+    borderColor: "rgba(34,211,238,0.25)",
+    bgColor: "rgba(34,211,238,0.08)",
     link: null as string | null,
     demoLink: null as string | null,
   },
