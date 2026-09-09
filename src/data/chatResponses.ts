@@ -1,4 +1,5 @@
 import data from "./responses.json";
+import finetuning from "./finetuning.json";
 
 export interface ResponseEntry {
   text: string;
@@ -29,3 +30,5 @@ export const DEFAULT_RESPONSE_TEXTS: string[] = data.defaultResponse.texts;
 export const INITIAL_SUGGESTIONS: string[] = data.initialSuggestions;
 
 export const RECRUITER_SUGGESTIONS: string[] = data.recruiterSuggestions;
+
+export const FINETUNING_EXAMPLES: { q: string; a: string }[] = finetuning.examples;

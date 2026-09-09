@@ -1,7 +1,7 @@
 {
   "responses": [
     {
-      "pattern": "^ai$|^llm$|\\bllm\\b|ai experience|llm experience|ai work|llm work|artificial intelligence|large language model|generative ai|ai.*llm|llm.*ai",
+      "pattern": "^ai$|^llm$|\\bllm\\b|ai experience|llm experience|ai work|llm work|artificial intelligence|large language model|generative ai|ai.*llm|llm.*ai|genai|machine learning|does he do ml",
       "text": "Aniket has hands-on AI/LLM engineering experience in production:\n\n🤖 Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval. Customers ask questions in plain English, the AI builds dynamic queries, redirects to the right page with pre-applied filters, and triggers Restore & Export actions, zero manual navigation.\n\n🕵️ Hunter Agent, autonomously debugs production issues across ELK, CloudWatch, Grafana, and app monitoring dashboards, pinpoints root cause, and opens an Azure DevOps task assigned to the engineer with a suggested fix.\n\n🛡️ DAL AI-Agents, 4 production AI agents (Database Health, Restore/Export, StartBackup, Slow-Queries) that detect and auto-resolve issues before customers notice.\n\n📊 Anomaly Detection, Integrated Facebook Prophet ML for time-series anomaly detection with 3 confidence intervals (99%, 95%, 80%).\n\nTools: Claude, OpenAI, LangChain, LangGraph, RAG, MCP, AWS Step Functions, Prompt Engineering, Node.js, TypeScript, PostgreSQL.",
       "suggestions": [
         "Tell me about Sky",
@@ -45,7 +45,7 @@
     },
     {
       "pattern": "i.?am a recruiter|i.?m a recruiter|recruiter here|talent.*acqui|from.*hr|am recruiter|i am recruiter",
-      "text": "Welcome, Recruiter! 👔 Great to have you here.\n\nHere's Aniket at a glance:\n\n• Role: Lead Software Engineer (5+ years)\n• Stack: Node.js · TypeScript · PostgreSQL · AWS · AI/LLM\n• Notice: 45 days (negotiable)\n• Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n• Availability: Open to Lead / Staff / Principal / SDE III roles\n\nWhat would you like to dig deeper into?",
+      "text": "Welcome, Recruiter! 👔 Great to have you here.\n\nHere's Aniket at a glance:\n\n• Role: Lead Software Engineer (5+ years)\n• Stack: Node.js · TypeScript · PostgreSQL · AWS · AI/LLM\n• Notice: Currently serving (contact him for the exact date)\n• Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n• Availability: Open to Lead / Staff / Principal / SDE III roles\n\nWhat would you like to dig deeper into?",
       "suggestions": [
         "His key strengths",
         "Projects & impact metrics",
@@ -67,7 +67,7 @@
     },
     {
       "pattern": "schedule.*interview|interview.*schedule|book.*call|schedule.*call|available.*interview|interview.*available|slot.*interview",
-      "text": "Aniket is happy to connect! Here's how to schedule:\n\n📧 rai078945@gmail.com\n📞 +91 7668514258\n💼 linkedin.com/in/aniket-kumar-rai\n📍 Hyderabad, IST (UTC+5:30)\n\nJust send him a message with your preferred time slot, he typically responds within 24 hours. Notice period is 45 days (negotiable for the right opportunity).",
+      "text": "Aniket is happy to connect! Here's how to schedule:\n\n📧 rai078945@gmail.com\n📞 +91 7668514258\n💼 linkedin.com/in/aniket-kumar-rai\n📍 Hyderabad, IST (UTC+5:30)\n\nJust send him a message with your preferred time slot, he typically responds within 24 hours. He's currently serving his notice period, ask him directly for the exact date.",
       "suggestions": [
         "His notice period?",
         "What roles is he open to?",
@@ -138,7 +138,7 @@
       "topic": "self"
     },
     {
-      "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)",
+      "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)|^aniket\\s*\\??$|^who\\s*\\??$|tell me aniket|^who is he\\s*\\??$|who'?s aniket|whos aniket|who.*aniket|^about him\\b|info.*aniket|aniket info|summarize aniket|aniket bio|his bio",
       "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "What's his tech stack?",
@@ -149,7 +149,7 @@
       "expandedText": "Going deeper on Aniket...\n\nHe started as an intern at SysCloud (Nov 2020), was promoted to SE in 2021, SSE in 2023, and most recently to Lead Software Engineer in Jan 2026, all within the same product, which means deep domain expertise.\n\nWhat makes him unique:\n🔹 He doesn't just implement features, he designs the architecture from scratch (Sky, MDL 2.0, MDLOPS all originated from his designs)\n🔹 AI-first before it was mainstream, built LLM agents and integrated Claude/MCP before AI tooling was everywhere\n🔹 Obsessed with code quality, took SonarQube critical issues from 100% down to 0\n🔹 Performance-driven, every optimization has a measurable number behind it (4x faster, 10s → 2s, etc.)"
     },
     {
-      "pattern": "tech|stack|skill|language|tool|expertise|know|technologies",
+      "pattern": "tech|stack|skill|language|tool|expertise|know|technologies|code in|codes in",
       "text": "Aniket's core stack:\n\n🟦 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n📐 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n🔧 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n🗄️ Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n☁️ Cloud: AWS (Lambda, Step Functions, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n🤖 GenAI & Agentic AI: LLMs, OpenAI, RAG, LangChain, LangGraph, Agentic Workflows, Prompt Engineering, AI Agents, Claude, MCP\n🛠️ Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
@@ -200,7 +200,7 @@
       "topic": "projects_personal"
     },
     {
-      "pattern": "project|built|build|what has he made|show.*project",
+      "pattern": "project|built|build|what has he made|show.*project|his work|case stud|show.*work",
       "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n🤖 AI & ML\nSky — Agentic NL interface on AWS Step Functions\nHunter Agent — Production issue investigation agent\nDAL AI-Agents — Operational monitoring agents\nAnomaly Detection — Prophet ML + Rule Engine\n\n⚡ Backend\nMDL 2.0 — Config-driven cloud framework\nSlack eDiscovery — PHP + Node.js full-stack integration\nRestore & Export — High-speed data recovery + Bulk Export\nMDLOPS Microservice — Async addon orchestration\n\n📈 Dashboard\nCustomer Dashboard — Multi-cloud insights\nPartner Portal — MSP management dashboard\n\n🗄️ Infrastructure\nBatch Jobs Framework — 100K+ job orchestration\n\n🎯 Personal\nFastAPI Task Manager — CRUD REST API exploring Python/FastAPI\nJob Autopilot — LinkedIn + ATS job search automation with AI scoring\nmini-message-app — Real-time WhatsApp-style chat with no custom backend",
       "suggestions": [
         "Sky",
@@ -214,7 +214,7 @@
       "topic": "projects"
     },
     {
-      "pattern": "^sky 2\\.?0$|^sky$|sky 2\\.0|sky2|syscloud ai|natural language interface|what is sky|how does sky work|how.*sky.*work",
+      "pattern": "^sky 2\\.?0$|^sky$|sky 2\\.0|sky2|syscloud ai|natural language interface|what is sky|how does sky work|how.*sky.*work|\\bsky\\b",
       "text": "🤖 Sky, SysCloud AI\n\nDescription: A production-grade agentic workflow orchestrated on AWS Step Functions. Customers ask a question in plain English, and the workflow chains multi-step LLM reasoning, tool execution, and validation, with human-in-the-loop approval before it builds the query, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions. Zero manual navigation.\n\nTech Stack: Node.js · TypeScript · AWS Step Functions · Claude · MCP · PostgreSQL · GraphQL\n\nKey Metrics:\n✓ NL-to-query in real time\n✓ Human-in-the-loop approval on every action\n✓ Full product coverage\n✓ Zero manual navigation needed",
       "suggestions": [
         "Hunter Agent",
@@ -335,7 +335,7 @@
     },
     {
       "pattern": "what roles|open to|roles.*open|looking for.*role|what.*position|what.*job|interested in",
-      "text": "Aniket is actively open to:\n\n🎯 Lead Software Engineer\n🎯 Staff / Principal Engineer\n🎯 SDE III (or equivalent Lead-level titles)\n🎯 AI/LLM Engineering roles at the Lead level\n\n📍 Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: 45 days (negotiable)\n\nReach out at rai078945@gmail.com or +91 7668514258!",
+      "text": "Aniket is actively open to:\n\n🎯 Lead Software Engineer\n🎯 Staff / Principal Engineer\n🎯 SDE III (or equivalent Lead-level titles)\n🎯 AI/LLM Engineering roles at the Lead level\n\n📍 Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n⏱️ Notice period: Currently serving, contact him directly for the exact date\n\nReach out at rai078945@gmail.com or +91 7668514258!",
       "suggestions": [
         "His notice period?",
         "How to contact him?",
@@ -375,7 +375,7 @@
       "topic": "postgres"
     },
     {
-      "pattern": "education|degree|university|college|study|lpu|b\\.?tech",
+      "pattern": "education|degree|university|college|study|lpu|b\\.?tech|qualification",
       "text": "Aniket holds a Bachelor of Technology in Computer Science & Engineering (B.Tech CSE) from Lovely Professional University, graduated in 2021.\n\nCertifications:\n• Node.js Certificate Training, Simplilearn\n• Full Stack Development, upGrad\n• ChatGPT & AI Tools Workshop, Be10x",
       "suggestions": [
         "His work experience",
@@ -385,7 +385,7 @@
       "topic": "education"
     },
     {
-      "pattern": "contact|email|reach|connect|linkedin",
+      "pattern": "contact|email|reach|connect|linkedin|get in touch|phone number|his number|dm him|message him",
       "text": "You can reach Aniket at:\n\n📧 rai078945@gmail.com\n📞 +91 7668514258\n💼 linkedin.com/in/aniket-kumar-rai\n📍 Hyderabad, India (IST, UTC+5:30)\n\nHe's open to Lead, Staff, Principal, or SDE III-level roles. Typically responds within 24 hours!",
       "suggestions": [
         "✉ Send Aniket an email",
@@ -395,8 +395,8 @@
       "topic": "contact"
     },
     {
-      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date|available.*full.?time|full.?time.*avail",
-      "text": "Aniket is open to Lead, Staff, Principal, or SDE III-level roles.\n\n⏱️ Notice period: 45 days (negotiable)\n📍 Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n\n💡 The timeline can be flexible depending on the role and team. Reach out to Aniket directly for any clarification:\n📧 rai078945@gmail.com · 📞 +91 7668514258",
+      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date|available.*full.?time|full.?time.*avail|available now|can he join now|when can.*start|is he free",
+      "text": "Aniket is open to Lead, Staff, Principal, or SDE III-level roles.\n\n⏱️ He's currently serving his notice period. The exact timeline can shift, so if this info looks stale or you need the precise date, please reach out to Aniket directly:\n📧 rai078945@gmail.com · 📞 +91 7668514258\n📍 Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO",
       "suggestions": [
         "How to contact him?",
         "His experience",
@@ -405,7 +405,7 @@
       "topic": "notice"
     },
     {
-      "pattern": "salary|compensation|ctc|pay|package|lpa|lakh",
+      "pattern": "salary|compensation|ctc|pay|package|lpa|lakh|how much.*want|comp.*expect|expected.*comp",
       "text": "💼 Compensation\n\nAniket is open to discussing compensation based on the role, responsibilities, and growth opportunity.\n\nFor a direct conversation, please reach out:\n📧 rai078945@gmail.com\n📞 +91 7668514258\n\nHe typically responds within 24 hours.",
       "suggestions": [
         "His notice period?",
@@ -475,7 +475,7 @@
       "topic": "current"
     },
     {
-      "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review|hiring.*interview|interview.*candidate|management style|people management",
+      "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review|hiring.*interview|interview.*candidate|management style|people management|how many.*report|direct report",
       "text": "As Lead Software Engineer at SysCloud, Aniket leads an 8-10 engineer team:\n\n👥 Team size: 8-10 engineers\n📐 Design reviews: Leads HLD (High Level Design) and LLD (Low Level Design) sessions for all major features before implementation\n🔍 PR reviews: Conducts regular code reviews enforcing quality, consistency, and best practices across Node.js, TypeScript, and PostgreSQL\n🤝 Mentoring: Guides engineers through technical discussions, architectural decisions, and onboarding\n🎯 Hiring: Participates in technical interviews for engineering candidates, evaluating system design and fundamentals\n\nHis style is hands-on: he's both the technical decision-maker and an active contributor shipping production code.",
       "suggestions": [
         "What has he built as Lead?",
@@ -898,7 +898,7 @@
       ]
     },
     "recruiter": {
-      "text": "Recruiter Quick Reference:\n\n📋 Name: Aniket Rai\n🏢 Current: Lead SE @ SysCloud Technologies\n⏱️ Experience: 5+ years\n💻 Primary: Node.js, TypeScript, PostgreSQL, AWS\n🔧 Secondary: AI/LLM, GraphQL, Docker, Grafana\n📍 Location: Hyderabad, Pune, Bangalore, Chennai (IST)\n📅 Notice: 45 days (negotiable)\n🎯 Open to: Lead, Staff, Principal, or SDE III-level roles\n📧 Contact: rai078945@gmail.com\n📞 Phone: +91 7668514258\n💼 LinkedIn: linkedin.com/in/aniket-kumar-rai",
+      "text": "Recruiter Quick Reference:\n\n📋 Name: Aniket Rai\n🏢 Current: Lead SE @ SysCloud Technologies\n⏱️ Experience: 5+ years\n💻 Primary: Node.js, TypeScript, PostgreSQL, AWS\n🔧 Secondary: AI/LLM, GraphQL, Docker, Grafana\n📍 Location: Hyderabad, Pune, Bangalore, Chennai (IST)\n📅 Notice: Currently serving (ask him for the exact date)\n🎯 Open to: Lead, Staff, Principal, or SDE III-level roles\n📧 Contact: rai078945@gmail.com\n📞 Phone: +91 7668514258\n💼 LinkedIn: linkedin.com/in/aniket-kumar-rai",
       "suggestions": [
         "Schedule an interview",
         "His key projects",
