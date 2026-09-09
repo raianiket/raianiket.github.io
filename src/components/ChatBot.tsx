@@ -149,7 +149,12 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
   }
 
   logUnanswered(input.trim());
-  return { response: DEFAULT_RESPONSE, topic: null };
+  return { response: { ...DEFAULT_RESPONSE, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
+}
+
+function pickRandom<T>(pool: T[], count: number): T[] {
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
 }
 
 const INITIAL_MSG: Message = {

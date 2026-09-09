@@ -18,7 +18,7 @@ const stats = [
   { value: 5, suffix: "+", label: "Years Experience" },
   { value: 12, suffix: "+", label: "Cloud Integrations" },
   { value: 4, suffix: "x", label: "Faster Batch Jobs" },
-  { value: 4, suffix: "", label: "AI Agents Built" },
+  { value: 6, suffix: "", label: "AI Agents Built" },
 ];
 
 const floatingTags = [

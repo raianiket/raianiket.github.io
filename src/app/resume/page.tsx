@@ -83,7 +83,10 @@ export default function ResumePage() {
         .project-tag { font-size: 0.62rem; padding: 0.1rem 0.4rem; border-radius: 4px;
                         background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
 
-        .edu-row { display: flex; justify-content: space-between; }
+        .edu-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+        .edu-badge { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.03em; color: #1d4ed8;
+                     background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 4px;
+                     padding: 0.05rem 0.35rem; margin-right: 0.4rem; }
         .cert-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
 
         @media print {
@@ -115,8 +118,8 @@ export default function ResumePage() {
           <h2>Summary</h2>
           <p style={{ fontSize: "0.78rem", color: "#334155", lineHeight: 1.65 }}>
             Lead Software Engineer with 5+ years building and leading production-grade microservices, distributed systems, and cloud-native backend platforms on AWS.
-            Currently leading a team of 8-10 engineers through system design, HLD/LLD reviews, architecture decisions, and technical mentoring.
-            Deep expertise in Node.js, TypeScript, PostgreSQL, and AI/LLM agent development, with a proven track record of designing config-driven frameworks that scale across 12+ cloud integrations with zero per-cloud code changes, and building AI agents that auto-resolve production issues before customer impact.
+            Leads a team of 8-10 engineers through system design, HLD/LLD reviews, mentoring, and hiring.
+            Deep expertise in Node.js, TypeScript, PostgreSQL, and AI/LLM agent development, with a track record of config-driven frameworks that scale across 12+ cloud integrations with zero per-cloud code, and AI agents that resolve production issues before they reach customers.
           </p>
         </div>
 
@@ -133,13 +136,11 @@ export default function ResumePage() {
               <span className="role-meta">Jan 2026 – Present</span>
             </div>
             <ul>
-              <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries and aggregations dynamically from a metadata table.</li>
-              <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, featuring an aggregated dashboard across all managed accounts with role-based access and usage analytics.</li>
-              <li>Continuing to design and scale <strong>Sky&apos;s agentic workflow</strong> on AWS Step Functions, extending multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to new product surfaces.</li>
-              <li>Owned the design and development of an AI-powered <strong>Hunter Agent</strong> that autonomously debugs production issues by correlating signals across the full observability stack (ELK, CloudWatch, Grafana, application monitoring dashboards), pinpoints root cause, and opens an Azure DevOps task assigned to the engineer, tagged for PM visibility, with a suggested fix, taking manual log triage out of the incident loop.</li>
-              <li>Architect <strong>scalable backend solutions</strong> and drive system design decisions, establishing engineering standards across multiple product initiatives.</li>
-              <li>Lead <strong>HLD and LLD design reviews</strong> for major features, setting technical direction and aligning an 8-10 engineer team on architecture before implementation begins.</li>
-              <li>Mentor engineers through regular <strong>PR reviews</strong> and technical discussions; conduct technical interviews.</li>
+              <li>Revamped the customer-facing <strong>Dashboard</strong> to aggregate backup data across 12+ cloud integrations with zero code changes per new cloud, driving all queries dynamically from a metadata table.</li>
+              <li>Launched the <strong>Partner Portal</strong> end-to-end for MSP onboarding, with an aggregated dashboard across managed accounts, role-based access, and usage analytics.</li>
+              <li>Continuing to scale <strong>Sky&apos;s agentic workflow</strong> on AWS Step Functions, extending multi-step LLM reasoning and human-in-the-loop approval to new product surfaces.</li>
+              <li>Owned the design and development of an AI-powered <strong>Hunter Agent</strong> that autonomously debugs production issues across the observability stack (ELK, CloudWatch, Grafana), pinpoints root cause, and opens an Azure DevOps task with a suggested fix.</li>
+              <li>Drive <strong>system design and architecture decisions</strong> across an 8-10 engineer team, leading HLD/LLD reviews, mentoring through PR reviews, and conducting technical interviews.</li>
             </ul>
           </div>
 
@@ -152,15 +153,15 @@ export default function ResumePage() {
               <span className="role-meta">Jun 2023 – Dec 2025 · 2 yrs 6 mos</span>
             </div>
             <ul>
-              <li>Owned end-to-end architecture and implementation of <strong>Slack eDiscovery Search</strong> across PHP backend services, Node.js APIs, GraphQL mutations, and the React UI, from data ingestion and event handling to the full search and results interface.</li>
-              <li>Owned the redesign of the <strong>Bulk Export</strong> feature across UI (React), backend (PHP), and database (PostgreSQL), refactoring from single-user to multi-user processing to support exports under a single URL with unified download link generation.</li>
-              <li>Designed and developed Sky, a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to build queries, navigate to the relevant page, and initiate Restore &amp; Export actions.</li>
-              <li>Owned the design and build of 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring with auto-remediation before customer impact.</li>
-              <li>Designed MDL 2.0, a JSON-driven config framework replacing complex mutation logic; migrated 12+ cloud integrations so adding a new cloud requires zero code changes.</li>
-              <li>Delivered Restore &amp; Export layer with AWS Athena for on-demand metadata hydration, reducing query time from 10s+ to under 2s for large datasets.</li>
-              <li>Launched MDLOPS microservice from scratch using TypeScript + PM2 + JSON config, handling 5 add-on modules with parallel execution and Prophet ML anomaly detection.</li>
-              <li>Overhauled Batch Job &amp; Materialized View refresh framework with parallel host-level execution, achieved 4x faster job execution.</li>
-              <li>Led code quality initiatives that resolved all critical SonarQube security violations (to 0) and cut total issues by 90%.</li>
+              <li>Owned end-to-end architecture and implementation of <strong>Slack eDiscovery Search</strong> across PHP ingestion services, Node.js APIs, GraphQL mutations, and the React UI.</li>
+              <li>Led development of Gen4 &amp; Gen5 cloud experiences (Reports, Restore, Export, Dashboard, Errors, Limitations) and Homepage widgets (Audit Log, License Management, Usage Stats), using a config-driven architecture that automatically supports new cloud integrations without code changes.</li>
+              <li>Owned the design and build of 4 DAL AI-Agents (Database Health, Restore/Export, StartBackup, PostGraphile Slow-Queries) for automated operational monitoring, resolving issues before they impact customers.</li>
+              <li>Designed and developed Sky (SysCloud AI), a production-grade agentic workflow on AWS Step Functions orchestrating multi-step LLM reasoning, tool execution, validation, and human-in-the-loop approval to build queries, redirect to the relevant page with filters, and initiate Restore/Export actions.</li>
+              <li>Designed MDL 2.0, a JSON-driven config framework for 12+ cloud integrations; adding a new cloud requires zero code changes, with each action executing as a micro-task inside PostGraphile.</li>
+              <li>Led code quality initiatives across the team, driving code reviews, best practices, and mentoring that eliminated all critical SonarQube security violations (to 0) and cut total issues by 90%.</li>
+              <li>Owned the redesign of Bulk Export across React, PHP, and PostgreSQL, refactoring from single-user to multi-user processing to support exports under a single URL with unified download link generation.</li>
+              <li>Overhauled the Batch Job &amp; Materialized View refresh framework with parallel host-level execution, achieving 4x faster job execution.</li>
+              <li>Designed the parent/child schema and mutation layer for Add-On Actions (eDiscovery, BDI): Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, Transfer Ownership, and Deletion.</li>
             </ul>
           </div>
 
@@ -173,10 +174,11 @@ export default function ResumePage() {
               <span className="role-meta">May 2021 – Jun 2023 · 2 yrs 2 mos</span>
             </div>
             <ul>
-              <li>Architected config-driven Restore/Export function (Gen3) eliminating code changes when onboarding new cloud providers; introduced CM Download Status + ETA calculation.</li>
-              <li>Owned development of Timeseries & Batch Framework with multi-environment version support for scheduling MV refresh jobs; applied CPU-level optimizations for improved throughput.</li>
-              <li>Engineered weekly S3 data integrity pipeline using Node.js, AWS Fargate, Lambda, and Athena to detect missing files and trigger re-backup with Grafana monitoring.</li>
-              <li>Owned the integration of ELK Stack with Grafana, establishing centralized backend error log collection and real-time monitoring.</li>
+              <li>Architected a unified config-driven Restore/Export function (Gen3) eliminating per-cloud code changes; introduced CM Download Status and ETA calculation.</li>
+              <li>Owned the integration of ELK Stack (Elasticsearch, Logstash, Kibana) with Grafana, establishing centralized backend error log collection and real-time monitoring.</li>
+              <li>Engineered a weekly S3 data integrity pipeline (Node.js, Fargate, Lambda, Athena) to detect missing zip files and count mismatches, auto-triggering re-backup with Grafana monitoring.</li>
+              <li>Owned development of a Timeseries and Batch Framework with multi-environment version support, scheduling MVW refresh jobs on login and on schedule with CPU-level throughput optimizations.</li>
+              <li>Introduced a version-copy mechanism to identify S3 objects with multiple versions, extract older ones, and create new objects, resolving restoration failures from outdated DB associations.</li>
             </ul>
           </div>
 
@@ -189,8 +191,8 @@ export default function ResumePage() {
               <span className="role-meta">Nov 2020 – Apr 2021 · 6 mos</span>
             </div>
             <ul>
-              <li>Authored GraphQL queries for UI modules and implemented PostGraphile mutation functions.</li>
-              <li>Delivered AWS POCs contributing to the architectural shift from monolithic (Gen1) to microservices (Gen2).</li>
+              <li>Authored GraphQL queries for UI modules and mutation functions within the PostGraphile server.</li>
+              <li>Delivered POCs contributing to the architectural shift from monolith to microservices.</li>
             </ul>
           </div>
         </div>
@@ -208,19 +210,19 @@ export default function ResumePage() {
             <div className="skill-group">
               <div className="skill-label">Backend & APIs</div>
               <div className="skill-tags">
-                {["Express.js", "GraphQL", "PostGraphile", "REST APIs", "Microservices", "Batch Processing"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["React", "Express.js", "NestJS", "GraphQL", "PostGraphile", "REST APIs", "Microservices", "Batch Processing"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">
               <div className="skill-label">Databases</div>
               <div className="skill-tags">
-                {["PostgreSQL", "CTEs", "Materialized Views", "AWS Athena", "MongoDB"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["PostgreSQL", "CTEs", "Materialized Views", "AWS Athena", "MongoDB", "DynamoDB"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">
               <div className="skill-label">Cloud & AWS</div>
               <div className="skill-tags">
-                {["S3", "Lambda", "Step Functions", "Fargate", "Batch", "SQS", "EventBridge", "Docker", "Serverless"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["S3", "Lambda", "Step Functions", "Fargate", "Batch", "SQS", "EventBridge", "Secrets Manager", "SSM", "Docker", "Serverless"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
             <div className="skill-group">
@@ -232,7 +234,7 @@ export default function ResumePage() {
             <div className="skill-group">
               <div className="skill-label">Tools</div>
               <div className="skill-tags">
-                {["Git", "CI/CD", "SonarQube", "Azure DevOps", "Grafana", "ELK Stack", "PM2"].map((s) => <span key={s} className="tag">{s}</span>)}
+                {["Git", "CI/CD", "SonarQube", "Azure DevOps", "Grafana", "ELK Stack", "CloudWatch", "PM2"].map((s) => <span key={s} className="tag">{s}</span>)}
               </div>
             </div>
           </div>
@@ -243,6 +245,7 @@ export default function ResumePage() {
           <h2>Key Projects (SysCloud)</h2>
           {[
             { title: "Sky – SysCloud AI", tags: ["Node.js", "TypeScript", "LLM", "Claude", "MCP", "PostgreSQL"], desc: "AI-powered NL interface: customers describe intent, AI builds queries and initiates actions without manual browsing." },
+            { title: "Hunter Agent", tags: ["AI Agent", "Claude", "Node.js", "TypeScript", "Python", "ELK", "CloudWatch"], desc: "AI agent that autonomously debugs production issues by correlating signals across the full observability stack, pinpoints root cause, and opens an assigned Azure DevOps task with a suggested fix." },
             { title: "DAL AI-Agents", tags: ["AI Agent", "LLM", "Node.js", "TypeScript", "PostgreSQL"], desc: "4 AI agents for automated operational monitoring with zero-touch auto-remediation before customer impact." },
             { title: "MDL 2.0 Framework", tags: ["TypeScript", "PostGraphile", "PostgreSQL", "JSON Config"], desc: "Config-driven framework replacing mutation logic; 12+ cloud integrations with zero code changes per new cloud." },
             { title: "Restore & Export Action", tags: ["Node.js", "AWS Athena", "S3", "Recursive CTEs"], desc: "3 restore modes supporting millions of items/sec; Athena integration reduces archive query time from 10s+ to under 2s." },
@@ -266,6 +269,20 @@ export default function ResumePage() {
               <span className="role-meta">Lovely Professional University</span>
             </div>
             <span className="role-meta">2017 – 2021</span>
+          </div>
+          <div className="edu-row">
+            <div>
+              <h3><span className="edu-badge">(XII)</span>Intermediate, PCM</h3>
+              <span className="role-meta">Gyanpeethika Sr. Sec School</span>
+            </div>
+            <span className="role-meta">2015 – 2016</span>
+          </div>
+          <div className="edu-row">
+            <div>
+              <h3><span className="edu-badge">(X)</span>High School, Science</h3>
+              <span className="role-meta">Gyanpeethika Sr. Sec School</span>
+            </div>
+            <span className="role-meta">2013 – 2014</span>
           </div>
           <div className="cert-list" style={{ marginTop: "0.75rem" }}>
             {[

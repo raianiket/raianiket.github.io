@@ -214,7 +214,7 @@
       "topic": "projects"
     },
     {
-      "pattern": "^sky 2\\.?0$|^sky$|sky 2\\.0|sky2|syscloud ai|natural language interface",
+      "pattern": "^sky 2\\.?0$|^sky$|sky 2\\.0|sky2|syscloud ai|natural language interface|what is sky|how does sky work|how.*sky.*work",
       "text": "🤖 Sky, SysCloud AI\n\nDescription: A production-grade agentic workflow orchestrated on AWS Step Functions. Customers ask a question in plain English, and the workflow chains multi-step LLM reasoning, tool execution, and validation, with human-in-the-loop approval before it builds the query, redirects to the relevant page with pre-applied filters, and initiates Restore & Export actions. Zero manual navigation.\n\nTech Stack: Node.js · TypeScript · AWS Step Functions · Claude · MCP · PostgreSQL · GraphQL\n\nKey Metrics:\n✓ NL-to-query in real time\n✓ Human-in-the-loop approval on every action\n✓ Full product coverage\n✓ Zero manual navigation needed",
       "suggestions": [
         "Hunter Agent",
@@ -224,7 +224,7 @@
       "topic": "project_sky"
     },
     {
-      "pattern": "^dal$|^ai.?agents?$|dal ai|database health agent|operational monitoring",
+      "pattern": "^dal$|^ai.?agents?$|dal ai|database health agent|operational monitoring|handle.*production issue|production issue.*handle",
       "text": "🛡️ DAL AI-Agents\n\nDescription: 4 AI agents for automated operational monitoring, Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each agent detects and resolves issues automatically before they impact customers. Zero manual intervention required.\n\nTech Stack: Node.js · TypeScript · LLM · PostgreSQL · AI Agent framework\n\nKey Metrics:\n✓ 4 production agents\n✓ Auto-remediation\n✓ Zero customer impact",
       "suggestions": [
         "Hunter Agent",
@@ -395,7 +395,7 @@
       "topic": "contact"
     },
     {
-      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date",
+      "pattern": "notice|joining|open to work|opportunity|when can.*join|start date|joining date|available.*full.?time|full.?time.*avail",
       "text": "Aniket is open to Lead, Staff, Principal, or SDE III-level roles.\n\n⏱️ Notice period: 45 days (negotiable)\n📍 Location: Hyderabad, Pune, Bangalore, Chennai | Open to Hybrid, Remote, or WFO\n\n💡 The timeline can be flexible depending on the role and team. Reach out to Aniket directly for any clarification:\n📧 rai078945@gmail.com · 📞 +91 7668514258",
       "suggestions": [
         "How to contact him?",
@@ -455,7 +455,7 @@
       "topic": "portfolio"
     },
     {
-      "pattern": "impact|achiev|accomplish|metric|result|improv|faster|reduc",
+      "pattern": "impact|achiev|accomplish|metric|result|improv|faster|reduc|good engineer|great engineer|good.*fit",
       "text": "Aniket's measurable impact:\n\n⚡ 4x faster batch job execution\n🚀 10s+ → under 2s archive query time\n☁️ 12+ cloud integrations with zero code per new cloud\n🛡️ 0 critical security violations (down from 100%)\n📉 90% reduction in total code quality issues\n🤖 4 AI agents auto-resolving production issues\n💼 MDLOPS runs 5 async modules in parallel",
       "suggestions": [
         "Tell me about his projects",
@@ -475,7 +475,7 @@
       "topic": "current"
     },
     {
-      "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review.*team|hiring.*interview|interview.*candidate|management style|people management",
+      "pattern": "mentor|team lead|how.*lead|lead.*team|team size|manage.*team|your team|engineering team|how many.*engineer|design review|hld|lld|pr review|code review|hiring.*interview|interview.*candidate|management style|people management",
       "text": "As Lead Software Engineer at SysCloud, Aniket leads an 8-10 engineer team:\n\n👥 Team size: 8-10 engineers\n📐 Design reviews: Leads HLD (High Level Design) and LLD (Low Level Design) sessions for all major features before implementation\n🔍 PR reviews: Conducts regular code reviews enforcing quality, consistency, and best practices across Node.js, TypeScript, and PostgreSQL\n🤝 Mentoring: Guides engineers through technical discussions, architectural decisions, and onboarding\n🎯 Hiring: Participates in technical interviews for engineering candidates, evaluating system design and fundamentals\n\nHis style is hands-on: he's both the technical decision-maker and an active contributor shipping production code.",
       "suggestions": [
         "What has he built as Lead?",
@@ -483,6 +483,26 @@
         "How to contact him?"
       ],
       "topic": "leadership"
+    },
+    {
+      "pattern": "work style|working style|how.*work best|how does aniket work",
+      "text": "Aniket works with deep ownership, he prefers to understand the full system before touching it:\n\n🏗️ Designs for scale, config-driven over code-per-feature (MDL 2.0, 12+ cloud integrations, zero code per new cloud)\n📊 Builds with observability in mind, Grafana, ELK Stack, trace IDs on everything he ships\n📐 Measures every improvement, every change comes with a before/after number (4x faster, 10s to 2s, 0 critical violations)\n🤝 Independent design, collaborative delivery, architects solo, then drives it through cross-team coordination",
+      "suggestions": [
+        "How does he handle pressure?",
+        "What are his strengths?",
+        "His leadership style"
+      ],
+      "topic": "work_style"
+    },
+    {
+      "pattern": "handle pressure|handle deadlines|under pressure|pressure.*deadline|deadline.*pressure",
+      "text": "Aniket's pattern under pressure: scope early, and surface blockers before they become problems.\n\nAt SysCloud, production issues demand a fast response, which is exactly why he built the 4 DAL AI-Agents: to auto-resolve issues before they escalate into a pressure situation at all. His philosophy is to build systems that reduce pressure, not just absorb it.",
+      "suggestions": [
+        "How does he handle production issues?",
+        "His work style",
+        "What are his strengths?"
+      ],
+      "topic": "pressure_handling"
     },
     {
       "pattern": "what is syscloud|syscloud product|syscloud company|what does syscloud",
@@ -756,7 +776,7 @@
       "topic": "achievement"
     },
     {
-      "pattern": "hardest.*problem|toughest.*bug|difficult.*challenge|complex.*problem|challenging.*task|hard.*bug",
+      "pattern": "hardest.*problem|toughest.*bug|difficult.*challenge|complex.*problem|challenging.*task|hard.*bug|challenging.*problem|problem.*solved",
       "text": "🧠 Hardest Problem Solved\n\nThe batch job parallelization challenge stands out:\n\nSysCloud's materialized view refresh jobs were running sequentially per host. With 12+ cloud integrations and growing data volume, job execution time was becoming a bottleneck affecting customer-facing dashboard freshness.\n\nAniket redesigned the framework with parallel host-level execution, CPU-level optimizations, and intelligent scheduling. Result: 4x faster execution in production.\n\nAnother strong example: the S3 version-copy mechanism, which required diagnosing subtle data integrity failures caused by S3 object versioning mismatches with DB state, then building an automated fix that runs without human intervention.",
       "suggestions": [
         "Batch Jobs Framework",
@@ -909,12 +929,18 @@
     "programing": "programming"
   },
   "defaultResponse": {
-    "text": "I'm not trained on that yet! I've noted your question and Aniket will make sure I can answer it next time. 📝\n\nMeanwhile, try asking something below:",
+    "text": "Whoa, that one's above my pay grade! 😅 I only know what's in my training data (basically Aniket's resume, on repeat). I've saved your question so he can teach me the answer later.\n\nMeanwhile, here's what I actually know:",
     "suggestions": [
       "Who is Aniket?",
       "What's his tech stack?",
       "Tell me about his projects",
-      "How to contact him?"
+      "How to contact him?",
+      "What's Sky?",
+      "Is he open to new roles?",
+      "What are his achievements?",
+      "How does he handle production issues?",
+      "What's his leadership style?",
+      "Does he know AI/LLM engineering?"
     ]
   },
   "initialSuggestions": [

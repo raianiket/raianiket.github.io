@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, Cloud, Bot } from "lucide-react";
+import { Code2, Database, Cloud, Bot, Layers, Users } from "lucide-react";
 import { FadeIn, FadeInStagger, FadeInItem } from "./FadeIn";
 
 const highlights = [
@@ -24,6 +24,16 @@ const highlights = [
     icon: Bot,
     title: "AI Agent Development",
     desc: "Built AI agents for automated DB monitoring, NL-to-query interfaces, and operational workflows.",
+  },
+  {
+    icon: Layers,
+    title: "Full-Stack Development",
+    desc: "React on the frontend, Node.js/TypeScript on the backend, comfortable owning a feature end-to-end, UI to database.",
+  },
+  {
+    icon: Users,
+    title: "Technical Leadership",
+    desc: "Leads an 8-10 engineer team through HLD/LLD design reviews, PR mentoring, and technical hiring interviews.",
   },
 ];
 
