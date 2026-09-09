@@ -3,9 +3,24 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
+import { RESPONSES, TYPO_MAP } from "@/data/chatResponses";
 import { Eye, MousePointer, Download, MessageCircle, Clock, Monitor, Globe, BarChart3, RefreshCw, Lock, AlertTriangle } from "lucide-react";
 
 const PULSE_PIN = "6666";
+
+// Same normalize+match the chatbot itself uses, so "resolved" reflects reality.
+function normalizeTypos(text: string): string {
+  let result = text.toLowerCase().trim();
+  for (const [typo, correct] of Object.entries(TYPO_MAP)) {
+    result = result.replace(new RegExp(`\\b${typo}\\b`, "g"), correct);
+  }
+  return result;
+}
+function isNowAnswered(question: string): boolean {
+  const raw = question.toLowerCase().trim();
+  const normalized = normalizeTypos(raw);
+  return RESPONSES.some(({ pattern }) => pattern.test(normalized) || pattern.test(raw));
+}
 
 interface Event {
   id: number;
@@ -157,7 +172,7 @@ export default function PulseDashboard() {
   // Unanswered questions — from chatbot_unanswered events
   const unansweredQuestions = events
     .filter(e => e.event_type === "chatbot_unanswered" && e.label)
-    .map(e => ({ question: e.label, time: e.created_at }))
+    .map(e => ({ question: e.label, time: e.created_at, resolved: isNowAnswered(e.label) }))
     .filter((v, i, arr) => arr.findIndex(x => x.question === v.question) === i) // dedupe
     .slice(0, 15);
 
@@ -416,17 +431,22 @@ export default function PulseDashboard() {
               <p style={{ color: "#ef4444", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 ⚠ Unanswered Questions
               </p>
-              {unansweredQuestions.length > 0 && (
+              {unansweredQuestions.some(q => !q.resolved) && (
                 <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.5rem", borderRadius: "999px", background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.35)", color: "#ef4444", fontWeight: 700 }}>
-                  {unansweredQuestions.length} new
+                  {unansweredQuestions.filter(q => !q.resolved).length} still open
                 </span>
               )}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", maxHeight: "200px", overflowY: "auto" }}>
               {unansweredQuestions.map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", padding: "0.35rem 0.65rem", borderRadius: "8px", background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)" }}>
-                  <span style={{ color: "#ef4444", fontSize: "0.65rem", marginTop: "1px", flexShrink: 0 }}>✗</span>
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", padding: "0.35rem 0.65rem", borderRadius: "8px", background: item.resolved ? "rgba(74,222,128,0.05)" : "rgba(239,68,68,0.05)", border: `1px solid ${item.resolved ? "rgba(74,222,128,0.15)" : "rgba(239,68,68,0.15)"}` }}>
+                  <span style={{ color: item.resolved ? "#4ade80" : "#ef4444", fontSize: "0.65rem", marginTop: "1px", flexShrink: 0 }}>{item.resolved ? "✓" : "✗"}</span>
                   <span style={{ color: "#c8daf4", fontSize: "0.72rem", flex: 1 }}>{item.question}</span>
+                  {item.resolved && (
+                    <span style={{ fontSize: "0.6rem", padding: "0.1rem 0.4rem", borderRadius: "999px", background: "rgba(74,222,128,0.12)", border: "1px solid rgba(74,222,128,0.3)", color: "#4ade80", fontWeight: 700, flexShrink: 0 }}>
+                      now answered
+                    </span>
+                  )}
                   <span style={{ color: "#4a6b8a", fontSize: "0.62rem", whiteSpace: "nowrap", flexShrink: 0 }}>{timeAgo(item.time)}</span>
                 </div>
               ))}
