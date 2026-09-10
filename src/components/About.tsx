@@ -37,6 +37,16 @@ const highlights = [
   },
 ];
 
+const tickVariants = {
+  rest: { scaleY: 1, background: "linear-gradient(180deg, #1a6cf5, #1a6cf5)" },
+  hover: { scaleY: 1.25, background: "linear-gradient(180deg, #1a6cf5, #7eb3ff)" },
+};
+
+const ghostVariants = {
+  rest: { color: "rgba(77,143,247,0.09)" },
+  hover: { color: "rgba(77,143,247,0.17)" },
+};
+
 export default function About() {
   return (
     <section id="about" style={{ padding: "6rem 1.5rem" }}>
@@ -67,35 +77,49 @@ export default function About() {
           </p>
         </FadeIn>
 
-        <FadeInStagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
-          {highlights.map((item) => (
+        <FadeInStagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", columnGap: "3rem" }}>
+          {highlights.map((item, i) => (
             <FadeInItem key={item.title}>
               <motion.div
-                whileHover={{ borderColor: "rgba(26,108,245,0.45)", boxShadow: "0 0 28px rgba(26,108,245,0.12)" }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
                 style={{
-                  borderRadius: "16px", padding: "1.25rem",
-                  background: "var(--bg-card-alpha)",
-                  border: "1px solid var(--border-strong)",
-                  boxShadow: "var(--shadow-card)",
+                  position: "relative",
+                  display: "flex", gap: "1.1rem",
+                  padding: "1.5rem 1.1rem",
+                  borderRadius: "10px",
                   cursor: "default",
-                  transition: "border-color 0.3s, box-shadow 0.3s",
-                  height: "100%",
+                  overflow: "hidden",
                 }}
               >
-                <div style={{
-                  width: "36px", height: "36px", borderRadius: "10px",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)",
-                  marginBottom: "0.85rem",
+                <motion.div
+                  variants={{ rest: { backgroundColor: "rgba(26,108,245,0)" }, hover: { backgroundColor: "rgba(26,108,245,0.06)" } }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{ position: "absolute", inset: 0, borderRadius: "10px" }}
+                />
+                <motion.span aria-hidden variants={ghostVariants} transition={{ duration: 0.25, ease: "easeOut" }} style={{
+                  position: "absolute", top: "0.2rem", right: "0.7rem",
+                  fontSize: "3rem", fontWeight: 800,
+                  fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+                  lineHeight: 1, userSelect: "none", pointerEvents: "none",
                 }}>
-                  <item.icon size={17} color="#4d8ff7" />
+                  {String(i + 1).padStart(2, "0")}
+                </motion.span>
+                <motion.span
+                  variants={tickVariants}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{ flexShrink: 0, width: "3px", height: "1.3rem", borderRadius: "2px", marginTop: "0.35rem", transformOrigin: "top" }}
+                />
+                <div style={{ position: "relative" }}>
+                  <h3 style={{ display: "flex", alignItems: "center", gap: "0.55rem", fontWeight: 700, color: "var(--text-primary)", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
+                    <item.icon size={17} color="#4d8ff7" strokeWidth={2} />
+                    {item.title}
+                  </h3>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.8rem", lineHeight: 1.65 }}>
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.88rem", marginBottom: "0.4rem" }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.76rem", lineHeight: 1.6 }}>
-                  {item.desc}
-                </p>
               </motion.div>
             </FadeInItem>
           ))}
