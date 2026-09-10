@@ -201,7 +201,7 @@
     },
     {
       "pattern": "how.*built.*chatbot|what.*tech.*chatbot|chatbot.*built|chatbot.*tech|built.*this.*bot|how.*bot.*work|tech.*behind.*bot|how.*assistant.*built",
-      "text": "This chatbot was built entirely by Aniket! 🤖\n\nTech behind it:\n\n• React (Next.js), UI and state management\n• TypeScript, fully typed, zero runtime errors\n• Framer Motion, animations and transitions\n• Pattern-matching NLP, regex-based intent detection\n• Supabase, real-time event tracking (visits, questions, reactions)\n• Web Speech API, voice input support\n• 100% client-side, no backend, no API calls for chat\n\nEverything you see, context memory, recruiter mode, emoji reactions, voice input, all custom built by Aniket.",
+      "text": "This chatbot was built entirely by Aniket! 🤖\n\nTech behind it:\n\n• React (Next.js) for UI and state management\n• TypeScript for type safety across the app\n• Framer Motion for animations and transitions\n• Regex-based pattern matching for intent detection\n• Supabase for real-time event tracking (visits, questions, reactions)\n• Web Speech API for voice input\n• 100% client-side, no backend or API calls for chat\n\nContext memory, recruiter mode, emoji reactions, voice input, all custom built by Aniket.",
       "suggestions": [
         "Tell me about his projects",
         "His tech stack",
