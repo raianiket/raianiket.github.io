@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Copy, Check, Mic, MicOff } from "lucide-react";
+import { X, Send, Copy, Check, Mic, MicOff, Bot } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, DEFAULT_RESPONSE_TEXTS, FINETUNING_EXAMPLES, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -494,108 +494,88 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Floating button with label */}
-      <div className="chatbot-fab" style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
-        {/* Label tooltip — hide when panel is open */}
-        <AnimatePresence mode="wait">
-          {!open && justClosed && (
-            <motion.div
-              key="comeback"
-              className="chatbot-label"
-              initial={{ opacity: 0, y: 12, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.92 }}
-              transition={{ duration: 0.3, ease: EASE }}
-              style={{
-                background: "rgba(7,20,36,0.97)",
-                border: "1px solid rgba(26,108,245,0.5)",
-                borderRadius: "12px",
-                padding: "0.5rem 0.9rem",
-                display: "flex", alignItems: "center", gap: "7px",
-                boxShadow: "0 4px 24px rgba(26,108,245,0.25)",
-                whiteSpace: "nowrap",
-                maxWidth: "calc(100vw - 6rem)",
-              }}
+      {/* Floating launcher — one capsule that morphs into a circle when open */}
+      <motion.button
+        className="chatbot-fab"
+        layout
+        onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ layout: { duration: 0.35, ease: EASE } }}
+        aria-label={open ? "Close assistant" : "Open Aniket's Assistant"}
+        style={{
+          position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999,
+          display: "flex", alignItems: "center", gap: open ? 0 : "10px",
+          padding: open ? "4px" : "6px 8px 6px 18px",
+          borderRadius: "999px", border: "none",
+          background: "rgba(7,20,36,0.97)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,108,245,0.22)",
+          cursor: "pointer",
+        }}
+      >
+        <AnimatePresence mode="popLayout" initial={false}>
+          {!open && (
+            <motion.span
+              key={justClosed ? "comeback" : "default"}
+              layout="position"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
+              className="chatbot-copy"
+              style={{ display: "flex", alignItems: "center", gap: "8px", whiteSpace: "nowrap" }}
             >
-              <span style={{ fontSize: "0.88rem" }}>↩</span>
-              <span style={{ color: "#7eb3ff", fontSize: "0.72rem", fontWeight: 600 }}>Come back & ask anything</span>
-              <span style={{ color: "#4d8ff7", fontSize: "0.75rem", lineHeight: 1 }}>↙</span>
-            </motion.div>
-          )}
-          {!open && !justClosed && (
-            <motion.div
-              key="default"
-              className="chatbot-label"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              style={{
-                background: "rgba(7,20,36,0.95)",
-                border: "1px solid rgba(26,108,245,0.35)",
-                borderRadius: "10px",
-                padding: "0.4rem 0.75rem",
-                display: "flex", alignItems: "center", gap: "6px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-                whiteSpace: "nowrap",
-                maxWidth: "calc(100vw - 6rem)",
-              }}
-            >
-              <motion.span
-                animate={{ opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", flexShrink: 0 }}
-              />
-              <span style={{ color: "#e8f0fe", fontSize: "0.72rem", fontWeight: 600 }}>Aniket Assistant Bot</span>
-              <span style={{ color: "#4a6b8a", fontSize: "0.65rem" }}>Ask me anything</span>
-            </motion.div>
+              {justClosed ? (
+                <>
+                  <span style={{ fontSize: "0.85rem" }}>↩</span>
+                  <span style={{ color: "#7eb3ff", fontSize: "0.74rem", fontWeight: 600 }}>Come back & ask anything</span>
+                </>
+              ) : (
+                <>
+                  <motion.span
+                    animate={{ opacity: [1, 0.4, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", flexShrink: 0 }}
+                  />
+                  <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.25, textAlign: "left" }}>
+                    <span style={{ color: "#e8f0fe", fontSize: "0.74rem", fontWeight: 600 }}>Aniket&apos;s Assistant</span>
+                    <span className="chatbot-sub" style={{ color: "#4a6b8a", fontSize: "0.62rem" }}>Ask me anything</span>
+                  </span>
+                </>
+              )}
+            </motion.span>
           )}
         </AnimatePresence>
 
-        <motion.button
-          className="chatbot-btn"
-          onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
-          animate={open ? { y: 0 } : { y: [0, -10, 0] }}
-          transition={open ? {} : { duration: 1.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.6 }}
-          whileHover={{ scale: 1.12 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label={open ? "Close assistant" : "Open Aniket Assistant Bot"}
+        <motion.span
+          layout
+          className="chatbot-icon"
           style={{
-            width: "72px", height: "72px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
-            border: "3px solid rgba(126,179,255,0.5)",
-            cursor: "pointer", overflow: "hidden",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 6px 36px rgba(26,108,245,0.7), 0 0 0 6px rgba(26,108,245,0.2)",
-            position: "relative",
+            width: open ? "52px" : "44px", height: open ? "52px" : "44px", borderRadius: "50%",
+            background: "rgba(26,108,245,0.14)", border: "1px solid rgba(77,143,247,0.4)",
+            display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, position: "relative",
           }}
         >
           {!open && (
             <motion.span
-              animate={{ scale: [1, 1.7], opacity: [0.6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
-              style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(26,108,245,0.45)", pointerEvents: "none" }}
+              animate={{ scale: [1, 1.55], opacity: [0.5, 0] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+              style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(26,108,245,0.5)", pointerEvents: "none" }}
             />
           )}
           <AnimatePresence mode="wait">
             {open
-              ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
-              : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="chatbot-btn-img" src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
-                </motion.span>
+              ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }} style={{ display: "flex" }}><X size={19} color="#e8f0fe" /></motion.span>
+              : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }} style={{ display: "flex" }}><Bot size={21} color="#4d8ff7" strokeWidth={2} /></motion.span>
             }
           </AnimatePresence>
           <AnimatePresence>
             {!open && unread > 0 && (
               <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                style={{ position: "absolute", top: "-4px", right: "-4px", width: "18px", height: "18px", borderRadius: "50%", background: "#ef4444", color: "#fff", fontSize: "0.6rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #050d1a" }}>
+                style={{ position: "absolute", top: "-3px", right: "-3px", width: "17px", height: "17px", borderRadius: "50%", background: "#ef4444", color: "#fff", fontSize: "0.58rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #050d1a" }}>
                 {unread}
               </motion.span>
             )}
           </AnimatePresence>
-        </motion.button>
-      </div>
+        </motion.span>
+      </motion.button>
 
       {/* Backdrop for fullscreen mode */}
       <AnimatePresence>
@@ -958,10 +938,9 @@ export default function ChatBot() {
 
       <style>{`
         @media (max-width: 640px) {
-          .chatbot-fab { bottom: 1rem !important; right: 1rem !important; }
-          .chatbot-label { display: none !important; }
-          .chatbot-btn { width: 52px !important; height: 52px !important; }
-          .chatbot-btn-img { width: 42px !important; height: 42px !important; }
+          .chatbot-fab { bottom: 1rem !important; right: 1rem !important; padding: 5px !important; }
+          .chatbot-copy { display: none !important; }
+          .chatbot-icon { width: 46px !important; height: 46px !important; }
         }
       `}</style>
     </>

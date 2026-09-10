@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, Linkedin, MapPin, Copy, Check } from "lucide-react";
+import { EASE } from "@/lib/constants";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -50,22 +51,21 @@ export default function Contact() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginBottom: "2.5rem" }} className="contact-grid">
           {/* Email — clickable copy */}
           <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.45, delay: 0, ease: EASE }}
             onClick={copyEmail}
-            whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
+            whileHover="hover"
             style={{
-              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
-              padding: "1.25rem 0.75rem", borderRadius: "16px", cursor: "pointer",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.7rem",
+              padding: "1.4rem 0.75rem", borderRadius: "14px", cursor: "pointer",
               background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
-              transition: "all 0.3s",
             } as React.CSSProperties}
           >
-            <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
-              <Mail size={17} color="#4d8ff7" />
-            </div>
+            <motion.div variants={{ hover: { y: -3 } }} transition={{ duration: 0.2 }}>
+              <Mail size={20} color="#4d8ff7" strokeWidth={1.75} />
+            </motion.div>
             <div>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Email</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>rai078945@gmail.com</p>
@@ -77,22 +77,21 @@ export default function Contact() {
 
           {/* Phone, clickable copy */}
           <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+            transition={{ duration: 0.45, delay: 0.07, ease: EASE }}
             onClick={copyPhone}
-            whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
+            whileHover="hover"
             style={{
-              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
-              padding: "1.25rem 0.75rem", borderRadius: "16px", cursor: "pointer",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.7rem",
+              padding: "1.4rem 0.75rem", borderRadius: "14px", cursor: "pointer",
               background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
-              transition: "all 0.3s",
             } as React.CSSProperties}
           >
-            <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
-              <Phone size={17} color="#4d8ff7" />
-            </div>
+            <motion.div variants={{ hover: { y: -3 } }} transition={{ duration: 0.2 }}>
+              <Phone size={20} color="#4d8ff7" strokeWidth={1.75} />
+            </motion.div>
             <div>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Phone</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>+91 7668514258</p>
@@ -106,21 +105,20 @@ export default function Contact() {
           <motion.a
             href="https://www.linkedin.com/in/aniket-kumar-rai"
             target="_blank" rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            whileHover={{ borderColor: "rgba(26,108,245,0.5)", boxShadow: "0 0 24px rgba(26,108,245,0.12)" }}
+            transition={{ duration: 0.45, delay: 0.14, ease: EASE }}
+            whileHover="hover"
             style={{
-              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
-              padding: "1.25rem 0.75rem", borderRadius: "16px", textDecoration: "none",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.7rem",
+              padding: "1.4rem 0.75rem", borderRadius: "14px", textDecoration: "none",
               background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
-              transition: "all 0.3s",
             } as React.CSSProperties}
           >
-            <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
-              <Linkedin size={17} color="#4d8ff7" />
-            </div>
+            <motion.div variants={{ hover: { y: -3 } }} transition={{ duration: 0.2 }}>
+              <Linkedin size={20} color="#4d8ff7" strokeWidth={1.75} />
+            </motion.div>
             <div>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>LinkedIn</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>aniket-kumar-rai</p>
@@ -130,25 +128,27 @@ export default function Contact() {
 
           {/* Location */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.21, ease: EASE }}
             style={{
-              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem",
-              padding: "1.25rem 0.75rem", borderRadius: "16px",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "0.7rem",
+              padding: "1.4rem 0.75rem", borderRadius: "14px",
               background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
             }}
           >
-            <div style={{ width: "38px", height: "38px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)" }}>
-              <MapPin size={17} color="#4d8ff7" />
-            </div>
+            <MapPin size={20} color="#4d8ff7" strokeWidth={1.75} />
             <div>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Location</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>Hyderabad, India</p>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem" }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#22c55e", display: "inline-block" }} />
+              <motion.span
+                animate={{ opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#22c55e", display: "inline-block" }}
+              />
               <span style={{ color: "#4ade80" }}>IST (UTC+5:30)</span>
             </div>
           </motion.div>
