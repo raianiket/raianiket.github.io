@@ -495,12 +495,13 @@ export default function ChatBot() {
   return (
     <>
       {/* Floating button with label */}
-      <div style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
+      <div className="chatbot-fab" style={{ position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
         {/* Label tooltip — hide when panel is open */}
         <AnimatePresence mode="wait">
           {!open && justClosed && (
             <motion.div
               key="comeback"
+              className="chatbot-label"
               initial={{ opacity: 0, y: 12, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.92 }}
@@ -524,6 +525,7 @@ export default function ChatBot() {
           {!open && !justClosed && (
             <motion.div
               key="default"
+              className="chatbot-label"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -551,6 +553,7 @@ export default function ChatBot() {
         </AnimatePresence>
 
         <motion.button
+          className="chatbot-btn"
           onClick={() => { setOpen((o) => !o); setFullscreen(false); }}
           animate={open ? { y: 0 } : { y: [0, -10, 0] }}
           transition={open ? {} : { duration: 1.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.6 }}
@@ -579,7 +582,7 @@ export default function ChatBot() {
               ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} color="#fff" /></motion.span>
               : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <img className="chatbot-btn-img" src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </motion.span>
             }
           </AnimatePresence>
@@ -952,6 +955,15 @@ export default function ChatBot() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .chatbot-fab { bottom: 1rem !important; right: 1rem !important; }
+          .chatbot-label { display: none !important; }
+          .chatbot-btn { width: 52px !important; height: 52px !important; }
+          .chatbot-btn-img { width: 42px !important; height: 42px !important; }
+        }
+      `}</style>
     </>
   );
 }

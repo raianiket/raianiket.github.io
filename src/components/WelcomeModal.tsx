@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll } from "lucide-react";
 import { track } from "@/lib/track";
@@ -19,17 +19,7 @@ export default function WelcomeModal() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!visible) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "e" || e.key === "E") choose("explore");
-      if (e.key === "s" || e.key === "S") choose("tldr");
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [visible]);
-
-  const choose = (mode: "explore" | "tldr") => {
+  const choose = useCallback((mode: "explore" | "tldr") => {
     sessionStorage.setItem("portfolio_welcome_seen", "1");
     track(mode === "explore" ? "welcome_explore" : "welcome_bot");
     setVisible(false);
@@ -38,7 +28,17 @@ export default function WelcomeModal() {
         window.dispatchEvent(new CustomEvent("openChatBot", { detail: { full: true } }));
       }, 400);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "e" || e.key === "E") choose("explore");
+      if (e.key === "s" || e.key === "S") choose("tldr");
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [visible, choose]);
 
   return (
     <AnimatePresence>

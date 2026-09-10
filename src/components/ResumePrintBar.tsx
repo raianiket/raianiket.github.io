@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function ResumePrintBar() {
   return (
     <div className="no-print" style={{
@@ -22,7 +24,7 @@ export default function ResumePrintBar() {
       >
         🖨 Print
       </button>
-      <a href="/" style={{ color: "#93c5fd", textDecoration: "none" }}>← Back to Portfolio</a>
+      <Link href="/" style={{ color: "#93c5fd", textDecoration: "none" }}>← Back to Portfolio</Link>
     </div>
   );
 }

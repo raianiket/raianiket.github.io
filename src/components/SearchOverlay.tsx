@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { projects } from "@/components/Projects";
@@ -29,7 +29,6 @@ function scoreMatch(query: string, project: typeof projects[0]): number {
 export default function SearchOverlay() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Result[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -49,12 +48,11 @@ export default function SearchOverlay() {
 
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 80);
-    else setQuery("");
   }, [open]);
 
-  useEffect(() => {
-    if (!query.trim()) { setResults([]); return; }
-    const scored = projects
+  const results = useMemo<Result[]>(() => {
+    if (!query.trim()) return [];
+    return projects
       .map((p) => ({ project: p, score: scoreMatch(query, p) }))
       .filter(({ score }) => score > 0)
       .sort((a, b) => b.score - a.score)
@@ -67,7 +65,6 @@ export default function SearchOverlay() {
         bgColor: p.bgColor,
         borderColor: p.borderColor,
       }));
-    setResults(scored);
   }, [query]);
 
   const goToProject = (title: string) => {
@@ -79,7 +76,7 @@ export default function SearchOverlay() {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => setQuery("")}>
       {open && (
         <>
           {/* Backdrop */}
