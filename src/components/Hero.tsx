@@ -22,16 +22,18 @@ const stats = [
 ];
 
 const floatingTags = [
-  { text: "TypeScript", x: "7%", y: "20%", delay: 0 },
-  { text: "Python", x: "22%", y: "13%", delay: 0.35 },
-  { text: "Node.js", x: "80%", y: "16%", delay: 0.3 },
-  { text: "PostgreSQL", x: "5%", y: "60%", delay: 0.6 },
-  { text: "AWS", x: "84%", y: "55%", delay: 0.2 },
-  { text: "GraphQL", x: "10%", y: "80%", delay: 0.8 },
-  { text: "AI Agents", x: "76%", y: "76%", delay: 0.5 },
-  { text: "Docker", x: "86%", y: "36%", delay: 0.4 },
-  { text: "Microservices", x: "2%", y: "40%", delay: 0.7 },
-  { text: "PHP", x: "78%", y: "90%", delay: 0.9 },
+  // Left column — evenly spaced top to bottom
+  { text: "TypeScript", x: "6%", y: "16%", delay: 0 },
+  { text: "Python", x: "23%", y: "10%", delay: 0.35 },
+  { text: "Microservices", x: "2%", y: "36%", delay: 0.7 },
+  { text: "PostgreSQL", x: "6%", y: "58%", delay: 0.6 },
+  { text: "GraphQL", x: "11%", y: "80%", delay: 0.8 },
+  { text: "PHP", x: "23%", y: "92%", delay: 0.9 },
+  // Right column — kept clear of the bottom-right corner (chat widget lives there)
+  { text: "Node.js", x: "80%", y: "14%", delay: 0.3 },
+  { text: "Docker", x: "87%", y: "32%", delay: 0.4 },
+  { text: "AWS", x: "82%", y: "50%", delay: 0.2 },
+  { text: "AI Agents", x: "88%", y: "68%", delay: 0.5 },
 ];
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
