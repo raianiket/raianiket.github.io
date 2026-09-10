@@ -220,6 +220,17 @@
       "topic": "portfolio"
     },
     {
+      "pattern": "what can you do|your capabilit|what.*(bot|chatbot|assistant).*do|what can i ask you|how (can|do) you help|what are you capable of|your features|what.*you.*able to",
+      "text": "Here’s what I can do 🤖\n\n• Answer questions about Aniket, skills, projects, experience, background\n• Remember context, ask me to “tell me more” on anything\n• Switch to Recruiter Mode for hiring-focused quick actions\n• Take voice input, click the mic and just talk\n• Save this chat as a transcript or share the portfolio link\n• Take 👍/👎 feedback on any answer\n• Log anything I can’t answer, so Aniket can teach me the answer later\n\nJust type a question, or tap a suggestion below to get started.",
+      "suggestions": [
+        "Who is Aniket?",
+        "His tech stack",
+        "Switch to Recruiter Mode",
+        "How was this chatbot built?"
+      ],
+      "topic": "chatbot_capabilities"
+    },
+    {
       "pattern": "project|built|build|what has he made|show.*project|his work|case stud|show.*work",
       "text": "Here are Aniket's projects, grouped by category. Which one would you like to know in detail?\n\n🤖 AI & ML\nSky — Agentic NL interface on AWS Step Functions\nHunter Agent — Production issue investigation agent\nDAL AI-Agents — Operational monitoring agents\nAnomaly Detection — Prophet ML + Rule Engine\n\n⚡ Backend\nMDL 2.0 — Config-driven cloud framework\nSlack eDiscovery — PHP + Node.js full-stack integration\nRestore & Export — High-speed data recovery + Bulk Export\nMDLOPS Microservice — Async addon orchestration\n\n📈 Dashboard\nCustomer Dashboard — Multi-cloud insights\nPartner Portal — MSP management dashboard\n\n🗄️ Infrastructure\nBatch Jobs Framework — 100K+ job orchestration\n\n🎯 Personal\nFastAPI Task Manager — CRUD REST API exploring Python/FastAPI\nJob Autopilot — LinkedIn + ATS job search automation with AI scoring\nmini-message-app — Real-time WhatsApp-style chat with no custom backend",
       "suggestions": [
