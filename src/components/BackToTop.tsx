@@ -24,7 +24,7 @@ export default function BackToTop() {
           style={{
             position: "fixed", bottom: "2rem", right: "2rem", zIndex: 50,
             width: "44px", height: "44px", borderRadius: "12px",
-            background: "rgba(13,27,46,0.9)", border: "1px solid rgba(26,108,245,0.4)",
+            background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(26,108,245,0.4)",
             color: "#4d8ff7", cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: "0 4px 20px rgba(26,108,245,0.2)",

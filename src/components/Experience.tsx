@@ -178,8 +178,8 @@ export default function Experience() {
               ))}
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.4rem" }}>
-              <span style={{ fontSize: "0.62rem", color: "#4a6b8a" }}>Nov 2020</span>
-              <span style={{ fontSize: "0.62rem", color: "#4a6b8a" }}>Present</span>
+              <span style={{ fontSize: "0.62rem", color: "var(--text-muted)" }}>Nov 2020</span>
+              <span style={{ fontSize: "0.62rem", color: "var(--text-muted)" }}>Present</span>
             </div>
           </div>
         </motion.div>

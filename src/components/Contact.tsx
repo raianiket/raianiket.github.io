@@ -70,7 +70,7 @@ export default function Contact() {
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Email</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>rai078945@gmail.com</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: copied ? "#4ade80" : "#4a6b8a" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: copied ? "#4ade80" : "var(--text-muted)" }}>
               {copied ? <><Check size={11} /> Copied!</> : <><Copy size={11} /> Click to copy</>}
             </div>
           </motion.button>
@@ -96,7 +96,7 @@ export default function Contact() {
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>Phone</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>+91 7668514258</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: phoneCopied ? "#4ade80" : "#4a6b8a" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.65rem", color: phoneCopied ? "#4ade80" : "var(--text-muted)" }}>
               {phoneCopied ? <><Check size={11} /> Copied!</> : <><Copy size={11} /> Click to copy</>}
             </div>
           </motion.button>
@@ -123,7 +123,7 @@ export default function Contact() {
               <p style={{ color: "var(--text-secondary)", fontSize: "0.68rem", marginBottom: "0.2rem" }}>LinkedIn</p>
               <p style={{ color: "var(--text-primary)", fontSize: "0.72rem", fontWeight: 500 }}>aniket-kumar-rai</p>
             </div>
-            <p style={{ fontSize: "0.65rem", color: "#4a6b8a" }}>Open profile ↗</p>
+            <p style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>Open profile ↗</p>
           </motion.a>
 
           {/* Location */}

@@ -39,31 +39,31 @@ function EmailCompose({ fullscreen }: { fullscreen: boolean }) {
   }
 
   return (
-    <div style={{ padding: "0.85rem 1rem", borderRadius: "14px", background: "rgba(13,27,46,0.95)", border: "1px solid rgba(26,108,245,0.3)", display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+    <div style={{ padding: "0.85rem 1rem", borderRadius: "14px", background: "var(--bg-card-alpha-hi)", border: "1px solid rgba(26,108,245,0.3)", display: "flex", flexDirection: "column", gap: "0.55rem" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "2px" }}>
         <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#4d8ff7" }}>✉ Compose Email to Aniket</span>
-        <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>{CONTACT_EMAIL}</span>
+        <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>{CONTACT_EMAIL}</span>
       </div>
       <input
         value={subject}
         onChange={e => setSubject(e.target.value)}
         placeholder="Subject"
-        style={{ background: "rgba(5,13,26,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "#e8f0fe", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", transition: "border-color 0.2s" }}
+        style={{ background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "var(--text-primary)", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", transition: "border-color 0.2s" }}
         onFocus={e => e.target.style.borderColor = "rgba(26,108,245,0.5)"}
-        onBlur={e => e.target.style.borderColor = "rgba(30,58,95,0.8)"}
+        onBlur={e => e.target.style.borderColor = "var(--border-strong)"}
       />
       <textarea
         value={body}
         onChange={e => setBody(e.target.value)}
         placeholder="Write your message..."
         rows={3}
-        style={{ background: "rgba(5,13,26,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "#e8f0fe", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", resize: "none", lineHeight: 1.6, fontFamily: "inherit", transition: "border-color 0.2s" }}
+        style={{ background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)", borderRadius: "8px", padding: "0.4rem 0.65rem", color: "var(--text-primary)", fontSize: fullscreen ? "0.8rem" : "0.72rem", outline: "none", resize: "none", lineHeight: 1.6, fontFamily: "inherit", transition: "border-color 0.2s" }}
         onFocus={e => e.target.style.borderColor = "rgba(26,108,245,0.5)"}
-        onBlur={e => e.target.style.borderColor = "rgba(30,58,95,0.8)"}
+        onBlur={e => e.target.style.borderColor = "var(--border-strong)"}
       />
       <button
         onClick={handleSend}
-        style={{ alignSelf: "flex-end", padding: "0.35rem 1rem", borderRadius: "999px", background: subject.trim() || body.trim() ? "#1a6cf5" : "rgba(30,58,95,0.4)", border: "none", color: subject.trim() || body.trim() ? "#fff" : "#4a6b8a", fontSize: "0.7rem", fontWeight: 700, cursor: subject.trim() || body.trim() ? "pointer" : "default", transition: "all 0.2s" }}>
+        style={{ alignSelf: "flex-end", padding: "0.35rem 1rem", borderRadius: "999px", background: subject.trim() || body.trim() ? "#1a6cf5" : "var(--border-subtle)", border: "none", color: subject.trim() || body.trim() ? "#fff" : "var(--text-muted)", fontSize: "0.7rem", fontWeight: 700, cursor: subject.trim() || body.trim() ? "pointer" : "default", transition: "all 0.2s" }}>
         Send via Email Client →
       </button>
     </div>
@@ -508,8 +508,8 @@ export default function ChatBot() {
           display: "flex", alignItems: "center", gap: open ? 0 : "10px",
           padding: open ? "4px" : "6px 8px 6px 18px",
           borderRadius: "999px", border: "none",
-          background: "rgba(7,20,36,0.97)",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,108,245,0.22)",
+          background: "var(--bg-card-alpha-hi)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.25), 0 0 0 1px rgba(26,108,245,0.22)",
           cursor: "pointer",
         }}
       >
@@ -535,8 +535,8 @@ export default function ChatBot() {
                     style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", flexShrink: 0 }}
                   />
                   <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.25, textAlign: "left" }}>
-                    <span style={{ color: "#e8f0fe", fontSize: "0.74rem", fontWeight: 600 }}>Aniket&apos;s Assistant</span>
-                    <span className="chatbot-sub" style={{ color: "#4a6b8a", fontSize: "0.62rem" }}>Ask me anything</span>
+                    <span style={{ color: "var(--text-primary)", fontSize: "0.74rem", fontWeight: 600 }}>Aniket&apos;s Assistant</span>
+                    <span className="chatbot-sub" style={{ color: "var(--text-muted)", fontSize: "0.62rem" }}>Ask me anything</span>
                   </span>
                 </>
               )}
@@ -562,14 +562,14 @@ export default function ChatBot() {
           )}
           <AnimatePresence mode="wait">
             {open
-              ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }} style={{ display: "flex" }}><X size={19} color="#e8f0fe" /></motion.span>
+              ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }} style={{ display: "flex" }}><X size={19} color="var(--text-primary)" /></motion.span>
               : <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }} style={{ display: "flex" }}><Bot size={21} color="#4d8ff7" strokeWidth={2} /></motion.span>
             }
           </AnimatePresence>
           <AnimatePresence>
             {!open && unread > 0 && (
               <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                style={{ position: "absolute", top: "-3px", right: "-3px", width: "17px", height: "17px", borderRadius: "50%", background: "#ef4444", color: "#fff", fontSize: "0.58rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #050d1a" }}>
+                style={{ position: "absolute", top: "-3px", right: "-3px", width: "17px", height: "17px", borderRadius: "50%", background: "#ef4444", color: "#fff", fontSize: "0.58rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid var(--bg-primary)" }}>
                 {unread}
               </motion.span>
             )}
@@ -589,7 +589,7 @@ export default function ChatBot() {
             onClick={() => { setOpen(false); setFullscreen(false); }}
             style={{
               position: "fixed", inset: 0, zIndex: 997,
-              background: "rgba(5,13,26,0.85)",
+              background: "var(--bg-card-alpha)",
               backdropFilter: "blur(8px)",
             }}
           />
@@ -608,8 +608,8 @@ export default function ChatBot() {
               position: "fixed", inset: 0, margin: "auto",
               zIndex: 998,
               width: "min(640px, 92vw)", height: "min(700px, 90vh)",
-              background: "rgba(5,13,26,0.98)",
-              border: "1px solid rgba(30,58,95,0.9)",
+              background: "var(--bg-card-alpha-hi)",
+              border: "1px solid var(--border-strong)",
               borderRadius: "24px",
               display: "flex", flexDirection: "column",
               boxShadow: "0 32px 100px rgba(0,0,0,0.75), 0 0 0 1px rgba(26,108,245,0.15)",
@@ -618,8 +618,8 @@ export default function ChatBot() {
             } : {
               position: "fixed", bottom: "5.75rem", right: "max(0.75rem, min(1.75rem, calc(100vw - 362px)))", zIndex: 998,
               width: "min(360px, calc(100vw - 1.5rem))", maxHeight: "min(560px, 80vh)",
-              background: "rgba(5,13,26,0.98)",
-              border: "1px solid rgba(30,58,95,0.9)",
+              background: "var(--bg-card-alpha-hi)",
+              border: "1px solid var(--border-strong)",
               borderRadius: "22px",
               display: "flex", flexDirection: "column",
               boxShadow: "0 20px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(26,108,245,0.12)",
@@ -630,25 +630,23 @@ export default function ChatBot() {
             {/* Header */}
             <div style={{
               padding: "0.9rem 1.25rem",
-              borderBottom: "1px solid rgba(30,58,95,0.7)",
+              borderBottom: "1px solid var(--border-medium)",
               display: "flex", alignItems: "center", gap: "0.75rem",
               flexWrap: "wrap", rowGap: "0.5rem",
-              background: "rgba(7,20,36,0.9)",
+              background: "var(--bg-card-alpha-hi)",
               position: "relative",
             }}>
               <div style={{
                 width: "42px", height: "42px", borderRadius: "50%", flexShrink: 0,
-                background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
-                border: "2px solid rgba(26,108,245,0.4)",
+                background: "rgba(26,108,245,0.14)",
+                border: "1px solid rgba(77,143,247,0.4)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                overflow: "hidden",
               }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <Bot size={20} color="#4d8ff7" strokeWidth={2} />
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.85rem" }}>Aniket Assistant Bot</p>
+                  <p style={{ color: "var(--text-primary)", fontWeight: 700, fontSize: "0.85rem" }}>Aniket&apos;s Assistant</p>
                   {recruiterMode && (
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -684,7 +682,7 @@ export default function ChatBot() {
                 ) : null}
 
                 {/* Divider */}
-                <span style={{ width: "1px", height: "14px", background: "rgba(30,58,95,0.8)", flexShrink: 0 }} />
+                <span style={{ width: "1px", height: "14px", background: "var(--border-strong)", flexShrink: 0 }} />
 
                 {/* Action text badges */}
                 {([
@@ -697,12 +695,12 @@ export default function ChatBot() {
                     onMouseEnter={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "1"; }}
                     onMouseLeave={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "0"; }}>
                     <button onClick={action}
-                      style={{ fontSize: "0.6rem", fontWeight: 600, padding: "0.2rem 0.5rem", borderRadius: "999px", border: "1px solid rgba(30,58,95,0.7)", background: "none", color: "#4a6b8a", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s" }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = danger ? "rgba(239,68,68,0.4)" : "rgba(26,108,245,0.4)"; e.currentTarget.style.color = danger ? "#ef4444" : "#e8f0fe"; e.currentTarget.style.background = danger ? "rgba(239,68,68,0.07)" : "rgba(26,108,245,0.07)"; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(30,58,95,0.7)"; e.currentTarget.style.color = "#4a6b8a"; e.currentTarget.style.background = "none"; }}>
+                      style={{ fontSize: "0.6rem", fontWeight: 600, padding: "0.2rem 0.5rem", borderRadius: "999px", border: "1px solid var(--border-medium)", background: "none", color: "var(--text-muted)", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s" }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = danger ? "rgba(239,68,68,0.4)" : "rgba(26,108,245,0.4)"; e.currentTarget.style.color = danger ? "#ef4444" : "var(--text-primary)"; e.currentTarget.style.background = danger ? "rgba(239,68,68,0.07)" : "rgba(26,108,245,0.07)"; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-medium)"; e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.background = "none"; }}>
                       {label}
                     </button>
-                    <div className="hdr-tip" style={{ position: "absolute", bottom: "calc(100% + 6px)", left: "50%", transform: "translateX(-50%)", background: "rgba(7,20,36,0.97)", border: "1px solid rgba(30,58,95,0.9)", borderRadius: "7px", padding: "0.25rem 0.55rem", fontSize: "0.6rem", color: "#c8daf4", whiteSpace: "nowrap", pointerEvents: "none", opacity: 0, transition: "opacity 0.15s", zIndex: 20 }}>
+                    <div className="hdr-tip" style={{ position: "absolute", bottom: "calc(100% + 6px)", left: "50%", transform: "translateX(-50%)", background: "var(--bg-card-alpha-hi)", border: "1px solid var(--border-strong)", borderRadius: "7px", padding: "0.25rem 0.55rem", fontSize: "0.6rem", color: "var(--text-primary)", whiteSpace: "nowrap", pointerEvents: "none", opacity: 0, transition: "opacity 0.15s", zIndex: 20 }}>
                       {tooltip}
                     </div>
                   </div>
@@ -710,9 +708,9 @@ export default function ChatBot() {
 
                 {fullscreen && (
                   <button onClick={() => { setOpen(false); setFullscreen(false); }} title="Close"
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", color: "#4a6b8a", display: "flex", borderRadius: "6px", marginLeft: "1px", transition: "color 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = "#e8f0fe"}
-                    onMouseLeave={e => e.currentTarget.style.color = "#4a6b8a"}>
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", color: "var(--text-muted)", display: "flex", borderRadius: "6px", marginLeft: "1px", transition: "color 0.2s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "var(--text-primary)"}
+                    onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>
                     <X size={14} />
                   </button>
                 )}
@@ -761,9 +759,9 @@ export default function ChatBot() {
                   <div style={{
                     maxWidth: "88%", padding: fullscreen ? "0.75rem 1.1rem" : "0.6rem 0.9rem",
                     borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
-                    background: msg.from === "user" ? "linear-gradient(135deg, #1a6cf5, #4d8ff7)" : "rgba(13,27,46,0.95)",
-                    border: msg.from === "user" ? "none" : "1px solid rgba(30,58,95,0.8)",
-                    color: msg.from === "user" ? "#fff" : "#c8daf4",
+                    background: msg.from === "user" ? "linear-gradient(135deg, #1a6cf5, #4d8ff7)" : "var(--bg-card-alpha-hi)",
+                    border: msg.from === "user" ? "none" : "1px solid var(--border-strong)",
+                    color: msg.from === "user" ? "#fff" : "var(--text-primary)",
                     fontSize: fullscreen ? "0.88rem" : "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line",
                     position: "relative",
                   }}>{msg.text}</div>
@@ -772,7 +770,7 @@ export default function ChatBot() {
                   {/* Bot message actions: time + reactions + copy */}
                   {msg.from === "bot" && (
                     <div style={{ display: "flex", alignItems: "center", gap: "4px", paddingInline: "4px", minHeight: "20px" }}>
-                      <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>{msg.time}</span>
+                      <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>{msg.time}</span>
                       <AnimatePresence>
                         {(hoveredId === msg.id || reactions[msg.id]) && (
                           <motion.div
@@ -785,8 +783,8 @@ export default function ChatBot() {
                             {(["👍", "👎"] as const).map((emoji) => (
                               <button key={emoji} onClick={() => setReaction(msg.id, emoji)}
                                 style={{
-                                  background: reactions[msg.id] === emoji ? "rgba(26,108,245,0.2)" : "rgba(13,27,46,0.6)",
-                                  border: `1px solid ${reactions[msg.id] === emoji ? "rgba(26,108,245,0.4)" : "rgba(30,58,95,0.5)"}`,
+                                  background: reactions[msg.id] === emoji ? "rgba(26,108,245,0.2)" : "var(--bg-card-alpha-lo)",
+                                  border: `1px solid ${reactions[msg.id] === emoji ? "rgba(26,108,245,0.4)" : "var(--border-faint)"}`,
                                   borderRadius: "6px", padding: "2px 6px", cursor: "pointer",
                                   fontSize: "0.65rem", lineHeight: 1.5, transition: "all 0.15s",
                                 }}>
@@ -795,10 +793,10 @@ export default function ChatBot() {
                             ))}
                             <button onClick={() => copyMessage(msg.text, msg.id)}
                               title="Copy"
-                              style={{ background: "rgba(13,27,46,0.6)", border: "1px solid rgba(30,58,95,0.5)", borderRadius: "6px", padding: "2px 5px", cursor: "pointer", display: "flex", alignItems: "center", transition: "all 0.15s" }}>
+                              style={{ background: "var(--bg-card-alpha-lo)", border: "1px solid var(--border-faint)", borderRadius: "6px", padding: "2px 5px", cursor: "pointer", display: "flex", alignItems: "center", transition: "all 0.15s" }}>
                               {copiedId === msg.id
                                 ? <Check size={10} color="#4ade80" />
-                                : <Copy size={10} color="#4a6b8a" />
+                                : <Copy size={10} color="var(--text-muted)" />
                               }
                             </button>
                           </motion.div>
@@ -810,7 +808,7 @@ export default function ChatBot() {
                   {/* User message: time + reuse */}
                   {msg.from === "user" && (
                     <div style={{ display: "flex", alignItems: "center", gap: "5px", paddingInline: "4px" }}>
-                      <span style={{ fontSize: "0.6rem", color: "#2d4a6a" }}>{msg.time}</span>
+                      <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>{msg.time}</span>
                       <AnimatePresence>
                         {hoveredId === msg.id && (
                           <motion.button
@@ -836,7 +834,7 @@ export default function ChatBot() {
               {/* Typing indicator */}
               {typing && (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "3px" }}>
-                  <div style={{ padding: "0.6rem 0.9rem", borderRadius: "16px 16px 16px 4px", background: "rgba(13,27,46,0.95)", border: "1px solid rgba(30,58,95,0.8)", display: "flex", gap: "4px", alignItems: "center" }}>
+                  <div style={{ padding: "0.6rem 0.9rem", borderRadius: "16px 16px 16px 4px", background: "var(--bg-card-alpha-hi)", border: "1px solid var(--border-strong)", display: "flex", gap: "4px", alignItems: "center" }}>
                     {[0, 1, 2].map((d) => (
                       <motion.span key={d} animate={{ y: [0, -4, 0] }} transition={{ duration: 0.5, repeat: Infinity, delay: d * 0.15 }}
                         style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4d8ff7", display: "inline-block" }} />
@@ -848,7 +846,7 @@ export default function ChatBot() {
               {/* Typing effect */}
               {isTypingEffect && typingText && (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "3px" }}>
-                  <div style={{ maxWidth: "88%", padding: fullscreen ? "0.75rem 1.1rem" : "0.6rem 0.9rem", borderRadius: "16px 16px 16px 4px", background: "rgba(13,27,46,0.95)", border: "1px solid rgba(30,58,95,0.8)", color: "#c8daf4", fontSize: fullscreen ? "0.88rem" : "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line" }}>
+                  <div style={{ maxWidth: "88%", padding: fullscreen ? "0.75rem 1.1rem" : "0.6rem 0.9rem", borderRadius: "16px 16px 16px 4px", background: "var(--bg-card-alpha-hi)", border: "1px solid var(--border-strong)", color: "var(--text-primary)", fontSize: fullscreen ? "0.88rem" : "0.77rem", lineHeight: 1.65, whiteSpace: "pre-line" }}>
                     {typingText}
                     <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }}
                       style={{ display: "inline-block", width: "2px", height: "12px", background: "#4d8ff7", marginLeft: "2px", verticalAlign: "middle" }} />
@@ -859,7 +857,7 @@ export default function ChatBot() {
             </div>
 
             {/* Contextual suggestions */}
-            <div style={{ padding: "0.5rem 1rem 0.6rem", display: "flex", flexWrap: "wrap", gap: "0.4rem", borderTop: "1px solid rgba(30,58,95,0.5)" }}>
+            <div style={{ padding: "0.5rem 1rem 0.6rem", display: "flex", flexWrap: "wrap", gap: "0.4rem", borderTop: "1px solid var(--border-faint)" }}>
               {suggestions.map((s) => (
                 <motion.button key={s} whileHover={{ borderColor: "rgba(26,108,245,0.5)", background: "rgba(26,108,245,0.12)" }}
                   onClick={() => send(s)}
@@ -878,17 +876,17 @@ export default function ChatBot() {
                   exit={{ opacity: 0, height: 0 }}
                   style={{ padding: "0.2rem 1.1rem", display: "flex", alignItems: "center", gap: "4px" }}
                 >
-                  <span style={{ fontSize: "0.58rem", color: "#2d4a6a", fontStyle: "italic" }}>typing</span>
+                  <span style={{ fontSize: "0.58rem", color: "var(--text-muted)", fontStyle: "italic" }}>typing</span>
                   {[0, 1, 2].map(d => (
                     <motion.span key={d} animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 0.7, repeat: Infinity, delay: d * 0.2 }}
-                      style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#2d4a6a", display: "inline-block" }} />
+                      style={{ width: "3px", height: "3px", borderRadius: "50%", background: "var(--text-muted)", display: "inline-block" }} />
                   ))}
                 </motion.div>
               )}
             </AnimatePresence>
 
             {/* Input */}
-            <div style={{ padding: "0.7rem 1rem", borderTop: "1px solid rgba(30,58,95,0.7)", display: "flex", gap: "0.5rem", alignItems: "center", background: "rgba(7,20,36,0.8)" }}>
+            <div style={{ padding: "0.7rem 1rem", borderTop: "1px solid var(--border-medium)", display: "flex", gap: "0.5rem", alignItems: "center", background: "var(--bg-card-alpha)" }}>
               <input
                 ref={inputRef}
                 value={input}
@@ -904,9 +902,9 @@ export default function ChatBot() {
                 }}
                 onKeyDown={(e) => e.key === "Enter" && send(input)}
                 placeholder="Ask me anything..."
-                style={{ flex: 1, background: "rgba(13,27,46,0.8)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "12px", padding: "0.5rem 0.75rem", color: "#e8f0fe", fontSize: "0.78rem", outline: "none", transition: "border-color 0.2s" }}
+                style={{ flex: 1, background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)", borderRadius: "12px", padding: "0.5rem 0.75rem", color: "var(--text-primary)", fontSize: "0.78rem", outline: "none", transition: "border-color 0.2s" }}
                 onFocus={(e) => e.target.style.borderColor = "rgba(26,108,245,0.5)"}
-                onBlur={(e) => e.target.style.borderColor = "rgba(30,58,95,0.8)"}
+                onBlur={(e) => e.target.style.borderColor = "var(--border-strong)"}
               />
               {/* Mic button */}
               <motion.button
@@ -915,21 +913,21 @@ export default function ChatBot() {
                 title={isListening ? "Stop listening" : "Voice input"}
                 style={{
                   width: "36px", height: "36px", borderRadius: "11px", flexShrink: 0,
-                  background: isListening ? "rgba(239,68,68,0.2)" : "rgba(30,58,95,0.4)",
-                  border: isListening ? "1px solid rgba(239,68,68,0.5)" : "1px solid rgba(30,58,95,0.6)",
+                  background: isListening ? "rgba(239,68,68,0.2)" : "var(--border-subtle)",
+                  border: isListening ? "1px solid rgba(239,68,68,0.5)" : "1px solid var(--border-medium)",
                   cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
                   transition: "all 0.2s",
                 }}
               >
                 {isListening
                   ? <motion.span animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }}><MicOff size={14} color="#ef4444" /></motion.span>
-                  : <Mic size={14} color="#4a6b8a" />
+                  : <Mic size={14} color="var(--text-muted)" />
                 }
               </motion.button>
               {/* Send button */}
               <motion.button whileTap={{ scale: 0.92 }} onClick={() => send(input)}
-                style={{ width: "36px", height: "36px", borderRadius: "11px", flexShrink: 0, background: input.trim() ? "#1a6cf5" : "rgba(30,58,95,0.4)", border: "none", cursor: input.trim() ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}>
-                <Send size={14} color={input.trim() ? "#fff" : "#4a6b8a"} />
+                style={{ width: "36px", height: "36px", borderRadius: "11px", flexShrink: 0, background: input.trim() ? "#1a6cf5" : "var(--border-subtle)", border: "none", cursor: input.trim() ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}>
+                <Send size={14} color={input.trim() ? "#fff" : "var(--text-muted)"} />
               </motion.button>
             </div>
           </motion.div>

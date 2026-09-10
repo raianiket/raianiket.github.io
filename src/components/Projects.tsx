@@ -232,7 +232,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         onClick={onClose}
         style={{
           position: "fixed", inset: 0, zIndex: 1000,
-          background: "rgba(5,13,26,0.88)", backdropFilter: "blur(10px)",
+          background: "var(--nav-bg)", backdropFilter: "blur(10px)",
           display: "flex", alignItems: "center", justifyContent: "center",
           padding: "1.5rem",
         }}
@@ -246,7 +246,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           onClick={(e) => e.stopPropagation()}
           style={{
             width: "100%", maxWidth: "640px", maxHeight: "85vh", overflowY: "auto",
-            background: "rgba(7,20,36,0.99)",
+            background: "var(--bg-card-alpha-hi)",
             border: `1px solid ${project.borderColor}`,
             borderRadius: "24px", padding: "2rem",
             boxShadow: `0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px ${project.borderColor}`,
@@ -256,7 +256,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {/* Close button */}
           <button
             onClick={onClose}
-            style={{ position: "absolute", top: "1.25rem", right: "1.25rem", background: "rgba(30,58,95,0.5)", border: "1px solid rgba(30,58,95,0.8)", borderRadius: "8px", padding: "6px", cursor: "pointer", color: "#7a9cc5", display: "flex" }}
+            style={{ position: "absolute", top: "1.25rem", right: "1.25rem", background: "var(--chip-bg-solid)", border: "1px solid var(--chip-border-solid)", borderRadius: "8px", padding: "6px", cursor: "pointer", color: "var(--text-secondary)", display: "flex" }}
           >
             <X size={16} />
           </button>
@@ -270,7 +270,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               <span style={{ fontSize: "0.62rem", fontWeight: 600, padding: "0.18rem 0.55rem", borderRadius: "999px", background: project.bgColor, border: `1px solid ${project.borderColor}`, color: project.color, letterSpacing: "0.05em" }}>
                 {project.category}
               </span>
-              <h2 style={{ color: "#e8f0fe", fontWeight: 800, fontSize: "1.25rem", marginTop: "0.4rem" }}>{project.title}</h2>
+              <h2 style={{ color: "var(--text-primary)", fontWeight: 800, fontSize: "1.25rem", marginTop: "0.4rem" }}>{project.title}</h2>
             </div>
           </div>
 
@@ -278,7 +278,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <div style={{ height: "2px", borderRadius: "999px", background: `linear-gradient(90deg, ${project.color}, transparent)`, marginBottom: "1.5rem", opacity: 0.6 }} />
 
           {/* Description */}
-          <p style={{ color: "#c8daf4", fontSize: "0.85rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
             {project.description}
           </p>
 
@@ -299,7 +299,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             <p style={{ color: "#4d8ff7", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.6rem" }}>Tech Stack</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
               {project.tags.map((t) => (
-                <span key={t} style={{ fontSize: "0.72rem", padding: "0.25rem 0.65rem", borderRadius: "999px", background: "rgba(30,58,95,0.6)", border: "1px solid rgba(30,58,95,0.9)", color: "#7a9cc5" }}>
+                <span key={t} style={{ fontSize: "0.72rem", padding: "0.25rem 0.65rem", borderRadius: "999px", background: "var(--chip-bg-solid)", border: "1px solid var(--chip-border-solid)", color: "var(--text-secondary)" }}>
                   {t}
                 </span>
               ))}

@@ -55,12 +55,12 @@ export default function SectionDots() {
                 transition={{ duration: 0.15 }}
                 style={{
                   position: "absolute", right: "20px",
-                  background: "rgba(7,20,36,0.95)",
+                  background: "var(--bg-card-alpha-hi)",
                   border: "1px solid rgba(26,108,245,0.3)",
                   borderRadius: "6px",
                   padding: "0.25rem 0.6rem",
                   fontSize: "0.65rem", fontWeight: 600,
-                  color: "#e8f0fe", whiteSpace: "nowrap",
+                  color: "var(--text-primary)", whiteSpace: "nowrap",
                   boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
                   pointerEvents: "none",
                 }}

@@ -43,7 +43,7 @@ export default function Education() {
           <p style={{ color: "#4d8ff7", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             Education & Certifications
           </p>
-          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "#e8f0fe" }}>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: 800, color: "var(--text-primary)" }}>
             Background
           </h2>
         </motion.div>
@@ -60,14 +60,14 @@ export default function Education() {
               <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <GraduationCap size={16} color="#4d8ff7" />
               </div>
-              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.9rem" }}>Education</h3>
+              <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.9rem" }}>Education</h3>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {education.map((e) => (
                 <motion.div
                   key={e.degree}
                   whileHover={{ borderColor: "rgba(26,108,245,0.4)" }}
-                  style={{ borderRadius: "14px", padding: "1.25rem", background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)", transition: "border-color 0.3s" }}
+                  style={{ borderRadius: "14px", padding: "1.25rem", background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)", transition: "border-color 0.3s" }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
                     {e.grade && (
@@ -80,10 +80,10 @@ export default function Education() {
                         ({e.grade})
                       </span>
                     )}
-                    <p style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.88rem" }}>{e.degree}</p>
+                    <p style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.88rem" }}>{e.degree}</p>
                   </div>
                   <p style={{ color: "#4d8ff7", fontSize: "0.78rem", fontWeight: 600, marginBottom: "0.25rem" }}>{e.school}</p>
-                  <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>{e.period}</p>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.72rem" }}>{e.period}</p>
                 </motion.div>
               ))}
             </div>
@@ -100,7 +100,7 @@ export default function Education() {
               <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Award size={16} color="#4d8ff7" />
               </div>
-              <h3 style={{ fontWeight: 700, color: "#e8f0fe", fontSize: "0.9rem" }}>Certifications</h3>
+              <h3 style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "0.9rem" }}>Certifications</h3>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {certifications.map((c, i) => (
@@ -111,9 +111,9 @@ export default function Education() {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ borderColor: "rgba(26,108,245,0.4)" }}
-                  style={{ borderRadius: "12px", padding: "1rem 1.25rem", background: "rgba(13,27,46,0.7)", border: "1px solid rgba(30,58,95,0.8)", transition: "border-color 0.3s", display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                  style={{ borderRadius: "12px", padding: "1rem 1.25rem", background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)", transition: "border-color 0.3s", display: "flex", alignItems: "center", justifyContent: "space-between" }}
                 >
-                  <span style={{ fontWeight: 600, color: "#e8f0fe", fontSize: "0.82rem" }}>{c.name}</span>
+                  <span style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "0.82rem" }}>{c.name}</span>
                   <span style={{ fontSize: "0.7rem", color: "#4d8ff7", fontWeight: 600, background: "rgba(26,108,245,0.1)", border: "1px solid rgba(26,108,245,0.2)", padding: "2px 8px", borderRadius: "999px", whiteSpace: "nowrap", marginLeft: "0.75rem" }}>{c.issuer}</span>
                 </motion.div>
               ))}

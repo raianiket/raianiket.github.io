@@ -197,7 +197,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            style={{ background: mobileBg, backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(30,58,95,0.5)", padding: "0 1.5rem 1rem" }}
+            style={{ background: mobileBg, backdropFilter: "blur(20px)", borderBottom: "1px solid var(--border-medium)", padding: "0 1.5rem 1rem" }}
           >
             {links.map((l) => (
               <button
@@ -205,7 +205,7 @@ export default function Navbar() {
                 onClick={() => handleNav(l.href)}
                 style={{
                   display: "block", width: "100%", textAlign: "left", padding: "0.85rem 0",
-                  borderBottom: "1px solid rgba(30,58,95,0.3)", background: "none", border: "none",
+                  borderBottom: "1px solid var(--border-subtle)", background: "none", border: "none",
                   color: active === l.href.slice(1) ? activeColor : textColor,
                   fontSize: "0.9rem", cursor: "pointer",
                 } as React.CSSProperties}

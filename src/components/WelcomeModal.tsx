@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Scroll } from "lucide-react";
+import { Scroll, Bot } from "lucide-react";
 import { track } from "@/lib/track";
 import { EASE } from "@/lib/constants";
 
@@ -71,8 +71,8 @@ export default function WelcomeModal() {
               style={{
                 pointerEvents: "all",
                 width: "92%", maxWidth: "440px",
-                background: "rgba(7,20,36,0.98)",
-                border: "1px solid rgba(30,58,95,0.9)",
+                background: "var(--bg-card-alpha-hi)",
+                border: "1px solid var(--border-strong)",
                 borderRadius: "24px",
                 padding: "clamp(1.25rem, 5vw, 2rem) clamp(1rem, 5vw, 1.75rem) 1.25rem",
                 boxShadow: "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(26,108,245,0.15), 0 0 80px rgba(26,108,245,0.08)",
@@ -106,15 +106,14 @@ export default function WelcomeModal() {
                 transition={{ delay: 0.2, duration: 0.5, ease: EASE }}
                 style={{
                   width: "72px", height: "72px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
+                  background: "rgba(26,108,245,0.14)",
                   border: "3px solid rgba(26,108,245,0.4)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   margin: "0 auto 1rem",
                   boxShadow: "0 0 0 6px rgba(26,108,245,0.08), 0 8px 32px rgba(26,108,245,0.3)",
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "58px", height: "58px", objectFit: "contain", mixBlendMode: "screen" }} />
+                <Bot size={34} color="#4d8ff7" strokeWidth={2} />
               </motion.div>
 
               {/* Greeting */}
@@ -126,10 +125,10 @@ export default function WelcomeModal() {
                 <p style={{ color: "#4d8ff7", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.4rem", textAlign: "center" }}>
                   Hi, I&apos;m Aniket&apos;s Assistant
                 </p>
-                <h2 style={{ color: "#e8f0fe", fontSize: "clamp(1.1rem, 5vw, 1.45rem)", fontWeight: 800, marginBottom: "0.5rem", lineHeight: 1.3, textAlign: "center" }}>
+                <h2 style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 5vw, 1.45rem)", fontWeight: 800, marginBottom: "0.5rem", lineHeight: 1.3, textAlign: "center" }}>
                   How do you want to explore?
                 </h2>
-                <p style={{ color: "#7a9cc5", fontSize: "0.81rem", lineHeight: 1.65, marginBottom: "1.75rem", textAlign: "center" }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.81rem", lineHeight: 1.65, marginBottom: "1.75rem", textAlign: "center" }}>
                   Scroll the full portfolio, or just ask me anything about Aniket.
                 </p>
               </motion.div>
@@ -148,7 +147,7 @@ export default function WelcomeModal() {
                   style={{
                     display: "flex", alignItems: "center", gap: "1rem",
                     padding: "1rem 1.25rem", borderRadius: "16px",
-                    background: "rgba(13,27,46,0.8)", border: "1px solid rgba(30,58,95,0.8)",
+                    background: "var(--bg-card-alpha)", border: "1px solid var(--border-strong)",
                     cursor: "pointer", textAlign: "left", transition: "all 0.25s",
                   }}
                 >
@@ -160,10 +159,10 @@ export default function WelcomeModal() {
                     <Scroll size={18} color="#4d8ff7" />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.9rem", marginBottom: "2px" }}>Explore</p>
-                    <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>Scroll through the full portfolio</p>
+                    <p style={{ color: "var(--text-primary)", fontWeight: 700, fontSize: "0.9rem", marginBottom: "2px" }}>Explore</p>
+                    <p style={{ color: "var(--text-secondary)", fontSize: "0.72rem" }}>Scroll through the full portfolio</p>
                   </div>
-                  <span style={{ color: "#2d4a6a", fontSize: "0.65rem", fontFamily: "monospace" }}>E</span>
+                  <span style={{ color: "var(--text-muted)", fontSize: "0.65rem", fontFamily: "monospace" }}>E</span>
                 </motion.button>
 
                 {/* Skip the Scroll option */}
@@ -205,17 +204,15 @@ export default function WelcomeModal() {
                   />
                   <div style={{
                     width: "42px", height: "42px", borderRadius: "50%", flexShrink: 0,
-                    background: "linear-gradient(135deg, #0d1b2e, #1a3a6e)",
-                    border: "2px solid rgba(26,108,245,0.4)",
+                    background: "rgba(26,108,245,0.14)",
+                    border: "1px solid rgba(77,143,247,0.4)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    overflow: "hidden",
                   }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/aniketbot.jpg" alt="bot" style={{ width: "36px", height: "36px", objectFit: "contain", mixBlendMode: "screen" }} />
+                    <Bot size={20} color="#4d8ff7" strokeWidth={2} />
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "2px" }}>
-                      <p style={{ color: "#e8f0fe", fontWeight: 700, fontSize: "0.9rem" }}>Skip the Scroll</p>
+                      <p style={{ color: "var(--text-primary)", fontWeight: 700, fontSize: "0.9rem" }}>Skip the Scroll</p>
                       <motion.span
                         animate={{ opacity: [0.7, 1, 0.7] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
@@ -224,14 +221,14 @@ export default function WelcomeModal() {
                         RECOMMENDED
                       </motion.span>
                     </div>
-                    <p style={{ color: "#7a9cc5", fontSize: "0.72rem" }}>Ask the bot anything, get answers fast</p>
+                    <p style={{ color: "var(--text-secondary)", fontSize: "0.72rem" }}>Ask the bot anything, get answers fast</p>
                   </div>
-                  <span style={{ color: "#2d4a6a", fontSize: "0.65rem", fontFamily: "monospace" }}>S</span>
+                  <span style={{ color: "var(--text-muted)", fontSize: "0.65rem", fontFamily: "monospace" }}>S</span>
                 </motion.button>
               </div>
 
               {/* Footer note */}
-              <p style={{ color: "#4a6b8a", fontSize: "0.65rem", textAlign: "center", marginTop: "1.25rem" }}>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.65rem", textAlign: "center", marginTop: "1.25rem" }}>
                 You can always switch by clicking the chat button
               </p>
             </motion.div>
