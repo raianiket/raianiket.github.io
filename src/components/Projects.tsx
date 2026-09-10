@@ -238,10 +238,11 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 32, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.96 }}
-          transition={{ duration: 0.4, ease: EASE }}
+          layoutId={`project-card-${project.title}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ layout: { duration: 0.4, ease: EASE }, opacity: { duration: 0.2, delay: 0.22 } }}
           onClick={(e) => e.stopPropagation()}
           style={{
             width: "100%", maxWidth: "640px", maxHeight: "85vh", overflowY: "auto",
@@ -369,7 +370,7 @@ function ProjectCard({ project: p, index: i, onClick }: { project: Project; inde
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      layout
+      layoutId={`project-card-${p.title}`}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
       whileHover={{ y: -6, boxShadow: `0 16px 48px ${p.bgColor}` }}
       onClick={onClick}
