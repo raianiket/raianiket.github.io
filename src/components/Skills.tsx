@@ -8,11 +8,12 @@ import { Code2, Database, Cloud, Activity, Bot, Wrench, Globe } from "lucide-rea
 const coreSkills = [
   { name: "TypeScript / JavaScript / Node.js", years: "5 yrs", level: "Expert", pct: 95, color: "#3178c6" },
   { name: "PostgreSQL",           years: "5 yrs", level: "Expert",    pct: 92, color: "#336791" },
-  { name: "AWS",                  years: "5 yrs", level: "Advanced",  pct: 82, color: "#ff9900" },
-  { name: "GraphQL",              years: "4 yrs", level: "Advanced",  pct: 80, color: "#e10098" },
-  { name: "AI Agent Development", years: "2 yrs", level: "Advanced",  pct: 78, color: "#a78bfa" },
+  { name: "AWS",                  years: "5 yrs", level: "Expert",    pct: 90, color: "#ff9900" },
+  { name: "GraphQL",              years: "5 yrs", level: "Expert",    pct: 90, color: "#e10098" },
+  { name: "AI Agent Development", years: "2 yrs", level: "Expert",    pct: 90, color: "#a78bfa" },
+  { name: "GenAI / Agentic AI",   years: "3 yrs", level: "Expert",    pct: 90, color: "#f472b6" },
   { name: "PHP",                  years: "2 yrs", level: "Intermediate", pct: 50, color: "#8892be" },
-  { name: "Python",               years: "3 yrs", level: "Intermediate", pct: 60, color: "#3776ab" },
+  { name: "Python",               years: "4 yrs", level: "Advanced",     pct: 75, color: "#3776ab" },
 ];
 
 // ── Tech logo colours & abbreviations ────────────────────────────────────────
