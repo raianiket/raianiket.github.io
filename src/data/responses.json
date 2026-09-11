@@ -727,7 +727,7 @@
     },
     {
       "pattern": "postgraphile|post.graphile|graphile",
-      "text": "🔌 PostGraphile\n\nPostGraphile is a tool that automatically generates a GraphQL API from a PostgreSQL schema. Aniket has deep expertise with it at SysCloud:\n\n• All GraphQL mutations and queries at SysCloud run through PostGraphile\n• MDL 2.0 executes each action as a micro-task inside PostGraphile\n• DAL AI-Agents include a PostGraphile Slow-Queries agent for performance monitoring\n• Built as an intern: authored GraphQL mutations within the PostGraphile server\n\nHe's been working with PostGraphile for 4+ years across Gen1 through Gen5.",
+      "text": "🔌 PostGraphile\n\nPostGraphile is a tool that automatically generates a GraphQL API from a PostgreSQL schema. Aniket has deep expertise with it at SysCloud:\n\n• All GraphQL mutations and queries at SysCloud run through PostGraphile\n• MDL 2.0 executes each action as a micro-task inside PostGraphile\n• DAL AI-Agents include a PostGraphile Slow-Queries agent for performance monitoring\n• Built as an intern: authored GraphQL mutations within the PostGraphile server\n\nHe's been working with PostGraphile for 5+ years across Gen1 through Gen5.",
       "suggestions": [
         "GraphQL experience",
         "MDL 2.0",
