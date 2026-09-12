@@ -23,6 +23,7 @@ flowchart TD
 
     LLM -->|Ollama reachable at localhost:11434| OK[llama3.2:1b answers using relevant context only]
     LLM -->|not running, or a different visitors machine| DEF[Default fallback response, logged as unanswered]
+    LLM -->|critical or adversarial question, e.g. bad fit, why not hire| DEF
 
     FU --> R[Response Builder]
     JM --> R
@@ -63,7 +64,7 @@ Show it working before explaining how, in this order:
    versus struggle in?"* → takes a couple of seconds, a small **purple
    sparkle icon** appears next to the timestamp — that message was
    generated live by the local model, grounded in the actual portfolio
-   facts (see section 6 for how you can tell it isn't hallucinating).
+   facts (see section 7 for how you can tell it isn't hallucinating).
 3. **Say the line that makes the architecture click:** *"Nothing about the
    first answer changed to make the second one possible. The model is
    strictly additive — it only ever gets a turn when the deterministic
@@ -74,6 +75,11 @@ Show it working before explaining how, in this order:
    to reach him" response the chatbot always gave. Nothing errors, nothing
    looks broken. This is the strongest point to make to a CTO: **the
    feature has no visible failure mode for a real visitor.**
+5. **Optional, and a good one for a technical interviewer — ask something
+   adversarial:** *"What would make him a bad fit for a startup?"* or *"Why
+   shouldn't I hire him?"* → it declines rather than guessing, same as the
+   Ollama-down case. This is deliberate, not a gap — see section 6 for the
+   real testing behind that call.
 
 ### Running it
 
@@ -196,7 +202,68 @@ as raw capability."*
   If the model is unreachable, cold-starting, or unexpectedly slow, it
   fails closed into the same default response — never a hung UI.
 
-## 6. Transparency: how you can tell which layer answered
+## 6. A tested limitation: critical/adversarial questions skip the LLM entirely
+
+Questions like *"what would make him a bad fit for a startup?"*, *"what are
+his weaknesses?"*, or *"why shouldn't I hire him?"* are deliberately routed
+**away** from the LLM (`isCriticalQuestion()` in `localLlm.ts` short-circuits
+to the same default response used when Ollama is unreachable). This is a
+documented capability ceiling, not a shortcut — worth walking through
+because it's a better engineering story than "it just works."
+
+**What was tried, in order, against the real `llama3.2:1b` model on this
+machine:**
+
+1. A single call with the full 67-entry Q&A corpus and an 8-rule
+   anti-hallucination system prompt (evidence/inference separation, a rigid
+   4-line output format, temperature 0.2).
+2. The same, but scoped to only the keyword-matched subset of the corpus.
+3. A two-step pipeline: one call to *extract* relevant evidence into a
+   structured SUPPORTING / CONCERNS / UNKNOWN summary, a second call to
+   *reason* only from that summary — deliberately keeping each step's job
+   small, per the standard "smaller task, better small-model result"
+   principle.
+4. A single call scoped to a small, hand-picked ~10-entry pool
+   (~3,300 characters) of facts specifically relevant to work style,
+   ownership, and pressure-handling — removing the noise of 60+ irrelevant
+   facts (salary, PHP, education) entirely.
+
+**Every single approach still invented specific, plausible-sounding,
+entirely unfounded claims** — "scope creep," "overemphasis on technical
+debt," "lack of experience with agile methodologies," "high expectations for
+rapid growth" — none of which exist anywhere in the source data, even with
+explicit "only claim what's below, say so if evidence is insufficient"
+instructions in every version. Approach 1 additionally leaked markdown
+asterisks and ran ~54s per answer at the original (larger) context size; approach 3's first
+step ignored its own "extract, don't answer" instruction outright once given
+the full corpus, and just answered the original question directly.
+
+**Why this happens:** it's not a wording problem. A 1B-parameter model has a
+real, measurable ceiling on how many simultaneous constraints it can track —
+find the relevant facts among many, reason about risk, and obey a strict
+format, all while resisting the pull toward writing something that *sounds*
+like a complete, confident answer. Adversarially-framed questions make this
+worse: the question itself supplies a plausible narrative shape ("enterprise
+experience → slow, inflexible") that a small model tends to complete rather
+than checks against evidence.
+
+**The deliberate constraint that shaped the fix:** this project keeps
+`llama3.2:1b` as a hard requirement — local execution, low RAM/storage, no
+paid API — specifically *not* solving quality problems by upsizing the
+model. Given that constraint plus four failed grounding attempts, the
+responsible choice for a chatbot that represents a real person to real
+recruiters is to not let the model attempt this category of question at all,
+rather than ship a plausible-looking but occasionally fabricated answer.
+
+**Talking point:** *"I could have shipped the LLM answering everything and
+it would have looked fine in a casual demo — but I specifically tested it
+against adversarial framing, found it fabricates unsupported claims, and
+made the call to route that category away from generation entirely rather
+than accept the risk. Knowing where a small model's reasoning ceiling is,
+and designing around it, is a more useful skill than pretending it doesn't
+have one."*
+
+## 7. Transparency: how you can tell which layer answered
 
 Every bot message that came from the local LLM (not regex/fuzzy) carries a
 small purple sparkle icon next to its timestamp (`Message.viaLLM` in
@@ -206,7 +273,7 @@ answers are deterministic and which are generated live.
 
 ---
 
-## 7. Anticipated questions
+## 8. Anticipated questions
 
 **"Why not just call OpenAI/Claude's API?"**
 Cost and data. This is a personal portfolio with unpredictable traffic — a
@@ -235,3 +302,7 @@ for embeddings + a vector index once the corpus is too large for keyword
 matching to stay accurate, and swap Ollama for a hosted endpoint once the
 traffic or model size no longer fits comfortably on one machine. The
 regex-first / LLM-fallback *shape* of the architecture doesn't change.
+
+**"Ask it why you'd be a bad fit for a startup, right now."**
+It'll say it doesn't have that information — deliberately (section 6). Good
+to have ready if someone in the room already read the code and asks why.
