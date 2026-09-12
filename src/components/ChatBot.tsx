@@ -147,10 +147,23 @@ function matchIntent(input: string, lastTopic: string | null): { response: Respo
     };
   }
 
-  // Try normalized text first, then raw
-  for (const { pattern, response } of RESPONSES) {
-    if (pattern.test(normalized) || pattern.test(raw)) {
-      return { response, topic: response.topic || null };
+  // Critical/adversarial questions ("good fit for a startup", "biggest
+  // weakness") skip the regex layer entirely. Topic patterns are broad,
+  // generic canned answers (skills, leadership, achievements) — a bare
+  // keyword like "team" or "lead" can accidentally swallow a critical
+  // question and return something irrelevant instead of real reasoning.
+  // That's a structural risk that grows with every new pattern added, so
+  // critical questions go straight to fuzzy-match (already guarded to
+  // only match same-class questions, so a hand-tuned answer like the
+  // weakness one below still applies) and from there to the LLM's
+  // selection-only pipeline, never a generic regex response.
+  const questionIsCritical = isCriticalQuestion(normalized);
+  if (!questionIsCritical) {
+    // Try normalized text first, then raw
+    for (const { pattern, response } of RESPONSES) {
+      if (pattern.test(normalized) || pattern.test(raw)) {
+        return { response, topic: response.topic || null };
+      }
     }
   }
 
@@ -161,7 +174,6 @@ function matchIntent(input: string, lastTopic: string | null): { response: Respo
   // ("should"), so a critical/adversarial question could otherwise fuzzy-
   // match onto — and return — the sentiment-inverted positive answer. Only
   // accept a candidate whose own critical-ness matches the question's.
-  const questionIsCritical = isCriticalQuestion(normalized);
   const fuzzy = closestMatch(
     normalized,
     FINETUNING_EXAMPLES.filter((ex) => isCriticalQuestion(ex.q) === questionIsCritical),
