@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Copy, Check, Mic, MicOff, Bot } from "lucide-react";
+import { X, Send, Copy, Check, Mic, MicOff, Bot, Sparkles } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, DEFAULT_RESPONSE_TEXTS, FINETUNING_EXAMPLES, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -16,6 +16,7 @@ interface Message {
   text: string;
   time: string;
   id: number | string;
+  viaLLM?: boolean;
 }
 
 function EmailCompose({ fullscreen }: { fullscreen: boolean }) {
@@ -176,17 +177,17 @@ function defaultResponse(): { response: ResponseEntry; topic: string | null } {
 // when that finds nothing, ask the local LLM (see src/lib/localLlm.ts). If
 // the LLM is unavailable (not running / different visitor's machine), it
 // resolves to null and we fall back to the same default response as before.
-async function getResponse(input: string, lastTopic: string | null): Promise<{ response: ResponseEntry; topic: string | null }> {
+async function getResponse(input: string, lastTopic: string | null): Promise<{ response: ResponseEntry; topic: string | null; viaLLM: boolean }> {
   const matched = matchIntent(input, lastTopic);
-  if (matched) return matched;
+  if (matched) return { ...matched, viaLLM: false };
 
   const llmAnswer = await askLocalLLM(input.trim());
   if (llmAnswer) {
-    return { response: { text: llmAnswer, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
+    return { response: { text: llmAnswer, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null, viaLLM: true };
   }
 
   logUnanswered(input.trim());
-  return defaultResponse();
+  return { ...defaultResponse(), viaLLM: false };
 }
 
 function pickRandom<T>(pool: T[], count: number): T[] {
@@ -371,13 +372,13 @@ export default function ChatBot() {
     setInput("");
     setTyping(true);
 
-    getResponse(text, lastTopic).then(({ response, topic }) => {
+    getResponse(text, lastTopic).then(({ response, topic, viaLLM }) => {
       const delay = getVariableDelay(response.text);
       setTimeout(() => {
         setTyping(false);
         if (topic) setLastTopic(topic);
         typeMessage(response.text, () => {
-          const botMsg: Message = { from: "bot", text: response.text, time: now(), id: nextId() };
+          const botMsg: Message = { from: "bot", text: response.text, time: now(), id: nextId(), viaLLM };
           setMessages((m) => [...m, botMsg]);
           setTypingText("");
           setSuggestions(response.suggestions);
@@ -796,6 +797,11 @@ export default function ChatBot() {
                   {msg.from === "bot" && (
                     <div style={{ display: "flex", alignItems: "center", gap: "4px", paddingInline: "4px", minHeight: "20px" }}>
                       <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>{msg.time}</span>
+                      {msg.viaLLM && (
+                        <span title="Generated live" style={{ display: "flex" }}>
+                          <Sparkles size={10} color="#a78bfa" />
+                        </span>
+                      )}
                       <AnimatePresence>
                         {(hoveredId === msg.id || reactions[msg.id]) && (
                           <motion.div
