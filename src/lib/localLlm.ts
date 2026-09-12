@@ -178,12 +178,27 @@ Do not explain your reasoning. Do not write any words. Your entire reply must be
   return { concern, evidence, validate };
 }
 
+// Several of the test questions land on concern=0 (no strong concern
+// applies), which made every one of those answers read near-identical.
+// Rotating through a few fixed, hand-written phrasings keeps each one
+// deterministic and grounded — just varies the sentence structure, not
+// the content — instead of routing through the LLM to "polish" it.
+const NO_CONCERN_TEMPLATES = [
+  (evidence: string, validate: string) =>
+    `I don't see a strong evidence-based concern here. Aniket has ${evidence}, which speaks directly to this. If anything, I'd still want to validate ${validate} in an interview, but that's true for any candidate.`,
+  (evidence: string, validate: string) =>
+    `Honestly, nothing here rises to a real concern. Aniket has ${evidence}, which addresses this directly. The one thing worth asking about in an interview is ${validate}, but that's standard due diligence, not a red flag specific to him.`,
+  (evidence: string, validate: string) =>
+    `There's no strong concern I can point to for this one — Aniket has ${evidence}, which covers it well. I'd still bring up ${validate} in an interview, more to confirm fit than because it's a gap.`,
+];
+
 function assembleCriticalAnswer(sel: { concern: number; evidence: number; validate: number }): string {
   const evidence = EVIDENCE[sel.evidence - 1];
   const validate = VALIDATE[sel.validate - 1];
 
   if (sel.concern === 0) {
-    return `I don't see a strong evidence-based concern here. Aniket has ${evidence}, which speaks directly to this. If anything, I'd still want to validate ${validate} in an interview, but that's true for any candidate.`;
+    const template = NO_CONCERN_TEMPLATES[Math.floor(Math.random() * NO_CONCERN_TEMPLATES.length)];
+    return template(evidence, validate);
   }
 
   const concern = CONCERNS[sel.concern - 1];
