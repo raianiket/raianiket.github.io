@@ -445,7 +445,7 @@
       "topic": "shift"
     },
     {
-      "pattern": "impact|achiev|accomplish|metric|result|improv|faster|reduc|good engineer|great engineer|good.*fit",
+      "pattern": "impact|achiev|accomplish|metric|result|improv|faster|reduc|good engineer|great engineer",
       "text": "Aniket's measurable impact:\n\n⚡ 4x faster batch job execution\n🚀 10s+ → under 2s archive query time\n☁️ 12+ cloud integrations with zero code per new cloud\n🛡️ 0 critical security violations (down from 100%)\n📉 90% reduction in total code quality issues\n🤖 4 AI agents auto-resolving production issues\n💼 MDLOPS runs 5 async modules in parallel",
       "suggestions": [
         "Tell me about his projects",
