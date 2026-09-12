@@ -116,8 +116,8 @@ ${relevantContext(question)}`;
 // sensibly by question (correctly choosing "no concern applies" for
 // non-negative questions) without ever fabricating new content, since it
 // can only ever choose real statements, never write new ones.
-function isCriticalQuestion(question: string): boolean {
-  return /\b(bad fit|poor fit|wrong fit|not (a )?good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring)\b/i.test(question);
+export function isCriticalQuestion(question: string): boolean {
+  return /\b(bad fit|poor fit|wrong fit|not (a )?good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring|limitations?|what does .*lack|lacks?\b.*compared)\b/i.test(question);
 }
 
 const CONCERNS = [
@@ -158,15 +158,23 @@ ${numbered(EVIDENCE)}
 VALIDATE options (pick the single most worth validating in an interview for this question):
 ${numbered(VALIDATE)}
 
-Output exactly three numbers separated by commas, nothing else, in this order: concern,evidence,validate`;
+Do not explain your reasoning. Do not write any words. Your entire reply must be exactly three digits separated by commas, in this order: concern,evidence,validate. Example reply: 2,1,3`;
 
-  const raw = await chatOllama(system, question, { num_predict: 20, temperature: 0.1 }, 8000);
+  const raw = await chatOllama(system, question, { num_predict: 40, temperature: 0.1 }, 8000);
   if (!raw) return null;
 
   const nums = raw.match(/\d+/g)?.map(Number);
   if (!nums || nums.length < 3) return null;
-  const [concern, evidence, validate] = nums;
-  if (evidence < 1 || evidence > EVIDENCE.length || validate < 1 || validate > VALIDATE.length || concern < 0 || concern > CONCERNS.length) return null;
+  const clamp = (n: number, max: number) => Math.min(Math.max(n, 1), max);
+  const [rawConcern, rawEvidence, rawValidate] = nums;
+  // The model occasionally applies CONCERN's "0 = none" convention to
+  // EVIDENCE/VALIDATE too, even though those lists have no such option.
+  // Clamp instead of discarding the whole selection over one stray digit —
+  // a slightly-off pick is still a grounded, real fact, unlike the "I don't
+  // have that information" fallback this used to produce.
+  const concern = Math.min(Math.max(rawConcern, 0), CONCERNS.length);
+  const evidence = clamp(rawEvidence, EVIDENCE.length);
+  const validate = clamp(rawValidate, VALIDATE.length);
   return { concern, evidence, validate };
 }
 

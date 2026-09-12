@@ -8,7 +8,7 @@ import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
 import { supabase } from "@/lib/supabase";
 import { closestMatch } from "@/lib/levenshtein";
-import { askLocalLLM, prewarmLocalLLM } from "@/lib/localLlm";
+import { askLocalLLM, prewarmLocalLLM, isCriticalQuestion } from "@/lib/localLlm";
 import { EASE, SESSION_KEY, CONTACT_EMAIL, PORTFOLIO_URL } from "@/lib/constants";
 
 interface Message {
@@ -156,8 +156,18 @@ function matchIntent(input: string, lastTopic: string | null): { response: Respo
 
   // Last resort before giving up: fuzzy-match against training examples via
   // edit distance, in case it's a typo'd or slightly-reworded known question
-  // that slipped past every regex above.
-  const fuzzy = closestMatch(normalized, FINETUNING_EXAMPLES, (ex) => ex.q, 0.78);
+  // that slipped past every regex above. Edit distance treats a negation
+  // ("shouldn't") as a near-identical string to its positive counterpart
+  // ("should"), so a critical/adversarial question could otherwise fuzzy-
+  // match onto — and return — the sentiment-inverted positive answer. Only
+  // accept a candidate whose own critical-ness matches the question's.
+  const questionIsCritical = isCriticalQuestion(normalized);
+  const fuzzy = closestMatch(
+    normalized,
+    FINETUNING_EXAMPLES.filter((ex) => isCriticalQuestion(ex.q) === questionIsCritical),
+    (ex) => ex.q,
+    0.78
+  );
   if (fuzzy) {
     return {
       response: { text: fuzzy.item.a, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) },

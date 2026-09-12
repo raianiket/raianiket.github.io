@@ -846,7 +846,7 @@
       "topic": "about"
     },
     {
-      "pattern": "about aniket|who is aniket|what does aniket|tell me about (him|aniket|yourself)|^aniket\\s*\\??$|^who\\s*\\??$|tell me aniket|^who is he\\s*\\??$|who'?s aniket|whos aniket|who.*aniket|^about him\\b|info.*aniket|aniket info|summarize aniket|aniket bio|his bio",
+      "pattern": "about aniket|who is aniket|what does aniket do\\b|tell me about (him|aniket|yourself)|^aniket\\s*\\??$|^who\\s*\\??$|tell me aniket|^who is he\\s*\\??$|who'?s aniket|whos aniket|who.*aniket|^about him\\b|info.*aniket|aniket info|summarize aniket|aniket bio|his bio",
       "text": "Aniket Rai is a Lead Software Engineer with 5+ years designing scalable microservices, distributed systems, and cloud-native backend platforms at SysCloud Technologies, Hyderabad.\n\nHe leads an 8–10 engineer team through system design, HLD/LLD reviews, and architecture decisions. He builds config-driven frameworks handling 12+ cloud integrations with zero code changes, AI agents (via Claude + MCP) that auto-resolve production issues, and a natural language interface where customers talk to their data.\n\nReal systems. Real scale. Real impact.",
       "suggestions": [
         "What's his tech stack?",
