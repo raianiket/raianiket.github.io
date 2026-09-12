@@ -6,7 +6,7 @@ import finetuning from "@/data/finetuning.json";
 // If Ollama isn't running (e.g. a visitor on the live site), this fails silently
 // and the caller falls back to the existing default response.
 const OLLAMA_URL = "http://localhost:11434/api/chat";
-const OLLAMA_MODEL = "llama3.2:3b";
+const OLLAMA_MODEL = "llama3.2:1b";
 
 const STOPWORDS = new Set(["the", "a", "an", "is", "are", "was", "were", "his", "he", "him", "does", "do", "did", "what", "how", "why", "who", "in", "on", "at", "to", "of", "for", "and", "or", "would", "could", "with", "about", "most", "than", "that"]);
 

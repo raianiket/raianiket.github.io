@@ -68,7 +68,7 @@ In short, in order:
 2. **Job-title auto-detect** — "hiring for a backend engineer" gets a tailored pitch.
 3. **Regex intent match** — ~84 patterns in `responses.json` cover the common questions (tech stack, projects, availability, contact, etc.). Instant, free, deterministic.
 4. **Fuzzy match** — typo'd or reworded questions get matched against the 67-example Q&A corpus in `finetuning.json` via edit distance (`lib/levenshtein.ts`).
-5. **Local LLM fallback** — if nothing above matched, the browser calls Ollama at `http://localhost:11434` with the same `finetuning.json` corpus as context, using a small model (`llama3.2:3b`).
+5. **Local LLM fallback** — if nothing above matched, the browser calls Ollama at `http://localhost:11434` with a keyword-relevant slice of the `finetuning.json` corpus as context, using a small model (`llama3.2:1b`, ~1.3GB — chosen over the larger `3b` variant to keep RAM usage low on modest hardware).
 6. **Default response** — if the LLM isn't reachable (not running, or it's a different visitor's own machine), the same canned "I don't have that info, here's how to reach him" fallback runs as before.
 
 ### Running the local-LLM fallback
@@ -78,7 +78,7 @@ Steps 1–4 need nothing extra. To also exercise step 5 (e.g. for a demo):
 ```bash
 brew install ollama          # or see https://ollama.com
 brew services start ollama   # or: ollama serve
-ollama pull llama3.2:3b      # ~2GB, one-time download
+ollama pull llama3.2:1b      # ~1.3GB, one-time download
 ```
 
 Then run the site (`npm run dev`, or just open the live production URL) on

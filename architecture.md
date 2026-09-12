@@ -21,7 +21,7 @@ flowchart TD
     I -->|typo'd or reworded, close to a known question| FZ[Fuzzy match via edit distance]
     I -->|nothing matched| LLM{Local LLM: askLocalLLM}
 
-    LLM -->|Ollama reachable at localhost:11434| OK[llama3.2:3b answers using relevant context only]
+    LLM -->|Ollama reachable at localhost:11434| OK[llama3.2:1b answers using relevant context only]
     LLM -->|not running, or a different visitors machine| DEF[Default fallback response, logged as unanswered]
 
     FU --> R[Response Builder]
@@ -42,7 +42,7 @@ flowchart TD
 |---|---|---|---|
 | Regex / intent match (`matchIntent`) | Free | Instant | ~84 known question patterns — tech stack, projects, contact, availability, etc. |
 | Fuzzy match (Levenshtein, hand-written) | Free | Instant | Typo'd or reworded versions of the 67 known Q&A pairs |
-| Local LLM (Ollama, `llama3.2:3b`) | Free, runs on my laptop | ~1-4s (warm) | Open-ended questions that combine facts or need real phrasing understanding |
+| Local LLM (Ollama, `llama3.2:1b`) | Free, runs on my laptop | ~1-4s (warm) | Open-ended questions that combine facts or need real phrasing understanding |
 | Default response | Free | Instant | LLM unreachable — identical to the site's original behavior, nothing regresses |
 
 The regex layer is **never bypassed** — the LLM is a last resort, not a
@@ -103,10 +103,18 @@ model on a laptop CPU/Metal isn't fast at that.
    ignored a softer version of this instruction.
 4. **Prewarming.** `prewarmLocalLLM()` fires a throwaway request to Ollama
    the moment the chat window opens (not when a message is waiting on it),
-   so the ~7s one-time cost of loading the 2GB model into memory happens
-   in the background before the visitor has even finished reading the
-   greeting. Guarded by a module-level singleton flag so it only fires once
-   per page load, not every time the chat is toggled open/closed.
+   so the one-time cost of loading the model into memory happens in the
+   background before the visitor has even finished reading the greeting.
+   Guarded by a module-level singleton flag so it only fires once per page
+   load, not every time the chat is toggled open/closed.
+5. **Picked the smaller model, deliberately.** Benchmarked `llama3.2:3b`
+   (2.0GB) against `llama3.2:1b` (1.3GB) and `qwen2.5:0.5b` (0.4GB) on the
+   same real grounded question. `qwen2.5:0.5b` was fastest but answers were
+   generic and didn't actually use the supplied facts. `llama3.2:1b` gave
+   answers just as specific and grounded as the `3b` model at roughly half
+   the memory footprint, so it's the one shipped — on an 8GB laptop, RAM
+   headroom for Chrome and everything else running during a live demo
+   matters as much as raw model quality.
 
 **Result:** typical warm-path answers now return in a few seconds — fast
 enough for a real chat interaction, measured live against the actual UI, not
@@ -162,7 +170,7 @@ answers are deterministic and which are generated live.
 ```bash
 brew install ollama
 brew services start ollama      # or: ollama serve
-ollama pull llama3.2:3b         # ~2GB, one-time
+ollama pull llama3.2:1b         # ~1.3GB, one-time
 npm run dev                     # or open the live production URL
 ```
 
