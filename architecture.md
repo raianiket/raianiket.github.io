@@ -19,11 +19,13 @@ flowchart TD
     I -->|hiring for a ... engineer| JM[Return job-match response]
     I -->|matches a known regex pattern| RX[Return response.json entry]
     I -->|typo'd or reworded, close to a known question| FZ[Fuzzy match via edit distance]
-    I -->|nothing matched| LLM{Local LLM: askLocalLLM}
+    I -->|nothing matched, ordinary open-ended question| LLM{Local LLM: askLocalLLM}
+    I -->|critical or adversarial question, e.g. bad fit, why not hire| SEL{Model selects from real facts, does not write prose}
 
     LLM -->|Ollama reachable at localhost:11434| OK[llama3.2:1b answers using relevant context only]
     LLM -->|not running, or a different visitors machine| DEF[Default fallback response, logged as unanswered]
-    LLM -->|critical or adversarial question, e.g. bad fit, why not hire| DEF
+    SEL -->|Ollama reachable| TPL[Picks slotted into a fixed template, see section 6]
+    SEL -->|not running| DEF
 
     FU --> R[Response Builder]
     JM --> R
@@ -31,11 +33,14 @@ flowchart TD
     FZ --> R
     OK --> R
     DEF --> R
+    TPL --> R
     R --> S[Suggestions plus typed reply rendered in chat UI]
 
     style I fill:#1a6cf5,color:#fff
     style LLM fill:#a78bfa,color:#fff
+    style SEL fill:#a78bfa,color:#fff
     style OK fill:#4ade80,color:#000
+    style TPL fill:#4ade80,color:#000
     style DEF fill:#f59e0b,color:#000
 ```
 
@@ -77,9 +82,11 @@ Show it working before explaining how, in this order:
    feature has no visible failure mode for a real visitor.**
 5. **Optional, and a good one for a technical interviewer — ask something
    adversarial:** *"What would make him a bad fit for a startup?"* or *"Why
-   shouldn't I hire him?"* → it declines rather than guessing, same as the
-   Ollama-down case. This is deliberate, not a gap — see section 6 for the
-   real testing behind that call.
+   shouldn't I hire him?"* → answers honestly (evidence gap vs. demonstrated
+   weakness), but this specific question type routes through a completely
+   different pipeline under the hood: the model only *selects* from
+   pre-vetted real facts, never writes free text — see section 6 for why,
+   and for the four failed attempts that led there.
 
 ### Running it
 
@@ -202,66 +209,78 @@ as raw capability."*
   If the model is unreachable, cold-starting, or unexpectedly slow, it
   fails closed into the same default response — never a hung UI.
 
-## 6. A tested limitation: critical/adversarial questions skip the LLM entirely
+## 6. Critical/adversarial questions: selection instead of composition
 
 Questions like *"what would make him a bad fit for a startup?"*, *"what are
-his weaknesses?"*, or *"why shouldn't I hire him?"* are deliberately routed
-**away** from the LLM (`isCriticalQuestion()` in `localLlm.ts` short-circuits
-to the same default response used when Ollama is unreachable). This is a
-documented capability ceiling, not a shortcut — worth walking through
-because it's a better engineering story than "it just works."
+his weaknesses?"*, or *"why shouldn't I hire him?"* (`isCriticalQuestion()`
+in `localLlm.ts`) get a fundamentally different pipeline than everything
+else in the chatbot. This is the most interesting design decision in the
+project, and worth walking through in full because it's a better story than
+"it just works."
 
-**What was tried, in order, against the real `llama3.2:1b` model on this
-machine:**
+**What was tried first, and failed — four separate attempts against the
+real `llama3.2:1b` model on this machine, all asking it to *compose* free
+text:**
 
 1. A single call with the full 67-entry Q&A corpus and an 8-rule
    anti-hallucination system prompt (evidence/inference separation, a rigid
    4-line output format, temperature 0.2).
 2. The same, but scoped to only the keyword-matched subset of the corpus.
 3. A two-step pipeline: one call to *extract* relevant evidence into a
-   structured SUPPORTING / CONCERNS / UNKNOWN summary, a second call to
-   *reason* only from that summary — deliberately keeping each step's job
-   small, per the standard "smaller task, better small-model result"
-   principle.
+   structured summary, a second call to *reason* only from that summary —
+   the standard "smaller task, better small-model result" principle.
 4. A single call scoped to a small, hand-picked ~10-entry pool
    (~3,300 characters) of facts specifically relevant to work style,
-   ownership, and pressure-handling — removing the noise of 60+ irrelevant
-   facts (salary, PHP, education) entirely.
+   ownership, and pressure-handling — removing 60+ irrelevant facts (salary,
+   PHP, education) entirely.
 
-**Every single approach still invented specific, plausible-sounding,
-entirely unfounded claims** — "scope creep," "overemphasis on technical
-debt," "lack of experience with agile methodologies," "high expectations for
-rapid growth" — none of which exist anywhere in the source data, even with
-explicit "only claim what's below, say so if evidence is insufficient"
-instructions in every version. Approach 1 additionally leaked markdown
-asterisks and ran ~54s per answer at the original (larger) context size; approach 3's first
-step ignored its own "extract, don't answer" instruction outright once given
-the full corpus, and just answered the original question directly.
+**Every single one still invented specific, plausible-sounding, entirely
+unfounded claims** — "scope creep," "overemphasis on technical debt," "lack
+of experience with agile methodologies" — none of which exist anywhere in
+the source data, even with explicit "only claim what's below" instructions
+at low temperature. Approach 3's first step even ignored its own "extract,
+don't answer" instruction and just answered the original question directly
+once given the full corpus. A version that flatly refused this whole
+question category (same default response as an unreachable Ollama) was
+shipped briefly after that — safe, but made the bot look like a lookup
+table instead of something that reasons about new phrasing.
 
-**Why this happens:** it's not a wording problem. A 1B-parameter model has a
-real, measurable ceiling on how many simultaneous constraints it can track —
-find the relevant facts among many, reason about risk, and obey a strict
-format, all while resisting the pull toward writing something that *sounds*
-like a complete, confident answer. Adversarially-framed questions make this
-worse: the question itself supplies a plausible narrative shape ("enterprise
-experience → slow, inflexible") that a small model tends to complete rather
-than checks against evidence.
+**The actual fix: never let the model write prose for this category.**
+Composition is where every attempt failed — so the model is never asked to
+compose again. Instead, `askLocalLLM` gives it three short numbered lists of
+real, pre-vetted, always-true facts about Aniket (`CONCERNS`, `EVIDENCE`,
+`VALIDATE` in `localLlm.ts`) and asks it to output nothing but three numbers
+— which item from each list is most relevant to this specific question, or
+`0` if no real concern applies. The application code then slots the model's
+picks into a fixed, human-written sentence template.
 
-**The deliberate constraint that shaped the fix:** this project keeps
-`llama3.2:1b` as a hard requirement — local execution, low RAM/storage, no
-paid API — specifically *not* solving quality problems by upsizing the
-model. Given that constraint plus four failed grounding attempts, the
-responsible choice for a chatbot that represents a real person to real
-recruiters is to not let the model attempt this category of question at all,
-rather than ship a plausible-looking but occasionally fabricated answer.
+```text
+Question → model picks (concern #, evidence #, validate #) → template
+```
 
-**Talking point:** *"I could have shipped the LLM answering everything and
-it would have looked fine in a casual demo — but I specifically tested it
-against adversarial framing, found it fabricates unsupported claims, and
-made the call to route that category away from generation entirely rather
-than accept the risk. Knowing where a small model's reasoning ceiling is,
-and designing around it, is a more useful skill than pretending it doesn't
-have one."*
+This is a categorically easier task for a small model than open writing:
+tested directly, its picks vary sensibly by question — correctly returning
+`0` (no concern) for non-negative questions like "is he good at mentoring
+juniors," and reasonable-if-imperfect picks otherwise — but it can only ever
+select a true, real statement, never invent new content. The worst-case
+failure mode changed from *fabricated claim* to *slightly-less-than-optimal
+but still true choice*, which is a fundamentally safer place to fail for
+something that represents a real person to a recruiter. It's also fast: pure
+number selection runs in ~0.5-1.5s, far quicker than a full paragraph
+generation.
+
+**The constraint that shaped this:** `llama3.2:1b` stays a hard requirement
+— local execution, low RAM/storage, no paid API, not solving quality
+problems by upsizing the model. Given that constraint, the fix had to be
+architectural (change what the model is asked to do) rather than just
+throwing more parameters at the same free-composition task.
+
+**Talking point:** *"The model kept fabricating things no matter how I
+worded the prompt, across four different attempts. The insight wasn't a
+better prompt — it was realizing I was asking a small model to do the wrong
+kind of task. Composition is hard for it; multiple-choice selection from
+real options isn't. Same model, same hardware, same zero cost — just a
+different shape of question put to it."*
 
 ## 7. Transparency: how you can tell which layer answered
 
@@ -304,5 +323,8 @@ traffic or model size no longer fits comfortably on one machine. The
 regex-first / LLM-fallback *shape* of the architecture doesn't change.
 
 **"Ask it why you'd be a bad fit for a startup, right now."**
-It'll say it doesn't have that information — deliberately (section 6). Good
-to have ready if someone in the room already read the code and asks why.
+It'll give a real, evidence-based answer — but through a different pipeline
+than every other open-ended question (section 6): the model only picks from
+pre-vetted true facts, it never writes free prose for this category. Good to
+have ready if someone in the room already read the code and asks why the
+logic branches there.
