@@ -1,75 +1,434 @@
 {
   "description": "Q&A training examples for Aniket's portfolio chatbot. Add new entries here to improve responses.",
   "examples": [
-    { "q": "do you know about aniket", "a": "Yes! Aniket Rai is a Lead Software Engineer with 5+ years at SysCloud Technologies. He builds config-driven frameworks, AI agents, and natural language interfaces for cloud data." },
-    { "q": "who is aniket", "a": "Aniket Rai is a Lead Software Engineer based in Hyderabad. 5+ years at SysCloud building scalable backend systems with Node.js, TypeScript, PostgreSQL, and AWS." },
-    { "q": "tell me about aniket", "a": "Aniket Rai is a Lead Software Engineer with 5+ years at SysCloud Technologies. He's built config-driven frameworks handling 12+ cloud integrations, AI agents that auto-resolve production issues, and an AI-powered natural language interface for customer data." },
-    { "q": "what does aniket do", "a": "Aniket builds scalable backend systems, AI agents, and config-driven frameworks at SysCloud Technologies. His work spans Node.js, TypeScript, PostgreSQL, AWS, and LLM integration." },
-    { "q": "is aniket a good engineer", "a": "Aniket has 5+ years of production engineering experience. He's built systems handling 12+ cloud integrations, reduced query times from 10s+ to under 2s, achieved 4x batch job speedups, and eliminated 100% of critical security violations in the codebase." },
-    { "q": "what's your tech stack", "a": "Aniket's core stack: Node.js, TypeScript, PostgreSQL, AWS (S3, Lambda, Fargate, Batch, SQS), GraphQL, Docker, Grafana, ELK Stack, and AI/LLM integration with Claude and MCP." },
-    { "q": "tell me about your projects", "a": "Key projects: Sky (AI NL interface), DAL AI-Agents (4 operational monitoring agents), MDL 2.0 (config-driven framework), Anomaly Detection (Prophet ML), Restore & Export (millions of items/sec), Customer Dashboard (13+ widgets), MDLOPS Microservice." },
-    { "q": "your experience at syscloud", "a": "5+ years at SysCloud: Lead SE (Jan 2026-Present), Dashboard overhaul, Partner Portal; SSE (Jun 2023-Dec 2025), AI agents, Sky, MDL 2.0; SE (May 2021-Jun 2023), Restore/Export, S3 integrity pipeline, ELK Stack; Intern (Nov 2020-Apr 2021), GraphQL queries and microservices POCs." },
-    { "q": "how to contact you", "a": "Email: rai078945@gmail.com | Phone: +91 7668514258 | LinkedIn: linkedin.com/in/aniket-kumar-rai | Hyderabad, India. Open to Lead, Staff, Principal, or SDE III-level roles. Responds within 24 hours." },
-    { "q": "what is sky", "a": "Sky is SysCloud's AI-powered natural language interface. Customers ask questions, the AI builds queries, redirects to the right page with filters, and initiates Restore & Export actions automatically." },
-    { "q": "tell me about dal ai agents", "a": "4 DAL AI-Agents: Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each detects and resolves issues automatically before they impact customers." },
-    { "q": "what is mdl 2.0", "a": "MDL 2.0 replaced complex mutation logic with JSON-driven config. 12+ cloud integrations migrated. Adding a new cloud now requires zero code changes, only config." },
-    { "q": "notice period", "a": "Aniket is currently serving his notice period. This can change, so contact him directly for the exact date: rai078945@gmail.com or +91 7668514258." },
-    { "q": "where is aniket located", "a": "Hyderabad, Telangana, India (IST, UTC+5:30). Open to Hyderabad, Pune, Bangalore, Chennai, or fully remote/hybrid roles." },
-    { "q": "what university did aniket go to", "a": "Lovely Professional University, B.Tech in Computer Science & Engineering, 2017-2021." },
-    { "q": "does aniket know php", "a": "Yes, Aniket has 1 year of PHP experience at SysCloud. He used PHP in two projects: (1) Slack eDiscovery, configured PHP backend services for Slack data ingestion and event handling; (2) Bulk Export, extended the PHP export backend to support multi-user exports under a single URL." },
-    { "q": "what php experience does aniket have", "a": "Aniket used PHP at SysCloud Technologies in two projects: Slack eDiscovery Search (PHP backend services for data ingestion and event handling) and Bulk Export (extended PHP export backend from single user to multi-user exports). 1 year of hands-on PHP experience." },
-    { "q": "where did aniket use php", "a": "PHP was used in two SysCloud projects: (1) Slack eDiscovery Search, configured PHP backend services for Slack data ingestion and event handling as part of a full-stack integration. (2) Bulk Export, extended the PHP export backend to handle multi-user exports in a single request with a unified download URL." },
-    { "q": "php projects", "a": "Aniket's PHP work at SysCloud: Slack eDiscovery (PHP backend for Slack data ingestion) and Bulk Export (PHP export backend extended for multi-user support). Full-stack delivery across UI (React), backend (PHP + Node.js), and database (PostgreSQL)." },
-    { "q": "can aniket work with php", "a": "Yes. Aniket has hands-on PHP experience from production work at SysCloud, configured PHP backend services for Slack eDiscovery integration and extended the PHP export backend to deliver Bulk Export with multi-user support." },
-    { "q": "what is bulk export", "a": "Bulk Export is a feature Aniket built at SysCloud by extending the PHP export backend. The previous implementation handled only single user-level export. Aniket refactored it to support multi-user exports under a single URL, processing multiple users in one request with unified download link generation." },
-    { "q": "what is slack ediscovery", "a": "Slack eDiscovery Search is a full-stack integration Aniket built at SysCloud. Customers can search and retrieve Slack files, messages, and chats directly through the platform. He configured PHP backend services for data ingestion, built Node.js APIs, wrote GraphQL mutations, and delivered the frontend search interface." },
-
-    { "q": "walk me through your resume", "a": "Aniket started as an intern at SysCloud in Nov 2020, promoted to SE in 2021, SSE in 2023, and Lead Software Engineer in Jan 2026. He's spent 5+ years on the same B2B SaaS product, cloud data backup, which means deep domain expertise. Key highlights: Sky (AI NL interface), MDL 2.0 (12+ cloud integrations, zero-code config), 4 DAL AI-Agents, 4x batch job speedup, and eliminating all critical security violations. Core stack: Node.js, TypeScript, PostgreSQL, AWS." },
-    { "q": "why are you looking for a change", "a": "Aniket has spent 5+ years at SysCloud, built multiple systems from scratch, and grown from intern to Senior Engineer. He's now looking for a role where he can apply that architectural experience to a new product or domain, particularly in AI-heavy, backend-intensive, or platform engineering contexts." },
-    { "q": "why did you stay at one company so long", "a": "Aniket joined SysCloud as an intern and kept getting promoted because the problems kept getting harder. Intern to SE to SSE to Lead in the same product means he owns the full stack, he designed Sky, MDL 2.0, MDLOPS, and 4 production AI agents from scratch. Depth of ownership like that doesn't happen if you switch every two years." },
-    { "q": "what is your biggest achievement", "a": "Top achievements: (1) Sky, took an AI-powered natural language interface from idea to production; (2) MDL 2.0, made 12+ cloud integrations maintainable by config alone, zero code per cloud; (3) 4x batch job speedup in production; (4) Query time from 10s+ to under 2s for enterprise archives; (5) 0 critical security violations after SonarQube overhaul." },
-    { "q": "tell me about a challenging problem you solved", "a": "The batch job parallelization was a core infrastructure challenge, jobs were running sequentially, causing delays in customer-facing dashboard freshness. Aniket redesigned the framework with parallel host-level execution and CPU-level optimizations, achieving 4x faster execution. Another: diagnosing S3 object versioning mismatches causing restore failures, then building an automated version-copy mechanism to fix them without human intervention." },
-    { "q": "what are your strengths", "a": "Aniket's strengths: (1) Systems thinking, he designs architecture, not just features; (2) End-to-end ownership, from schema design to frontend delivery; (3) AI integration, built production LLM systems before it was mainstream; (4) Measurable impact, every optimization has a number behind it (4x, 5x, 0 violations, 12+ integrations)." },
-    { "q": "what is your weakness", "a": "Aniket's natural tendency is to go deep on a problem before moving on, which sometimes means he spends more time than needed getting the foundation right. He's learned to balance that with shipping cadence in fast-moving environments." },
-    { "q": "what is his biggest weakness as a technical leader", "a": "It's less a weakness than a depth-vs-breadth trade-off: Aniket's deepest expertise is backend architecture and systems design, and he's deliberately expanded from there into full-stack delivery, not the other way around. He's comfortable with React and CSS and has shipped real features end-to-end with them (Slack eDiscovery search, Bulk Export, Gen4/Gen5 cloud pages), so it's demonstrated capability, not a gap. Backend is just where he has the most depth, and he's actively broadening from that strong foundation." },
-    { "q": "where do you see yourself in 5 years", "a": "Aniket wants to be in an architect or tech lead role, designing the systems, mentoring engineers, and working at the intersection of AI and backend infrastructure. He's already doing parts of that at SysCloud; he wants the full scope." },
-    { "q": "why should we hire aniket", "a": "Aniket ships systems that scale. He's designed AI agents, config-driven frameworks handling 12+ cloud integrations, and a natural language interface for enterprise customers, all in production. Every claim comes with a metric: 4x faster, 10s to 2s, 0 critical bugs, 12+ clouds. 5 years at one product means deep expertise, not job-hopping." },
-    { "q": "tell me about a time you led a project", "a": "MDL 2.0 is the clearest example. Aniket identified that adding a new cloud integration required weeks of code changes across multiple layers. He designed a JSON-driven config framework, migrated 12+ existing cloud integrations, and delivered a system where new clouds require zero code changes. He owned the design, migration, and delivery end-to-end." },
-    { "q": "how do you handle pressure or deadlines", "a": "Aniket's pattern is to scope early and communicate blockers before they become problems. At SysCloud, production issues require immediate response, the DAL AI-Agents were built specifically to auto-resolve issues before they escalate, which is his philosophy: build systems that reduce pressure, not just handle it." },
-    { "q": "describe your work style", "a": "Aniket works with deep ownership, he prefers to understand the full system before touching it. He designs for scale (config-driven, not code-per-feature), builds with observability in mind (Grafana, ELK Stack, trace IDs), and measures every improvement." },
-    { "q": "do you prefer working alone or in a team", "a": "Both, he designs architecture independently and drives it through collaboration. Sky, MDL 2.0, and MDLOPS were all Aniket's designs that got built with cross-team coordination across product, DB, and ops teams." },
-    { "q": "how do you keep up with technology", "a": "Aniket stays current by building with new technology rather than just reading about it. Sky and the DAL AI-Agents were built using MCP and Claude before most teams had LLMs on their roadmap. He learns by shipping." },
-    { "q": "have you mentored anyone", "a": "As Lead SE, Aniket leads and mentors an 8-10 engineer team. He guides engineers through architectural decisions, PR reviews, and onboarding. He's also the de facto owner for MDL 2.0 and MDLOPS, which means other engineers follow his patterns and standards." },
-    { "q": "what is your current salary", "a": "Compensation details are best discussed directly. Reach out to Aniket at rai078945@gmail.com or +91 7668514258." },
-    { "q": "what is your expected salary", "a": "Aniket prefers to discuss compensation directly based on the role and scope. Contact him at rai078945@gmail.com or +91 7668514258." },
-    { "q": "do you know python", "a": "Yes, Aniket has Python experience, primarily for scripting, automation, and ML tooling. He used the Facebook Prophet library (Python) for the Anomaly Detection engine at SysCloud, combining it with a rule-based JSON comparison system for statistical deviation detection in backup data." },
-    { "q": "what python experience does aniket have", "a": "Aniket used Python for the Anomaly Detection system at SysCloud, specifically the Facebook Prophet ML library for time-series anomaly detection. He also uses Python for scripting and automation tooling. His primary production language is Node.js/TypeScript." },
-    { "q": "what is anomaly detection at syscloud", "a": "Aniket built a dual-mode Anomaly Detection engine: (1) Rule-based, JSON comparison against defined thresholds for known failure patterns; (2) ML-based, Facebook Prophet for statistical time-series deviation detection. It's integrated into the MDLOPS microservice and flags backup anomalies before they surface to customers." },
-    { "q": "does aniket know react", "a": "Yes. Aniket delivers full-stack features, his React experience includes the Slack eDiscovery search interface, customer-facing Dashboard widgets, Partner Portal UI, and Gen3/Gen4/Gen5 cloud pages. His primary strength is backend/Node.js, but he ships frontend when needed." },
-    { "q": "does aniket know aws", "a": "Yes, AWS is core to Aniket's stack. He uses S3 (backup storage, integrity pipelines), Lambda (event-driven jobs), Fargate (containerized workloads), Batch (100K+ backup jobs), SQS (async messaging for Add-On Actions), Athena (on-demand metadata queries), CodePipeline, and CodeBuild for CI/CD." },
-    { "q": "what is postgraphile", "a": "PostGraphile auto-generates a GraphQL API from a PostgreSQL schema. Aniket has used it since his internship, all GraphQL mutations at SysCloud run through PostGraphile. MDL 2.0 executes each action as a micro-task inside PostGraphile, and one of his 4 DAL AI-Agents specifically monitors PostGraphile for slow queries." },
-    { "q": "what is the mdlops microservice", "a": "MDLOPS is a TypeScript microservice Aniket built from scratch using cm-runner-plus with JSON-driven config. It handles 5 async add-on modules (eDiscovery, BDI, etc.) with parallel execution via PM2, integrates the Facebook Prophet anomaly detection algorithm, and ties into the Add-On Actions system." },
-    { "q": "what are add on actions", "a": "Add-On Actions is the system Aniket designed at SysCloud for async operations on backup data: Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, Transfer Ownership, and Deletion. He modeled the parent/child schema and full mutation layer, with async processing via AWS SQS and real-time UI status tracking across 8 states." },
-    { "q": "what is the customer dashboard", "a": "The Customer Dashboard is a 13+ widget UI Aniket built at SysCloud showing aggregated backup metrics across 12+ cloud providers. It uses pre-computed PostgreSQL Materialized Views with concurrent refresh (zero transactional impact), a config-driven query layer, and lazy rendering. All data is dynamically driven from a metadata table." },
-    { "q": "what is the partner portal", "a": "The Partner Portal is the MSP (Managed Service Provider) portal Aniket built at SysCloud. It supports 4-layer hierarchical account aggregation: Reseller > Distributor > MSP > Customer, with role-based access control and aggregated usage analytics across the hierarchy." },
-    { "q": "what is restore and export", "a": "Restore & Export is one of SysCloud's core features, Aniket built the action layer for S3 Data Migration. He used AWS Athena for on-demand metadata hydration of old backup data, reducing Archives query time from 10s+ to under 2s for large datasets. The Gen3 version he architected uses a unified config-driven function with zero code changes per new cloud." },
-    { "q": "what is the batch job framework", "a": "Aniket overhauled SysCloud's Batch Job and Materialized View refresh framework. He introduced parallel host-level execution, intelligent scheduling (login-triggered and time-triggered), and CPU-level optimizations. Result: 4x faster job execution in production. The framework handles 100K+ backup jobs across 5 database types." },
-    { "q": "how does sky work", "a": "Sky is SysCloud's AI-powered interface built on Claude LLM with MCP integration. A customer types a natural language question (e.g., 'show me failed backups for Google Drive last week'), Sky interprets the intent, builds the appropriate query, redirects to the relevant page with filters pre-applied, and can initiate Restore or Export actions automatically." },
-    { "q": "what is mcp", "a": "MCP (Model Context Protocol) is Anthropic's open protocol for connecting AI models to external tools and data. Aniket uses it in Sky to connect the Claude LLM to SysCloud's internal APIs and database, enabling the AI to query live data, navigate pages, and trigger real actions. He integrated MCP before it became mainstream." },
-    { "q": "what is the s3 integrity pipeline", "a": "A weekly automated pipeline Aniket engineered to verify S3 backup data integrity. It detects missing zip files and count mismatches across S3 buckets, then automatically triggers re-backup when discrepancies are found. Stack: Node.js, AWS Fargate, Lambda, and Athena. Full Grafana monitoring for observability and alerting." },
-    { "q": "what is the sonarqube work", "a": "Aniket led a code quality initiative at SysCloud resolving accumulated SonarQube issues across the codebase. Result: all critical security violations eliminated (down to 0), total code issues cut by 90%. This included fixing injection vulnerabilities, unsafe patterns, and deprecated API usage." },
-    { "q": "what are aniket's performance improvements", "a": "Measurable performance wins: (1) 4x faster batch job execution via parallel host-level execution; (2) 10s+ to under 2s archive query time via AWS Athena on-demand hydration; (3) CPU-level optimizations in the Timeseries framework; (4) PostGraphile Slow-Queries AI-Agent auto-detects and resolves slow queries before customer impact." },
-    { "q": "how does aniket handle production issues", "a": "Aniket built the DAL AI-Agents specifically to handle production issues automatically before they escalate. 4 agents cover Database Health, Restore/Export failures, StartBackup issues, and PostGraphile Slow-Queries. His philosophy: build the system to resolve itself rather than waiting for an on-call alert." },
-    { "q": "is aniket available for full time", "a": "Yes. Aniket is actively looking for full-time Lead, Staff, Principal, or SDE III-level Backend / AI Engineering roles. He's currently serving his notice period, contact him directly for the exact date: rai078945@gmail.com | +91 7668514258." },
-    { "q": "what roles is aniket open to", "a": "Aniket is open to: Lead Software Engineer, Staff/Principal Engineer, SDE III (or equivalent Lead-level titles), and Lead-level AI/LLM Engineering roles. Preferred locations: Hyderabad, Pune, Bangalore, Chennai, or fully Remote/Hybrid. Contact: rai078945@gmail.com." },
-    { "q": "tell me about aniket's education", "a": "B.Tech in Computer Science & Engineering from Lovely Professional University (LPU), 2017-2021. He interned at SysCloud during his final year and was converted to full-time." },
-    { "q": "how many people do you lead", "a": "Aniket leads an 8-10 engineer team as Lead Software Engineer at SysCloud. He's responsible for technical direction, HLD/LLD design reviews, PR reviews, and mentoring across the team." },
-    { "q": "do you do design reviews", "a": "Yes. Aniket leads both HLD (High Level Design) and LLD (Low Level Design) reviews for all major features. He drives architectural discussions and ensures the team is aligned on the approach before implementation begins." },
-    { "q": "do you do code reviews", "a": "Yes. Aniket conducts regular PR reviews for his team of 8-10 engineers, focusing on code quality, architectural consistency, and best practices across Node.js, TypeScript, and PostgreSQL." },
-    { "q": "have you interviewed candidates", "a": "Yes. Aniket participates in technical hiring interviews at SysCloud, evaluating candidates on system design, data structures, and engineering fundamentals." },
-    { "q": "what does your day look like as lead", "a": "Aniket's day as Lead is a mix of coding production features, reviewing PRs for the team, running HLD/LLD design sessions for upcoming work, and collaborating with product and stakeholders. He's hands-on both as a technical decision-maker and as an engineer shipping features." },
-    { "q": "are you a manager or individual contributor", "a": "Aniket is a hands-on technical lead. He drives architectural decisions, leads design reviews, mentors the team, and reviews code, but he also writes production code himself. He's both a technical decision-maker and an active contributor." },
-    { "q": "what is your leadership style", "a": "Aniket leads by example with a hands-on approach. He owns the architecture, leads HLD/LLD reviews, keeps code quality high through PR reviews, and mentors engineers by walking through decisions, not just delegating. His philosophy: build systems that are self-explanatory and scalable, so any engineer on the team can contribute." }
-   ],
+    {
+      "q": "do you know about aniket",
+      "a": "Yes! Aniket Rai is a Lead Software Engineer with 5+ years at SysCloud Technologies. He builds config-driven frameworks, AI agents, and natural language interfaces for cloud data."
+    },
+    {
+      "q": "who is aniket",
+      "a": "Aniket Rai is a Lead Software Engineer based in Hyderabad. 5+ years at SysCloud building scalable backend systems with Node.js, TypeScript, PostgreSQL, and AWS."
+    },
+    {
+      "q": "tell me about aniket",
+      "a": "Aniket Rai is a Lead Software Engineer with 5+ years at SysCloud Technologies. He's built config-driven frameworks handling 12+ cloud integrations, AI agents that auto-resolve production issues, and an AI-powered natural language interface for customer data."
+    },
+    {
+      "q": "what does aniket do",
+      "a": "Aniket builds scalable backend systems, AI agents, and config-driven frameworks at SysCloud Technologies. His work spans Node.js, TypeScript, PostgreSQL, AWS, and LLM integration."
+    },
+    {
+      "q": "is aniket a good engineer",
+      "a": "Aniket has 5+ years of production engineering experience. He's built systems handling 12+ cloud integrations, reduced query times from 10s+ to under 2s, achieved 4x batch job speedups, and eliminated 100% of critical security violations in the codebase."
+    },
+    {
+      "q": "what's your tech stack",
+      "a": "Aniket's core stack: Node.js, TypeScript, PostgreSQL, AWS (S3, Lambda, Fargate, Batch, SQS), GraphQL, Docker, Grafana, ELK Stack, and AI/LLM integration with Claude and MCP."
+    },
+    {
+      "q": "tell me about your projects",
+      "a": "Key projects: Sky (AI NL interface), DAL AI-Agents (4 operational monitoring agents), MDL 2.0 (config-driven framework), Anomaly Detection (Prophet ML), Restore & Export (millions of items/sec), Customer Dashboard (13+ widgets), MDLOPS Microservice."
+    },
+    {
+      "q": "your experience at syscloud",
+      "a": "5+ years at SysCloud: Lead SE (Jan 2026-Present), Dashboard overhaul, Partner Portal; SSE (Jun 2023-Dec 2025), AI agents, Sky, MDL 2.0; SE (May 2021-Jun 2023), Restore/Export, S3 integrity pipeline, ELK Stack; Intern (Nov 2020-Apr 2021), GraphQL queries and microservices POCs."
+    },
+    {
+      "q": "how to contact you",
+      "a": "Email: rai078945@gmail.com | Phone: +91 7668514258 | LinkedIn: linkedin.com/in/aniket-kumar-rai | Hyderabad, India. Open to Lead, Staff, Principal, or SDE III-level roles. Responds within 24 hours."
+    },
+    {
+      "q": "what is sky",
+      "a": "Sky is SysCloud's AI-powered natural language interface. Customers ask questions, the AI builds queries, redirects to the right page with filters, and initiates Restore & Export actions automatically."
+    },
+    {
+      "q": "tell me about dal ai agents",
+      "a": "4 DAL AI-Agents: Database Health, Restore/Export, StartBackup, and PostGraphile Slow-Queries. Each detects and resolves issues automatically before they impact customers."
+    },
+    {
+      "q": "what is mdl 2.0",
+      "a": "MDL 2.0 replaced complex mutation logic with JSON-driven config. 12+ cloud integrations migrated. Adding a new cloud now requires zero code changes, only config."
+    },
+    {
+      "q": "notice period",
+      "a": "Aniket is currently serving his notice period. This can change, so contact him directly for the exact date: rai078945@gmail.com or +91 7668514258."
+    },
+    {
+      "q": "where is aniket located",
+      "a": "Hyderabad, Telangana, India (IST, UTC+5:30). Open to Hyderabad, Pune, Bangalore, Chennai, or fully remote/hybrid roles."
+    },
+    {
+      "q": "what university did aniket go to",
+      "a": "Lovely Professional University, B.Tech in Computer Science & Engineering, 2017-2021."
+    },
+    {
+      "q": "does aniket know php",
+      "a": "Yes, Aniket has 1 year of PHP experience at SysCloud. He used PHP in two projects: (1) Slack eDiscovery, configured PHP backend services for Slack data ingestion and event handling; (2) Bulk Export, extended the PHP export backend to support multi-user exports under a single URL."
+    },
+    {
+      "q": "what php experience does aniket have",
+      "a": "Aniket used PHP at SysCloud Technologies in two projects: Slack eDiscovery Search (PHP backend services for data ingestion and event handling) and Bulk Export (extended PHP export backend from single user to multi-user exports). 1 year of hands-on PHP experience."
+    },
+    {
+      "q": "where did aniket use php",
+      "a": "PHP was used in two SysCloud projects: (1) Slack eDiscovery Search, configured PHP backend services for Slack data ingestion and event handling as part of a full-stack integration. (2) Bulk Export, extended the PHP export backend to handle multi-user exports in a single request with a unified download URL."
+    },
+    {
+      "q": "php projects",
+      "a": "Aniket's PHP work at SysCloud: Slack eDiscovery (PHP backend for Slack data ingestion) and Bulk Export (PHP export backend extended for multi-user support). Full-stack delivery across UI (React), backend (PHP + Node.js), and database (PostgreSQL)."
+    },
+    {
+      "q": "can aniket work with php",
+      "a": "Yes. Aniket has hands-on PHP experience from production work at SysCloud, configured PHP backend services for Slack eDiscovery integration and extended the PHP export backend to deliver Bulk Export with multi-user support."
+    },
+    {
+      "q": "what is bulk export",
+      "a": "Bulk Export is a feature Aniket built at SysCloud by extending the PHP export backend. The previous implementation handled only single user-level export. Aniket refactored it to support multi-user exports under a single URL, processing multiple users in one request with unified download link generation."
+    },
+    {
+      "q": "what is slack ediscovery",
+      "a": "Slack eDiscovery Search is a full-stack integration Aniket built at SysCloud. Customers can search and retrieve Slack files, messages, and chats directly through the platform. He configured PHP backend services for data ingestion, built Node.js APIs, wrote GraphQL mutations, and delivered the frontend search interface."
+    },
+    {
+      "q": "walk me through your resume",
+      "a": "Aniket started as an intern at SysCloud in Nov 2020, promoted to SE in 2021, SSE in 2023, and Lead Software Engineer in Jan 2026. He's spent 5+ years on the same B2B SaaS product, cloud data backup, which means deep domain expertise. Key highlights: Sky (AI NL interface), MDL 2.0 (12+ cloud integrations, zero-code config), 4 DAL AI-Agents, 4x batch job speedup, and eliminating all critical security violations. Core stack: Node.js, TypeScript, PostgreSQL, AWS."
+    },
+    {
+      "q": "why are you looking for a change",
+      "a": "Aniket has spent 5+ years at SysCloud, built multiple systems from scratch, and grown from intern to Senior Engineer. He's now looking for a role where he can apply that architectural experience to a new product or domain, particularly in AI-heavy, backend-intensive, or platform engineering contexts."
+    },
+    {
+      "q": "why did you stay at one company so long",
+      "a": "Aniket joined SysCloud as an intern and kept getting promoted because the problems kept getting harder. Intern to SE to SSE to Lead in the same product means he owns the full stack, he designed Sky, MDL 2.0, MDLOPS, and 4 production AI agents from scratch. Depth of ownership like that doesn't happen if you switch every two years."
+    },
+    {
+      "q": "what is your biggest achievement",
+      "a": "Top achievements: (1) Sky, took an AI-powered natural language interface from idea to production; (2) MDL 2.0, made 12+ cloud integrations maintainable by config alone, zero code per cloud; (3) 4x batch job speedup in production; (4) Query time from 10s+ to under 2s for enterprise archives; (5) 0 critical security violations after SonarQube overhaul."
+    },
+    {
+      "q": "tell me about a challenging problem you solved",
+      "a": "The batch job parallelization was a core infrastructure challenge, jobs were running sequentially, causing delays in customer-facing dashboard freshness. Aniket redesigned the framework with parallel host-level execution and CPU-level optimizations, achieving 4x faster execution. Another: diagnosing S3 object versioning mismatches causing restore failures, then building an automated version-copy mechanism to fix them without human intervention."
+    },
+    {
+      "q": "what are your strengths",
+      "a": "Aniket's strengths: (1) Systems thinking, he designs architecture, not just features; (2) End-to-end ownership, from schema design to frontend delivery; (3) AI integration, built production LLM systems before it was mainstream; (4) Measurable impact, every optimization has a number behind it (4x, 5x, 0 violations, 12+ integrations)."
+    },
+    {
+      "q": "what is your weakness",
+      "a": "Aniket's natural tendency is to go deep on a problem before moving on, which sometimes means he spends more time than needed getting the foundation right. He's learned to balance that with shipping cadence in fast-moving environments."
+    },
+    {
+      "q": "what is his biggest weakness as a technical leader",
+      "a": "It's less a weakness than a depth-vs-breadth trade-off: Aniket's deepest expertise is backend architecture and systems design, and he's deliberately expanded from there into full-stack delivery, not the other way around. He's comfortable with React and CSS and has shipped real features end-to-end with them (Slack eDiscovery search, Bulk Export, Gen4/Gen5 cloud pages), so it's demonstrated capability, not a gap. Backend is just where he has the most depth, and he's actively broadening from that strong foundation."
+    },
+    {
+      "q": "where do you see yourself in 5 years",
+      "a": "Aniket wants to be in an architect or tech lead role, designing the systems, mentoring engineers, and working at the intersection of AI and backend infrastructure. He's already doing parts of that at SysCloud; he wants the full scope."
+    },
+    {
+      "q": "why should we hire aniket",
+      "a": "Aniket ships systems that scale. He's designed AI agents, config-driven frameworks handling 12+ cloud integrations, and a natural language interface for enterprise customers, all in production. Every claim comes with a metric: 4x faster, 10s to 2s, 0 critical bugs, 12+ clouds. 5 years at one product means deep expertise, not job-hopping."
+    },
+    {
+      "q": "tell me about a time you led a project",
+      "a": "MDL 2.0 is the clearest example. Aniket identified that adding a new cloud integration required weeks of code changes across multiple layers. He designed a JSON-driven config framework, migrated 12+ existing cloud integrations, and delivered a system where new clouds require zero code changes. He owned the design, migration, and delivery end-to-end."
+    },
+    {
+      "q": "how do you handle pressure or deadlines",
+      "a": "Aniket's pattern is to scope early and communicate blockers before they become problems. At SysCloud, production issues require immediate response, the DAL AI-Agents were built specifically to auto-resolve issues before they escalate, which is his philosophy: build systems that reduce pressure, not just handle it."
+    },
+    {
+      "q": "describe your work style",
+      "a": "Aniket works with deep ownership, he prefers to understand the full system before touching it. He designs for scale (config-driven, not code-per-feature), builds with observability in mind (Grafana, ELK Stack, trace IDs), and measures every improvement."
+    },
+    {
+      "q": "do you prefer working alone or in a team",
+      "a": "Both, he designs architecture independently and drives it through collaboration. Sky, MDL 2.0, and MDLOPS were all Aniket's designs that got built with cross-team coordination across product, DB, and ops teams."
+    },
+    {
+      "q": "how do you keep up with technology",
+      "a": "Aniket stays current by building with new technology rather than just reading about it. Sky and the DAL AI-Agents were built using MCP and Claude before most teams had LLMs on their roadmap. He learns by shipping."
+    },
+    {
+      "q": "have you mentored anyone",
+      "a": "As Lead SE, Aniket leads and mentors an 8-10 engineer team. He guides engineers through architectural decisions, PR reviews, and onboarding. He's also the de facto owner for MDL 2.0 and MDLOPS, which means other engineers follow his patterns and standards."
+    },
+    {
+      "q": "what is your current salary",
+      "a": "Compensation details are best discussed directly. Reach out to Aniket at rai078945@gmail.com or +91 7668514258."
+    },
+    {
+      "q": "what is your expected salary",
+      "a": "Aniket prefers to discuss compensation directly based on the role and scope. Contact him at rai078945@gmail.com or +91 7668514258."
+    },
+    {
+      "q": "do you know python",
+      "a": "Yes, Aniket has Python experience, primarily for scripting, automation, and ML tooling. He used the Facebook Prophet library (Python) for the Anomaly Detection engine at SysCloud, combining it with a rule-based JSON comparison system for statistical deviation detection in backup data."
+    },
+    {
+      "q": "what python experience does aniket have",
+      "a": "Aniket used Python for the Anomaly Detection system at SysCloud, specifically the Facebook Prophet ML library for time-series anomaly detection. He also uses Python for scripting and automation tooling. His primary production language is Node.js/TypeScript."
+    },
+    {
+      "q": "what is anomaly detection at syscloud",
+      "a": "Aniket built a dual-mode Anomaly Detection engine: (1) Rule-based, JSON comparison against defined thresholds for known failure patterns; (2) ML-based, Facebook Prophet for statistical time-series deviation detection. It's integrated into the MDLOPS microservice and flags backup anomalies before they surface to customers."
+    },
+    {
+      "q": "does aniket know react",
+      "a": "Yes. Aniket delivers full-stack features, his React experience includes the Slack eDiscovery search interface, customer-facing Dashboard widgets, Partner Portal UI, and Gen3/Gen4/Gen5 cloud pages. His primary strength is backend/Node.js, but he ships frontend when needed."
+    },
+    {
+      "q": "does aniket know aws",
+      "a": "Yes, AWS is core to Aniket's stack. He uses S3 (backup storage, integrity pipelines), Lambda (event-driven jobs), Fargate (containerized workloads), Batch (100K+ backup jobs), SQS (async messaging for Add-On Actions), Athena (on-demand metadata queries), CodePipeline, and CodeBuild for CI/CD."
+    },
+    {
+      "q": "what is postgraphile",
+      "a": "PostGraphile auto-generates a GraphQL API from a PostgreSQL schema. Aniket has used it since his internship, all GraphQL mutations at SysCloud run through PostGraphile. MDL 2.0 executes each action as a micro-task inside PostGraphile, and one of his 4 DAL AI-Agents specifically monitors PostGraphile for slow queries."
+    },
+    {
+      "q": "what is the mdlops microservice",
+      "a": "MDLOPS is a TypeScript microservice Aniket built from scratch using cm-runner-plus with JSON-driven config. It handles 5 async add-on modules (eDiscovery, BDI, etc.) with parallel execution via PM2, integrates the Facebook Prophet anomaly detection algorithm, and ties into the Add-On Actions system."
+    },
+    {
+      "q": "what are add on actions",
+      "a": "Add-On Actions is the system Aniket designed at SysCloud for async operations on backup data: Dismiss, Hold/Release, Archive On-Demand, Remove Sharing, Transfer Ownership, and Deletion. He modeled the parent/child schema and full mutation layer, with async processing via AWS SQS and real-time UI status tracking across 8 states."
+    },
+    {
+      "q": "what is the customer dashboard",
+      "a": "The Customer Dashboard is a 13+ widget UI Aniket built at SysCloud showing aggregated backup metrics across 12+ cloud providers. It uses pre-computed PostgreSQL Materialized Views with concurrent refresh (zero transactional impact), a config-driven query layer, and lazy rendering. All data is dynamically driven from a metadata table."
+    },
+    {
+      "q": "what is the partner portal",
+      "a": "The Partner Portal is the MSP (Managed Service Provider) portal Aniket built at SysCloud. It supports 4-layer hierarchical account aggregation: Reseller > Distributor > MSP > Customer, with role-based access control and aggregated usage analytics across the hierarchy."
+    },
+    {
+      "q": "what is restore and export",
+      "a": "Restore & Export is one of SysCloud's core features, Aniket built the action layer for S3 Data Migration. He used AWS Athena for on-demand metadata hydration of old backup data, reducing Archives query time from 10s+ to under 2s for large datasets. The Gen3 version he architected uses a unified config-driven function with zero code changes per new cloud."
+    },
+    {
+      "q": "what is the batch job framework",
+      "a": "Aniket overhauled SysCloud's Batch Job and Materialized View refresh framework. He introduced parallel host-level execution, intelligent scheduling (login-triggered and time-triggered), and CPU-level optimizations. Result: 4x faster job execution in production. The framework handles 100K+ backup jobs across 5 database types."
+    },
+    {
+      "q": "how does sky work",
+      "a": "Sky is SysCloud's AI-powered interface built on Claude LLM with MCP integration. A customer types a natural language question (e.g., 'show me failed backups for Google Drive last week'), Sky interprets the intent, builds the appropriate query, redirects to the relevant page with filters pre-applied, and can initiate Restore or Export actions automatically."
+    },
+    {
+      "q": "what is mcp",
+      "a": "MCP (Model Context Protocol) is Anthropic's open protocol for connecting AI models to external tools and data. Aniket uses it in Sky to connect the Claude LLM to SysCloud's internal APIs and database, enabling the AI to query live data, navigate pages, and trigger real actions. He integrated MCP before it became mainstream."
+    },
+    {
+      "q": "what is the s3 integrity pipeline",
+      "a": "A weekly automated pipeline Aniket engineered to verify S3 backup data integrity. It detects missing zip files and count mismatches across S3 buckets, then automatically triggers re-backup when discrepancies are found. Stack: Node.js, AWS Fargate, Lambda, and Athena. Full Grafana monitoring for observability and alerting."
+    },
+    {
+      "q": "what is the sonarqube work",
+      "a": "Aniket led a code quality initiative at SysCloud resolving accumulated SonarQube issues across the codebase. Result: all critical security violations eliminated (down to 0), total code issues cut by 90%. This included fixing injection vulnerabilities, unsafe patterns, and deprecated API usage."
+    },
+    {
+      "q": "what are aniket's performance improvements",
+      "a": "Measurable performance wins: (1) 4x faster batch job execution via parallel host-level execution; (2) 10s+ to under 2s archive query time via AWS Athena on-demand hydration; (3) CPU-level optimizations in the Timeseries framework; (4) PostGraphile Slow-Queries AI-Agent auto-detects and resolves slow queries before customer impact."
+    },
+    {
+      "q": "how does aniket handle production issues",
+      "a": "Aniket built the DAL AI-Agents specifically to handle production issues automatically before they escalate. 4 agents cover Database Health, Restore/Export failures, StartBackup issues, and PostGraphile Slow-Queries. His philosophy: build the system to resolve itself rather than waiting for an on-call alert."
+    },
+    {
+      "q": "is aniket available for full time",
+      "a": "Yes. Aniket is actively looking for full-time Lead, Staff, Principal, or SDE III-level Backend / AI Engineering roles. He's currently serving his notice period, contact him directly for the exact date: rai078945@gmail.com | +91 7668514258."
+    },
+    {
+      "q": "what roles is aniket open to",
+      "a": "Aniket is open to: Lead Software Engineer, Staff/Principal Engineer, SDE III (or equivalent Lead-level titles), and Lead-level AI/LLM Engineering roles. Preferred locations: Hyderabad, Pune, Bangalore, Chennai, or fully Remote/Hybrid. Contact: rai078945@gmail.com."
+    },
+    {
+      "q": "tell me about aniket's education",
+      "a": "B.Tech in Computer Science & Engineering from Lovely Professional University (LPU), 2017-2021. He interned at SysCloud during his final year and was converted to full-time."
+    },
+    {
+      "q": "how many people do you lead",
+      "a": "Aniket leads an 8-10 engineer team as Lead Software Engineer at SysCloud. He's responsible for technical direction, HLD/LLD design reviews, PR reviews, and mentoring across the team."
+    },
+    {
+      "q": "do you do design reviews",
+      "a": "Yes. Aniket leads both HLD (High Level Design) and LLD (Low Level Design) reviews for all major features. He drives architectural discussions and ensures the team is aligned on the approach before implementation begins."
+    },
+    {
+      "q": "do you do code reviews",
+      "a": "Yes. Aniket conducts regular PR reviews for his team of 8-10 engineers, focusing on code quality, architectural consistency, and best practices across Node.js, TypeScript, and PostgreSQL."
+    },
+    {
+      "q": "have you interviewed candidates",
+      "a": "Yes. Aniket participates in technical hiring interviews at SysCloud, evaluating candidates on system design, data structures, and engineering fundamentals."
+    },
+    {
+      "q": "what does your day look like as lead",
+      "a": "Aniket's day as Lead is a mix of coding production features, reviewing PRs for the team, running HLD/LLD design sessions for upcoming work, and collaborating with product and stakeholders. He's hands-on both as a technical decision-maker and as an engineer shipping features."
+    },
+    {
+      "q": "are you a manager or individual contributor",
+      "a": "Aniket is a hands-on technical lead. He drives architectural decisions, leads design reviews, mentors the team, and reviews code, but he also writes production code himself. He's both a technical decision-maker and an active contributor."
+    },
+    {
+      "q": "what is your leadership style",
+      "a": "Aniket leads by example with a hands-on approach. He owns the architecture, leads HLD/LLD reviews, keeps code quality high through PR reviews, and mentors engineers by walking through decisions, not just delegating. His philosophy: build systems that are self-explanatory and scalable, so any engineer on the team can contribute."
+    },
+    {
+      "q": "tell me about job autopilot",
+      "a": "Job Autopilot is a personal automation pipeline Aniket built while job hunting himself. It discovers postings from LinkedIn plus 100+ company ATS boards (Greenhouse, Lever, Ashby) and job aggregators, scores each one with Claude against a 6-dimension rubric that flags ghost and scam listings, fills out the application, and preps interview answers from a STAR story bank. A human confirms every submission, nothing auto-applies without approval. Built with Node.js, TypeScript, Playwright, Claude, and Supabase."
+    },
+    {
+      "q": "what is the fastapi task manager",
+      "a": "FastAPI Task Manager is a personal project Aniket built to explore Python's backend ecosystem from his Node.js/Express background. It's a CRUD REST API for task management with FastAPI, SQLAlchemy, and Pydantic on SQLite, implementing correct PUT (full replace) vs PATCH (partial update) semantics, full pytest coverage, and auto-generated Swagger/ReDoc docs."
+    },
+    {
+      "q": "tell me about mini message app",
+      "a": "mini-message-app is a real-time, WhatsApp-style chat app Aniket built with no custom backend — React talks directly to Firestore, and every message, typing indicator, read receipt, and presence update syncs live across clients through onSnapshot listeners and security rules alone. Originally built in 2020 to learn Firebase's realtime data model, modernized in 2026 with presence, read receipts, and unread badges."
+    },
+    {
+      "q": "what personal projects has aniket built",
+      "a": "Outside SysCloud, Aniket has built Job Autopilot (an AI-scored job search automation pipeline), FastAPI Task Manager (a Python/FastAPI CRUD API to learn a new backend ecosystem), and mini-message-app (a real-time chat app with zero custom backend, built on Firestore). All are personal projects, separate from his production work."
+    },
+    {
+      "q": "what is the hunter agent",
+      "a": "Hunter Agent is an AI agent Aniket built that autonomously debugs production issues by correlating signals across SysCloud's full observability stack — ELK, CloudWatch, Grafana, and application monitoring dashboards. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer with a suggested fix, taking manual log triage out of the incident loop."
+    },
+    {
+      "q": "what generations has aniket worked on at syscloud",
+      "a": "Aniket has worked across multiple SysCloud product generations: Gen3 (unified config-driven Restore/Export, zero per-cloud code), Gen4 (cloud pages for Reports, Restore, Export, and Dashboard with config templates), and Gen5 (extended with Unified Errors, Limitations, and Homepage widgets). Each new cloud is added with zero code changes."
+    },
+    {
+      "q": "what is aniket's microservices experience",
+      "a": "Aniket's microservices work includes MDLOPS (a TypeScript microservice with 5 async modules running in parallel via PM2), helping shift SysCloud from a monolith to microservices as an intern, MDL 2.0's micro-task execution engine inside PostGraphile, and using AWS SQS for async inter-service communication in Add-On Actions."
+    },
+    {
+      "q": "what is aniket's ci cd experience",
+      "a": "Aniket's CI/CD stack is AWS CodePipeline and AWS CodeBuild in production, along with SonarQube (eliminated all critical violations, cut total issues by 90%), Docker for containerized services, and Grafana for observability. Jenkins is conceptual knowledge for him, not primary tooling."
+    },
+    {
+      "q": "what certifications does aniket have",
+      "a": "Aniket holds a Node.js Certificate Training from Simplilearn, a Full Stack Development certification from upGrad, and completed a ChatGPT & AI Tools Workshop from Be10x."
+    },
+    {
+      "q": "does aniket have docker experience",
+      "a": "Yes. Aniket uses Docker as part of his AWS-based infrastructure — containerizing services in the Fargate-based deployment pipeline, and using it in the Timeseries and Batch Framework for multi-environment deployments via AWS CodeBuild."
+    },
+    {
+      "q": "does aniket have elk stack experience",
+      "a": "Yes. Aniket integrated the full ELK Stack at SysCloud as the centralized observability layer — Elasticsearch for log indexing and search, Logstash for ingestion and transformation, and Kibana dashboards for real-time backend error visualization, integrated with Grafana for unified monitoring. This became the primary backend monitoring solution used across all services."
+    },
+    {
+      "q": "what is the version copy mechanism",
+      "a": "Aniket built a version-copy mechanism to fix restoration failures caused by S3 object versioning issues — some S3 objects with multiple versions had outdated database associations causing restores to fail. His fix identifies objects with multiple versions, extracts the older ones, and creates new objects with correct DB associations, resolving that class of restoration failure for enterprise customers."
+    },
+    {
+      "q": "is aniket authorized to work",
+      "a": "Yes, Aniket is fully authorized to work in India, no visa or sponsorship required. He's based in Hyderabad and open to Hyderabad, Pune, Bangalore, Chennai, or fully remote/hybrid roles. For international opportunities, he'd need to discuss visa sponsorship directly."
+    },
+    {
+      "q": "is aniket flexible on shift timing",
+      "a": "Yes. Aniket normally works standard IST business hours, but he's genuinely flexible on shift and happy to align with US/EU overlap hours if a role needs it."
+    },
+    {
+      "q": "does aniket know kafka",
+      "a": "Aniket has conceptual/secondary knowledge of Apache Kafka, not production experience. His primary async messaging experience in production is AWS SQS, which he uses in the Add-On Actions system for inter-service communication."
+    },
+    {
+      "q": "does aniket know snowflake",
+      "a": "Snowflake is secondary/conceptual knowledge for Aniket. His primary database expertise is PostgreSQL, at an expert level with 5+ years of production experience."
+    },
+    {
+      "q": "does aniket know jenkins",
+      "a": "Jenkins is conceptual knowledge for Aniket, not his primary tooling. His production CI/CD experience is with AWS CodePipeline and AWS CodeBuild, alongside SonarQube, Git, and Docker."
+    },
+    {
+      "q": "is aniket a good fit for a large company or mnc",
+      "a": "Aniket's whole career has been inside a structured, process-driven SaaS company, so he's comfortable with the scale, review processes, and cross-team coordination a larger organization expects — that part maps directly. What's genuinely untested is how he'd operate somewhere with far less structure than that; SysCloud isn't a huge MNC, but it does have established processes to lean on."
+    },
+    {
+      "q": "is aniket a good fit for a startup",
+      "a": "He hasn't worked at a formal early-stage startup, so that specific environment is an evidence gap, not a demonstrated weakness. What he does have that transfers well: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead over 5 years by taking on more ownership at every step — the kind of self-directed ownership startups actually need, just not proven in a startup's specific chaos yet."
+    },
+    {
+      "q": "how does aniket compare to other candidates",
+      "a": "Hard to answer generically without knowing who else is in the pool — but what's specific to Aniket is that every claim about his work comes with a real measured number (4x faster batch jobs, 10s to under 2s query time, 0 critical security violations, 12+ cloud integrations by config alone), and 5 years of that on one product means deep ownership rather than shallow exposure to many things."
+    },
+    {
+      "q": "is aniket overqualified for smaller roles",
+      "a": "Depends on the role's actual scope, not just its title. Aniket is targeting Lead, Staff, Principal, or SDE III-level work specifically because that's where his architecture and ownership experience applies best — for something clearly more junior in scope, that's worth discussing directly rather than assuming either way."
+    },
+    {
+      "q": "will aniket get bored in a smaller team",
+      "a": "Nothing in his track record suggests that — his growth at SysCloud came from taking on progressively more ownership (intern to Lead in 5 years) rather than needing size or headcount to stay engaged. A smaller team with real ownership on the table is more consistent with what's kept him engaged than a large team with narrow scope would be."
+    },
+    {
+      "q": "what makes aniket different from other backend engineers",
+      "a": "The combination of end-to-end ownership (schema to frontend), measurable impact on every project (4x, 10s to 2s, 0 violations, 12+ integrations), and early hands-on AI/LLM integration (Sky and the DAL AI-Agents used MCP and Claude before most teams had LLMs on their roadmap) rather than just backend depth alone."
+    },
+    {
+      "q": "is aniket ready for a staff or principal role",
+      "a": "He's already doing a meaningful slice of that scope as Lead — owning architecture end-to-end, leading HLD/LLD design reviews, and mentoring 8-10 engineers. Whether that maps cleanly to a Staff/Principal title elsewhere depends on the specific org's scope for that level, which is worth a direct conversation."
+    },
+    {
+      "q": "does aniket have enterprise client experience",
+      "a": "Yes. SysCloud's platform serves enterprise customers doing cloud data backup across 12+ cloud providers, and Aniket's work (Restore & Export, the Customer Dashboard, Add-On Actions) is built specifically for that enterprise-scale, multi-tenant use case."
+    },
+    {
+      "q": "has aniket worked in a fast paced environment",
+      "a": "Production incident response is inherently fast-paced — Aniket built the DAL AI-Agents and Hunter Agent specifically because production issues needed faster resolution than manual triage allowed. What he hasn't done is that pace inside a small, resource-constrained startup specifically, which is a different kind of fast-paced than enterprise on-call."
+    },
+    {
+      "q": "what kind of company culture would aniket thrive in",
+      "a": "One that rewards deep ownership and lets him drive architecture, not just implement tickets — that's the pattern across his whole career at SysCloud, from designing Sky and MDL 2.0 from scratch to leading design reviews. He's also shown he adapts across roles: hands-on IC work, mentoring, and architecture, all at once."
+    },
+    {
+      "q": "what is aniket looking for in his next role",
+      "a": "An architect or tech lead role where he can design systems, mentor engineers, and keep working at the intersection of AI and backend infrastructure — he's already doing pieces of that at SysCloud and wants the fuller scope of it."
+    },
+    {
+      "q": "is aniket comfortable with ambiguity",
+      "a": "That's genuinely one of the things worth validating directly in an interview rather than assuming from his resume — his work at SysCloud has real ambiguity (designing MDL 2.0 and Sky from a blank slate), but always inside a company with established process to fall back on, which is a different kind of ambiguity than a team with no process at all."
+    },
+    {
+      "q": "how does aniket prioritize without a process",
+      "a": "This is one of the more honest open questions about him — his prioritization experience has mostly happened inside SysCloud's existing structure, so how he'd prioritize from scratch with no established process to lean on is worth asking about directly rather than assuming."
+    },
+    {
+      "q": "does aniket have startup experience",
+      "a": "No direct hands-on experience specifically at an early-stage startup with few established processes — that's a real evidence gap. What does transfer: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead by taking on more ownership at every step, which is the same self-directed pattern startups need, just not proven in that specific environment yet."
+    },
+    {
+      "q": "what does aniket do outside of work",
+      "a": "He keeps building — his personal projects (Job Autopilot, FastAPI Task Manager, mini-message-app) are all things he built outside SysCloud to explore a new stack or solve a real problem he had, not assigned work."
+    },
+    {
+      "q": "what is aniket's proudest project",
+      "a": "Sky comes up most — taking an AI-powered natural language interface from idea to production, end to end. MDL 2.0 is a close second: making 12+ cloud integrations maintainable by config alone, with zero code required per new cloud."
+    },
+    {
+      "q": "does aniket have llm experience",
+      "a": "Yes, and early — Sky (an AI-powered natural language interface) and the DAL AI-Agents were built using MCP and Claude before most teams had LLMs on their roadmap. Hunter Agent also uses Claude for automated root-cause analysis on production incidents."
+    },
+    {
+      "q": "how does aniket approach system design",
+      "a": "He designs for scale from the start — config-driven instead of code-per-feature (MDL 2.0), built with observability in mind (Grafana, ELK, trace IDs), and every design goes through an HLD/LLD review he personally leads before implementation begins."
+    },
+    {
+      "q": "what technologies does aniket avoid or not use",
+      "a": "Nothing he actively avoids, but a few are conceptual/secondary rather than production experience: Apache Kafka (his production async messaging is AWS SQS), Snowflake (his production database depth is PostgreSQL), and Jenkins (his production CI/CD is AWS CodePipeline and CodeBuild)."
+    },
+    {
+      "q": "what is syscloud",
+      "a": "SysCloud Technologies is a B2B SaaS company specializing in cloud data backup and protection, covering 12+ cloud providers including Google Workspace, Microsoft 365, QuickBooks, and Slack. Aniket has been there 5+ years, growing from Intern to Lead Software Engineer."
+    },
+    {
+      "q": "does aniket have experience with graphql",
+      "a": "Yes, GraphQL is a core part of his stack — PostGraphile is SysCloud's primary GraphQL server, he's authored GraphQL queries for UI modules since his internship, built the mutation layer for Add-On Actions, and MDL 2.0 executes all cloud actions as micro-tasks inside PostGraphile."
+    },
+    {
+      "q": "what would aniket need to validate in an interview",
+      "a": "The honest gaps worth asking about directly: hands-on experience specifically at an early-stage startup, prioritizing without an established process to lean on, and comfort wearing non-engineering hats when a smaller team needs it. None of these are demonstrated weaknesses in his work, they're just untested outside SysCloud's structure."
+    }
+  ],
   "unanswered": []
 }

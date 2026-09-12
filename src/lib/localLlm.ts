@@ -117,7 +117,7 @@ ${relevantContext(question)}`;
 // non-negative questions) without ever fabricating new content, since it
 // can only ever choose real statements, never write new ones.
 export function isCriticalQuestion(question: string): boolean {
-  return /\b(bad fit|poor fit|wrong fit|not (a )?good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring|limitations?|what does .*lack|lacks?\b.*compared)\b/i.test(question);
+  return /\b(bad fit|poor fit|wrong fit|good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring|limitations?|what does .*lack|lacks?\b.*compared)\b/i.test(question);
 }
 
 const CONCERNS = [
