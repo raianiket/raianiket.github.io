@@ -128,7 +128,7 @@
       "topic": "self"
     },
     {
-      "pattern": "tech|stack|skill|language|tool|expertise|know|technologies|code in|codes in",
+      "pattern": "\\btech\\b|stack|skill|language|tool|expertise|know|technologies|code in|codes in",
       "text": "Aniket's core stack:\n\n🟦 Languages: TypeScript, JavaScript (Node.js), PHP, SQL, Python\n📐 Architecture: System Design, HLD, LLD, API Design, Microservices, Distributed Systems, Event-Driven Architecture, Performance Optimization, Scalable Backend Architecture\n🔧 Backend: Node.js, Express, FastAPI, GraphQL (PostGraphile), Playwright, High-Throughput Systems, Concurrent Processing\n🗄️ Databases: PostgreSQL (CTEs, Materialized Views), MongoDB, AWS Athena, Supabase, Firebase/Firestore\n☁️ Cloud: AWS (Lambda, Step Functions, S3, Fargate, Batch, SQS, EventBridge, CodePipeline, CodeBuild, IAM, Serverless)\n🤖 GenAI & Agentic AI: LLM Integration, Agentic Workflows, Prompt Engineering, AI Agent Development, Claude, MCP, Anomaly Detection, Prophet Algorithm\n🛠️ Tools: Git, Docker, Grafana, ELK Stack, SonarQube",
       "suggestions": [
         "Tell me about his AWS experience",
@@ -535,8 +535,8 @@
       "topic": "strengths"
     },
     {
-      "pattern": "weakness|weak|not good|improve|learning",
-      "text": "Aniket is primarily a backend engineer, his frontend skills (React, CSS) are functional but not his primary strength. He's continuously learning and has integrated React into full-stack deliveries at SysCloud.",
+      "pattern": "\\bweak\\b|not good|improve|learning",
+      "text": "It's less a weakness than a depth-vs-breadth trade-off: Aniket's deepest expertise is backend architecture and systems design, and he's deliberately expanded from there into full-stack delivery, not the other way around. He's comfortable with React and CSS and has shipped real features end-to-end with them (Slack eDiscovery search, Bulk Export, Gen4/Gen5 cloud pages), so it's demonstrated capability, not a gap. Backend is just where he has the most depth, and he's actively broadening from that strong foundation.",
       "suggestions": [
         "What is he strong at?",
         "His tech stack",
@@ -555,7 +555,7 @@
       "topic": "years"
     },
     {
-      "pattern": "why hire|why aniket|why should|what makes him|unique|stand out|different",
+      "pattern": "why hire|why aniket|why should\\b|what makes him|unique|stand out|different",
       "text": "Why hire Aniket?\n\n🔹 Builds systems that scale, 12+ cloud integrations, zero code per new cloud\n🔹 Ships end-to-end, owns features from design to production\n🔹 AI-first mindset, built LLM agents before it was mainstream\n🔹 Quality-driven, SonarQube critical issues to 0, total cut by 90%\n🔹 Performance obsessed, 4x batch speed, 10s+ → <2s query times\n🔹 5+ years deep production experience in a high-growth SaaS product",
       "suggestions": [
         "Tell me about his projects",
@@ -595,7 +595,7 @@
       "topic": "cicd"
     },
     {
-      "pattern": "mentor|lead|leadership|team|junior|manage|senior",
+      "pattern": "mentor|\\blead\\b|leadership|team|junior|manage|senior",
       "text": "As a Lead Software Engineer, Aniket:\n\n• Mentors junior developers and conducts regular code reviews\n• Owns features end-to-end, from design to production\n• Led migration of 12+ cloud integrations to MDL 2.0\n• Drove SonarQube quality initiatives across the entire codebase\n• Designed architecture for MDLOPS, MDL 2.0, and Sky from scratch",
       "suggestions": [
         "His experience",
