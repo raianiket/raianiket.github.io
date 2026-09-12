@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Copy, Check, Mic, MicOff, Bot, Sparkles } from "lucide-react";
+import { X, Send, Copy, Check, Mic, MicOff, Bot, Sparkles, Maximize2, Minimize2 } from "lucide-react";
 import { RESPONSES, FOLLOW_UPS, DEFAULT_RESPONSE, DEFAULT_RESPONSE_TEXTS, FINETUNING_EXAMPLES, INITIAL_SUGGESTIONS, RECRUITER_SUGGESTIONS, TYPO_MAP } from "@/data/chatResponses";
 import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
@@ -719,6 +719,21 @@ export default function ChatBot() {
 
                 {/* Divider */}
                 <span style={{ width: "1px", height: "14px", background: "var(--border-strong)", flexShrink: 0 }} />
+
+                {/* Fullscreen toggle */}
+                <div style={{ position: "relative" }}
+                  onMouseEnter={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "1"; }}
+                  onMouseLeave={e => { const t = e.currentTarget.querySelector(".hdr-tip") as HTMLElement; if (t) t.style.opacity = "0"; }}>
+                  <button onClick={() => setFullscreen(f => !f)}
+                    style={{ display: "flex", alignItems: "center", padding: "0.2rem 0.4rem", borderRadius: "999px", border: "1px solid var(--border-medium)", background: "none", color: "var(--text-muted)", cursor: "pointer", transition: "all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(26,108,245,0.4)"; e.currentTarget.style.color = "var(--text-primary)"; e.currentTarget.style.background = "rgba(26,108,245,0.07)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-medium)"; e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.background = "none"; }}>
+                    {fullscreen ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
+                  </button>
+                  <div className="hdr-tip" style={{ position: "absolute", bottom: "calc(100% + 6px)", left: "50%", transform: "translateX(-50%)", background: "var(--bg-card-alpha-hi)", border: "1px solid var(--border-strong)", borderRadius: "7px", padding: "0.25rem 0.55rem", fontSize: "0.6rem", color: "var(--text-primary)", whiteSpace: "nowrap", pointerEvents: "none", opacity: 0, transition: "opacity 0.15s", zIndex: 20 }}>
+                    {fullscreen ? "Exit fullscreen" : "Expand to fullscreen"}
+                  </div>
+                </div>
 
                 {/* Action text badges */}
                 {([
