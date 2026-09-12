@@ -8,6 +8,7 @@ import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
 import { supabase } from "@/lib/supabase";
 import { closestMatch } from "@/lib/levenshtein";
+import { askLocalLLM } from "@/lib/localLlm";
 import { EASE, SESSION_KEY, CONTACT_EMAIL, PORTFOLIO_URL } from "@/lib/constants";
 
 interface Message {
@@ -114,7 +115,10 @@ async function logUnanswered(question: string) {
   } catch { /* ignore */ }
 }
 
-function getResponse(input: string, lastTopic: string | null): { response: ResponseEntry; topic: string | null } {
+// Deterministic intent layer: regex/pattern matching only, no LLM. Returns
+// null when nothing matches so the caller can try the local-LLM fallback
+// before giving up on a default response.
+function matchIntent(input: string, lastTopic: string | null): { response: ResponseEntry; topic: string | null } | null {
   const raw = input.toLowerCase().trim().replace(/\s+/g, " ");
   const normalized = normalizeTypos(raw);
 
@@ -160,9 +164,29 @@ function getResponse(input: string, lastTopic: string | null): { response: Respo
     };
   }
 
-  logUnanswered(input.trim());
+  return null;
+}
+
+function defaultResponse(): { response: ResponseEntry; topic: string | null } {
   const text = pickRandom(DEFAULT_RESPONSE_TEXTS.length ? DEFAULT_RESPONSE_TEXTS : [DEFAULT_RESPONSE.text], 1)[0];
   return { response: { ...DEFAULT_RESPONSE, text, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
+}
+
+// Hybrid layer: deterministic intent match first (instant, free), and only
+// when that finds nothing, ask the local LLM (see src/lib/localLlm.ts). If
+// the LLM is unavailable (not running / different visitor's machine), it
+// resolves to null and we fall back to the same default response as before.
+async function getResponse(input: string, lastTopic: string | null): Promise<{ response: ResponseEntry; topic: string | null }> {
+  const matched = matchIntent(input, lastTopic);
+  if (matched) return matched;
+
+  const llmAnswer = await askLocalLLM(input.trim());
+  if (llmAnswer) {
+    return { response: { text: llmAnswer, suggestions: pickRandom(DEFAULT_RESPONSE.suggestions ?? [], 4) }, topic: null };
+  }
+
+  logUnanswered(input.trim());
+  return defaultResponse();
 }
 
 function pickRandom<T>(pool: T[], count: number): T[] {
@@ -346,20 +370,20 @@ export default function ChatBot() {
     setInput("");
     setTyping(true);
 
-    const { response, topic } = getResponse(text, lastTopic);
-    const delay = getVariableDelay(response.text);
-
-    setTimeout(() => {
-      setTyping(false);
-      if (topic) setLastTopic(topic);
-      typeMessage(response.text, () => {
-        const botMsg: Message = { from: "bot", text: response.text, time: now(), id: nextId() };
-        setMessages((m) => [...m, botMsg]);
-        setTypingText("");
-        setSuggestions(response.suggestions);
-        if (!open) setUnread((u) => u + 1);
-      });
-    }, delay);
+    getResponse(text, lastTopic).then(({ response, topic }) => {
+      const delay = getVariableDelay(response.text);
+      setTimeout(() => {
+        setTyping(false);
+        if (topic) setLastTopic(topic);
+        typeMessage(response.text, () => {
+          const botMsg: Message = { from: "bot", text: response.text, time: now(), id: nextId() };
+          setMessages((m) => [...m, botMsg]);
+          setTypingText("");
+          setSuggestions(response.suggestions);
+          if (!open) setUnread((u) => u + 1);
+        });
+      }, delay);
+    });
   }, [typing, isTypingEffect, lastTopic, open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const reset = () => {
