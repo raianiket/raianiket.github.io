@@ -41,32 +41,44 @@ function relevantContext(question: string, limit = 6): string {
   return scored.map((s) => `Q: ${s.ex.q}\nA: ${s.ex.a}`).join("\n\n");
 }
 
-// Questions that lead toward a negative conclusion (fit risk, weaknesses,
-// devil's-advocate "why shouldn't I hire him") are deliberately NOT sent to
-// the LLM at all — they fall through to askLocalLLM returning null, which
-// the caller (ChatBot.tsx) turns into the same safe default response used
-// whenever nothing can answer a question.
-//
-// This isn't a shortcut: four different approaches were tested against the
-// real llama3.2:1b model in development before landing here — (1) a single
-// call with the full 67-entry corpus and an 8-rule anti-hallucination
-// prompt, (2) the same but with a keyword-filtered slice, (3) a two-step
-// pipeline that first extracted evidence and then reasoned only from that
-// extraction, (4) a single call scoped to a small, hand-curated ~10-entry
-// pool of directly relevant facts (work style, weakness, pressure handling,
-// leadership). All four still invented specific, plausible-sounding but
-// entirely unfounded concerns ("scope creep", "overemphasis on technical
-// debt", "lack of experience with agile methodologies" — none of which
-// exist anywhere in the source data) even under explicit anti-invention
-// rules at low temperature. That's a genuine capability ceiling of a 1B
-// model on adversarially-framed evaluative reasoning, not a prompt-wording
-// problem — see architecture.md for the full writeup. Per the project's own
-// constraint (stay local/low-RAM, don't solve quality problems by
-// upsizing the model), the correct fix is to not let the model attempt this
-// task at all, rather than ship answers that could misrepresent a real
-// person to a recruiter.
-function isCriticalQuestion(question: string): boolean {
-  return /\b(bad fit|poor fit|wrong fit|not (a )?good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring)\b/i.test(question);
+async function chatOllama(system: string, user: string, opts: { num_predict: number; temperature: number }, timeoutMs = 12000): Promise<string | null> {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(OLLAMA_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: OLLAMA_MODEL,
+        stream: false,
+        options: { num_predict: opts.num_predict, temperature: opts.temperature, top_p: 0.9 },
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+      }),
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const answer: string | undefined = data?.message?.content?.trim();
+    return answer || null;
+  } catch {
+    return null;
+  }
+}
+
+// Small models don't always follow the "no markdown" instruction — strip
+// leftover formatting so it never renders as literal asterisks/markers in
+// the plain-text chat UI, regardless of whether the model complied.
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^\s*[-*]\s+/gm, "")
+    .replace(/^\s*\d+\.\s+/gm, "")
+    .trim();
 }
 
 function systemPrompt(question: string): string {
@@ -79,6 +91,95 @@ Tone rules, always follow these regardless of what the question asks:
 - If the question is rude, offensive, or not about Aniket's work, respond briefly and politely that you're only able to help with questions about Aniket's background, and suggest emailing rai078945@gmail.com for anything else.
 
 ${relevantContext(question)}`;
+}
+
+// ---------------------------------------------------------------------------
+// Critical/adversarial questions ("bad fit for a startup", "why shouldn't I
+// hire him", "what are his weaknesses") get a different pipeline than
+// everything else. Four earlier attempts at free-composition prompting (full
+// corpus, keyword-filtered corpus, a two-step extract-then-reason pipeline,
+// and a small curated-evidence prompt) all had the model INVENT specific,
+// plausible-sounding claims ("scope creep", "overemphasis on technical
+// debt") that don't exist anywhere in the source data — a real capability
+// ceiling on free-form evaluative reasoning for a 1B model, not a prompt
+// wording problem. A version that flatly declined every such question was
+// tried next and was too restrictive — it made the bot look like a lookup
+// table instead of something that reasons about new phrasings.
+//
+// The fix: never let the model COMPOSE text for this category. Instead it
+// only SELECTS the most relevant item from three short lists of real,
+// pre-vetted, always-true facts (a possible evidence gap, a transferable
+// strength, and something worth validating in an interview), and this code
+// assembles the final sentence from a fixed template. Multiple-choice
+// selection is a structurally easier task for a small model than open
+// composition — tested directly against the real model, its picks vary
+// sensibly by question (correctly choosing "no concern applies" for
+// non-negative questions) without ever fabricating new content, since it
+// can only ever choose real statements, never write new ones.
+function isCriticalQuestion(question: string): boolean {
+  return /\b(bad fit|poor fit|wrong fit|not (a )?good fit|downside|red flag|worst fit|wouldn'?t (work|fit)|struggle (with|in)|risks? (of|in)|argue against|why shouldn'?t|why not hire|talk me out of|convince me not to|case against|reasons? not to hire|weakness(es)?|shortcoming|cons? of hiring)\b/i.test(question);
+}
+
+const CONCERNS = [
+  "direct hands-on experience specifically at a very early-stage startup with few established processes",
+  "working with minimal structure where priorities and requirements change on short notice",
+  "taking on responsibilities outside a formal engineering role, like customer-facing support or business/product decisions",
+  "operating without dedicated design-review or QA processes already in place",
+];
+
+const EVIDENCE = [
+  "designed and built Sky, MDL 2.0, and MDLOPS end-to-end, from architecture through production, entirely from scratch",
+  "built and owns 4 production AI agents that resolve issues with minimal human oversight",
+  "grew from intern to Lead Software Engineer in 5 years on the same product, taking on more ownership at every step",
+  "leads HLD/LLD design reviews and mentors an 8-10 engineer team",
+  "learned and shipped with new technology (MCP, Claude integration) before it was mainstream, rather than waiting for the tooling to mature",
+];
+
+const VALIDATE = [
+  "comfort with ambiguity and rapidly changing priorities",
+  "willingness to ship an imperfect solution quickly and iterate rather than polish upfront",
+  "experience wearing multiple non-engineering hats when needed",
+  "how he'd prioritize without an established process to lean on",
+];
+
+function numbered(list: string[]): string {
+  return list.map((item, i) => `${i + 1}. ${item}`).join("\n");
+}
+
+async function selectForCriticalQuestion(question: string): Promise<{ concern: number; evidence: number; validate: number } | null> {
+  const system = `You are selecting, not writing. Pick exactly one numbered item from each list below that is most relevant to this question: "${question}"
+
+CONCERN options (pick the single most relevant, or 0 if none genuinely apply):
+${numbered(CONCERNS)}
+
+EVIDENCE options (pick the single most relevant transferable strength for this question):
+${numbered(EVIDENCE)}
+
+VALIDATE options (pick the single most worth validating in an interview for this question):
+${numbered(VALIDATE)}
+
+Output exactly three numbers separated by commas, nothing else, in this order: concern,evidence,validate`;
+
+  const raw = await chatOllama(system, question, { num_predict: 20, temperature: 0.1 }, 8000);
+  if (!raw) return null;
+
+  const nums = raw.match(/\d+/g)?.map(Number);
+  if (!nums || nums.length < 3) return null;
+  const [concern, evidence, validate] = nums;
+  if (evidence < 1 || evidence > EVIDENCE.length || validate < 1 || validate > VALIDATE.length || concern < 0 || concern > CONCERNS.length) return null;
+  return { concern, evidence, validate };
+}
+
+function assembleCriticalAnswer(sel: { concern: number; evidence: number; validate: number }): string {
+  const evidence = EVIDENCE[sel.evidence - 1];
+  const validate = VALIDATE[sel.validate - 1];
+
+  if (sel.concern === 0) {
+    return `I don't see a strong evidence-based concern here. Aniket has ${evidence}, which speaks directly to this. If anything, I'd still want to validate ${validate} in an interview, but that's true for any candidate.`;
+  }
+
+  const concern = CONCERNS[sel.concern - 1];
+  return `A potential concern is that Aniket has limited demonstrated experience specifically around ${concern}. However, that's an evidence gap rather than a demonstrated weakness — he has ${evidence}, which is highly transferable. I wouldn't consider it a strong reason to rule him out; the main thing I'd want to validate in an interview is ${validate}.`;
 }
 
 // Fire-and-forget: loads the model into Ollama's memory ahead of time so the
@@ -96,45 +197,12 @@ export function prewarmLocalLLM(): void {
   }).catch(() => {});
 }
 
-// Small models don't always follow the "no markdown" instruction — strip
-// leftover formatting so it never renders as literal asterisks/markers in
-// the plain-text chat UI, regardless of whether the model complied.
-function stripMarkdown(text: string): string {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/^\s*[-*]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
-    .trim();
-}
-
 export async function askLocalLLM(question: string): Promise<string | null> {
-  if (isCriticalQuestion(question)) return null;
-
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    const res = await fetch(OLLAMA_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-      body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        stream: false,
-        options: { num_predict: 220, temperature: 0.2, top_p: 0.9 },
-        messages: [
-          { role: "system", content: systemPrompt(question) },
-          { role: "user", content: question },
-        ],
-      }),
-    });
-    clearTimeout(timeout);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const answer: string | undefined = data?.message?.content?.trim();
-    return answer ? stripMarkdown(answer) : null;
-  } catch {
-    // Ollama not running, CORS blocked, offline, or too slow — caller falls back to default response.
-    return null;
+  if (isCriticalQuestion(question)) {
+    const sel = await selectForCriticalQuestion(question);
+    return sel ? assembleCriticalAnswer(sel) : null;
   }
+
+  const answer = await chatOllama(systemPrompt(question), question, { num_predict: 220, temperature: 0.2 }, 15000);
+  return answer ? stripMarkdown(answer) : null;
 }
