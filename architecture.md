@@ -51,7 +51,46 @@ alone and never touch the model at all.
 
 ---
 
-## 2. Where the LLM call actually happens
+## 2. Live demo — do this on screen first, explain after
+
+Show it working before explaining how, in this order:
+
+1. **Open the site, ask something ordinary** — *"What's his tech stack?"* →
+   answers instantly, **no sparkle icon** — that's the regex layer in
+   `responses.json`, zero AI involved.
+2. **Ask something open-ended, specific, and clearly not a canned
+   question** — e.g. *"What kind of engineering culture would he thrive in
+   versus struggle in?"* → takes a couple of seconds, a small **purple
+   sparkle icon** appears next to the timestamp — that message was
+   generated live by the local model, grounded in the actual portfolio
+   facts (see section 6 for how you can tell it isn't hallucinating).
+3. **Say the line that makes the architecture click:** *"Nothing about the
+   first answer changed to make the second one possible. The model is
+   strictly additive — it only ever gets a turn when the deterministic
+   layer has nothing. Same chatbot, same regex, one extra fallback rung."*
+4. **Optional — show the failure mode on purpose.** Stop Ollama
+   (`brew services stop ollama`) and ask another open-ended question: it
+   falls back to the exact same canned "I don't have that info, here's how
+   to reach him" response the chatbot always gave. Nothing errors, nothing
+   looks broken. This is the strongest point to make to a CTO: **the
+   feature has no visible failure mode for a real visitor.**
+
+### Running it
+
+```bash
+brew install ollama
+brew services start ollama      # or: ollama serve
+ollama pull llama3.2:1b         # ~1.3GB, one-time
+npm run dev                     # or open the live production URL directly
+```
+
+The local-LLM step works against the **live public URL** too, not just
+`localhost:3000` — see section 3 for why. Full setup notes: see
+[`README.md`](./README.md).
+
+---
+
+## 3. Where the LLM call actually happens
 
 `src/lib/localLlm.ts` sends a `fetch` from the **visitor's own browser**
 directly to `http://localhost:11434/api/chat` (Ollama's REST API). There is
@@ -73,7 +112,7 @@ hurt** — it has no failure mode visible to a real visitor.
 
 ---
 
-## 3. The performance problem I hit, and how I fixed it
+## 4. The performance problem I hit, and how I fixed it
 
 This is worth walking through live — it's a real "found a problem, diagnosed
 it, fixed it" story, not just a feature that worked first try.
@@ -85,8 +124,8 @@ one answer. Completely unusable in a chat UI.
 
 **Root cause:** it wasn't the model being slow to *generate* — it was slow
 to *read*. ~20,000 characters of context means the model has to process
-thousands of tokens before it writes a single word of the answer, and a 3B
-model on a laptop CPU/Metal isn't fast at that.
+thousands of tokens before it writes a single word of the answer, and a
+laptop CPU/Metal isn't fast at that regardless of model size.
 
 **Fixes applied (`src/lib/localLlm.ts`):**
 
@@ -107,14 +146,6 @@ model on a laptop CPU/Metal isn't fast at that.
    background before the visitor has even finished reading the greeting.
    Guarded by a module-level singleton flag so it only fires once per page
    load, not every time the chat is toggled open/closed.
-5. **Picked the smaller model, deliberately.** Benchmarked `llama3.2:3b`
-   (2.0GB) against `llama3.2:1b` (1.3GB) and `qwen2.5:0.5b` (0.4GB) on the
-   same real grounded question. `qwen2.5:0.5b` was fastest but answers were
-   generic and didn't actually use the supplied facts. `llama3.2:1b` gave
-   answers just as specific and grounded as the `3b` model at roughly half
-   the memory footprint, so it's the one shipped — on an 8GB laptop, RAM
-   headroom for Chrome and everything else running during a live demo
-   matters as much as raw model quality.
 
 **Result:** typical warm-path answers now return in a few seconds — fast
 enough for a real chat interaction, measured live against the actual UI, not
@@ -126,9 +157,30 @@ inference, and fixed it with retrieval instead of brute-force context
 stuffing. That's the same problem, and the same fix, as scaling any
 RAG-style system."*
 
+### Why `llama3.2:1b` specifically, not `3b`
+
+This machine has **8GB of total RAM**. While testing the `3b` model
+(2.0GB), the dev server process was actually killed mid-session by macOS for
+running the system low on memory — a real, reproducible resource-exhaustion
+bug, not a hypothetical one.
+
+That prompted a direct benchmark: `llama3.2:3b` (2.0GB) vs. `llama3.2:1b`
+(1.3GB) vs. `qwen2.5:0.5b` (0.4GB), all against the same real grounded
+question. `qwen2.5:0.5b` was fastest but its answers were generic and
+ignored the supplied facts — too weak for this to be worth demoing.
+`llama3.2:1b` gave answers just as specific and grounded as the `3b` model,
+at roughly two-thirds the memory footprint, with no OOM risk. That's the one
+shipped.
+
+**Talking point:** *"I didn't just pick the biggest model that would run —
+I hit an actual out-of-memory kill during testing, benchmarked three model
+sizes on the same question, and picked the smallest one that didn't lose
+answer quality. On constrained hardware, that tradeoff curve matters as much
+as raw capability."*
+
 ---
 
-## 4. Guardrails
+## 5. Guardrails
 
 - **Grounding:** the system prompt instructs the model to answer *only*
   from the provided facts and say "I don't have that information" rather
@@ -144,37 +196,13 @@ RAG-style system."*
   If the model is unreachable, cold-starting, or unexpectedly slow, it
   fails closed into the same default response — never a hung UI.
 
-## 5. Transparency: how you can tell which layer answered
+## 6. Transparency: how you can tell which layer answered
 
 Every bot message that came from the local LLM (not regex/fuzzy) carries a
 small purple sparkle icon next to its timestamp (`Message.viaLLM` in
 `ChatBot.tsx`) — no visible label, no mention of "AI" or a model name in the
 chat itself, just a subtle visual marker so it's obvious during a demo which
 answers are deterministic and which are generated live.
-
----
-
-## 6. Demo script
-
-1. Open the site, ask something ordinary — *"What's his tech stack?"* →
-   instant, no sparkle, canned response from `responses.json`.
-2. Ask something open-ended and specific — e.g. *"What kind of engineering
-   culture would he thrive in versus struggle in?"* → a few seconds, sparkle
-   icon appears, answer is generated live from the portfolio facts.
-3. Point out: *"Nothing about the regex path changed. The model is strictly
-   additive — it only ever gets a chance when the deterministic layer has
-   nothing."*
-
-### Running it
-
-```bash
-brew install ollama
-brew services start ollama      # or: ollama serve
-ollama pull llama3.2:1b         # ~1.3GB, one-time
-npm run dev                     # or open the live production URL
-```
-
-Full setup notes: see [`README.md`](./README.md).
 
 ---
 
@@ -201,7 +229,7 @@ Nothing breaks. That's the point of the fallback chain — it degrades to
 exactly the chatbot's original behavior with zero visible difference. I can
 show that failure mode on purpose by stopping `ollama serve` mid-demo.
 
-**"How would this scale past a 3B model / past a portfolio?"**
+**"How would this scale past a 1B model / past a portfolio?"**
 Same retrieval principle, bigger retrieval: swap the keyword-overlap scorer
 for embeddings + a vector index once the corpus is too large for keyword
 matching to stay accurate, and swap Ollama for a hosted endpoint once the
