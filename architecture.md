@@ -7,17 +7,17 @@ local LLM only as a fallback for questions it doesn't recognize.
 
 ```mermaid
 flowchart TD
-    U[User asks a question] --> N[Normalize input<br/>lowercase, fix typos]
-    N --> I{Intent layer<br/>matchIntent}
+    U[User asks a question] --> N[Normalize input: lowercase, fix typos]
+    N --> I{Intent layer: matchIntent}
 
-    I -->|Follow-up phrase,<br/>e.g. "tell me more"| FU[Return topic's<br/>follow-up response]
-    I -->|"hiring for a ... engineer"| JM[Return job-match<br/>response]
-    I -->|Matches a known<br/>regex pattern| RX[Return response.json<br/>entry]
-    I -->|Typo'd/reworded but<br/>close to a known Q| FZ[Fuzzy match via<br/>edit distance]
+    I -->|follow-up phrase, e.g. tell me more| FU[Return topics follow-up response]
+    I -->|hiring for a ... engineer| JM[Return job-match response]
+    I -->|matches a known regex pattern| RX[Return response.json entry]
+    I -->|typo'd or reworded, close to a known question| FZ[Fuzzy match via edit distance]
+    I -->|nothing matched| LLM{Local LLM: askLocalLLM}
 
-    I -->|Nothing matched| LLM{Local LLM<br/>askLocalLLM}
-    LLM -->|Ollama reachable<br/>localhost:11434| OK[llama3.2:3b answers<br/>using finetuning.json as context]
-    LLM -->|Not running /<br/>different visitor's machine| DEF[Default fallback response<br/>+ log as "unanswered"]
+    LLM -->|Ollama reachable at localhost:11434| OK[llama3.2:3b answers using finetuning.json as context]
+    LLM -->|not running, or a different visitors machine| DEF[Default fallback response, logged as unanswered]
 
     FU --> R[Response Builder]
     JM --> R
@@ -25,7 +25,7 @@ flowchart TD
     FZ --> R
     OK --> R
     DEF --> R
-    R --> S[Suggestions + typed reply<br/>rendered in chat UI]
+    R --> S[Suggestions plus typed reply rendered in chat UI]
 
     style I fill:#1a6cf5,color:#fff
     style LLM fill:#a78bfa,color:#fff
