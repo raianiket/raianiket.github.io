@@ -8,7 +8,7 @@ import type { ResponseEntry } from "@/data/chatResponses";
 import { track } from "@/lib/track";
 import { supabase } from "@/lib/supabase";
 import { closestMatch } from "@/lib/levenshtein";
-import { askLocalLLM } from "@/lib/localLlm";
+import { askLocalLLM, prewarmLocalLLM } from "@/lib/localLlm";
 import { EASE, SESSION_KEY, CONTACT_EMAIL, PORTFOLIO_URL } from "@/lib/constants";
 
 interface Message {
@@ -244,6 +244,7 @@ export default function ChatBot() {
       setUnread(0);
       track("chatbot_open", { label: fullscreen ? "welcome_modal" : "floating_button" });
       setTimeout(() => inputRef.current?.focus(), 300);
+      prewarmLocalLLM(); // warm the model now so it's ready by the time a message needs it
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
