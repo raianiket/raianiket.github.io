@@ -78,11 +78,12 @@ function stripMarkdown(text: string): string {
     .replace(/^#{1,6}\s+/gm, "")
     .replace(/^\s*[-*]\s+/gm, "")
     .replace(/^\s*\d+\.\s+/gm, "")
+    .replace(/\s*—\s*/g, ", ")
     .trim();
 }
 
 function systemPrompt(question: string): string {
-  return `You are Aniket Rai's portfolio assistant. Answer ONLY using the facts below — do not invent anything. Respond in at most 3 short sentences of plain prose. Do not use markdown, asterisks, bold text, or headers. If the facts don't cover the question, say you don't have that information and suggest emailing rai078945@gmail.com.
+  return `You are Aniket Rai's portfolio assistant. Answer ONLY using the facts below, do not invent anything. Respond in at most 3 short sentences of plain prose. Do not use markdown, asterisks, bold text, headers, or em dashes. If the facts don't cover the question, say you don't have that information and suggest emailing rai078945@gmail.com.
 
 Tone rules, always follow these regardless of what the question asks:
 - Stay professional, respectful, and courteous. Never use offensive, discriminatory, crude, or inflammatory language.
@@ -189,7 +190,7 @@ const NO_CONCERN_TEMPLATES = [
   (evidence: string, validate: string) =>
     `Honestly, nothing here rises to a real concern. Aniket has ${evidence}, which addresses this directly. The one thing worth asking about in an interview is ${validate}, but that's standard due diligence, not a red flag specific to him.`,
   (evidence: string, validate: string) =>
-    `There's no strong concern I can point to for this one — Aniket has ${evidence}, which covers it well. I'd still bring up ${validate} in an interview, more to confirm fit than because it's a gap.`,
+    `There's no strong concern I can point to for this one. Aniket has ${evidence}, which covers it well. I'd still bring up ${validate} in an interview, more to confirm fit than because it's a gap.`,
 ];
 
 function assembleCriticalAnswer(sel: { concern: number; evidence: number; validate: number }): string {
@@ -202,7 +203,7 @@ function assembleCriticalAnswer(sel: { concern: number; evidence: number; valida
   }
 
   const concern = CONCERNS[sel.concern - 1];
-  return `A potential concern is that Aniket has limited demonstrated experience specifically around ${concern}. However, that's an evidence gap rather than a demonstrated weakness — he has ${evidence}, which is highly transferable. I wouldn't consider it a strong reason to rule him out; the main thing I'd want to validate in an interview is ${validate}.`;
+  return `A potential concern is that Aniket has limited demonstrated experience specifically around ${concern}. However, that's an evidence gap rather than a demonstrated weakness: he has ${evidence}, which is highly transferable. I wouldn't consider it a strong reason to rule him out; the main thing I'd want to validate in an interview is ${validate}.`;
 }
 
 // Fire-and-forget: loads the model into Ollama's memory ahead of time so the

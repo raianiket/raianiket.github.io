@@ -283,7 +283,7 @@
     },
     {
       "q": "tell me about mini message app",
-      "a": "mini-message-app is a real-time, WhatsApp-style chat app Aniket built with no custom backend — React talks directly to Firestore, and every message, typing indicator, read receipt, and presence update syncs live across clients through onSnapshot listeners and security rules alone. Originally built in 2020 to learn Firebase's realtime data model, modernized in 2026 with presence, read receipts, and unread badges."
+      "a": "mini-message-app is a real-time, WhatsApp-style chat app Aniket built with no custom backend: React talks directly to Firestore, and every message, typing indicator, read receipt, and presence update syncs live across clients through onSnapshot listeners and security rules alone. Originally built in 2020 to learn Firebase's realtime data model, modernized in 2026 with presence, read receipts, and unread badges."
     },
     {
       "q": "what personal projects has aniket built",
@@ -291,7 +291,7 @@
     },
     {
       "q": "what is the hunter agent",
-      "a": "Hunter Agent is an AI agent Aniket built that autonomously debugs production issues by correlating signals across SysCloud's full observability stack — ELK, CloudWatch, Grafana, and application monitoring dashboards. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer with a suggested fix, taking manual log triage out of the incident loop."
+      "a": "Hunter Agent is an AI agent Aniket built that autonomously debugs production issues by correlating signals across SysCloud's full observability stack: ELK, CloudWatch, Grafana, and application monitoring dashboards. It pinpoints root cause, resolves the responsible owner through a module-wise engineer mapper, and opens an Azure DevOps task assigned directly to that engineer with a suggested fix, taking manual log triage out of the incident loop."
     },
     {
       "q": "what generations has aniket worked on at syscloud",
@@ -311,15 +311,15 @@
     },
     {
       "q": "does aniket have docker experience",
-      "a": "Yes. Aniket uses Docker as part of his AWS-based infrastructure — containerizing services in the Fargate-based deployment pipeline, and using it in the Timeseries and Batch Framework for multi-environment deployments via AWS CodeBuild."
+      "a": "Yes. Aniket uses Docker as part of his AWS-based infrastructure: containerizing services in the Fargate-based deployment pipeline, and using it in the Timeseries and Batch Framework for multi-environment deployments via AWS CodeBuild."
     },
     {
       "q": "does aniket have elk stack experience",
-      "a": "Yes. Aniket integrated the full ELK Stack at SysCloud as the centralized observability layer — Elasticsearch for log indexing and search, Logstash for ingestion and transformation, and Kibana dashboards for real-time backend error visualization, integrated with Grafana for unified monitoring. This became the primary backend monitoring solution used across all services."
+      "a": "Yes. Aniket integrated the full ELK Stack at SysCloud as the centralized observability layer: Elasticsearch for log indexing and search, Logstash for ingestion and transformation, and Kibana dashboards for real-time backend error visualization, integrated with Grafana for unified monitoring. This became the primary backend monitoring solution used across all services."
     },
     {
       "q": "what is the version copy mechanism",
-      "a": "Aniket built a version-copy mechanism to fix restoration failures caused by S3 object versioning issues — some S3 objects with multiple versions had outdated database associations causing restores to fail. His fix identifies objects with multiple versions, extracts the older ones, and creates new objects with correct DB associations, resolving that class of restoration failure for enterprise customers."
+      "a": "Aniket built a version-copy mechanism to fix restoration failures caused by S3 object versioning issues. Some S3 objects with multiple versions had outdated database associations, causing restores to fail. His fix identifies objects with multiple versions, extracts the older ones, and creates new objects with correct DB associations, resolving that class of restoration failure for enterprise customers."
     },
     {
       "q": "is aniket authorized to work",
@@ -343,23 +343,23 @@
     },
     {
       "q": "is aniket a good fit for a large company or mnc",
-      "a": "Aniket's whole career has been inside a structured, process-driven SaaS company, so he's comfortable with the scale, review processes, and cross-team coordination a larger organization expects — that part maps directly. What's genuinely untested is how he'd operate somewhere with far less structure than that; SysCloud isn't a huge MNC, but it does have established processes to lean on."
+      "a": "Aniket's whole career has been inside a structured, process-driven SaaS company, so he's comfortable with the scale, review processes, and cross-team coordination a larger organization expects. That part maps directly. What's genuinely untested is how he'd operate somewhere with far less structure than that; SysCloud isn't a huge MNC, but it does have established processes to lean on."
     },
     {
       "q": "is aniket a good fit for a startup",
-      "a": "He hasn't worked at a formal early-stage startup, so that specific environment is an evidence gap, not a demonstrated weakness. What he does have that transfers well: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead over 5 years by taking on more ownership at every step — the kind of self-directed ownership startups actually need, just not proven in a startup's specific chaos yet."
+      "a": "He hasn't worked at a formal early-stage startup, so that specific environment is an evidence gap, not a demonstrated weakness. What he does have that transfers well: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead over 5 years by taking on more ownership at every step, the kind of self-directed ownership startups actually need, just not proven in a startup's specific chaos yet."
     },
     {
       "q": "how does aniket compare to other candidates",
-      "a": "Hard to answer generically without knowing who else is in the pool — but what's specific to Aniket is that every claim about his work comes with a real measured number (4x faster batch jobs, 10s to under 2s query time, 0 critical security violations, 12+ cloud integrations by config alone), and 5 years of that on one product means deep ownership rather than shallow exposure to many things."
+      "a": "Hard to answer generically without knowing who else is in the pool, but what's specific to Aniket is that every claim about his work comes with a real measured number (4x faster batch jobs, 10s to under 2s query time, 0 critical security violations, 12+ cloud integrations by config alone), and 5 years of that on one product means deep ownership rather than shallow exposure to many things."
     },
     {
       "q": "is aniket overqualified for smaller roles",
-      "a": "Depends on the role's actual scope, not just its title. Aniket is targeting Lead, Staff, Principal, or SDE III-level work specifically because that's where his architecture and ownership experience applies best — for something clearly more junior in scope, that's worth discussing directly rather than assuming either way."
+      "a": "Depends on the role's actual scope, not just its title. Aniket is targeting Lead, Staff, Principal, or SDE III-level work specifically because that's where his architecture and ownership experience applies best. For something clearly more junior in scope, that's worth discussing directly rather than assuming either way."
     },
     {
       "q": "will aniket get bored in a smaller team",
-      "a": "Nothing in his track record suggests that — his growth at SysCloud came from taking on progressively more ownership (intern to Lead in 5 years) rather than needing size or headcount to stay engaged. A smaller team with real ownership on the table is more consistent with what's kept him engaged than a large team with narrow scope would be."
+      "a": "Nothing in his track record suggests that. His growth at SysCloud came from taking on progressively more ownership (intern to Lead in 5 years) rather than needing size or headcount to stay engaged. A smaller team with real ownership on the table is more consistent with what's kept him engaged than a large team with narrow scope would be."
     },
     {
       "q": "what makes aniket different from other backend engineers",
@@ -367,7 +367,7 @@
     },
     {
       "q": "is aniket ready for a staff or principal role",
-      "a": "He's already doing a meaningful slice of that scope as Lead — owning architecture end-to-end, leading HLD/LLD design reviews, and mentoring 8-10 engineers. Whether that maps cleanly to a Staff/Principal title elsewhere depends on the specific org's scope for that level, which is worth a direct conversation."
+      "a": "He's already doing a meaningful slice of that scope as Lead, owning architecture end-to-end, leading HLD/LLD design reviews, and mentoring 8-10 engineers. Whether that maps cleanly to a Staff/Principal title elsewhere depends on the specific org's scope for that level, which is worth a direct conversation."
     },
     {
       "q": "does aniket have enterprise client experience",
@@ -375,43 +375,43 @@
     },
     {
       "q": "has aniket worked in a fast paced environment",
-      "a": "Production incident response is inherently fast-paced — Aniket built the DAL AI-Agents and Hunter Agent specifically because production issues needed faster resolution than manual triage allowed. What he hasn't done is that pace inside a small, resource-constrained startup specifically, which is a different kind of fast-paced than enterprise on-call."
+      "a": "Production incident response is inherently fast-paced: Aniket built the DAL AI-Agents and Hunter Agent specifically because production issues needed faster resolution than manual triage allowed. What he hasn't done is that pace inside a small, resource-constrained startup specifically, which is a different kind of fast-paced than enterprise on-call."
     },
     {
       "q": "what kind of company culture would aniket thrive in",
-      "a": "One that rewards deep ownership and lets him drive architecture, not just implement tickets — that's the pattern across his whole career at SysCloud, from designing Sky and MDL 2.0 from scratch to leading design reviews. He's also shown he adapts across roles: hands-on IC work, mentoring, and architecture, all at once."
+      "a": "One that rewards deep ownership and lets him drive architecture, not just implement tickets. That's the pattern across his whole career at SysCloud, from designing Sky and MDL 2.0 from scratch to leading design reviews. He's also shown he adapts across roles: hands-on IC work, mentoring, and architecture, all at once."
     },
     {
       "q": "what is aniket looking for in his next role",
-      "a": "An architect or tech lead role where he can design systems, mentor engineers, and keep working at the intersection of AI and backend infrastructure — he's already doing pieces of that at SysCloud and wants the fuller scope of it."
+      "a": "An architect or tech lead role where he can design systems, mentor engineers, and keep working at the intersection of AI and backend infrastructure. He's already doing pieces of that at SysCloud and wants the fuller scope of it."
     },
     {
       "q": "is aniket comfortable with ambiguity",
-      "a": "That's genuinely one of the things worth validating directly in an interview rather than assuming from his resume — his work at SysCloud has real ambiguity (designing MDL 2.0 and Sky from a blank slate), but always inside a company with established process to fall back on, which is a different kind of ambiguity than a team with no process at all."
+      "a": "That's genuinely one of the things worth validating directly in an interview rather than assuming from his resume. His work at SysCloud has real ambiguity (designing MDL 2.0 and Sky from a blank slate), but always inside a company with established process to fall back on, which is a different kind of ambiguity than a team with no process at all."
     },
     {
       "q": "how does aniket prioritize without a process",
-      "a": "This is one of the more honest open questions about him — his prioritization experience has mostly happened inside SysCloud's existing structure, so how he'd prioritize from scratch with no established process to lean on is worth asking about directly rather than assuming."
+      "a": "This is one of the more honest open questions about him: his prioritization experience has mostly happened inside SysCloud's existing structure, so how he'd prioritize from scratch with no established process to lean on is worth asking about directly rather than assuming."
     },
     {
       "q": "does aniket have startup experience",
-      "a": "No direct hands-on experience specifically at an early-stage startup with few established processes — that's a real evidence gap. What does transfer: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead by taking on more ownership at every step, which is the same self-directed pattern startups need, just not proven in that specific environment yet."
+      "a": "No direct hands-on experience specifically at an early-stage startup with few established processes. That's a real evidence gap. What does transfer: he designed and built Sky, MDL 2.0, and MDLOPS end-to-end entirely from scratch, and grew from intern to Lead by taking on more ownership at every step, which is the same self-directed pattern startups need, just not proven in that specific environment yet."
     },
     {
       "q": "what does aniket do outside of work",
-      "a": "He keeps building — his personal projects (Job Autopilot, FastAPI Task Manager, mini-message-app) are all things he built outside SysCloud to explore a new stack or solve a real problem he had, not assigned work."
+      "a": "He keeps building: his personal projects (Job Autopilot, FastAPI Task Manager, mini-message-app) are all things he built outside SysCloud to explore a new stack or solve a real problem he had, not assigned work."
     },
     {
       "q": "what is aniket's proudest project",
-      "a": "Sky comes up most — taking an AI-powered natural language interface from idea to production, end to end. MDL 2.0 is a close second: making 12+ cloud integrations maintainable by config alone, with zero code required per new cloud."
+      "a": "Sky comes up most: taking an AI-powered natural language interface from idea to production, end to end. MDL 2.0 is a close second: making 12+ cloud integrations maintainable by config alone, with zero code required per new cloud."
     },
     {
       "q": "does aniket have llm experience",
-      "a": "Yes, and early — Sky (an AI-powered natural language interface) and the DAL AI-Agents were built using MCP and Claude before most teams had LLMs on their roadmap. Hunter Agent also uses Claude for automated root-cause analysis on production incidents."
+      "a": "Yes, and early: Sky (an AI-powered natural language interface) and the DAL AI-Agents were built using MCP and Claude before most teams had LLMs on their roadmap. Hunter Agent also uses Claude for automated root-cause analysis on production incidents."
     },
     {
       "q": "how does aniket approach system design",
-      "a": "He designs for scale from the start — config-driven instead of code-per-feature (MDL 2.0), built with observability in mind (Grafana, ELK, trace IDs), and every design goes through an HLD/LLD review he personally leads before implementation begins."
+      "a": "He designs for scale from the start: config-driven instead of code-per-feature (MDL 2.0), built with observability in mind (Grafana, ELK, trace IDs), and every design goes through an HLD/LLD review he personally leads before implementation begins."
     },
     {
       "q": "what technologies does aniket avoid or not use",
@@ -423,7 +423,7 @@
     },
     {
       "q": "does aniket have experience with graphql",
-      "a": "Yes, GraphQL is a core part of his stack — PostGraphile is SysCloud's primary GraphQL server, he's authored GraphQL queries for UI modules since his internship, built the mutation layer for Add-On Actions, and MDL 2.0 executes all cloud actions as micro-tasks inside PostGraphile."
+      "a": "Yes, GraphQL is a core part of his stack: PostGraphile is SysCloud's primary GraphQL server, he's authored GraphQL queries for UI modules since his internship, built the mutation layer for Add-On Actions, and MDL 2.0 executes all cloud actions as micro-tasks inside PostGraphile."
     },
     {
       "q": "what would aniket need to validate in an interview",
